@@ -69,7 +69,7 @@ POSSIBILITY OF SUCH DAMAGE.
   </licenses>
   
   <properties>
-    <oodt-version>0.12</oodt-version>
+    <oodt-version>1.9.1</oodt-version>
     <search-version>2.1.0-SNAPSHOT</search-version>
     <product-tools-version>4.0.1</product-tools-version>
     <solr.version>9.3.0</solr.version>
