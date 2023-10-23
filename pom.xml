@@ -261,7 +261,7 @@ POSSIBILITY OF SUCH DAMAGE.
     <dependency>
       <groupId>net.sf.saxon</groupId>
       <artifactId>Saxon-HE</artifactId>
-      <version>9.4</version>
+      <version>11.6</version>
     </dependency>
     <dependency>
       <groupId>org.hibernate.java-persistence</groupId>
