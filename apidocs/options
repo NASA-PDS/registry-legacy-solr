@@ -17,10 +17,10 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Legacy Harvest Tool 3.0.2 API'
+'Legacy Harvest Tool 3.0.5 API'
 -linkoffline
 'https://docs.oracle.com/javase/8/docs/api' '/github/workspace/target/javadoc-bundle-options'
 -use
 -version
 -windowtitle
-'Legacy Harvest Tool 3.0.2 API'
+'Legacy Harvest Tool 3.0.5 API'
