@@ -39,7 +39,7 @@
   <properties>
     <oodt-version>0.12</oodt-version>
     <search-version>2.1.0-SNAPSHOT</search-version>
-    <product-tools-version>4.0.1</product-tools-version>
+    <product-tools-version>4.3.0</product-tools-version>
     <solr.version>9.3.0</solr.version>
   </properties>
 
