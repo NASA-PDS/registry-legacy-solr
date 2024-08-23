@@ -1,8 +1,17 @@
-# Harvest Tool
-The Harvest Tool provides functionality for capturing and indexing product metadata. The tool will run locally at the Discipline Node to crawl the local data repository in order to discover products and index associated metadata with the Search Service. The Tool additionally stores the entire product label contents into another index within the Search Service.
+# Registry Legacy Solr
+
+This package software repo contains all the necessary components to support the PDS Legacy Solr Registry, which drives the [PDS Keyword Search]([url](https://pds.nasa.gov/datasearch/keyword-search/)) and [Tool Registry]([url](https://pds.nasa.gov/tools/tool-registry/)), among other parts of the system.
+
+## Harvest Tool
+The Harvest Tool provides functionality for capturing and indexing product metadata. The tool will run locally alongside a data archive, crawl the local data repository in order to discover products and generate Solr-readable documents that will be passed onto Registry Manager for loading in the PDS Solr Registry. The Tool additionally stores the entire product label contents into another index within the Solr Registry
+
+## Registry Manager
+The Registry Manager is responsible for managing and interacting with the PDS Solr Registry, including:
+* creating the Solr Registry using a Docker container
+* taking the harvested metadata that has been converted into Solr-readable documents and uploading it to the Solr Registry.
 
 # Documentation
-The documentation for the latest release of the Validate Tool, including release notes, installation and operation of the software are online at https://nasa-pds-incubator.github.io/harvest/.
+The documentation for the latest release of the Validate Tool, including release notes, installation and operation of the software are online at https://nasa-pds-incubator.github.io/registry-legacy-solr/.
 
 If you would like to get the latest documentation, including any updates since the last release, you can execute the "mvn site:run" command and view the documentation locally at http://localhost:8080.
 
@@ -15,7 +24,7 @@ following commands:
 
 ```
 % mvn site
-% mvn package
+% mvn install
 ```
 
 # Operational Release
@@ -24,7 +33,7 @@ A release candidate should be created after the community has determined that a 
 
 ## Clone fresh repo
 ```
-git clone git@github.com:NASA-PDS-Incubator/harvest.git
+git clone git@github.com:NASA-PDS/registry-legacy-solr.git
 ```
 
 ## Update Version Numbers
