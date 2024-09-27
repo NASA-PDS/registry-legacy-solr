@@ -148,6 +148,7 @@
    <field name="observing_system_name" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
    <field name="observing_system_component_name" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
    <field name="observing_system_component_type" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
+   <field name="page_type" type="lowercase" indexed="true" stored="true" multiValued="true" />
 
    <!-- PDS Affiliate -->
    <field name="person_name" type="text_gen_sort" indexed="true" stored="true" multiValued="true" />
