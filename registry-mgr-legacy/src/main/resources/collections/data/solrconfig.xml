@@ -793,8 +793,8 @@
        <str name="facet.field">instrument_ref</str>
        <str name="facet.field">target_ref</str>
        <str name="facet.field">page_type</str>
-       <str name="facet.field">primary_result_purpose</str>
-       <str name="facet.field">primary_result_processing_level</str>
+       <str name="facet.field">facet_primary_result_purpose</str>
+       <str name="facet.field">facet_primary_result_processing_level</str>
     </lst>
 
     <lst name="appends">
