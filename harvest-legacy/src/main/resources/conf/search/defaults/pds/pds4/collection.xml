@@ -38,6 +38,9 @@
     <field name="data_product_type" type="string">
       <outputString format="text">Collection</outputString>
     </field>
+    <field name="page_type" type="string">
+      <registryPath>page_type</registryPath>
+    </field>
     <field name="objectType" type="string">
       <registryPath>objectType</registryPath>
     </field>

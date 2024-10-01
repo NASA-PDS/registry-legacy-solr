@@ -1181,6 +1181,7 @@ Standard Data Products (Daubar et al. 2022) for more information.</field>
 <field name="lid">urn:nasa:pds:context_pds3:data_set:data_set.jno-j-sru-edr-2-l0-v1.0</field>
 <field name="modification_description">2022-01-21</field>
 <field name="objectType">Product_Data_Set_PDS3</field>
+<field name="page_type">Data Set</field>
 <field name="pds_model_version">pds3</field>
 <field name="product_class">Product_Data_Set_PDS3</field>
 <field name="resLocation">/ds-view/pds/viewDataset.jsp?dsid=JNO-J-SRU-EDR-2-L0-V1.0</field>
@@ -2282,6 +2283,7 @@ Mission Phases
 <field name="lid">urn:nasa:pds:context_pds3:data_set:data_set.jno-j-sru-countrate-table-5-l2-v1.0</field>
 <field name="modification_description">2022-01-01</field>
 <field name="objectType">Product_Data_Set_PDS3</field>
+<field name="page_type">Data Set</field>
 <field name="pds_model_version">pds3</field>
 <field name="product_class">Product_Data_Set_PDS3</field>
 <field name="resLocation">/ds-view/pds/viewDataset.jsp?dsid=JNO-J-SRU-COUNTRATE-TABLE-5-L2-V1.0</field>

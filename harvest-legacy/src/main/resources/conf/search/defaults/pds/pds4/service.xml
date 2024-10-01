@@ -35,6 +35,9 @@
     <field name="data_product_type" type="string">
       <outputString format="text">Service</outputString>
     </field>
+    <field name="page_type" type="string">
+      <outputString format="text">Tool</outputString>
+    </field>
     <field name="data_class" type="string">
       <registryPath>data_class</registryPath>
     </field>

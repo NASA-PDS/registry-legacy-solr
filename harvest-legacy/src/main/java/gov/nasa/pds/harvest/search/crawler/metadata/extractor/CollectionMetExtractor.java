@@ -58,6 +58,7 @@ public class CollectionMetExtractor extends Pds4MetExtractor {
     String version = "";
     String title = "";
     String associationType = "";
+    String collectionPageType = "";
     List<TinyElementImpl> references = new ArrayList<TinyElementImpl>();
     List<Slot> slots = new ArrayList<Slot>();
     try {
@@ -77,6 +78,8 @@ public class CollectionMetExtractor extends Pds4MetExtractor {
       associationType = extractor.getValueFromDoc(ASSOCIATION_TYPE_XPATH);
       references = extractor.getNodesFromDoc(Constants.coreXpathsMap.get(
           Constants.REFERENCES));
+      collectionPageType =
+          extractor.getValueFromDoc(Constants.coreXpathsMap.get(Constants.COLLECTION_PAGE_TYPE));
     } catch (Exception x) {
       //TODO: getMessage() doesn't always return a message
       throw new MetExtractionException(x.getMessage());
@@ -120,6 +123,9 @@ public class CollectionMetExtractor extends Pds4MetExtractor {
     }
     if ((!"".equals(objectType)) && (config.hasObjectType(objectType))) {
       slots.addAll(extractMetadata(config.getMetXPaths(objectType)));
+    }
+    if (!"".equals(collectionPageType)) {
+      metadata.addMetadata(Constants.COLLECTION_PAGE_TYPE, collectionPageType);
     }
     List<ReferenceEntry> refEntries = new ArrayList<ReferenceEntry>();
     try {
