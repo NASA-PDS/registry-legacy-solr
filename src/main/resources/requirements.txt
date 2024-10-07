@@ -1,0 +1,4 @@
+lxml~=4.6.3
+requests~=2.31.0
+pds.solr-to-es~=0.3.0
+pandas~=2.2.2
