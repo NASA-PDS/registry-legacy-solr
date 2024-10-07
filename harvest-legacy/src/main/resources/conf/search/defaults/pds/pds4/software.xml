@@ -34,6 +34,9 @@
     <field name="alternate_title" type="string">
       <registryPath>alternate_title</registryPath>
     </field>
+    <field name="page_type" type="string">
+      <outputString format="text">Tool</outputString>
+    </field>
     <!-- Search -->
     <field name="description" type="required">
       <registryPath>software_description</registryPath>

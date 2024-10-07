@@ -13,7 +13,6 @@
 <field name="instrument_ref">urn:nasa:pds:context:instrument:leam.a17a</field>
 <field name="file_ref_size">11400</field>
 <field name="file_ref_size">241</field>
-<field name="modification_date">2015-05-22T00:00:00.000Z</field>
 <field name="external_reference_text">Apollo 17 Preliminary Science Report, NASA SP-330, published by NASA,
       Washington, D.C., 1973.</field>
 <field name="external_reference_text">Apollo Scientific Experiments Data Handbook, NASA Technical Memorandum
@@ -69,6 +68,7 @@
 <field name="observation_start_date_time">1972-12-07T00:00:00.000Z</field>
 <field name="target_name">Moon</field>
 <field name="target_name">Dust</field>
+<field name="page_type">Data Collection</field>
 <field name="collection_member_count">4</field>
 <field name="description">Fake test collection</field>
 <field name="citation_publication_year">2017</field>
@@ -104,7 +104,6 @@
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
 <field name="file_ref_size">1579</field>
-<field name="modification_date">2020-09-09T00:00:00.000Z</field>
 <field name="file_ref_name">resource_a17leamcal.xml</field>
 <field name="resource_url">https://pds-geosciences.wustl.edu/missions/apollo/index.htm</field>
 <field name="modification_description">
@@ -115,6 +114,7 @@
 <field name="resource_description">
             Initial version of Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook
         </field>
+<field name="page_type">Resource</field>
 <field name="description">
             Initial version of Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook
         </field>
@@ -139,7 +139,6 @@
 <field name="instrument_ref">urn:nasa:pds:context:instrument:leam.a17a</field>
 <field name="file_ref_size">5346</field>
 <field name="file_ref_size">600</field>
-<field name="modification_date">2015-05-22T00:00:00.000Z</field>
 <field name="file_ref_name">bundle.xml</field>
 <field name="file_ref_name">readme.txt</field>
 <field name="observation_stop_date_time">1977-09-30T00:00:00.000Z</field>
@@ -159,6 +158,7 @@
 <field name="observation_start_date_time">1972-12-07T00:00:00.000Z</field>
 <field name="target_name">Moon</field>
 <field name="target_name">Dust</field>
+<field name="page_type">Data Bundle</field>
 <field name="description">This bundle contains a digital reproduction of one hand-written laboratory
       notebook of calibration analysis for the Apollo 17 Lunar Ejecta And Meteorites (LEAM)
       Experiment detector, which was identical to Pioneer 8 and 9 Cosmic Dust Detectors
@@ -191,7 +191,6 @@
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
 <field name="file_ref_size">1592</field>
-<field name="modification_date">2020-09-09T00:00:00.000Z</field>
 <field name="file_ref_name">resource_a17leamcal_2.xml</field>
 <field name="resource_url">https://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-a17leamcal/</field>
 <field name="modification_description">
@@ -202,6 +201,7 @@
 <field name="resource_description">
             Initial version of Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook 2
         </field>
+<field name="page_type">Resource</field>
 <field name="description">
             Initial version of Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook 2
         </field>
@@ -227,7 +227,6 @@
 <field name="instrument_ref">urn:nasa:pds:context:instrument:leam.a17a</field>
 <field name="file_ref_size">11875</field>
 <field name="file_ref_size">269</field>
-<field name="modification_date">2015-05-22T00:00:00.000Z</field>
 <field name="external_reference_text">Apollo 17 Preliminary Science Report, NASA SP-330, published by NASA,
       Washington, D.C., 1973.</field>
 <field name="external_reference_text">Apollo Scientific Experiments Data Handbook, NASA Technical Memorandum
@@ -288,6 +287,7 @@
 <field name="observation_start_date_time">1972-12-07T00:00:00.000Z</field>
 <field name="target_name">Moon</field>
 <field name="target_name">Dust</field>
+<field name="page_type">Data Collection</field>
 <field name="collection_member_count">4</field>
 <field name="description">This collection contains a digital reproduction of one hand-written laboratory
       notebook of calibration analysis by Dr. Otto E. Berg for the Apollo 17 Lunar Ejecta And

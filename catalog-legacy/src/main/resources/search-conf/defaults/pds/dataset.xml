@@ -47,6 +47,9 @@
     <field name="data_object_type" type="string">
       <registryPath>objectType</registryPath>
     </field>
+    <field name="page_type" type="string">
+      <outputString format="text">Data Set</outputString>
+    </field>
     <field name="pds_model_version" type="string">
       <outputString format="text">pds3</outputString>
     </field>

@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-
 import gov.nasa.pds.harvest.search.util.LidVid;
 import gov.nasa.pds.registry.model.ExtrinsicObject;
 
@@ -102,6 +101,9 @@ public class Constants {
    */
   public static final String BYTE = "byte";
 
+  /** Page type of the object. */
+  public static final String COLLECTION_PAGE_TYPE = "page_type";
+
   /**
    * The XPath to the data classes in the PDS4 label.
    */
@@ -126,6 +128,12 @@ public class Constants {
     "//Inventory[reference_type='inventory_has_LIDVID_Secondary'] "
     + " | //Inventory[reference_type='inventory_has_LID_Secondary']";
 
+  /**
+   * XPath for determining collection page type
+   */
+  public static final String COLLECTION_PAGE_TYPE_XPATH =
+      "if (//Collection/collection_type = 'Document' ) then \"Resource\" else \"Data Collection\"";
+
   static {
     coreXpathsMap.put(LOGICAL_ID, IDENTIFICATION_AREA_XPATH + "/"
         + LOGICAL_ID);
@@ -140,6 +148,7 @@ public class Constants {
     coreXpathsMap.put(FILE_OBJECTS, "//*[starts-with(name(), 'File_Area')]/"
         + "File | //Document_File");
     coreXpathsMap.put(DATA_CLASS, DATA_CLASS_XPATH);
+    coreXpathsMap.put(COLLECTION_PAGE_TYPE, COLLECTION_PAGE_TYPE_XPATH);
   }
 
   public static final String URN_ILLEGAL_CHARACTERS = "[%/\\\\?#\"&<>\\[\\]^`\\{\\|\\}~]";

@@ -42,6 +42,9 @@
     <field name="data_class" type="string">
       <registryPath>data_class</registryPath>
     </field>
+    <field name="page_type" type="string">
+      <registryPath>data_class</registryPath>
+    </field>
     <field name="objectType" type="string">
       <registryPath>objectType</registryPath>
     </field>
