@@ -35,7 +35,7 @@
        that you fully re-index after changing this setting as it can
        affect both how text is indexed and queried.
   -->
-  <luceneMatchVersion>9.6.0</luceneMatchVersion>
+  <luceneMatchVersion>9.7.0</luceneMatchVersion>
 
   <!-- <lib/> directives can be used to instruct Solr to load any Jars
        identified and use them to resolve any "plugins" specified in
@@ -775,6 +775,54 @@
     </lst>
 
   </requestHandler>
+  
+  <requestHandler name="/keyword" class="solr.SearchHandler">
+
+    <lst name="defaults">
+       <str name="df">text</str> 
+       <str name="echoParams">explicit</str>
+       <str name="defType">edismax</str>
+       <str name="q.alt">*:*</str>
+       <str name="fl">*,score</str>
+       <str name="wt">json</str>
+       <str name="start">0</str>
+       <str name="rows">50</str>
+       <str name="facet">true</str>
+       <str name="facet.mincount">1</str>
+       <str name="facet.field">investigation_ref</str>
+       <str name="facet.field">instrument_ref</str>
+       <str name="facet.field">target_ref</str>
+       <str name="facet.field">page_type</str>
+       <str name="facet.field">facet_primary_result_purpose</str>
+       <str name="facet.field">facet_primary_result_processing_level</str>
+    </lst>
+
+    <lst name="appends">
+      <!-- Update params to include filter query restricting to latest product versions -->
+      <str name="fq">{!collapse field=lid max=version_id_normalized}</str>
+      <str name="fq">-archive_status:SUPERSEDED</str>
+      <!-- Filter out Observational and Document products and all of the various  -->
+      <str name="fq">-data_product_type:Product_Observational</str>
+      <str name="fq">-data_product_type:Resource</str>
+      <!-- Ignore PDS3 context products -->
+      <str name="fq">-product_class:Product_Mission_PDS3 AND -product_class:Product_Instrument_Host_PDS3 AND -product_class:Product_Instrument_PDS3 AND -product_class:Product_Target_PDS3</str>
+      <!-- Service entries should not be showed up in the search-ui results for now -->
+      <str name="fq">-data_product_type:Agency AND -data_product_type:Node AND -data_product_type:Other AND -data_product_type:PDS_Affiliate AND -data_product_type:PDS_Guest</str>
+      <str name="fq">-resource_type:Information.Science_Portal</str>
+      <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
+      
+      <!-- Boosts -->
+      <str name="bq">data_product_type:Product_Context_Search_Tool^100</str> <!-- Search Tools -->
+      <str name="bq">product_class:Product_Context^100</str>
+      <str name="bq">product_class:Product_Bundle^90</str>
+      <str name="bq">product_class:Product_Collection^80</str>
+      <str name="bq">data_product_type:Resource^10</str>
+    </lst>
+
+    <arr name="last-components">
+      <str>spellcheck</str>
+    </arr>
+  </requestHandler>
 
   <requestHandler name="/search" class="gov.nasa.pds.search.PDSSearchProtocol" default="true">
     <!-- could eventually move this to initParams if desired -->
@@ -875,7 +923,7 @@
       <str name="fq">-data_product_type:Product_Observational</str>
       <!-- Service entries should not be showed up in the search-ui results for now -->
       <str name="fq">-data_product_type:Service</str>
-      <str name="fq">-data_product_type:Agency AND -data_product_type:Facility AND -data_product_type:Node AND -data_product_type:Other AND -data_product_type:PDS_Affiliate AND -data_product_type:PDS_Guest AND -data_product_type:Telescope AND -data_product_type:Airborne</str>
+      <str name="fq">-data_product_type:Agency AND -data_product_type:Node AND -data_product_type:Other AND -data_product_type:PDS_Affiliate AND -data_product_type:PDS_Guest</str>
       <str name="fq">-resource_type:Information.Science_Portal</str>
       <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
       <str name="bq">data_product_type:Product_Context_Search_Tool^100</str>

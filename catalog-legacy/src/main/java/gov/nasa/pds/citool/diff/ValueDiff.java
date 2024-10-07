@@ -1,16 +1,14 @@
 package gov.nasa.pds.citool.diff;
 
-import gov.nasa.pds.tools.label.Value;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.incava.util.diff.Diff;
-import org.incava.util.diff.Difference;
+import org.incava.diff.Diff;
+import org.incava.diff.Difference;
+import gov.nasa.pds.tools.label.Value;
 
 public class ValueDiff {
     public static List<DiffRecord> diff(Value source, Value target) {

@@ -843,7 +843,6 @@ instrumentation for radio science investigations.
 <field name="instrument_host_name">JUNO</field>
 <field name="instrument_host_type">SPACECRAFT</field>
 <field name="lid">urn:nasa:pds:context_pds3:instrument_host:spacecraft.jno</field>
-<field name="modification_date">2024-08-08T12:50:49.037Z</field>
 <field name="modification_description">2012-06-01 JUNO: kurth    Revision 1;
 2016-08-03 JUNO: Redfern Revision 2;
 2017-02-02 PDS: INSTRUMENT_HOST_NAME reverted to &apos;JUNO&apos;
@@ -1076,7 +1075,6 @@ Standard Data Products (Daubar et al. 2022) for more information.</field>
 <field name="instrument_name">STELLAR REFERENCE UNIT</field>
 <field name="instrument_type">CAMERA</field>
 <field name="lid">urn:nasa:pds:context_pds3:instrument:instrument.sru.jno</field>
-<field name="modification_date">2024-08-08T12:50:49.037Z</field>
 <field name="modification_description">2022-01-01</field>
 <field name="objectType">Product_Instrument_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -1181,7 +1179,6 @@ Standard Data Products (Daubar et al. 2022) for more information.</field>
 <field name="investigation_start_date">2011-08-05T00:00:00.000Z</field>
 <field name="investigation_stop_date">3000-01-01T00:00:00.000Z</field>
 <field name="lid">urn:nasa:pds:context_pds3:data_set:data_set.jno-j-sru-edr-2-l0-v1.0</field>
-<field name="modification_date">2024-08-08T12:50:49.037Z</field>
 <field name="modification_description">2022-01-21</field>
 <field name="objectType">Product_Data_Set_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -2183,7 +2180,6 @@ Mission Phases
 <field name="investigation_start_date">2011-08-05T00:00:00.000Z</field>
 <field name="investigation_stop_date">3000-01-01T00:00:00.000Z</field>
 <field name="lid">urn:nasa:pds:context_pds3:investigation:mission.juno</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2012-03-12 JUNO:    Kurth Revision 1;
   2015-08-15 JUNO:    Kurth and Stephens Revision 2;
   2016-10-13 PDS:     Mafi Revision 3;
@@ -2284,7 +2280,6 @@ Mission Phases
 <field name="investigation_start_date">2011-08-05T00:00:00.000Z</field>
 <field name="investigation_stop_date">3000-01-01T00:00:00.000Z</field>
 <field name="lid">urn:nasa:pds:context_pds3:data_set:data_set.jno-j-sru-countrate-table-5-l2-v1.0</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2022-01-01</field>
 <field name="objectType">Product_Data_Set_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -2375,7 +2370,6 @@ Mission Phases
 <field name="external_reference_text">BROADFOOTETAL1979</field>
 <field name="external_reference_text">SCHNEIDER&amp;TRAUGE1995</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:plasma_cloud.io_plasma_torus</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">CREATED: 2001-06-06, J. MAFI</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -2457,7 +2451,6 @@ Mission Phases
       missions.</field>
 <field name="external_reference_text">N/A</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:n-a.solar_wind</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">30 January 2003 S. L. Adams - Skeleton
 28 Jan 2005, A.C.Raugh  Corrected to standards and expanded according to
 apparent use.</field>
@@ -2636,7 +2629,6 @@ apparent use.</field>
        gravitational constant, G, comes from page K6.</field>
 <field name="external_reference_text">UNK</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:planet.jupiter</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2007-06-08 Maud Barthelemy</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -2829,7 +2821,6 @@ apparent use.</field>
     Geometric Visual Albedo:       0.12</field>
 <field name="external_reference_text">LANG1992</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:satellite.moon</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">10 Mar 1999, A.C.Raugh First draft from available information</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -2888,7 +2879,6 @@ apparent use.</field>
     Sagittarius) at a mean speed of about 220 km/sec.</field>
 <field name="external_reference_text">UNK</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:planetary_system.solar_system</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2001-01-01, S. JOY (PPI), initial release;</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -2969,7 +2959,6 @@ apparent use.</field>
           albedo:           0.17</field>
 <field name="external_reference_text">LANG1992</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:satellite.callisto</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2009-03-27   A.C.Raugh   Recreated from reference</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -3048,7 +3037,6 @@ apparent use.</field>
         Geometric Visual Albedo:     0.64</field>
 <field name="external_reference_text">LANG1992</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:satellite.europa</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">10 Mar 1999, A.C.Raugh First draft from available information</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -3183,7 +3171,6 @@ apparent use.</field>
         DATA_SOURCE_ID                  : PERIARGANG-PLANET</field>
 <field name="external_reference_text">UNK</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:planet.earth</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2007-06-08 Maud Barthelemy</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -3300,7 +3287,6 @@ apparent use.</field>
 <field name="description">N/A</field>
 <field name="external_reference_text">N/A</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:ring.j_rings</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">20 Apr 2007  B.Carcich,  Creation</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -3361,7 +3347,6 @@ apparent use.</field>
           albedo:           0.43</field>
 <field name="external_reference_text">LANG1992</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:satellite.ganymede</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">2009-03-27   A.C.Raugh   Recreated from reference</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -3425,7 +3410,6 @@ apparent use.</field>
     datasets concerned with observations of any kind of cosmic dust.</field>
 <field name="external_reference_text">N/A</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:dust.dust</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">10 Mar 1999, A.C.Raugh, First draft from available information.</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
@@ -3449,7 +3433,6 @@ apparent use.</field>
 <field name="description">UNK</field>
 <field name="external_reference_text">UNK</field>
 <field name="lid">urn:nasa:pds:context_pds3:target:satellite.io</field>
-<field name="modification_date">2024-08-08T12:50:49.038Z</field>
 <field name="modification_description">NULL</field>
 <field name="objectType">Product_Target_PDS3</field>
 <field name="pds_model_version">pds3</field>
