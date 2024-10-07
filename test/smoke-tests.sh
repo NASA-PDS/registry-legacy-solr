@@ -44,7 +44,7 @@ echo "[SUCCESS] Harvest Successful"
 echo "[INFO] Check solr docs match expected"
 SOLR_EXPECTED=$PARENTDIR/src/test/resources/data/test1/expected/solr_doc_expected.xml
 # Cleanse output file of elements that are specific to where the code is run
-egrep -v package_id $OUTDIR/solr-docs/solr_doc_0.xml | egrep -v file_ref_location | egrep -v file_ref_url | egrep -v modification_date > solr_doc_actual.xml
+egrep -v "package_id|file_ref_location|file_ref_url|modification_date" $OUTDIR/solr-docs/solr_doc_0.xml > solr_doc_actual.xml
 
 # Diff
 test=$(diff solr_doc_actual.xml $SOLR_EXPECTED)
@@ -81,7 +81,7 @@ echo "[SUCCESS] Catalog Solr Successful"
 echo "[INFO] Check solr docs match expected"
 SOLR_EXPECTED=$PARENTDIR/src/test/resources/data/test2/expected/solr_doc_expected.xml
 # Cleanse output file of elements that are specific to where the code is run
-egrep -v package_id $OUTDIR/usa_nasa_pds_jnosru_0xxx__jnosruedr.solr.xml | egrep -v file_ref_location | egrep -v file_ref_url | egrep -v modification_date > solr_doc_actual.xml
+egrep -v "package_id|file_ref_location|file_ref_url|modification_date" $OUTDIR/usa_nasa_pds_jnosru_0xxx__jnosruedr.solr.xml > solr_doc_actual.xml
 
 # Diff
 test=$(diff solr_doc_actual.xml $SOLR_EXPECTED)
