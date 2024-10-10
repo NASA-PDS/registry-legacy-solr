@@ -2114,6 +2114,15 @@
        <modelValue>
          node_to_agency
        </modelValue>
+       <modelValue>
+         investigation_to_agency
+       </modelValue>
+       <modelValue>
+         instrument_to_agency
+       </modelValue>
+       <modelValue>
+         instrument_host_to_agency
+       </modelValue>
      </referenceTypeMap>
      <referenceTypeMap harvest:value="airborne_ref">
        <modelValue>
@@ -2304,6 +2313,9 @@
          operational_to_document
        </modelValue>
        <modelValue>
+         target_to_document
+       </modelValue>
+       <modelValue>
          has_document
        </modelValue>
        <modelValue>
@@ -2404,6 +2416,9 @@
          telescope_to_instrument
        </modelValue>
        <modelValue>
+         investigation_to_instrument
+       </modelValue>
+       <modelValue>
          has_instrument
        </modelValue>
      </referenceTypeMap>
@@ -2437,6 +2452,9 @@
        </modelValue>
        <modelValue>
          has_mission
+       </modelValue>
+       <modelValue>
+         instrument_to_investigation
        </modelValue>
      </referenceTypeMap>
      <referenceTypeMap harvest:value="manager_ref">
@@ -2589,6 +2607,9 @@
        </modelValue>     
        <modelValue>
          instrument_to_telescope
+       </modelValue>
+       <modelValue>
+         investigation_to_telescope
        </modelValue>
        <modelValue>
          is_telescope
