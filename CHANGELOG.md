@@ -1,11 +1,12 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-07)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-10)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.1.2...«unknown»)
 
 **Defects:**
 
+- `page_type` not working for context products [\#147](https://github.com/NASA-PDS/registry-legacy-solr/issues/147) [[s.critical](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.critical)]
 - Unable to set custom facet fields \(`facet.field`\) [\#130](https://github.com/NASA-PDS/registry-legacy-solr/issues/130) [[s.critical](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.critical)]
 
 **Other closed issues:**
