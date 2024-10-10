@@ -208,9 +208,6 @@
     <field name="file_ref_name" type="string">
       <registryPath>file_ref_file_name</registryPath>
     </field>
-    <field name="file_ref_location" type="string">
-      <registryPath>file_ref_file_location</registryPath>
-    </field>
     <field name="file_ref_url" type="string">
       <registryPath>file_ref_access_url</registryPath>
     </field>
