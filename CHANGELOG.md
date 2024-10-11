@@ -1,6 +1,6 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-10)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-11)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.1.2...«unknown»)
 
@@ -11,6 +11,7 @@
 
 **Other closed issues:**
 
+- Update `investigation_name` fields for to be only 1 value [\#139](https://github.com/NASA-PDS/registry-legacy-solr/issues/139)
 - Add new page\_type field to Solr metadata to support web mod effort [\#118](https://github.com/NASA-PDS/registry-legacy-solr/issues/118)
 - Add catalog solr test data to smoke tests [\#113](https://github.com/NASA-PDS/registry-legacy-solr/issues/113)
 - Create Installation and Deployment page on Wiki [\#97](https://github.com/NASA-PDS/registry-legacy-solr/issues/97)
