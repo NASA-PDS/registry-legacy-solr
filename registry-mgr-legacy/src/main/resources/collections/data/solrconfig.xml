@@ -789,6 +789,7 @@
        <str name="rows">50</str>
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
+       <str name="facet.sort">count</str>
        <str name="facet.field">investigation_ref</str>
        <str name="facet.field">instrument_ref</str>
        <str name="facet.field">target_ref</str>
@@ -812,10 +813,12 @@
       
       <!-- Boosts -->
       <str name="bq">data_product_type:Product_Context_Search_Tool^100</str> <!-- Search Tools -->
-      <str name="bq">product_class:Product_Context^100</str>
-      <str name="bq">product_class:Product_Bundle^90</str>
-      <str name="bq">product_class:Product_Collection^80</str>
-      <str name="bq">data_product_type:Resource^10</str>
+      <str name="bq">data_class:Investigation^100</str>
+      <str name="bq">data_class:Product_Context^50</str>
+<!--       <str name="bq">product_class:Product_Bundle^90</str> -->
+<!--       <str name="bq">product_class:Product_Collection^90</str> -->
+<!--       <str name="bq">product_class:Product_Data_Set_PDS3^90</str> -->
+<!--       <str name="bq">data_product_type:Resource^10</str> -->
     </lst>
 
     <arr name="last-components">
