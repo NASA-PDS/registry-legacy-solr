@@ -2,6 +2,7 @@ package gov.nasa.pds.harvest.search.constants;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -23,6 +24,11 @@ public class Constants {
   public static final String BUNDLE = "Product_Bundle";
 
   public static final String COLLECTION = "Product_Collection";
+
+  public static final List<String> CONTEXT_REFS =
+      Arrays.asList(
+          new String[] {"investigation_ref", "instrument_host_ref", "instrument_ref", "target_ref",
+              "facility_ref", "telescope_ref", "observatory_ref", "node_ref", "agency_ref"});
 
   /** The LID in a product label. */
   public static final String LOGICAL_ID = "logical_identifier";
