@@ -2627,6 +2627,11 @@
          has_volume
        </modelValue>
      </referenceTypeMap>
+     <referenceTypeMap harvest:value="ancillary_ref">
+       <modelValue>
+         collection_to_ancillary
+       </modelValue>
+     </referenceTypeMap>
   </references>
 
   <fileTypes>
