@@ -2427,6 +2427,9 @@
          instrument_host_to_investigation
        </modelValue>
        <modelValue>
+         instrument_to_investigation
+       </modelValue>
+       <modelValue>
          resource_to_investigation
        </modelValue>
        <modelValue>
