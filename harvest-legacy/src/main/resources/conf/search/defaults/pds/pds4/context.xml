@@ -29,6 +29,16 @@
       <registryPath>name</registryPath>
     </field>
     <field name="description" type="required">
+      <registryPath>agency_description</registryPath>
+      <registryPath>airborne_description</registryPath>
+      <registryPath>facility_description</registryPath>
+      <registryPath>instrument_description</registryPath>
+      <registryPath>instrument_host_description</registryPath>
+      <registryPath>investigation_description</registryPath>
+      <registryPath>node_description</registryPath>
+      <registryPath>other_description</registryPath>
+      <registryPath>target_description</registryPath>
+      <registryPath>telescope_description</registryPath>
       <registryPath>citation_description</registryPath>
       <registryPath>resource_description</registryPath>
     </field>

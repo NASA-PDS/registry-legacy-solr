@@ -278,7 +278,7 @@ public class Pds4MetExtractor implements MetExtractor {
         // multiple lidvids that are associated to a single reference type)
         for (LidVid lidvid : lidvids) {
           ReferenceEntry re = new ReferenceEntry();
-          if (lidvid.hasVersion()) {
+          if (lidvid.hasVersion() && !Constants.CONTEXT_REFS.contains(refTypeMap)) {
             re.setLogicalID(lidvid.getLid());
             re.setVersion(lidvid.getVersion());
           } else {

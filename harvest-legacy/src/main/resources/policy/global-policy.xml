@@ -2427,6 +2427,9 @@
          instrument_host_to_investigation
        </modelValue>
        <modelValue>
+         instrument_to_investigation
+       </modelValue>
+       <modelValue>
          resource_to_investigation
        </modelValue>
        <modelValue>
@@ -2622,6 +2625,11 @@
      <referenceTypeMap harvest:value="volume_ref">
        <modelValue>
          has_volume
+       </modelValue>
+     </referenceTypeMap>
+     <referenceTypeMap harvest:value="ancillary_ref">
+       <modelValue>
+         collection_to_ancillary
        </modelValue>
      </referenceTypeMap>
   </references>
