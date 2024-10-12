@@ -789,7 +789,6 @@
        <str name="rows">50</str>
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
-       <str name="facet.sort">count</str>
        <str name="facet.field">investigation_ref</str>
        <str name="facet.field">instrument_ref</str>
        <str name="facet.field">target_ref</str>
