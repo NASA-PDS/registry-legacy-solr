@@ -111,6 +111,9 @@
       <registryPath>external_reference_doi</registryPath>
     </field>
     <!-- Airborne Fields -->
+    <field name="airborne_ref" type="string">
+      <registryPath>airborne_ref</registryPath>
+    </field>
     <field name="airborne_name" type="string">
       <registryPath>airborne_name</registryPath>
     </field>
@@ -121,6 +124,9 @@
       <registryPath>airborne_description</registryPath>
     </field>
     <!-- Facility Fields -->
+    <field name="facility_ref" type="string">
+      <registryPath>facility_ref</registryPath>
+    </field>
     <field name="facility_name" type="float">
       <registryPath>facility_name</registryPath>
     </field>
@@ -238,6 +244,9 @@
       <registryPath>person_description</registryPath>
     </field>
     <!-- Resource Fields -->
+    <field name="resource_ref" type="string">
+      <registryPath>resource_ref</registryPath>
+    </field>
     <field name="resource_name" type="string">
       <registryPath>resource_name</registryPath>
     </field>
@@ -264,6 +273,9 @@
       <registryPath>target_description</registryPath>
     </field>
     <!-- Telescope Fields -->
+    <field name="telescope_ref" type="string">
+      <registryPath>telescope_ref</registryPath>
+    </field>
     <field name="telescope_aperture" type="string">
       <registryPath>telescope_aperture</registryPath>
     </field>
