@@ -29,6 +29,8 @@
    <field name="lidvid" type="string" indexed="true" stored="true" required="true" multiValued="false" />
    <field name="abstract_text" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="agency_name" type="lowercase" indexed="true" stored="true" multiValued="true" />
+   <field name="agency_ref" type="string" indexed="true" stored="true" multiValued="true" />
+   <field name="airborne_ref" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_name" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_type" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_description" type="text_general" indexed="true" stored="true" multiValued="true" />
@@ -104,6 +106,7 @@
    <field name="data_set_release_date" type="lowercase" indexed="true" stored="true" multiValued="true" />
    <field name="description" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="external_reference_text" type="text_general" indexed="false" stored="true" multiValued="true" />
+   <field name="facility_ref" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="facility_name" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="facility_type" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="facility_address" type="text_general" indexed="true" stored="true" multiValued="true" />
@@ -139,6 +142,7 @@
    <field name="modification_date" type="pdate" indexed="false" stored="true" multiValued="true" />
    <field name="modification_description" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="node_id" type="lowercase" indexed="true" stored="true" multiValued="true" />
+   <field name="node_ref" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="objectType" type="lowercase" indexed="true" stored="true" multiValued="true" />
    <field name="observation_local_mean_solar_time" type="string" indexed="false" stored="true" multiValued="true" />
    <field name="observation_local_true_solar_time" type="string" indexed="false" stored="true" multiValued="true" />
@@ -185,6 +189,7 @@
    <field name="search_engine_type" type="text_general" indexed="true" stored="true" multiValued="true" />
 
    <!-- Product_Service fields -->
+   <field name="service_ref" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="service_name" type="text_gen_sort" indexed="true" stored="true" multiValued="true" />
    <field name="service_abstract_desc" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="service_version_id" type="string" indexed="true" stored="true" multiValued="true" />
@@ -205,6 +210,7 @@
    <field name="target_ref_target_type" type="text_en_splitting_tight" indexed="true" stored="true" multiValued="true" />
    <field name="target_type" type="text_en_splitting_tight" indexed="true" stored="true" multiValued="true" />
    <field name="telephone_number" type="string" indexed="false" stored="true" multiValued="true" />
+   <field name="telescope_ref" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="telescope_aperture" type="pfloat" indexed="true" stored="true" multiValued="true" />
    <field name="telescope_longitude" type="pfloat" indexed="true" stored="true" multiValued="true" />
    <field name="telescope_latitude" type="pfloat" indexed="true" stored="true" multiValued="true" />
