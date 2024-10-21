@@ -1,6 +1,6 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-12)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-21)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.1.2...«unknown»)
 
@@ -11,6 +11,8 @@
 
 **Other closed issues:**
 
+- Fix empty named facet values [\#151](https://github.com/NASA-PDS/registry-legacy-solr/issues/151)
+- Update `*_ref` fields to use LIDs instead of LIDVIDs [\#143](https://github.com/NASA-PDS/registry-legacy-solr/issues/143)
 - Update `investigation_name` fields for to be only 1 value [\#139](https://github.com/NASA-PDS/registry-legacy-solr/issues/139)
 - Add new page\_type field to Solr metadata to support web mod effort [\#118](https://github.com/NASA-PDS/registry-legacy-solr/issues/118)
 - Add catalog solr test data to smoke tests [\#113](https://github.com/NASA-PDS/registry-legacy-solr/issues/113)
