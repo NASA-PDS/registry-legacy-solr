@@ -1,6 +1,6 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-10-21)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-11-07)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.1.2...«unknown»)
 
@@ -15,7 +15,9 @@
 - Update `*_ref` fields to use LIDs instead of LIDVIDs [\#143](https://github.com/NASA-PDS/registry-legacy-solr/issues/143)
 - Update `investigation_name` fields for to be only 1 value [\#139](https://github.com/NASA-PDS/registry-legacy-solr/issues/139)
 - Add new page\_type field to Solr metadata to support web mod effort [\#118](https://github.com/NASA-PDS/registry-legacy-solr/issues/118)
+- Develop script to reload PDS3 data where we are missing original catalog files [\#116](https://github.com/NASA-PDS/registry-legacy-solr/issues/116)
 - Add catalog solr test data to smoke tests [\#113](https://github.com/NASA-PDS/registry-legacy-solr/issues/113)
+- Prep for Solr Registry production deployment [\#103](https://github.com/NASA-PDS/registry-legacy-solr/issues/103)
 - Create Installation and Deployment page on Wiki [\#97](https://github.com/NASA-PDS/registry-legacy-solr/issues/97)
 
 ## [v4.1.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.1.2) (2024-07-31)
