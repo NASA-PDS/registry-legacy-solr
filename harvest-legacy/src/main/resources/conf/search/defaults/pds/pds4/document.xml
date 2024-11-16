@@ -177,6 +177,9 @@
     <field name="other_ref" type="string">
       <registryPath>other_ref</registryPath>
     </field>
+    <field name="resource_ref" type="string">
+      <registryPath>resource_ref</registryPath>
+    </field>
     <!-- Reference_List Fields -->
     <field name="external_reference_text" type="string">
       <registryPath>external_reference_text</registryPath>
