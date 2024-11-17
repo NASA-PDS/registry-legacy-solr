@@ -1,5 +1,13 @@
 package gov.nasa.pds.citool;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
 import gov.nasa.pds.citool.comparator.CatalogComparator;
 import gov.nasa.pds.citool.ingestor.CatalogObject;
 import gov.nasa.pds.citool.ingestor.CatalogVolumeIngester;
@@ -9,21 +17,11 @@ import gov.nasa.pds.citool.target.Target;
 import gov.nasa.pds.citool.util.ReferenceUtils;
 import gov.nasa.pds.citool.util.References;
 import gov.nasa.pds.citool.util.RegistryObjectCache;
-
 import gov.nasa.pds.tools.LabelParserException;
 import gov.nasa.pds.tools.constants.Constants.ProblemType;
 import gov.nasa.pds.tools.label.Label;
 import gov.nasa.pds.tools.label.ManualPathResolver;
 import gov.nasa.pds.tools.label.parser.DefaultLabelParser;
-
-import java.net.URI;
-import java.net.URL;
-import java.net.URISyntaxException;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.logging.Logger;
-import java.io.IOException;
 
 
 public class CIToolIngester 

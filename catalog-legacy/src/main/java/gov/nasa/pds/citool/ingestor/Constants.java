@@ -1,7 +1,7 @@
 package gov.nasa.pds.citool.ingestor;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 /**
  * Class that holds constants used in ingest.
  *
@@ -12,6 +12,8 @@ public class Constants {
    
     public static final String LID_PREFIX = "urn:nasa:pds:context_pds3:";
     
+    public static final String RESOURCE_LID_SUFFIX = "_resource_info";
+
     public static final String TARGET_PROD = "Product_Target_PDS3";
     
     public static final String MISSION_PROD = "Product_Mission_PDS3";
@@ -25,7 +27,7 @@ public class Constants {
     public static final String GUEST_PROD = "Product_PDS_Guest";
     
     public static final String AFFIL_PROD = "Product_PDS_Affiliate";
-    
+
     // or Collection_Volume_Set_PDS3 ????
     public static final String VOLUME_PROD = "Product_Volume_PDS3";
     
@@ -65,11 +67,11 @@ public class Constants {
     public static final String HAS_TARGET = "target_ref";
     
     public static final String HAS_RESOURCE = "resource_ref";
-    
+
     public static final String HAS_FILE = "file_ref";
     
     public static final String HAS_NODE = "node_ref";
-    
+
     public static final String PRODUCT_VERSION = "version_id";
     
    
@@ -94,4 +96,22 @@ public class Constants {
         pds3ToPds4Map.put("MISSION_ALIAS_NAME", "alternate_title");
         pds3ToPds4Map.put("RESOURCE_LINK", "resource_url");
       } 
+
+      /** Mapping of PDS3 to PDS4 names */
+      public static final Map<String, String> nodeValueToIdMap = new HashMap<String, String>();
+
+      static {
+        nodeValueToIdMap.put("atmos", "planetary atmospheres");
+        nodeValueToIdMap.put("geoscience", "geosciences");
+        nodeValueToIdMap.put("isas/jaxa", "jaxa");
+        nodeValueToIdMap.put("naif", "navigation and ancillary information facility");
+        nodeValueToIdMap.put("ppi", "planetary plasma interactions");
+        nodeValueToIdMap.put("ppi-ucla", "planetary plasma interactions");
+        nodeValueToIdMap.put("rings", "planetary rings");
+        nodeValueToIdMap.put("sbn", "small bodies");
+        nodeValueToIdMap.put("esa", "planetary science archive");
+        nodeValueToIdMap.put("rs", "radio science");
+        nodeValueToIdMap.put("rad", "radio science");
+        nodeValueToIdMap.put("imaging-jpl", "imaging");
+      }
 }

@@ -4,9 +4,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.Map.Entry;
-
+import java.util.Set;
+import java.util.logging.Logger;
 import gov.nasa.pds.citool.file.FileObject;
 import gov.nasa.pds.citool.registry.model.FileInfo;
 import gov.nasa.pds.citool.registry.model.Metadata;
@@ -20,6 +20,9 @@ import gov.nasa.pds.tools.label.ObjectStatement;
 
 public class ProductFactory 
 {
+
+  private static Logger log = Logger.getLogger(ProductFactory.class.getName());
+
 	/**
 	 * Create an extrinsic object
 	 * 
@@ -27,7 +30,7 @@ public class ProductFactory
 	 * @return an extrinsic object
 	 *  
 	 */
-	public static RegistryObject createProduct(CatalogObject catObj, CatalogVolumeIngester ingester) 
+    public static RegistryObject createProduct(CatalogObject catObj, CatalogVolumeIngester ingester)
 		throws Exception 
 	{
 		RegistryObject product = new RegistryObject();
@@ -167,7 +170,31 @@ public class ProductFactory
 				slots.put("name", product.getName());
 				
 				slots.put(getKey("product_class"), Constants.VOLUME_PROD);
-			}
+              } else if (objType.equalsIgnoreCase(Constants.HK_OBJ)
+                  && key.equals("CURATING_NODE_ID")) {
+
+                String dsId = md.getMetadata("DATA_SET_ID");
+                String productLid = dsId + Constants.RESOURCE_LID_SUFFIX;
+                productLid = Utility.collapse(productLid);
+                productLid = Utility.replaceChars(productLid);
+                productLid = Constants.LID_PREFIX + "resource:resource." + productLid.toLowerCase();
+
+                product.setLid(productLid);
+                slots.put("lid", productLid);
+
+                product.setObjectType(Constants.RESOURCE_PROD);
+                slots.put("objectType", product.getObjectType());
+
+                slots.put(getKey("product_class"), Constants.RESOURCE_PROD);
+
+                String node_id = md.getMetadata("CURATING_NODE_ID");
+                node_id = Utility.collapse(node_id);
+                slots.put("node_id", getNodeId(node_id.toLowerCase()));
+                
+                slots.put("resource_name", md.getAllMetadata("RESOURCE_NAME"));
+                slots.put("resource_url", md.getAllMetadata("RESOURCE_LINK"));
+
+              }
 			
 			if (objType.equalsIgnoreCase(Constants.DATASET_OBJ) && ingester.getArchiveStatus() !=null) 
 			{
@@ -355,5 +382,12 @@ public class ProductFactory
 		else 
 			return key.toLowerCase();
 	}
+
+    private static String getNodeId(String value) {
+      if (Constants.nodeValueToIdMap.containsKey(value)) {
+        return Constants.nodeValueToIdMap.get(value);
+      }
+      return value;
+    }
 
 }
