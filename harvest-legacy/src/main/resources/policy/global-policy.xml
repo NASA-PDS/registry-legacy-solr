@@ -2594,6 +2594,9 @@
          instrument_to_telescope
        </modelValue>
        <modelValue>
+         investigation_to_telescope
+       </modelValue>
+       <modelValue>
          is_telescope
        </modelValue>
      </referenceTypeMap>
