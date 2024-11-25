@@ -1,11 +1,18 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-11-14)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-11-25)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.1.2...«unknown»)
 
+**Requirements:**
+
+- As a user, I want to provide search/access links using the hsk.cat files within the data set [\#93](https://github.com/NASA-PDS/registry-legacy-solr/issues/93)
+
 **Defects:**
 
+- Cassini ISS Users Guide returns "No Document Information found in the registry" msg [\#163](https://github.com/NASA-PDS/registry-legacy-solr/issues/163) [[s.high](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.high)]
+- viewDataset.jsp shows no links for Search/Access Data [\#156](https://github.com/NASA-PDS/registry-legacy-solr/issues/156) [[s.high](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.high)]
+- viewDocument.jsp has no links for SEARCH/ACCESS DATA [\#154](https://github.com/NASA-PDS/registry-legacy-solr/issues/154) [[s.high](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.high)]
 - `page_type` not working for context products [\#147](https://github.com/NASA-PDS/registry-legacy-solr/issues/147) [[s.critical](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.critical)]
 - Unable to set custom facet fields \(`facet.field`\) [\#130](https://github.com/NASA-PDS/registry-legacy-solr/issues/130) [[s.critical](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.critical)]
 
@@ -47,10 +54,6 @@
 ## [v4.0.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.0.1) (2024-07-25)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v3.1.0...v4.0.1)
-
-**Requirements:**
-
-- As a user, I want to provide search/access links using the hsk.cat files within the data set [\#93](https://github.com/NASA-PDS/registry-legacy-solr/issues/93)
 
 **Improvements:**
 
