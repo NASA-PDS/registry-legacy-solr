@@ -1,8 +1,8 @@
 # Changelog
 
-## [release/4.2.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.2.1) (2024-11-26)
+## [v4.2.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.2.1) (2024-11-26)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.0...release/4.2.1)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.0...v4.2.1)
 
 ## [v4.2.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.2.0) (2024-11-25)
 
