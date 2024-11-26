@@ -217,7 +217,7 @@
    <field name="telescope_altitude" type="pfloat" indexed="true" stored="true" multiValued="true" />
    <field name="telescope_coordinate_source" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="telescope_description" type="string" indexed="true" stored="true" multiValued="true" />
-   <field name="title" type="text_en_splitting_tight" indexed="true" stored="true" multiValued="true" />
+   <field name="title" type="text_en_splitting_tight" indexed="true" stored="true" multiValued="false" />
 
    <!-- A few aliases of the fields above, filled in via copyField, below -->
    <field name="agency" type="lowercase" indexed="true" stored="false" multiValued="true" />
