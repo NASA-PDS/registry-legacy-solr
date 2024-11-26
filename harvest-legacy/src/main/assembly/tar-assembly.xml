@@ -28,7 +28,7 @@
       <outputDirectory>bin</outputDirectory>
       <includes>
         <include>harvest-solr</include>
-        <include>reaload_all.sh</include>
+        <include>reload_all.sh</include>
       </includes>
       <fileMode>775</fileMode>
       <lineEnding>keep</lineEnding>
