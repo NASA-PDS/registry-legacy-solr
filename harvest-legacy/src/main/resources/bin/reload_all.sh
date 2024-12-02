@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Load historical PDS3 data"
-export PDS3_HISTORY=/scratch/pds4/registry-solr-data/pds3/solr-docs_pre20241012_BASELINE/
+export PDS3_HISTORY=/scratch/pds4/registry-solr-data/pds3/solr-docs_BASELINE/
 $REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr $PDS3_HISTORY
 
 LOG=/scratch/pds4/registry-solr-data/harvest-logs/harvest_$(date +"%Y%m%d%H%M%S").txt

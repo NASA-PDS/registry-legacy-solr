@@ -282,35 +282,6 @@ public class PDSProductCrawler extends ProductCrawler {
       return false;
     } else  {
       try {
-        String lid = extractor.getValueFromDoc(Constants.coreXpathsMap.get(
-          Constants.LOGICAL_ID));
-        String version = extractor.getValueFromDoc(Constants.coreXpathsMap.get(
-            Constants.PRODUCT_VERSION));
-        // Check to see if the product is part of the non-primary member list.
-        int index = Constants.nonPrimaryMembers.indexOf(new LidVid(lid));
-        if (index != -1) {
-          LidVid lidvid = Constants.nonPrimaryMembers.get(index);
-          if (lidvid.hasVersion()) {
-            if (lidvid.getVersion().equals(version)) {
-              log.log(new ToolsLogRecord(ToolsLevel.SKIP,
-                "Not a primary member.", product));
-              ++HarvestSolrStats.numFilesSkipped;
-              return false;
-            }
-          } else {
-            log.log(new ToolsLogRecord(ToolsLevel.SKIP,
-                "Not a primary member.", product));
-              ++HarvestSolrStats.numFilesSkipped;
-              return false;
-          }
-        }
-      } catch (Exception e) {
-        log.log(new ToolsLogRecord(ToolsLevel.SEVERE, "Problem extracting "
-            + "LIDVID: " + e.getMessage(), product));
-        ++HarvestSolrStats.numBadFiles;
-        return false;
-      }
-      try {
         objectType = extractor.getValueFromDoc(Constants.coreXpathsMap.get(
             Constants.PRODUCT_CLASS));
         if ("".equals(objectType)) {

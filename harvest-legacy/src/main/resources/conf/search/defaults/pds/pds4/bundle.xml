@@ -38,7 +38,7 @@
       <outputString format="text">Bundle</outputString>
     </field>
     <field name="page_type" type="string">
-      <outputString format="text">Data Bundle</outputString>
+      <outputString format="text">Data</outputString>
     </field>
     <field name="objectType" type="string">
       <registryPath>objectType</registryPath>
