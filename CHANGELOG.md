@@ -1,8 +1,25 @@
 # Changelog
 
-## [release/4.2.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.2.2) (2024-11-26)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-12-09)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.1...release/4.2.2)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.2...«unknown»)
+
+**Improvements:**
+
+- Add single-value title and context name field to enable sorting [\#158](https://github.com/NASA-PDS/registry-legacy-solr/issues/158)
+
+**Defects:**
+
+- Harvest ignoring secondary members of collections managed by EN [\#174](https://github.com/NASA-PDS/registry-legacy-solr/issues/174)
+
+**Other closed issues:**
+
+- Update page-type facet to collapse Data Set, Data Collection, and Data Bundle to Data [\#168](https://github.com/NASA-PDS/registry-legacy-solr/issues/168)
+- Update page\_type to use `Instrument Host` instead of `Instrument_Host` [\#159](https://github.com/NASA-PDS/registry-legacy-solr/issues/159)
+
+## [v4.2.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.2.2) (2024-11-26)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.1...v4.2.2)
 
 ## [v4.2.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.2.1) (2024-11-26)
 
