@@ -807,6 +807,7 @@
       <str name="fq">-resource_type:Information.Investigation</str>
       <!-- Service entries should not be showed up in the search-ui results for now -->
       <str name="fq">-data_product_type:Agency AND -data_product_type:Node AND -data_product_type:Other AND -data_product_type:PDS_Affiliate AND -data_product_type:PDS_Guest</str>
+      <str name="fq">-product_class:Product_SIP_Deep_Archive</str>
       <str name="fq">-resource_type:Information.Science_Portal</str>
       <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
       
@@ -927,6 +928,7 @@
       <!-- Service entries should not be showed up in the search-ui results for now -->
       <str name="fq">-data_product_type:Service</str>
       <str name="fq">-data_product_type:Agency AND -data_product_type:Node AND -data_product_type:Other AND -data_product_type:PDS_Affiliate AND -data_product_type:PDS_Guest</str>
+      <str name="fq">-product_class:Product_SIP_Deep_Archive</str>
       <str name="fq">-resource_type:Information.Science_Portal</str>
       <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
     </lst>
