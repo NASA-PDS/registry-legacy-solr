@@ -857,8 +857,12 @@
        <str name="tr">data-search.xsl</str>
       <!-- Update params to include filter query restricting to latest product versions -->
       <str name="fq">{!collapse field=lid max=version_id_normalized}</str>
-       <str name="bq">data_product_type:Product_Context_Search_Tool^100</str>
-       <str name="bq">data_product_type:Resource^10</str>
+
+      <!-- Boosts -->
+      <str name="qf">target_name^1 investigation_name^1 instrument_host_name^1 instrument_name^1 title^3 alternate_id^1 alternate_title^1 citation_keyword^1</str>
+      <str name="bq">pds_model_version:PDS4^1</str>
+      <str name="bq">product_class:Product_Context^0.3</str>
+      <str name="bq">data_class:Investigation^0.1</str>
     </lst>
 
     <arr name="last-components">
@@ -925,8 +929,6 @@
       <str name="fq">-data_product_type:Agency AND -data_product_type:Node AND -data_product_type:Other AND -data_product_type:PDS_Affiliate AND -data_product_type:PDS_Guest</str>
       <str name="fq">-resource_type:Information.Science_Portal</str>
       <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
-      <str name="bq">data_product_type:Product_Context_Search_Tool^100</str>
-      <str name="bq">data_product_type:Resource^10</str>
     </lst>
 
     <arr name="last-components">

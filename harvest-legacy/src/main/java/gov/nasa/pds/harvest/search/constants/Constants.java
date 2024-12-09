@@ -138,7 +138,7 @@ public class Constants {
    * XPath for determining collection page type
    */
   public static final String COLLECTION_PAGE_TYPE_XPATH =
-      "if (//Collection/collection_type = 'Document' ) then \"Resource\" else \"Data Collection\"";
+      "if (//Collection/collection_type = 'Document' ) then \"Resource\" else \"Data\"";
 
   static {
     coreXpathsMap.put(LOGICAL_ID, IDENTIFICATION_AREA_XPATH + "/"

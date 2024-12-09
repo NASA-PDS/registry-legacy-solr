@@ -114,10 +114,13 @@ public class Pds4MetExtractor implements MetExtractor {
     }
     if (dataClasses.size() != 0) {
       List<String> values = new ArrayList<String>();
+      List<String> cleanValues = new ArrayList<String>();
       for (TinyElementImpl dataClass : dataClasses) {
          values.add(dataClass.getDisplayName());
+         cleanValues.add(dataClass.getDisplayName().replace("_", " "));
       }
       slots.add(new Slot(Constants.DATA_CLASS, values));
+      slots.add(new Slot(Constants.COLLECTION_PAGE_TYPE, cleanValues));
     }
     try {
       HashMap<String, List<String>> refMap =
