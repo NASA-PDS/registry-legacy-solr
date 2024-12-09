@@ -1,15 +1,17 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2024-12-09)
+## [release/4.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.3.0) (2024-12-09)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.2...«unknown»)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.2...release/4.3.0)
 
 **Improvements:**
 
+- Update `page_type` to "\<context\> Portal" for all context products [\#175](https://github.com/NASA-PDS/registry-legacy-solr/issues/175)
 - Add single-value title and context name field to enable sorting [\#158](https://github.com/NASA-PDS/registry-legacy-solr/issues/158)
 
 **Defects:**
 
+- SIP\_Deep\_Archive products showing up in search results [\#176](https://github.com/NASA-PDS/registry-legacy-solr/issues/176) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 - Harvest ignoring secondary members of collections managed by EN [\#174](https://github.com/NASA-PDS/registry-legacy-solr/issues/174)
 
 **Other closed issues:**
