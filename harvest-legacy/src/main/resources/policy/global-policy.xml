@@ -2114,6 +2114,21 @@
        <modelValue>
          node_to_agency
        </modelValue>
+       <modelValue>
+         investigation_to_agency
+       </modelValue>
+       <modelValue>
+         instrument_host_to_agency
+       </modelValue>
+       <modelValue>
+         instrument_to_agency
+       </modelValue>
+       <modelValue>
+         facility_to_agency
+       </modelValue>
+       <modelValue>
+         telescope_to_agency
+       </modelValue>
      </referenceTypeMap>
      <referenceTypeMap harvest:value="airborne_ref">
        <modelValue>
