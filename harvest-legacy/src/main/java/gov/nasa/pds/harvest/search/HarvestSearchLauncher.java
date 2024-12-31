@@ -104,6 +104,7 @@ public class HarvestSearchLauncher {
 
 	private File configDir;
 	private File outputDir;
+	private File targetDir;
 	private File registeredResources;
 	private String searchUrl;
 
@@ -123,6 +124,7 @@ public class HarvestSearchLauncher {
 		severityLevel = ToolsLevel.INFO;
 		outputDir = null;
 		configDir = null;
+		targetDir = null;
 		String value = System.getProperty("pds.harvest.search.conf");
 		if (value != null && !value.isEmpty()) {
 			configDir = new File(value);
@@ -160,16 +162,7 @@ public class HarvestSearchLauncher {
 		if (searchUrl == null) {
 			throw new Exception("\'pds.search\' java property is not set.");
 		}
-		List<String> targetList = new ArrayList<String>();
-		for (Iterator<String> i = line.getArgList().iterator(); i.hasNext();) {
-			String[] values = i.next().split(",");
-			for (int index = 0; index < values.length; index++) {
-				targetList.add(values[index].trim());
-			}
-		}
-		if (!targetList.isEmpty()) {
-			setTargets(targetList);
-		}
+
 		List<Option> processedOptions = Arrays.asList(line.getOptions());
 		for (Option o : processedOptions) {
 			if (o.getOpt().equals(Flag.HELP.getShortName())) {
@@ -207,6 +200,8 @@ public class HarvestSearchLauncher {
 				configDir = new File(o.getValue());
 			} else if (o.getOpt().equals(Flag.OUTPUT_DIR.getShortName())) {
 				outputDir = new File(o.getValue(), Constants.SOLR_DOC_DIR);
+			} else if (o.getOpt().equals(Flag.TARGET.getShortName())) {
+				setTargets((List<String>) o.getValuesList());
 			}
 		}
 
@@ -339,6 +334,9 @@ public class HarvestSearchLauncher {
 		log.log(new ToolsLogRecord(ToolsLevel.CONFIGURATION, "Severity Level              " + severityLevel.getName()));
 		log.log(new ToolsLogRecord(ToolsLevel.CONFIGURATION, "Config directory            " + configDir.toString()));
 		log.log(new ToolsLogRecord(ToolsLevel.CONFIGURATION, "Output directory            " + outputDir.toString()));
+		if (targetDir != null) {
+			log.log(new ToolsLogRecord(ToolsLevel.CONFIGURATION, "Target directory            " + targetDir.toString()));
+		}
 		log.log(new ToolsLogRecord(ToolsLevel.CONFIGURATION, "Transaction ID              " 
 				+ TransactionManager.getInstance().getTransactionId() + "\n"));
 	}

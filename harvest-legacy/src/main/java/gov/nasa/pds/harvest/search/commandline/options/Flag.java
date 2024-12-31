@@ -63,6 +63,12 @@ public enum Flag {
    */
   PORT("P", "port", "number", int.class, "Specify a port number to use "
       + "if running the tool in persistance mode."),
+  
+  /** Flag to specify the target directory to harvest from
+   */
+  TARGET("t", "target", "dir", String.class, true, "Specify one or more target directories "
+      + "containing the data files you would like to load. This will overwrite whatever "
+	  + "paths are specified in the input policy."),
 
   /** Flag to specify the wait time in between crawls. */
   WAIT("w", "wait", "seconds", int.class, "Specify the wait time in "
@@ -211,6 +217,7 @@ public enum Flag {
     options.addOption(new ToolsOption(ISPDS3DIR));
     options.addOption(new ToolsOption(HELP));
     options.addOption(new ToolsOption(OUTPUT_DIR));
+    options.addOption(new ToolsOption(TARGET));
     options.addOption(new ToolsOption(VERBOSE));
     options.addOption(new ToolsOption(VERSION));
     options.addOption(new ToolsOption(LOG));
