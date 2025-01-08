@@ -1,5 +1,21 @@
 # Changelog
 
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-01-08)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...«unknown»)
+
+**Requirements:**
+
+- As a user, I want to provide a data input path via command-line [\#179](https://github.com/NASA-PDS/registry-legacy-solr/issues/179)
+
+**Defects:**
+
+- Possible memory leak related to use of Solr library per `Direct buffer memory` errors [\#172](https://github.com/NASA-PDS/registry-legacy-solr/issues/172) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
+
+**Other closed issues:**
+
+- Remove Tools from Registry for MVP delivery [\#141](https://github.com/NASA-PDS/registry-legacy-solr/issues/141)
+
 ## [v4.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.3.0) (2024-12-09)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.2.2...v4.3.0)
