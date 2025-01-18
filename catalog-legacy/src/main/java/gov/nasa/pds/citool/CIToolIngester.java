@@ -90,8 +90,7 @@ public class CIToolIngester
     	{	
     		if (obj.getIsLocal()) 
     		{
-    			catIngester.ingest(obj);	
-    			report.record(obj.getLabel().getLabelURI(), obj.getLabel().getProblems());
+              catIngester.ingest(obj);
     		}    		
        	} 
        	
@@ -117,6 +116,7 @@ public class CIToolIngester
     		if(obj.getIsLocal())
     		{
     			catIngester.publishObject(obj);
+                report.record(obj.getLabel().getLabelURI(), obj.getLabel().getProblems());
     		}
     	}
     }
@@ -138,8 +138,7 @@ public class CIToolIngester
 		{
 			CatalogObject catObj = new CatalogObject(this.report);
 			boolean validFile = catObj.processLabel(lbl);
-			if (validFile) 
-			{
+            if (validFile) {
 				if(catObj.getCatObjType().equalsIgnoreCase("VOLUME"))
 				{
 					pointerFiles = catObj.getPointerFiles();

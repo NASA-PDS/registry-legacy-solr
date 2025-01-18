@@ -1,6 +1,13 @@
 package gov.nasa.pds.citool.ingestor;
 
-import gov.nasa.pds.citool.ingestor.Constants;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import gov.nasa.pds.citool.registry.client.RegistryClient;
 import gov.nasa.pds.citool.registry.client.RegistryClientManager;
 import gov.nasa.pds.citool.registry.model.FileInfo;
@@ -8,24 +15,18 @@ import gov.nasa.pds.citool.registry.model.Metadata;
 import gov.nasa.pds.citool.registry.model.RegistryObject;
 import gov.nasa.pds.citool.registry.model.Slots;
 import gov.nasa.pds.citool.search.DocGenerator;
+import gov.nasa.pds.citool.search.DocGeneratorException;
 import gov.nasa.pds.citool.util.ReferenceUtils;
 import gov.nasa.pds.citool.util.Utility;
-
 import gov.nasa.pds.tools.LabelParserException;
 import gov.nasa.pds.tools.constants.Constants.ProblemType;
-
-import java.util.List;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.Map;
-import java.util.HashMap;
 
 
 public class CatalogVolumeIngester 
 {	
 	public static int fileObjCount = 0;
 	public static int registryCount = 0;
+    public static int solrDocCount = 0;
 	public static int failCount = 0;
 	
 	private String archiveStatus = null;
@@ -63,7 +64,7 @@ public class CatalogVolumeIngester
     	for (CatalogObject aCatObj: catObjs) 
     	{
     		String tmpFilename = aCatObj.getFilename();
-            tmpFilename = tmpFilename.substring(tmpFilename.lastIndexOf('/') + 1);
+            tmpFilename = tmpFilename.substring(tmpFilename.lastIndexOf(File.separator) + 1);
             
             if (tmpFilename.equalsIgnoreCase(filename)) 
             {
@@ -412,13 +413,15 @@ public class CatalogVolumeIngester
 		RegistryObject ro = obj.getExtrinsicObject();
 		if(ro == null) return;
 		
-		try
-		{
-			DocGenerator.getInstance().addDoc(ro);
-		} 
-		catch(Exception ex) 
-		{
-			log.log(Level.SEVERE, "Could not publish catalog object.", ex);
-		}  		
+		try {
+          DocGenerator.getInstance().addDoc(ro);
+          solrDocCount++;
+        } catch (DocGeneratorException e) {
+          LabelParserException lp = new LabelParserException(obj.getLabel().getLabelURI(), null,
+              null, "ingest.warning.skipFile", ProblemType.INVALID_LABEL_WARNING, e.getMessage());
+          obj.getLabel().addProblem(lp);
+        } catch (IOException ex) {
+          log.log(Level.SEVERE, "Unexpected error trying to generate Solr Doc.", ex);
+        }
 	}
 }

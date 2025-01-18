@@ -123,20 +123,21 @@ public class IngestReport extends Report {
   @Override
   protected void printFooter(PrintWriter writer) {
       int totalFiles = getNumPassed() + getNumFailed() + getNumSkipped();
-      int totalValidated = getNumPassed() + getNumFailed();
       writer.println();
       writer.println("Summary:");
       writer.println();
-      writer.println("  " + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.fileObjCount + " of " 
-    		  + totalFiles + " file(s) ingested, "
-              + this.getNumSkipped() + " skipped");
-      //writer.println("  " + this.getNumPassed() + " of " + totalValidated
-      //        + " passed");
+      writer.println("  Number of files processed: " + totalFiles);
+      writer.println("  Number of files skipped: " + this.getNumSkipped());
+      writer.println("  Number of Solr Docs generated: "
+          + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.solrDocCount);
+
       writer.println();  
       if (printDetails) {
-    	  writer.println("  Number of successful file object ingestion: " + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.fileObjCount);
-    	  writer.println("  Number of successful registry ingestion: " + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.registryCount);
-//    	  writer.println("  Name of the registry package: " + gov.nasa.pds.citool.ingestor.CatalogRegistryIngester.registryPackageName);
+        writer.println("Technical Summary:");
+        writer.println("  Number of successful local file object ingestions: "
+            + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.fileObjCount);
+        writer.println("  Number of successful registry ingestions: "
+            + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.registryCount);
     	  writer.println();
       }
       writer.println("End of Report\n");
