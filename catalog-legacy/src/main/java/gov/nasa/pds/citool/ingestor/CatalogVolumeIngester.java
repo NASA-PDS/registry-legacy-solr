@@ -24,10 +24,10 @@ import gov.nasa.pds.tools.constants.Constants.ProblemType;
 
 public class CatalogVolumeIngester 
 {	
-	public static int fileObjCount = 0;
-	public static int registryCount = 0;
-    public static int solrDocCount = 0;
-	public static int failCount = 0;
+  public static int fileObjCount = 0;
+  public static int registryCount = 0;
+  public static int solrDocCount = 0;
+  public static int failCount = 0;
 	
 	private String archiveStatus = null;
 	private String volumeId; 
@@ -410,11 +410,12 @@ public class CatalogVolumeIngester
 	
 	public void publishObject(CatalogObject obj)
 	{
-		RegistryObject ro = obj.getExtrinsicObject();
-		if(ro == null) return;
+      if (obj.getExtrinsicObject() == null) {
+        return;
+      }
 		
 		try {
-          DocGenerator.getInstance().addDoc(ro);
+          DocGenerator.getInstance().addDoc(obj);
           solrDocCount++;
         } catch (DocGeneratorException e) {
           LabelParserException lp = new LabelParserException(obj.getLabel().getLabelURI(), null,
