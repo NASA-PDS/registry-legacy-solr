@@ -1,31 +1,30 @@
 package gov.nasa.pds.citool.ingestor;
 
-import java.net.MalformedURLException;
 import java.io.File;
-import java.util.List;
+import java.net.MalformedURLException;
+import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Map;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.text.SimpleDateFormat;
-
-import gov.nasa.pds.tools.label.Label;
-import gov.nasa.pds.tools.label.Scalar;
-import gov.nasa.pds.tools.label.Set;
-import gov.nasa.pds.tools.label.Sequence;
-import gov.nasa.pds.tools.label.ObjectStatement;
-import gov.nasa.pds.tools.label.AttributeStatement;
-import gov.nasa.pds.tools.label.PointerStatement;
-import gov.nasa.pds.tools.label.Value;
-import gov.nasa.pds.tools.containers.FileReference;
-
-import gov.nasa.pds.citool.report.IngestReport;
-import gov.nasa.pds.citool.util.References;
+import java.util.List;
+import java.util.Map;
 import gov.nasa.pds.citool.file.FileObject;
 import gov.nasa.pds.citool.file.MD5Checksum;
 import gov.nasa.pds.citool.registry.model.Metadata;
 import gov.nasa.pds.citool.registry.model.RegistryObject;
+import gov.nasa.pds.citool.report.IngestReport;
+import gov.nasa.pds.citool.util.References;
+import gov.nasa.pds.tools.containers.FileReference;
+import gov.nasa.pds.tools.label.AttributeStatement;
+import gov.nasa.pds.tools.label.Label;
+import gov.nasa.pds.tools.label.ObjectStatement;
+import gov.nasa.pds.tools.label.PointerStatement;
+import gov.nasa.pds.tools.label.Scalar;
+import gov.nasa.pds.tools.label.Sequence;
+import gov.nasa.pds.tools.label.Set;
+import gov.nasa.pds.tools.label.Value;
 
 
 /**
@@ -162,7 +161,6 @@ public class CatalogObject {
 
 		// first level catalog object
 		for (ObjectStatement objSmt : objList) {
-			//System.out.println("CATALOG object type = " + objType);
 			if (objType.equalsIgnoreCase("VOLUME")) {
 				List<ObjectStatement> objList2 = objSmt.getObjects();
 								
@@ -174,11 +172,13 @@ public class CatalogObject {
 						for (PointerStatement ptSmt : ptList) {
 							if (ptSmt.hasMultipleReferences()) {
 								List<FileReference> refFiles = ptSmt.getFileRefs();
-								for (FileReference fileRef : refFiles) {
-									_pointerFiles.add(fileRef.getPath());
+                                for (FileReference fileRef : refFiles) {
+                                  _pointerFiles
+                                      .add(Paths.get(fileRef.getPath()).getFileName().toString());
 								}
 							} else {
-								_pointerFiles.add(ptSmt.getValue().toString());
+                              _pointerFiles.add(
+                                  Paths.get(ptSmt.getValue().toString()).getFileName().toString());
 							}
 						}
 					}
@@ -189,7 +189,6 @@ public class CatalogObject {
 			String keyDesc = null;
 			for (AttributeStatement attrSmt : attrList) {
 				pdsLabelMap.put(attrSmt.getElementIdentifier(), attrSmt);
-				//System.out.println(attrSmt.getElementIdentifier() + " = " + attrSmt.getValue().toString());
 				
 				// multivalues
 				if (attrSmt.getValue() instanceof Set) {
@@ -200,7 +199,6 @@ public class CatalogObject {
 				}
 				else {
 					_metadata.addMetadata(attrSmt.getElementIdentifier(), attrSmt.getValue().toString());
-					//System.out.println(attrSmt.getElementIdentifier() + " is added into the metadata...");
 				    if (attrSmt.getElementIdentifier().equals("REFERENCE_KEY_ID"))
 				    	keyId = attrSmt.getValue().toString();
 				    
@@ -225,7 +223,6 @@ public class CatalogObject {
 					List<AttributeStatement> objAttr = smt2.getAttributes();
 					lblMap = new HashMap<String, AttributeStatement>(pdsLabelMap);
 					
-					//System.out.println("2nd object name = " + smt2.getIdentifier());
 					if (objType.equalsIgnoreCase("DATA_SET_HOUSEKEEPING") &&
 						smt2.getIdentifier().toString().equals("RESOURCE_INFORMATION")) {
 						_resrcObjs.add(smt2);
@@ -235,11 +232,12 @@ public class CatalogObject {
 					for (AttributeStatement attrSmt : objAttr) {
 						lblMap.put(attrSmt.getElementIdentifier(), attrSmt);
 					
-						//System.out.println("attrSmt.getElementIdentifier() = " + attrSmt.getElementIdentifier());
 						if (attrSmt.getElementIdentifier().toString().equals("TARGET_TYPE")) {
-							String targetName = objSmt.getAttribute("TARGET_NAME").getValue().toString();
-							//System.out.println("target type = " + attrSmt.getValue() + "  target name = " + targetName);
-							_targetInfos.put(targetName, attrSmt.getValue().toString());
+                          if (objSmt.getAttribute("TARGET_NAME") != null) {
+                            String targetName =
+                                objSmt.getAttribute("TARGET_NAME").getValue().toString();
+                            _targetInfos.put(targetName, attrSmt.getValue().toString());
+                          }
 						}
 						
 						if (attrSmt.getValue() instanceof Set) {

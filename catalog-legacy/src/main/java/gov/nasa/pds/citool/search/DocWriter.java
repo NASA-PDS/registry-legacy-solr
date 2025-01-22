@@ -2,10 +2,10 @@ package gov.nasa.pds.citool.search;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
 import org.apache.commons.lang.StringEscapeUtils;
 
 public class DocWriter 
@@ -13,7 +13,7 @@ public class DocWriter
 	private File outDir;
 	private FileWriter writer;	
 	
-	public DocWriter(String outDir, String volumeId) throws Exception
+    public DocWriter(String outDir, String volumeId) throws IOException
 	{
 		this.outDir = new File(outDir);
 		this.outDir.mkdirs();
@@ -23,13 +23,13 @@ public class DocWriter
 		writer.write("<add>\n");
 	}
 	
-	public void close() throws Exception
+    public void close() throws IOException
 	{
 		writer.write("</add>\n");
 		writer.close();
 	}
 	
-	public void write(Map<String, List<String>> fields) throws Exception
+    public void write(Map<String, List<String>> fields) throws IOException
 	{
 		writer.write("<doc>\n");
 		writer.write("<field name=\"package_id\">" + UUID.randomUUID().toString() + "</field>\n");

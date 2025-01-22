@@ -3,11 +3,6 @@
 
 package gov.nasa.pds.citool.report;
 
-import gov.nasa.pds.tools.LabelParserException;
-import gov.nasa.pds.tools.constants.Constants;
-import gov.nasa.pds.tools.constants.Constants.Severity;
-import gov.nasa.pds.citool.status.Status;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,6 +13,10 @@ import java.io.Writer;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+import gov.nasa.pds.citool.status.Status;
+import gov.nasa.pds.tools.LabelParserException;
+import gov.nasa.pds.tools.constants.Constants;
+import gov.nasa.pds.tools.constants.Constants.Severity;
 
 /**
  * Abstract class that represents a Report for the Vtool command line API. This
@@ -170,6 +169,10 @@ public abstract class Report {
           numErrors++;
         }
       } else if (problem.getType().getSeverity() == Constants.Severity.WARNING) {
+        if (problem.getType().equals(
+            Constants.ProblemType.INVALID_LABEL_WARNING)) {
+          status = Status.SKIP;
+        }
         if (Constants.Severity.WARNING.getValue() <= this.level.getValue()) {
           numWarnings++;
         }

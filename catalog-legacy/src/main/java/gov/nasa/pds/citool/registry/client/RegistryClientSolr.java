@@ -1,10 +1,10 @@
 package gov.nasa.pds.citool.registry.client;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
@@ -14,7 +14,6 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.util.NamedList;
-
 import gov.nasa.pds.citool.registry.model.FileInfo;
 import gov.nasa.pds.citool.registry.model.RegistryObject;
 
@@ -42,7 +41,7 @@ public class RegistryClientSolr implements RegistryClient
 	}
 
 
-	public boolean publishFile(FileInfo fi) throws Exception
+    public boolean publishFile(FileInfo fi) throws IOException
 	{
 		// A file with this MD5 hash already exists
 		if(md5Exists(fi))
@@ -64,7 +63,7 @@ public class RegistryClientSolr implements RegistryClient
 	        Object error = resp.get("error"); 
 	        if(error != null)
 	        {
-	        	log.warning("Blob: " + blobName + ": " + error.toString());
+              throw new RegistryClientException("Blob: " + blobName + ": " + error.toString());
 	        }
 	    }
 		catch (HttpSolrClient.RemoteSolrException ex)
@@ -134,7 +133,7 @@ public class RegistryClientSolr implements RegistryClient
 	}
 	
 	
-	private boolean md5Exists(FileInfo fi) throws Exception
+    private boolean md5Exists(FileInfo fi)
 	{
 		// If md5 starts with '0' Solr 7.7.x strips it out. 
 		// Is it a Solr bug?

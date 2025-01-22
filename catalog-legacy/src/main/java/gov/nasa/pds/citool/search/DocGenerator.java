@@ -1,5 +1,7 @@
 package gov.nasa.pds.citool.search;
 
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +47,9 @@ public class DocGenerator
 	
 	public void close() throws Exception
 	{
-		writer.close();
+      if (writer != null) {
+        writer.close();
+      }
 	}
 	
 	
@@ -67,15 +71,14 @@ public class DocGenerator
 	}
 	
 	
-	public void addDoc(RegistryObject ro) throws Exception
+    public void addDoc(RegistryObject ro) throws DocGeneratorException, IOException
 	{
 		String objType = ro.getObjectType(); 
 		
 		Product conf = DocConfigManager.getInstance().getConfigByObjectType(objType);
-		if(conf == null)
-		{
-			log.warning("No doc config for " + objType);
-			return;
+        if (conf == null) {
+          throw new DocGeneratorException(
+              "Solr Doc Generator not configured to support " + objType);
 		}
 		
 		Map<String, List<String>> docFields = getDocFields(conf, ro.getSlots());
@@ -83,7 +86,8 @@ public class DocGenerator
 	}
 
 	
-	private Map<String, List<String>> getDocFields(Product conf, Slots slots) throws Exception
+    private Map<String, List<String>> getDocFields(Product conf, Slots slots)
+        throws DocGeneratorException
 	{
 		Map<String, List<String>> docFields = new TreeMap<String, List<String>>(); 
 		
@@ -175,7 +179,7 @@ public class DocGenerator
 	}
 	
 	
-	private List<String> getFieldValues(Field field, Slots slots) throws Exception
+    private List<String> getFieldValues(Field field, Slots slots) throws DocGeneratorException
 	{
 		List<String> docValues = new ArrayList<String>(); 
 		
@@ -222,7 +226,8 @@ public class DocGenerator
 	}
 	
 	
-	private String handleTemplate(OutputString outString, Slots slots) throws Exception
+    private String handleTemplate(OutputString outString, Slots slots)
+        throws DocGeneratorException
 	{
 		String str = outString.getValue();
 		
@@ -234,6 +239,7 @@ public class DocGenerator
 			String key = str.substring(start + 1, end);
 			String value = null;
 			
+            try {
 			if(key.contains("."))
 			{
 				List<String> vals = handleComplexPath(key, slots);
@@ -258,6 +264,9 @@ public class DocGenerator
 				log.warning("No value for key " + key);
 				str = str.replace("{" + key + "}", "");
 			}
+          } catch (UnsupportedEncodingException e) {
+            throw new DocGeneratorException(e.getClass().getName() + " : " + e.getMessage());
+          }
 	    }
 	    
 	    return str;

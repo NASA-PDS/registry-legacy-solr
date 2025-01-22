@@ -10,6 +10,8 @@ import gov.nasa.pds.citool.ingestor.CatalogObject;
 import gov.nasa.pds.citool.ingestor.CatalogVolumeIngester;
 import gov.nasa.pds.citool.ingestor.Constants;
 import gov.nasa.pds.citool.registry.model.Metadata;
+import gov.nasa.pds.tools.LabelParserException;
+import gov.nasa.pds.tools.constants.Constants.ProblemType;
 import gov.nasa.pds.tools.label.AttributeStatement;
 
 public class ReferenceUtils
@@ -522,7 +524,10 @@ public class ReferenceUtils
 			
 			if(valueToMatch == null)
 			{
-				log.warning(catObj.getCatObjType() + ": "+ key + " = NULL");
+              LabelParserException lp = new LabelParserException(catObj.getLabel().getLabelURI(),
+                  null, null, "ingest.warning.nullvalue", ProblemType.SUCCEED,
+                  catObj.getCatObjType() + ": " + key + " = NULL");
+              catObj.getLabel().addProblem(lp);
 			}
 			else
 			{
