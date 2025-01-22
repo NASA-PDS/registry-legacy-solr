@@ -1,6 +1,6 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-01-08)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-01-22)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...«unknown»)
 
@@ -10,6 +10,7 @@
 
 **Defects:**
 
+- NullPointerException being thrown and catalog-solr is not completing execution [\#184](https://github.com/NASA-PDS/registry-legacy-solr/issues/184) [[s.critical](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.critical)]
 - Possible memory leak related to use of Solr library per `Direct buffer memory` errors [\#172](https://github.com/NASA-PDS/registry-legacy-solr/issues/172) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 
 **Other closed issues:**
