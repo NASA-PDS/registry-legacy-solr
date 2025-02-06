@@ -149,6 +149,8 @@ public class CIToolIngester
 					catIngester.setVolumeId(id);
 					
 					isVolumeCatalog = true;
+
+                    checkPointerFiles(pointerFiles, lbl, catIngester);
 				}
 				
 				catIngester.addCatalogObject(catObj);
@@ -167,20 +169,6 @@ public class CIToolIngester
 		{
 			System.err.println("\nError: VOLUME catalog object is missing in this archive volume. Can't process further.\n");
 			System.exit(1);
-		}
-		
-		for(String ptrFile : pointerFiles) 
-		{
-			// Ignore the reference file when it's N/A
-			if(ptrFile.equals("N/A")) 
-			{
-				continue;
-			}
-
-			if(!catIngester.labelExists(ptrFile))
-			{
-				log.warning("Missing catalog file " + ptrFile);
-			}
 		}
 		
 		return catIngester;
@@ -278,5 +266,21 @@ public class CIToolIngester
             }
             return false;
         }
+    }
+
+    private void checkPointerFiles(List<String> pointerFiles, Label label,
+        CatalogVolumeIngester catIngester) {
+      for (String ptrFile : pointerFiles) {
+        // Ignore the reference file when it's N/A
+        if (ptrFile.equals("N/A")) {
+          continue;
+        }
+
+        if (!catIngester.labelExists(ptrFile)) {
+          LabelParserException lp = new LabelParserException(label.getLabelURI(), null, null,
+              "parser.warning.missingPointer", ProblemType.UNKNOWN_FILE, ptrFile);
+          label.addProblem(lp);
+        }
+      }
     }
 }
