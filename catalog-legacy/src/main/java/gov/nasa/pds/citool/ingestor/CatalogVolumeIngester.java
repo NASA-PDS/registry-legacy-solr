@@ -185,7 +185,7 @@ public class CatalogVolumeIngester
 			// New product
 			RegistryObject product = ProductFactory.createProduct(catObj, this);
 			catObj.setVersion(1.0f);
-			product.setVersionName("1.0");
+            product.setVersionName("99.0");
 
 			catObj.setExtrinsicObject(product);
 			return product.getLid();
