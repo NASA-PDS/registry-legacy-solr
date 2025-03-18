@@ -35,6 +35,7 @@ src/test/temp/
 
 # other stuff
 *.xpr
+*.env
 *.swp
 /bin/
 .*.swp
