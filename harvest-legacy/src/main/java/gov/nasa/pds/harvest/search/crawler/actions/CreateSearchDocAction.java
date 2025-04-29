@@ -31,8 +31,6 @@ import gov.nasa.pds.search.core.exception.SearchCoreFatalException;
  */
 public class CreateSearchDocAction extends CrawlerAction {
 
-  private static Logger log = Logger.getLogger(CreateSearchDocAction.class.getName());
-
   /** The crawler action identifier. */
   private final static String ID = "CreateSearchDocAction";
 
