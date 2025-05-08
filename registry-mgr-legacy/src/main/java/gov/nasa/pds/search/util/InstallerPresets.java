@@ -6,11 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class InstallerPresets extends Properties {
 
 	private static final long serialVersionUID = 1L;
 	private String presetsFilePath;
+	private static final Logger logger = LoggerFactory.getLogger(InstallerPresets.class);
 
 	public InstallerPresets() {
 		super();
@@ -20,14 +23,14 @@ public class InstallerPresets extends Properties {
 			propStream = new FileInputStream(new File (presetsFilePath));
 			this.load(propStream);
 			//System.out.println(this.toString());
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			logger.error("Error loading presets", e);
 		} finally {
 			try {
 				if (propStream != null)
 					propStream.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				logger.error("Error closing presets stream", e);
 			}
 		}
 	}
@@ -55,8 +58,8 @@ public class InstallerPresets extends Properties {
 			String nextContents = preContents.replaceAll("\\\\", "");
 			RegistryInstallerUtils.writeToFile(nextVer.toPath(), nextContents);
 		}
-		catch (Throwable t) {
-			System.out.println("ERROR: Problem writing out properties to : " + presetsFilePath);
+		catch (Exception e) {
+			logger.error("Error saving presets", e);
 		}
 	}
 }
