@@ -24,7 +24,7 @@ import gov.nasa.pds.search.util.RegistryInstallerUtils;
  *
  */
 public class RegistryInstaller {
-	private static final Logger log = LoggerFactory.getLogger(RegistryInstaller.class);
+	private static final Logger logger = LoggerFactory.getLogger(RegistryInstaller.class);
 
 	private static final String SEP = File.separator;
 
@@ -213,7 +213,7 @@ public class RegistryInstaller {
                		exit(1);
            		}
             } catch(Exception ex){
-               ex.printStackTrace();
+               logger.error("Error during SOLR server startup", ex);
             }
             in.close();
             print("\nStarting a SOLR server... Waiting up to 180 seconds to see Solr running on port " + solrPort + "...");
@@ -248,12 +248,12 @@ public class RegistryInstaller {
                		else 
                			print("The SOLR server is started successfully.");
             	} catch(InterruptedException ie){
-               		ie.printStackTrace();
+               		logger.error("Installation interrupted", ie);
             	} 
             }       
            	in.close();
 		} catch (Exception err) {
-			err.printStackTrace();
+			logger.error("Error during SOLR server startup", err);
 		} finally {
 			RegistryInstallerUtils.safeClose(progProcess);
         }
@@ -283,7 +283,7 @@ public class RegistryInstaller {
                		exit(1);
            		}
             } catch(Exception ex){
-               ex.printStackTrace();
+               logger.error("Error during SOLR server status check", ex);
             }
             in.close();
 
@@ -307,11 +307,11 @@ public class RegistryInstaller {
                		print("The SOLR server is stopped successfully.");
                	}
             } catch(InterruptedException ie){
-               	ie.printStackTrace();
+               	logger.error("Installation interrupted", ie);
             }    
            	in.close();
 		} catch (Exception err) {
-			err.printStackTrace();
+			logger.error("Error during SOLR server stop", err);
 		} finally {
 			RegistryInstallerUtils.safeClose(progProcess);
         }
@@ -370,7 +370,7 @@ public class RegistryInstaller {
         } 
         catch(Exception ex)
         {
-        	ex.printStackTrace();
+        	logger.error("Error during " + name + " creation", ex);
         	exit(1);
         }
 	}
@@ -408,7 +408,7 @@ public class RegistryInstaller {
         } 
         catch(Exception ex)
         {
-        	ex.printStackTrace();
+        	logger.error("Error during " + name + " deletion", ex);
         }
         finally
         {
