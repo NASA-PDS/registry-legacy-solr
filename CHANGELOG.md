@@ -1,6 +1,6 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-04-29)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-05-12)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...«unknown»)
 
@@ -15,6 +15,7 @@
 
 **Other closed issues:**
 
+- Update regex to avoid potential vulnerability [\#195](https://github.com/NASA-PDS/registry-legacy-solr/issues/195)
 - Remove Tools from Registry for MVP delivery [\#141](https://github.com/NASA-PDS/registry-legacy-solr/issues/141)
 
 ## [v4.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.3.0) (2024-12-09)
