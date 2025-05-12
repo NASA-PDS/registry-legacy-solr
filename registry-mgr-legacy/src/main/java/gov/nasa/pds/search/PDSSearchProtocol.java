@@ -119,7 +119,7 @@ public class PDSSearchProtocol extends SearchHandler {
 			}
 
 			// If query parameter contains OR then surround in parentheses
-			if (request.getOriginalParams().getParams(QUERY_PARAM)[0].toLowerCase().matches("[^\\(]* or [^\\)]*")) {
+			if (request.getOriginalParams().getParams(QUERY_PARAM)[0].toLowerCase().matches("[^\\(]{0,1000} or [^\\)]{0,1000}")) {
 				queryString.append("(");
 				queryString.append(XssUtils.clean(request.getOriginalParams().getParams(QUERY_PARAM)[0]));
 				queryString.append(")");
