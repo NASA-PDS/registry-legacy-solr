@@ -1,0 +1,23 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "NULL"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "SKY"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "CALIBRATION"
+    PRIMARY_BODY_NAME             = "UNK"
+    ORBIT_DIRECTION               = "UNK"
+    ROTATION_DIRECTION            = "UNK"
+    TARGET_DESC                   = "UNK"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "UNK"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

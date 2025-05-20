@@ -1,0 +1,20 @@
+PDS_VERSION_ID      = PDS3
+LABEL_REVISION_NOTE = "20250116 RChen/EN"
+
+RECORD_TYPE         = STREAM
+
+OBJECT     = DATA_SET_HOUSEKEEPING
+  CURATING_NODE_ID = GEOSCIENCE
+  DATA_SET_ID      = "MEX-M-MRS-1/2/3-EXT9-4344-V1.0"
+
+  OBJECT     = RESOURCE_INFORMATION
+    RESOURCE_ID     = "BROWSERP_MEX-M-MRS-1/2/3-EXT9-4344-V1.0"
+    RESOURCE_CLASS  = "application.dataSetBrowserP"
+    RESOURCE_LINK   = "https://pds-geosciences.wustl.edu/missions/mars_express/mars.htm"
+    RESOURCE_NAME   = "Geosciences Web Service"
+    RESOURCE_STATUS = "UP"
+    DESCRIPTION     = "Geosciences Web Service"
+  END_OBJECT = RESOURCE_INFORMATION
+END_OBJECT = DATA_SET_HOUSEKEEPING
+
+END

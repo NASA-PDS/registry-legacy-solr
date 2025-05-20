@@ -1,0 +1,73 @@
+PDS_VERSION_ID       = PDS3
+LABEL_REVISION_NOTE               = "2004-09-14 RS: stanzel Original;
+                                     2004-10-11 RS: carone updated;
+                                     2004-10-15 RS: carone updated;
+                                     2004-11-08 RS: carone updated;
+                                     2005-01-11 RS: carone updated;
+                                     2005-01-20 RS: carone updated;
+                                     2005-04-18 RS: carone updated;
+                                     2005-12-13 RS: carone updated;
+                                     2008-01-29 RS: stanzel updated
+                                     2010-05-27 RS: oschlisniok
+                                     updated"
+RECORD_TYPE          = "STREAM"
+
+OBJECT               = VOLUME
+
+  VOLUME_SERIES_NAME   = "MISSION TO MARS"
+  VOLUME_SET_NAME      = "MEX: RADIO SCIENCE OCCULTATION"
+  VOLUME_SET_ID        = "GER_UNI_RIU_MEXMRS_1xxx"
+  VOLUMES              = 1
+  MEDIUM_TYPE          = "ELECTRONIC"
+  VOLUME_FORMAT        = "ISO-9660"
+  VOLUME_ID            = MEXMRS_1845
+  VOLUME_VERSION_ID    = "VERSION 1"
+  VOLUME_NAME          = "MEXMRS_1845_2023_246_V1.0"
+  PUBLICATION_DATE     =  2024-03-18
+  DATA_SET_ID          = "MEX-M-MRS-1/2/3-EXT9-4334-V1.0"
+
+  DESCRIPTION          = "This volume contains raw data, partially
+                          processed data, and ancillary files from the
+                          Mars Express Radio Science experiment from
+                          the mission phase
+                          Extended Mission 8 (EXT9).
+                          This is a Occultation measurement
+                          from 2023-09-03T02:01:11.100 to
+                          2023-09-03T02:23:19.300."
+
+
+  OBJECT               = DATA_PRODUCER
+    INSTITUTION_NAME     = "RHEINISCHES INSTITUT FUER UMWELTFORSCHUNG,
+                            PLANETENFORSCHUNG"
+    FACILITY_NAME        = "N/A"
+    FULL_NAME            = "MARS EXPRESS RADIO SCIENCE TEAM"
+    ADDRESS_TEXT         = "RHEINISCHES INSTITUT FUER UMWELTFORSCHUNG
+                            ABTEILUNG PLANETENFORSCHUNG
+                            AN DER UNIVERSITAET ZU KOELN
+                            AACHENER STRASSE 209
+                            50931 COLOGNE
+                            GERMANY"
+  END_OBJECT          = DATA_PRODUCER
+
+  OBJECT              = CATALOG
+    ^MISSION_CATALOG         = "../zzold/missionMEX.cat"
+    ^INSTRUMENT_HOST_CATALOG = "../zzold/hostMEX.cat"
+    ^INSTRUMENT_CATALOG      = "../zzold/instMEXmrs.cat"
+    ^REFERENCE_CATALOG       = "../zzold/refMEX.cat"
+    ^PERSONNEL_CATALOG       = "../zzold/personMEXmrs.cat"
+    ^SOFTWARE_CATALOG        = "../zzold/softMEXmrs.cat"
+    ^DATA_SET_CATALOG        = "dataset.cat"
+    ^HOUSEKEEPING_CATALOG    = "hsk.cat"
+    ^TARGET_CATALOG           = {
+        "../zzold/targCALIBRATION.cat", "../zzold/targCOMET.cat",
+        "../zzold/targDEEP.SPACE.cat", "../zzold/targDEIMOS.cat",
+        "../zzold/targEARTH.cat", "../zzold/targINTERNAL.SOURCE.cat",
+        "../zzold/targMARS.cat", "../zzold/targPHOBOS.cat",
+        "../zzold/targRESPONSIVITY.cat", "../zzold/targSKY.cat",
+        "../zzold/targSOLAR.WIND.cat", "../zzold/targSTAR.cat",
+        "../zzold/targSUN.cat"}
+  END_OBJECT          = CATALOG
+
+END_OBJECT          = VOLUME
+END
+

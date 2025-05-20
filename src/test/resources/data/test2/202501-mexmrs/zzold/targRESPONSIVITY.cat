@@ -1,0 +1,24 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "2012-03-20 EN:BSword"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "RESPONSIVITY"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "CALIBRATION"
+    PRIMARY_BODY_NAME             = "N/A"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "N/A"
+    TARGET_DESC                   = "    (Calibration target used by Mars
+                                      Express PFS instrument)."
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "N/A"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

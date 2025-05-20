@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.sch" 
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1N00_1310.sch" 
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/particle/v2/PDS4_PARTICLE_1N00_2020.sch"
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Collection
+  xmlns="http://pds.nasa.gov/pds4/pds/v1"
+  xmlns:msn="http://pds.nasa.gov/pds4/msn/v1"
+  xmlns:particle="http://pds.nasa.gov/pds4/particle/v2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+  http://pds.nasa.gov/pds4/pds/v1         https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.xsd
+  http://pds.nasa.gov/pds4/particle/v2     https://pds.nasa.gov/pds4/particle/v2/PDS4_PARTICLE_1N00_2020.xsd
+  http://pds.nasa.gov/pds4/msn/v1        https://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1N00_1310.xsd
+  ">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:p10-hvm-pa-crt-cal:data-merged-1hour</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>Pioneer 10 Calibrated HVM PA CRT 1 Hour Averaged Data Collection</title>
+    <information_model_version>1.23.0.0</information_model_version>
+    <product_class>Product_Collection</product_class>
+    <Citation_Information>
+      <publication_year>2025</publication_year>
+      <description>This collection contains Pioneer 10 Helium 
+        Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
+        and Cosmic Ray (CRT) merged 1 hour averaged data</description>
+      <List_Author>
+        <Person>
+          <given_name>Edward J.</given_name>
+          <family_name>Smith</family_name>
+          <Affiliation>
+            <organization_name>Jet Propulsion Laboratory</organization_name>
+            <organization_rorid>https://ror.org/027k65916</organization_rorid>
+            <sequence_number>1</sequence_number>
+          </Affiliation>
+        </Person>
+        <Person>
+          <given_name>Aaron</given_name>
+          <family_name>Barnes</family_name>
+          <Affiliation>
+            <organization_name>NASA Ames Research Center</organization_name>
+            <organization_rorid>https://ror.org/02acart68</organization_rorid>
+            <sequence_number>1</sequence_number>
+          </Affiliation>
+        </Person>
+        <Person>
+          <given_name>Frank Bethune</given_name>
+          <family_name>McDonald</family_name>
+          <Affiliation>
+            <organization_name>Institute for Physical Science and Technology
+              University of Maryland</organization_name>
+            <organization_rorid>https://ror.org/047s2c258</organization_rorid>
+            <sequence_number>1</sequence_number>
+          </Affiliation>
+        </Person>
+      </List_Author>
+    </Citation_Information>
+    <Modification_History>
+      <Modification_Detail>
+        <modification_date>2025-05-14</modification_date>
+        <version_id>1.0</version_id>
+        <description>This is the original version of this collection in PDS4.</description>
+      </Modification_Detail>
+    </Modification_History>
+  </Identification_Area>
+  <Context_Area>
+    <Time_Coordinates>
+      <start_date_time>1972-03-03T00:00:00.000Z</start_date_time>
+      <stop_date_time>1995-12-31T23:00:00.000Z</stop_date_time>
+    </Time_Coordinates>
+    <Primary_Result_Summary>
+      <purpose>Science</purpose>
+      <processing_level>Calibrated</processing_level>
+      <Science_Facets>
+        <discipline_name>Fields</discipline_name>
+        <facet1>Magnetic</facet1>
+        <facet2>Background</facet2>
+      </Science_Facets>
+      <Science_Facets>
+        <discipline_name>Particles</discipline_name>
+        <facet1>Ions</facet1>
+        <facet2>Plasma</facet2>
+      </Science_Facets>
+      <Science_Facets>
+        <discipline_name>Particles</discipline_name>
+        <facet1>Ions</facet1>
+        <facet2>Cosmic Ray</facet2>
+      </Science_Facets>
+    </Primary_Result_Summary>
+    <Investigation_Area>
+      <name>Pioneer 10</name>
+      <type>Mission</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:investigation:mission.pioneer_10</lid_reference>
+        <reference_type>collection_to_investigation</reference_type>
+      </Internal_Reference>
+    </Investigation_Area>
+    <Observing_System>
+      <Observing_System_Component>
+        <name>Helium Vector Magnetometer (HVM)</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:hvm.p10</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>Quadraspherical Plasma Analyzer (PA)</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:pa.p10</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>Cosmic Ray Telescope (CRT)</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:crt.p10</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>Pioneer 10</name>
+        <type>Host</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.p10</lid_reference>
+          <reference_type>is_instrument_host</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+    </Observing_System>
+    <Target_Identification>
+      <name>Solar Wind</name>
+      <type>Plasma Stream</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:target:plasma_stream.solar_wind</lid_reference>
+        <reference_type>collection_to_target</reference_type>
+      </Internal_Reference>
+    </Target_Identification>
+    <Target_Identification>
+      <name>Jupiter</name>
+      <type>Planet</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:target:planet.jupiter</lid_reference>
+        <reference_type>collection_to_target</reference_type>
+      </Internal_Reference>
+    </Target_Identification>
+    <Discipline_Area>
+      <msn:Mission_Information>
+        <msn:mission_phase_name>Earth-Jupiter Cruise</msn:mission_phase_name>
+        <msn:mission_phase_name>Jupiter Encounter</msn:mission_phase_name>
+        <msn:mission_phase_name>Post-Jupiter Cruise</msn:mission_phase_name>
+      </msn:Mission_Information>
+      <particle:Particle_Observation>
+        <particle:Particle_Parameter>
+          <particle:particle_type>Ions</particle:particle_type>
+          <particle:particle_measurement_type>Velocity</particle:particle_measurement_type>
+          <particle:ion_type>Proton</particle:ion_type>
+        </particle:Particle_Parameter>
+        <particle:Particle_Parameter>
+          <particle:particle_type>Ions</particle:particle_type>
+          <particle:particle_measurement_type>Density</particle:particle_measurement_type>
+          <particle:ion_type>Proton</particle:ion_type>
+        </particle:Particle_Parameter>
+        <particle:Particle_Parameter>
+          <particle:particle_type>Ions</particle:particle_type>
+          <particle:particle_measurement_type>Temperature</particle:particle_measurement_type>
+          <particle:ion_type>Proton</particle:ion_type>
+        </particle:Particle_Parameter>
+      </particle:Particle_Observation>
+      <particle:Particle_Observation>
+        <particle:energy_range_minimum unit="MeV">3.45</particle:energy_range_minimum>
+        <particle:energy_range_maximum unit="MeV">227.3</particle:energy_range_maximum>
+        <particle:Particle_Parameter>
+          <particle:particle_type>Ions</particle:particle_type>
+          <particle:particle_measurement_type>Flux</particle:particle_measurement_type>
+          <particle:ion_type>Proton</particle:ion_type>
+        </particle:Particle_Parameter>
+      </particle:Particle_Observation>
+    </Discipline_Area>
+  </Context_Area>
+  <Reference_List>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:context:resource:resource.p10-hvm-pa-crt-cal_online</lid_reference>
+      <reference_type>has_resource</reference_type>
+    </Internal_Reference>
+    <Internal_Reference>
+      <lidvid_reference>urn:nasa:pds:p10-hvm-pa-crt-cal:document:data-desc-merged-1hour::1.0</lidvid_reference>
+      <reference_type>collection_to_document</reference_type>
+    </Internal_Reference>
+    <Source_Product_External>
+      <external_source_product_identifier>P10-J-HVM/PA-4-SUMM-MERGED-1HR-V1.0</external_source_product_identifier>
+      <reference_type>data_to_calibrated_source_product</reference_type>
+      <doi>10.17189/1519771</doi>
+      <curating_facility>PDS Planetary Plasma Interactions Node</curating_facility>
+      <description>A portion of the data were obtained from NSSDCA and these are the first 
+        released from PDS. The DOI provided references the PDS3 source data set.</description>
+    </Source_Product_External>
+  </Reference_List>
+  <Collection>
+    <collection_type>Data</collection_type>
+    <description>This collection contains Pioneer 10 Helium 
+      Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
+      and Cosmic Ray (CRT) merged 1 hour averaged data</description>
+  </Collection>
+  <File_Area_Inventory>
+    <File>
+      <file_name>collection-data-hvm-pa-crt-1hour-1.0.csv</file_name>
+      <creation_date_time>2025-04-17</creation_date_time>
+      <file_size unit="byte">1608</file_size>
+      <md5_checksum>9495eb864e84977bcd4ad9e0693c541c</md5_checksum>
+    </File>
+    <Inventory>
+      <offset unit="byte">0</offset>
+      <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+      <records>24</records>
+      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+      <field_delimiter>Comma</field_delimiter>
+      <Record_Delimited>
+        <fields>2</fields>
+        <groups>0</groups>
+        <maximum_record_length unit="byte">257</maximum_record_length>
+        <Field_Delimited>
+          <name>Member Status</name>
+          <field_number>1</field_number>
+          <data_type>ASCII_String</data_type>
+          <maximum_field_length unit="byte">1</maximum_field_length>
+        </Field_Delimited>
+        <Field_Delimited>
+          <name>LIDVID_LID</name>
+          <field_number>2</field_number>
+          <data_type>ASCII_LIDVID_LID</data_type>
+          <maximum_field_length unit="byte">255</maximum_field_length>
+        </Field_Delimited>
+      </Record_Delimited>
+      <reference_type>inventory_has_member_product</reference_type>
+    </Inventory>
+  </File_Area_Inventory>
+</Product_Collection>

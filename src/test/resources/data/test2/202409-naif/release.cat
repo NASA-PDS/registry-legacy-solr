@@ -1,0 +1,25 @@
+PDS_VERSION_ID                  = PDS3
+LABEL_REVISION_NOTE             = "
+  2017-06-20 NAIF:Semenov initial version;
+  ...
+  2024-09-17 NAIF:Bailey added release 0027;
+  "
+RECORD_TYPE                     = STREAM
+
+OBJECT                          = DATA_SET_RELEASE
+  DATA_SET_ID                     = "JNO-J/E/SS-SPICE-6-V1.0"
+  RELEASE_ID                      = "0027"
+  RELEASE_DATE                    = 2024-09-24
+  RELEASE_MEDIUM                  = "ONLINE DISK STORAGE"
+  PRODUCT_TYPE                    = "SPICE_KERNELS"
+  ARCHIVE_STATUS                  = "LOCALLY ARCHIVED"
+  DISTRIBUTION_TYPE               = "JNO-SPICE"
+  DATA_PROVIDER_NAME              = "JPL-NAIF"
+  RELEASE_PARAMETER_TEXT          = ""
+  DESCRIPTION                     = "
+    This release contains the complete set of the JUNO SPICE Kernels
+    covering from post PJ51 (2023-11-23) to PJ53 (2024-03-07)."
+END_OBJECT                      = DATA_SET_RELEASE
+
+END
+

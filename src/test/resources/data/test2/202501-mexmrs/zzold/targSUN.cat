@@ -1,0 +1,92 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "2008-03-20 SBN:McLaughlin Replaced
+(invalid) tabs in this file with spaces;"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "SUN"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "SUN"
+    PRIMARY_BODY_NAME             = "SOLAR SYSTEM BARYCENTER"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "N/A"
+    TARGET_DESC                   = "
+
+    TARGET PARAMETERS
+    =================
+ 
+ 
+    MASS                            : 1989099999999999887809347321856.00000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        TARGET_PARAMETER_EPOCH          : 1989
+        DATA_SOURCE_ID                  : PHYSICAL-SUN
+ 
+    MASS_DENSITY                    : 1.410000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        TARGET_PARAMETER_EPOCH          : 1989
+        DATA_SOURCE_ID                  : MASS-SUN
+ 
+    EQUATORIAL_RADIUS               : 696265.000000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        DATA_SOURCE_ID                  : EQUATRADIUS-SUN
+ 
+    SURFACE_GRAVITY                 : 274.000000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        TARGET_PARAMETER_EPOCH          : 1989
+        DATA_SOURCE_ID                  : SURFGRAV-SUN
+ 
+    POLE_RIGHT_ASCENSION            : 286.100000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        TARGET_PARAMETER_EPOCH          : 1989
+        DATA_SOURCE_ID                  : ROTATION-SUN
+ 
+    POLE_DECLINATION                : 63.900000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        TARGET_PARAMETER_EPOCH          : 1989
+        DATA_SOURCE_ID                  : ROTATION-SUN
+ 
+    SIDEREAL_ROTATION_PERIOD        : 25.400000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        DATA_SOURCE_ID                  : ROTATION-SUN
+ 
+    OBLIQUITY                       : 7.250000
+        TARGET_PARAMETER_UNCERTAINTY    : UNK
+        DATA_SOURCE_ID                  : ROTATION-SUN
+ 
+ 
+    Data Source Descriptions
+    ========================
+ 
+    EQUATRADIUS-SUN
+        The Astronomical Almanac, 1989, page K7.
+ 
+    MASS-SUN
+        Derived from MASS and EQUATORIAL_RADIUS (ER) as:
+ 
+              MASS_DENSITY = MASS/(1.33 * PI * (ER**3))
+ 
+    PHYSICAL-SUN
+        The 1989 Astronomical Almanac, page K6
+ 
+    ROTATION-SUN
+        The Atronomical Almanac, 1989, page C3
+ 
+    SURFGRAV-SUN
+        Derived from data in the 1989 Astronomical Almanac as:
+ 
+          SURFACE_GRAVITY = (G * MASS)/ (ER*ER)
+ 
+        where EQUATORIAL_RADIUS (ER) and MASS are from this
+        catalog, and the gravitational constant, G, comes from page
+        K6."
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "UNK"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

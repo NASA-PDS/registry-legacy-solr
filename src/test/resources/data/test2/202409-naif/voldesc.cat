@@ -1,0 +1,55 @@
+ PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+LABEL_REVISION_NOTE           = "
+  2017-06-20 NAIF:Semenov initial version;
+20240923 RChen/EN work around catalog ingest. Delete this line next time.
+  "
+OBJECT                        = VOLUME
+  VOLUME_SERIES_NAME          = "MISSION TO JUPITER"
+  VOLUME_SET_NAME             = "JUNO SPICE FILES"
+  VOLUME_SET_ID               = USA_NASA_JPL_JNOSP_1000
+  VOLUMES                     = 1
+  VOLUME_NAME                 = "JUNO SPICE FILES"
+  VOLUME_ID                   = JNOSP_1000
+  VOLUME_VERSION_ID           = "VERSION 1"
+  PUBLICATION_DATE            = 2017-06-20
+  DATA_SET_ID                 = "JNO-J/E/SS-SPICE-6-V1.0"
+  MEDIUM_TYPE                 = "ELECTRONIC"
+  VOLUME_FORMAT               = "UNK"
+  DESCRIPTION                 = "
+
+    This volume contains navigation and ancillary data in the form of
+    SPICE System kernel files for the JUNO spacecraft and instruments.
+    The data on this volume are released at intervals and may not be
+    complete. Consult the ``catalog/release.cat'' file for information
+    concerning release dates.
+
+    "
+  OBJECT                      = DATA_PRODUCER
+    INSTITUTION_NAME          = "JET PROPULSION LABORATORY"
+    FACILITY_NAME             = "NAIF"
+    FULL_NAME                 = "BORIS V. SEMENOV"
+    ADDRESS_TEXT              = "4800 OAK GROVE DRIVE\n
+                                 PASADENA, CA, 91109-8099"
+  END_OBJECT                  = DATA_PRODUCER
+
+  OBJECT                      = CATALOG
+    ^MISSION_CATALOG          = "zzold/mission.cat"
+    ^INSTRUMENT_HOST_CATALOG  = "zzold/insthost.cat"
+    ^INSTRUMENT_CATALOG       = "zzold/spice_inst.cat"
+    ^HOUSEKEEPING_CATALOG     = "zzold/spice_hsk.cat"
+    ^PERSONNEL_CATALOG        = "zzold/person.cat"
+    ^REFERENCE_CATALOG        = "zzold/ref.cat"
+    ^DATA_SET_CATALOG         = "spiceds.cat"
+    ^RELEASE_CATALOG          = "release.cat"
+    ^TARGET_CATALOG           = {
+      "../zzold/targCALLISTO.cat", "../zzold/targDUST.cat",
+      "../zzold/targEARTH.cat", "../zzold/targEUROPA.cat",
+      "../zzold/targGANYMEDE.cat", "../zzold/targIO.cat",
+      "../zzold/targIO.PLASMA.TORUS.cat", "../zzold/targJ_RINGS.cat",
+      "../zzold/targJUPITER.cat", "../zzold/targMOON.cat",
+      "../zzold/targSOLAR_SYSTEM.cat", "../zzold/targSOLAR.WIND.cat"}
+  END_OBJECT                  = CATALOG
+
+END_OBJECT                    = VOLUME
+END

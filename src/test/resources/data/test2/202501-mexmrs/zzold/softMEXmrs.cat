@@ -1,0 +1,35 @@
+PDS_VERSION_ID                  = PDS3
+LABEL_REVISION_NOTE             = "dummy SOFT.CAT, JZ,ESA"
+RECORD_TYPE                     = STREAM
+RECORD_BYTES                    = 72
+
+OBJECT                          = SOFTWARE
+  SOFTWARE_ID                     = "N/A"
+  SOFTWARE_VERSION_ID             = "N/A"
+
+ OBJECT                          = SOFTWARE_INFORMATION
+    DATA_FORMAT                    = "N/A"
+    NODE_ID                        = "N/A"
+    PDS_USER_ID                    = "N/A"
+    REQUIRED_STORAGE_BYTES         = "N/A"
+    SOFTWARE_DESC                  = "N/A"
+    SOFTWARE_LICENSE_TYPE          = "N/A"
+    SOFTWARE_NAME                  = "N/A"
+    TECHNICAL_SUPPORT_TYPE         = "N/A"
+ END_OBJECT                      = SOFTWARE_INFORMATION
+
+ OBJECT                          = SOFTWARE_ONLINE
+    NODE_ID                        = "N/A"
+    ON_LINE_IDENTIFICATION         = "N/A"
+    ON_LINE_NAME                   = "N/A"
+    PLATFORM                       = "N/A"
+    PROTOCOL_TYPE                  = "N/A"
+ END_OBJECT                      = SOFTWARE_ONLINE
+
+ OBJECT                          = SOFTWARE_PURPOSE
+    SOFTWARE_PURPOSE               = "N/A"
+ END_OBJECT                      = SOFTWARE_PURPOSE
+
+END_OBJECT                      = SOFTWARE
+
+END

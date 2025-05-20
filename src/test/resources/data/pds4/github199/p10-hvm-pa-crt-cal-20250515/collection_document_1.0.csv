@@ -1,0 +1,7 @@
+P,urn:nasa:pds:p10-hvm-pa-crt-cal:document:errata::1.0
+P,urn:nasa:pds:p10-hvm-pa-crt-cal:document:data-desc-merged-1hour::1.0
+S,urn:nasa:pds:pioneer10-mission:document-mission:mission
+S,urn:nasa:pds:pioneer10-mission:document-hvm
+S,urn:nasa:pds:pioneer10-mission:document-pa
+S,urn:nasa:pds:pioneer10-mission:document-crt
+S,urn:nasa:pds:pioneer10-mission:document-mission:spacecraft

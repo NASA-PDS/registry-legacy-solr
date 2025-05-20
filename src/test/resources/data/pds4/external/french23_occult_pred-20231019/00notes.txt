@@ -1,0 +1,25 @@
+This tests the legacy harvest's ability to ingest Product_External.
+
+I got 1 Product_External to ingest. Nothing else. So I:
+JORDAN NIXED CHANGE #1, SO PRODUCT_EXTERNAL (and wannabes) GETS ITS OWN RULES
+- changed the LID from
+  urn:nasa:rms-annex:french23_occult_pred
+to
+  urn:nasa:pds:rms-annex:document:french23_occult_pred
+- created a fake data file
+- commented out the checksum and the file_size pointing to that file
+- created 2 resource files since Jordan wrote:
+  here are the resource links they want for this data product:
+  Link to SOM dataset: https://pds-rings.seti.org/rms-annex/french23_occult_pred/SOM/
+  Link to article (R. G. French & D. Souami, 2023, PSJ, 4) DOI: https://doi.org/10.3847/PSJ/aced50
+
+validate Version 3.2.0 Release Date: 2023-04-14 00:53:23
+gave this line 4 times:
+  WARNING: Supplied DOM uses namespaces, but is not created as namespace-aware
+and also flagged Encoded_External/encoding_standard_id:
+  encoding parameter 'ASCII_File_Name' is not known to this version of validate.
+Nothing in .sch Encoded_External/encoding_standard_id or even a loose
+encoding_standard_id
+
+
+

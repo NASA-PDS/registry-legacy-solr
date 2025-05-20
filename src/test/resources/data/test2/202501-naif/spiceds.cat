@@ -1,0 +1,481 @@
+PDS_VERSION_ID                       = PDS3
+RECORD_TYPE                          = STREAM
+LABEL_REVISION_NOTE                  = "
+  2017-06-20 NAIF:Semenov initial version;
+  2017-08-25 NAIF:Semenov updated sTOP_TIME;
+  2017-12-11 NAIF:Semenov updated sTOP_TIME; updated CK section for
+                          MOB temperature-based and connection CKs;
+  2018-03-21 NAIF:Semenov updated sTOP_TIME;
+  2018-07-12 NAIF:Semenov updated sTOP_TIME;
+  2018-10-23 NAIF:Semenov updated sTOP_TIME;
+  2019-02-08 NAIF:Semenov updated sTOP_TIME;
+  2019-05-22 NAIF:Semenov updated sTOP_TIME;
+  2019-09-04 NAIF:Semenov updated sTOP_TIME;
+  2019-12-16 NAIF:Semenov updated sTOP_TIME;
+  2020-04-02 NAIF:Semenov updated sTOP_TIME;
+  2020-07-20 NAIF:Semenov updated sTOP_TIME;
+  2020-11-05 NAIF:Semenov updated sTOP_TIME;
+  2021-02-18 NAIF:Costa updated sTOP_TIME;
+  2021-04-12 NAIF:Costa updated cITATION_DESC with DOI and author
+                        list;
+  2021-05-20 NAIF:Costa updated sTOP_TIME;
+  2021-09-09 NAIF:Costa updated sTOP_TIME;
+  2021-12-10 NAIF:Costa updated sTOP_TIME;
+  2022-03-12 NAIF:Costa updated sTOP_TIME;
+  2022-06-13 NAIF:Semenov updated sTOP_TIME;
+  2022-09-15 NAIF:Semenov updated sTOP_TIME;
+  2022-12-08 NAIF:Semenov updated sTOP_TIME;
+  2023-03-01 NAIF:Bailey updated sTOP_TIME, cITATION_DESC author list;
+  2023-06-20 NAIF:Bailey updated sTOP_TIME;
+  2023-10-23 NAIF:Bailey updated sTOP_TIME, pRODUCER_FULL_NAME;
+  2024-01-29 NAIF:Bailey updated sTOP_TIME;
+  2024-06-03 NAIF:Bailey updated sTOP_TIME;
+  2024-09-17 NAIF:Bailey updated sTOP_TIME;
+  2024-12-17 NAIF:Bailey updated sTOP_TIME;
+  "
+OBJECT                               = DATA_SET
+  DATA_SET_ID                        = "JNO-J/E/SS-SPICE-6-V1.0"
+  OBJECT                             = DATA_SET_INFORMATION
+    DATA_SET_NAME                    = "JUNO SPICE KERNELS V1.0"
+    DATA_SET_TERSE_DESC              = "
+      Navigation and ancillary data in the form of SPICE System kernel
+      files for the JUNO spacecraft.
+      "
+    ABSTRACT_DESC                    = "
+      This data set includes the complete set of JUNO SPICE data files
+      (``kernel files''), which can be accessed using SPICE software.
+      The SPICE data contain geometric and other ancillary information
+      needed to recover the full value of science instrument data. In
+      particular SPICE kernels provide spacecraft and planetary
+      ephemerides, instrument mounting alignments, spacecraft
+      orientation, and data needed for relevant time conversions.
+      "
+    CITATION_DESC                    = "
+      Semenov, B.V., C.H. Acton, M. Costa Sitja, and A.M. Bailey,
+      JUNO SPICE KERNELS V1.0, JNO-J/E/SS-SPICE-6-V1.0,
+      NASA Planetary Data System, 2017.
+      https://doi.org/10.17189/1520117
+      "
+    DATA_SET_COLLECTION_MEMBER_FLG   = "N"
+    START_TIME                       = 2011-08-05T17:18:06
+    STOP_TIME                        = 2024-06-14T23:59:59
+    DATA_SET_RELEASE_DATE            = 2017-06-20
+    PRODUCER_FULL_NAME               = "ALYSSA M. BAILEY"
+    DATA_OBJECT_TYPE                 = "SPICE KERNEL"
+    DETAILED_CATALOG_FLAG            = "Y"
+    DATA_SET_DESC                    = "
+
+      Data Set Overview
+      =================
+
+      This data set includes the complete set of JUNO SPICE data files
+      (``kernel files''), which can be accessed using SPICE software.
+      The SPICE data contain geometric and other ancillary information
+      needed to recover the full value of science instrument data. In
+      particular SPICE kernels provide spacecraft and planetary
+      ephemerides, instrument mounting alignments, spacecraft
+      orientation, and data needed for relevant time conversions.
+
+      This data set is contained on a single virtual volume,
+      JNOSP_1000, including data from all mission phases and covering
+      from launch through the end time of the latest spacecraft
+      attitude file supplied in the data set. Until the end of the
+      spacecraft lifespan this data set is accumulating with new data
+      added approximately every three to six months.
+
+      Data Types (SPICE kernel types)
+      ===============================
+
+      SPK kernels contain ephemerides for spacecraft, planets,
+      satellites, comets and asteroids as well as for moving or fixed
+      spacecraft and instrument structures. They provide position and
+      velocity, given in a Cartesian reference frame. SPK files are
+      located under the ``data/spk'' directory of this data set.
+
+      PCK kernels contain certain physical, dynamical and cartographic
+      constants for target bodies, such as size and shape
+      specifications, and orientation of the spin axis and prime
+      meridian. PCK files are located under the ``data/pck'' directory
+      of this data set.
+
+      IK kernels (Instrument description kernels) give descriptive and
+      operational data peculiar to a particular scientific instrument,
+      such as internal timing relative to the spacecraft clock and
+      field-of-view model parameters. IK files are located under the
+      ``data/ik'' directory of this data set.
+
+      CK kernels describe pointing, containing a transformation
+      traditionally called the C-matrix which is used to determine
+      time-tagged pointing (orientation) angles for a spacecraft
+      structure upon which science instruments are mounted. CK files
+      are located under the ``data/ck'' directory of this data set.
+
+      EK (Events) kernels are derived from the integrated sequence of
+      events used to produce actual spacecraft commands. EK files are
+      located under the ``data/ek'' directory of this data set.
+
+      LSK (Leapseconds) kernels contain the leapseconds and the values
+      of other constants required to perform a transformation between
+      Universal Time Coordinated (UTC) and Ephemeris time (ET). LSK
+      files are located under the ``data/lsk'' directory of this data
+      set.
+
+      SCLK (Spacecraft Clock) kernels contain on-board clock
+      calibration data required to perform a mapping between Ephemeris
+      time (ET) and spacecraft on-board time (SCLK). SCLK files are
+      located under the ``data/sclk'' directory of this data set.
+
+      FK (Frame Definitions) kernels contain information required to
+      define reference frames, sources of frame orientation data and
+      connections between these frames and other frames supported
+      within the SPICE system. This includes mounting alignment
+      information for each instrument. FK files are located under the
+      ``data/fk'' directory of this data set.
+
+
+      Kernel File Details
+      ===================
+
+      A brief overview of the different types of JUNO kernels included
+      in this data set is provided in the CONFIDENCE_LEVEL_NOTE section
+      of this file while details specific to individual files are found
+      in the ``*info.txt'' files in the corresponding data directory.
+      The most detailed description of the data in each file is
+      provided in metadata included inside the file -- in the
+      description area of text kernels or in the comment area of binary
+      kernels.
+
+
+      Software
+      ========
+
+      The SPICE Toolkit contains software modules needed to read SPICE
+      kernel files. SPICE software is highly documented via internal
+      headers. Additional documentation is available in separate ASCII
+      text files called Required Reading files. For example, the S- and
+      P- Kernel (SPK) Required Reading File, named SPK.REQ, describes
+      use of the SPK kernel file readers and contains sample programs.
+
+      The latest SPICE Toolkit for a variety of computer platforms such
+      as PC, Mac, SUN, etc. is available at the NAIF Node of PDS
+      electronically (via anonymous FTP and WWW servers). Refer to
+      information in ``software/softinfo.txt'' for details regarding
+      obtaining this software. Each version of the Toolkit is also
+      archived at the NASA National Space Science Data Center.
+
+
+      Loading Kernel Files into a SPICE-based Application
+      ===================================================
+
+      The easiest way to make data from a collection of SPICE kernels
+      available to a SPICE-based application is to list these kernels
+      in a meta-kernel and load it into the program using the high
+      level SPICE data loader routine FURNSH. This data set provides
+      such meta-kernel(s) under the ``extras/mk'' directory. For more
+      information about the JUNO meta-kernel(s), see the file
+      ``extras/mk/mkinfo.txt''.
+
+      "
+
+    CONFIDENCE_LEVEL_NOTE            = "
+
+      This data set contains SPICE kernel files created during mission
+      operations and after mission data reconstruction and analysis.
+      Some general information about this collection follows here, but
+      the prospective user is also referred to extensive descriptions
+      about each file that are stored inside each kernel file. These
+      metadata provide detailed information regarding the information
+      source from which the data were derived, the type of processing
+      applied to the source data, applicability of the data, etc.
+      Metadata are located in the ``comment area'' for binary kernel
+      types (SPK, CK, ESQ), accessible using either the COMMNT or
+      SPACIT utility program found in the NAIF Toolkit. Metadata are
+      located after ``\begintext'' markers within the text kernel types
+      (PCK, IK, FK, LSK, SCLK, MK), accessible by using any available
+      text file display tool such as a word processor, text editor, or
+      the unix ``more'' or ``cat'' commands.
+
+      Where there are questions about data accuracy or ``confidence''
+      not addressed herein the reader is invited to contact the NAIF
+      node of the Planetary Data System for possible further
+      information.
+
+      SPK Files
+      =========
+
+      SPK files contain ephemerides for spacecraft, planets,
+      satellites, comets and asteroids as well as for moving or fixed
+      spacecraft and instrument structures.
+
+      Three kinds of SPK files are provided in this archive: SPK files
+      for the spacecraft orbit, SPK files for the Solar System planets
+      and satellites, and SPK files for the relative locations of
+      selected spacecraft structures.
+
+      The spacecraft orbit SPK files contain the reconstructed
+      spacecraft trajectory determined by the JUNO Navigation (NAV)
+      Team, JPL. The informal 1-sigma uncertainty for the JUNO
+      spacecraft reconstruction during cruise is on the order of 25
+      kilometers while the informal 1-sigma uncertainty for the JUNO
+      spacecraft reconstruction during perijove passes is on the order
+      1 kilometer.
+
+      This data set also includes the orbit number files generated
+      during the mission using the NAIF's ORBNUM utility program. These
+      files are not SPICE kernels; for this reason they are provided in
+      the ``extras/orbnum'' directory. For more information about the
+      JUNO orbit number files, see the file
+      ``extras/orbnum/orbinfo.txt''.
+
+      The DE436 planetary ephemeris SPK file included in this data set
+      contains ephemeris data for the Solar System planet barycenters,
+      Sun, Mercury, Venus, Earth, and Moon. The JUP310 SPK file
+      included in this data set contain ephemeris data for the eight
+      largest Jovian satellites. These versions of ephemerides were
+      officially used by the project during mission operations. The
+      accuracy information for these ephemerides is provided in the
+      memos released with this data by the Solar System Dynamics (SSD)
+      group, JPL.
+
+      The JUNO structures SPK file included in this archive provides
+      relative locations of the High Gain Antenna (HGA) and MAG
+      sensors. The data included in the file are based of the
+      dimensions from the spacecraft engineering drawings.
+
+      More information about JUNO SPK files is available in the file
+      ``data/spk/spkinfo.txt''.
+
+
+      CK Files
+      ========
+
+      CK files provide time-varying orientation data for the
+      spacecraft, and its structures and science instruments.
+
+      Seven kinds of C-kernel files are provided in this archive: the
+      reconstructed spacecraft bus (SC) orientation CKs; the low-
+      accuracy reconstructed SC orientation CKs; the MAG Advanced
+      Stellar Compass (ASC) Camera Head Units (CHU) and Magnetometer
+      Optical Benches (MOB) reconstructed, inertially referenced
+      attitude CKs; the MAG ASC CHU and MOB averaged alignment,
+      spacecraft frame referenced CKs; the MAG MOB temperature-based
+      alignment, spacecraft frame referenced CKs; the MAG MOB fixed
+      alignment, spacecraft frame referenced CKs; and the merged UVS
+      reconstructed orientation CKs.
+
+      The reconstructed spacecraft bus orientation CKs were created by
+      NAIF from reconstructed attitude products (ATT_RECON DRFs)
+      generated by the Spacecraft Team, LMCO by post-processing on the
+      ground the attitude data from engineering telemetry. As reported
+      by the Spacecraft team, the attitude reconstruction accuracy as
+      applies to the reconstructed attitude quaternions in the
+      ATT_RECON DRFs, inside of PJ-14 hours to PJ+4 hours is 0.41 mrad
+      per axis, 3-sigma (note that long star outages could affect
+      this); outside perijove time periods -- 1.0 mrad per axis,
+      3-sigma, excluding any precessions activities, including repoints
+      and large precessions (e.g., to/from MWR attitudes) and any
+      delta-v maneuver activity (TCM, DSM, JOI, OTM, BTM, APO, BPO,
+      STM, etc); for the remainder of the time -- during any precession
+      or delta-v maneuver activity the errors can be much larger due to
+      thruster pulsing and nutation (based on maneuver performance up
+      to Jun 2017, accuracy is probably within 3 mrad/axis during these
+      delta-v maneuvers) and during precessions (and repoints) the
+      errors depend upon the size of the precession. The angular
+      momentum vector accuracy, as applies to the specific angular
+      momentum vectors in the ATT_RECON DRFs, is 0.15 mrad total angle,
+      3-sigma, excluding any precessions activities (repoints and large
+      precessions, e.g., to/from MWR attitudes) and any delta-v
+      maneuver activity (TCM, DSM, JOI, OTM, BTM, APO, BPO, STM, etc);
+      for the remainder of the time -- during any precession or delta-v
+      maneuver activity the errors can be much larger due to thruster
+      pulsing, which affect the angular momentum vector suddenly and
+      significantly while the available telemetry is not sufficient to
+      reconstruct these sudden shifts.
+
+      The low-accuracy reconstructed spacecraft bus orientation CKs
+      were created by NAIF from low-frequency channelized attitude
+      telemetry. They are provided only for anomaly periods not covered
+      by the reconstructed spacecraft CKs. During these periods the
+      attitude provided by these low-accuracy CKs is good to 0.1-0.25
+      degrees for ``quiet'' intervals with relatively dense data points
+      but has errors of many tens of degrees during spacecraft attitude
+      maneuvers (spin-ups, precession re-pointings, etc) and during
+      intervals with very sparse attitude data points (points spaced
+      hours or even days apart).
+
+      The reconstructed MAG ASC CHU/MOB CKs were created by NAIF from
+      CHU channelized telemetry. They provide inertially referenced
+      orientation for each of the four CHUs (A, B, C, and D) and two
+      MOBs (in-board and out-board). The accuracy and coverage of the
+      attitude stored in these CKs varies depending on downlinked data
+      frequency and CHU performance. When used in MAG data processing
+      these CKs occasionally introduce unfavorable oscillating
+      signatures.
+
+      The averaged alignment, spacecraft frame referenced MAG ASC
+      CHU/MOB CKs were created by NAIF by differencing comparing
+      inertially referenced spacecraft and CHU/MOB orientations
+      provided in their corresponding reconstructed CKs. The
+      time-varying CHU and MOB alignments eliminate oscillating
+      signatures seen when using the reconstructed MAG ASC CHU/MOB CKs
+      but due to the simplistic approach used to derive them might
+      introduce show changing biases in the inertially referenced MAG
+      attitude solutions. It is possible that better alignment CKs
+      resulting from more sophisticated modeling and superseding these
+      CKs will be added to the data set in a later release.
+
+      The temperature-based alignment, spacecraft frame referenced MAG
+      MOB CKs were created by the MAG Team, GSFC using the DTU solar
+      array and SRU bracket thermal distortion model. These CKs, more
+      accurate than the averaged alignment CKs but covering only few
+      day periods around perijoves, were used by the MAG Team to
+      process their perijove data.
+
+      The fixed alignment, spacecraft frame referenced MAG MOB CKs were
+      created by NAIF. These CKs do not contain actual alignment data.
+      Instead they contain zero-offset ``connection'' segments
+      providing access to fixed alignment data stored in the FK.
+      Together with the FK these CKs allow computing MAG sensors
+      orientation accurate to better than 0.5 milliradian between
+      perijoves but are in error of more than one milliradian around
+      perijoves. These CKs were used by the MAG Team to process their
+      data between perijoves.
+
+      The merged UVS reconstructed orientation CKs provide actual
+      telemetry-based orientation of the JUNO UVS instrument
+      observation frame. They were created by NAIF by merging
+      individual UVS CKs produced by the UVS Team, SWRI.
+
+      More information about JUNO CK files is available in the file
+      ``data/ck/ckinfo.txt''.
+
+
+      PCK Files
+      =========
+
+      PCK files provide size, shape and orientation data for ``target''
+      bodies such as Jupiter, Europa, and Earth. A description of these
+      data items and reference to their source is provided inside the
+      PCK file, which is a simple text file that can be viewed using
+      any word processor, text editor or text display utility.
+
+      The generic PCK file included in this data set is based on the
+      IAU/IAG/COSPAR values accepted in 2009.
+
+      More information about the PCK files included in this data set is
+      available in the file ``data/pck/pckinfo.txt''.
+
+
+      FK Files
+      ========
+
+      Frames kernel files provide definitions of the reference frames
+      specifying their names, types, and relationships to other frames.
+
+      The JUNO mission FK file provided in this data set contains the
+      complete set of frame definitions for the spacecraft, its
+      structures such as solar array and antennas, and all of its
+      science instruments. Meta information provided in the comments
+      included in this file consists of the frame definitions,
+      description of the frame relationships, source of and accuracy of
+      the mounting alignment information, etc.
+
+      More information about the JUNO FK files is available in the file
+      ``data/fk/fkinfo.txt''.
+
+
+      IK Files
+      ========
+
+      Instrument kernel files provide specifications for geometric
+      parameters and--where applicable--field-of-view size, shape and
+      orientation for the named instruments. Metadata describing these
+      estimates are provided in each IK file included in this archive.
+      Parameter values were determined from pre-launch measurements,
+      instrument parameters specification documents, and in some cases
+      from analysis of in-flight calibration data. The accuracy
+      estimates for these data vary from instrument to instrument and,
+      where available, are included in the IK internal comments.
+
+      This data set includes IK files for all instruments on the JUNO
+      spacecraft.
+
+      Because the sets of geometric parameters included in the IKs vary
+      from instrument to instrument users are encouraged to carefully
+      examine the IKs before using them.
+
+      More information about JUNO IK files is available in the file
+      ``data/ik/ikinfo.txt''.
+
+
+      SCLK Files
+      ==========
+
+      Spacecraft Clock kernel files provide a tabulation of data needed
+      for converting time measurements between ephemeris time (ET) and
+      spacecraft clock time (SCLK).
+
+      The JUNO SPICE SCLK files were made from similar files--SCLK/SCET
+      files, or SCLKvSCET files--produced by another mission entity.
+      Each newly made SCLK file fully replaces the previous SCLK file.
+      For JUNO, the time correlation accuracy provided in the SCLK
+      kernel files for the Jupiter orbital operations time period is
+      informally reported to be better than 10-20 milliseconds.
+
+      SPICE software does not prohibit an SCLK file from being used for
+      time conversions occurring for ``future times'' (or more
+      accurately, for epochs that occur later than the epoch of the
+      last telemetry data used in producing the last correlation
+      coefficients found in the SCLK file). Such ``predict'' time
+      conversions are likely to be inaccurate (changed somewhat) once
+      the epoch of interest has been passed.
+
+      More information about the JUNO SCLK files is available in the
+      file ``data/sclk/sclkinfo.txt''.
+
+
+      LSK Files
+      =========
+
+      Leapseconds kernel files provide a tabulation of ``leapseconds''
+      and some other terms used in converting time measurements between
+      ephemeris time (ET) and Universal Time (UTC). ``Spacecraft Event
+      Time'' (SCET) is the commonly used name for UTC events measured
+      at the spacecraft.
+
+      Metadata describing how the LSK data are obtained or computed is
+      contained inside the LSK text file. The time conversion provided
+      by SPICE LSK files is accurate to approximately 0.000030 seconds.
+
+      More information about the LSK files is available in the file
+      ``data/lsk/lskinfo.txt''.
+
+      EK Files
+      ========
+
+      The JUNO project did not produce any EK files; therefore, no EKs
+      are included in this data set.
+
+      "
+  END_OBJECT                         = DATA_SET_INFORMATION
+
+  OBJECT                             = DATA_SET_MISSION
+    MISSION_NAME                     = JUNO
+  END_OBJECT                         = DATA_SET_MISSION
+
+  OBJECT                             = DATA_SET_TARGET
+    TARGET_NAME                      = JUPITER
+  END_OBJECT                         = DATA_SET_TARGET
+
+  OBJECT                             = DATA_SET_HOST
+    INSTRUMENT_HOST_ID               = JNO
+    INSTRUMENT_ID                    = SPICE
+  END_OBJECT                         = DATA_SET_HOST
+
+  OBJECT                             = DATA_SET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID                 = "ACTON1994"
+  END_OBJECT                         = DATA_SET_REFERENCE_INFORMATION
+
+END_OBJECT = DATA_SET
+
+END

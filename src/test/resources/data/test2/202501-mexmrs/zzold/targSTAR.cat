@@ -1,0 +1,23 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "NULL"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "STAR"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "STAR"
+    PRIMARY_BODY_NAME             = "N/A"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "N/A"
+    TARGET_DESC                   = "NULL"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "UNK"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+
