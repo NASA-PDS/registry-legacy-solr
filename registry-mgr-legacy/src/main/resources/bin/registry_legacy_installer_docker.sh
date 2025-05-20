@@ -137,12 +137,12 @@ start_registry_container() {
 create_solr_collections() {
     # Create the Registry collections
     echo -ne "Creating Registry collection (registry)                       " | tee -a $LOG
-    docker exec --user=solr ${DOCKER_IMAGE} solr create -c registry -d registry -sh ${numShards} -rf ${replicationFactor} >>$LOG 2>&1
+    docker exec --user=solr ${DOCKER_IMAGE} solr create -c registry -d registry -shards ${numShards} -replicationFactor ${replicationFactor} >>$LOG 2>&1
     print_status $?
 
     # Create the Search collection 
     echo -ne "Creating Search collection (data)                             " | tee -a $LOG
-    docker exec --user=solr ${DOCKER_IMAGE} solr create -c data -d data -sh ${numShards} -rf ${replicationFactor} >>$LOG 2>&1
+    docker exec --user=solr ${DOCKER_IMAGE} solr create -c data -d data -shards ${numShards} -replicationFactor ${replicationFactor} >>$LOG 2>&1
     print_status $?
 }
 
