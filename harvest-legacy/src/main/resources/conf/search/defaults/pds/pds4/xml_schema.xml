@@ -51,6 +51,66 @@
     <field name="citation_editor_list" type="string">
       <registryPath>citation_editor_list</registryPath>
     </field>
+    <field name="citation_author_organization_name" type="string">
+      <registryPath>citation_author_organization_name</registryPath>
+    </field>
+    <field name="citation_author_organization_rorid" type="string">
+      <registryPath>citation_author_organization_rorid</registryPath>
+    </field>
+    <field name="citation_author_organization_contributor_type" type="string">
+      <registryPath>citation_author_organization_contributor_type</registryPath>
+    </field>
+    <field name="citation_author_person_contributor_type" type="string">
+      <registryPath>citation_author_person_contributor_type</registryPath>
+    </field>
+    <field name="citation_author_person_display_full_name" type="string">
+      <registryPath>citation_author_person_display_full_name</registryPath>
+    </field>
+    <field name="citation_author_person_given_name" type="string">
+      <registryPath>citation_author_person_given_name</registryPath>
+    </field>
+    <field name="citation_author_person_family_name" type="string">
+      <registryPath>citation_author_person_family_name</registryPath>
+    </field>
+    <field name="citation_author_person_orcid" type="string">
+      <registryPath>citation_author_person_orcid</registryPath>
+    </field>
+    <field name="citation_author_person_affiliation_organization_name" type="string">
+      <registryPath>citation_author_person_affiliation_organization_name</registryPath>
+    </field>
+    <field name="citation_author_person_affiliation_organization_rorid" type="string">
+      <registryPath>citation_author_person_affiliation_organization_rorid</registryPath>
+    </field>
+    <field name="citation_editor_organization_name" type="string">
+      <registryPath>citation_editor_organization_name</registryPath>
+    </field>
+    <field name="citation_editor_organization_rorid" type="string">
+      <registryPath>citation_editor_organization_rorid</registryPath>
+    </field>
+    <field name="citation_editor_organization_contributor_type" type="string">
+      <registryPath>citation_editor_organization_contributor_type</registryPath>
+    </field>
+    <field name="citation_editor_person_contributor_type" type="string">
+      <registryPath>citation_editor_person_contributor_type</registryPath>
+    </field>
+    <field name="citation_editor_person_display_full_name" type="string">
+      <registryPath>citation_editor_person_display_full_name</registryPath>
+    </field>
+    <field name="citation_editor_person_given_name" type="string">
+      <registryPath>citation_editor_person_given_name</registryPath>
+    </field>
+    <field name="citation_editor_person_family_name" type="string">
+      <registryPath>citation_editor_person_family_name</registryPath>
+    </field>
+    <field name="citation_editor_person_orcid" type="string">
+      <registryPath>citation_editor_person_orcid</registryPath>
+    </field>
+    <field name="citation_editor_person_affiliation_organization_name" type="string">
+      <registryPath>citation_editor_person_affiliation_organization_name</registryPath>
+    </field>
+    <field name="citation_editor_person_affiliation_organization_rorid" type="string">
+      <registryPath>citation_editor_person_affiliation_organization_rorid</registryPath>
+    </field>
     <field name="citation_publication_year" type="string">
       <registryPath>citation_publication_year</registryPath>
     </field>
