@@ -1,16 +1,8 @@
 # Changelog
 
-## [4.4.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/4.4.0) (2025-05-19)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-05-20)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/release/4.4.0...4.4.0)
-
-**Other closed issues:**
-
-- Upgrade Solr to 9.8 due to some known issues with 9.7 [\#197](https://github.com/NASA-PDS/registry-legacy-solr/issues/197)
-
-## [release/4.4.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.4.0) (2025-05-19)
-
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...release/4.4.0)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...«unknown»)
 
 **Requirements:**
 
@@ -23,6 +15,7 @@
 
 **Other closed issues:**
 
+- Upgrade Solr to 9.8 due to some known issues with 9.7 [\#197](https://github.com/NASA-PDS/registry-legacy-solr/issues/197)
 - Update regex to avoid potential vulnerability [\#195](https://github.com/NASA-PDS/registry-legacy-solr/issues/195)
 - Remove Tools from Registry for MVP delivery [\#141](https://github.com/NASA-PDS/registry-legacy-solr/issues/141)
 
