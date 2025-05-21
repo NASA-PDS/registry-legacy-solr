@@ -129,16 +129,6 @@ public abstract class ProductCrawler extends ProductCrawlerBean {
           "Failed to get metadata for product : " + e.getMessage());
     }
 
-    // Set known metadata if not already specified.
-    // addKnownMetadata(product, productMetadata);
-
-    // Check that metadata contains required metadata.
-    // if (!containsRequiredMetadata(productMetadata)) {
-    // LOG.log(Level.SEVERE, "Missing required metadata for product '" + product + "'");
-    // performPostIngestOnFailActions(product, productMetadata);
-    // return createIngestStatus(product, IngestStatus.Result.FAILURE, "Missing required metadata");
-    // }
-
     // Run preIngest actions.
     if (!performPreIngestActions(product, productMetadata)) {
       performPostIngestOnFailActions(product, productMetadata);
@@ -178,11 +168,6 @@ public abstract class ProductCrawler extends ProductCrawlerBean {
 
   protected abstract Metadata getMetadataForProduct(File product) throws Exception;
 
-  // @VisibleForTesting
-  // void setupIngester() {
-  // ingester = new StdIngester(getClientTransferer());
-  // }
-
   @VisibleForTesting
   void loadAndValidateActions() {
     if (actionRepo == null && getApplicationContext() != null) {
@@ -218,27 +203,6 @@ public abstract class ProductCrawler extends ProductCrawlerBean {
     }
     return true;
   }
-
-  // @VisibleForTesting
-  // void addKnownMetadata(File product, Metadata productMetadata) {
-  // // Add ProductName if not specified.
-  // if (!productMetadata.containsKey(PRODUCT_NAME)) {
-  // productMetadata.addMetadata(PRODUCT_NAME, product.getName());
-  // }
-  // // Add Filename if not specified.
-  // if (!productMetadata.containsKey(FILENAME)) {
-  // productMetadata.addMetadata(FILENAME, product.getName());
-  // }
-  // // Add FileLocation if not specified.
-  // if (!productMetadata.containsKey(FILE_LOCATION)) {
-  // productMetadata.addMetadata(FILE_LOCATION,
-  // product.getAbsoluteFile().getParentFile().getAbsolutePath());
-  // }
-  // // Add FileSize if not specified
-  // if (!productMetadata.containsKey(FILE_SIZE)) {
-  // productMetadata.addMetadata(FILE_SIZE, Long.toString(product.length()));
-  // }
-  // }
 
   @VisibleForTesting
   IngestStatus createIngestStatus(final File product, final IngestStatus.Result result,
