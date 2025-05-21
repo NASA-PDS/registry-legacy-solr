@@ -27,6 +27,10 @@
                 and Cosmic Ray (CRT) instruments from the solar wind and Jupiter 
                 encounter period.</description>
             <List_Author>
+                <Organization>
+                    <organization_name>Jet Propulsion Laboratory</organization_name>
+                    <organization_rorid>https://ror.org/027k65916</organization_rorid>
+                </Organization>
                 <Person>
                     <given_name>Edward J.</given_name>
                     <family_name>Smith</family_name>
@@ -56,6 +60,28 @@
                     </Affiliation>
                 </Person>
             </List_Author>
+            <List_Editor>
+                <Organization>
+                    <organization_name>Lunar and Planetary Institute</organization_name>
+                    <organization_rorid>https://ror.org/027k65916</organization_rorid>
+                </Organization>
+                <Person>
+                    <given_name>George</given_name>
+                    <family_name>Washington</family_name>
+                    <Affiliation>
+                        <organization_name>USA</organization_name>
+                        <sequence_number>1</sequence_number>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <given_name>Abraham</given_name>
+                    <family_name>Lincoln</family_name>
+                    <Affiliation>
+                        <organization_name>USA</organization_name>
+                        <sequence_number>2</sequence_number>
+                    </Affiliation>
+                </Person>
+            </List_Editor>
         </Citation_Information>
         <Modification_History>
             <Modification_Detail>
