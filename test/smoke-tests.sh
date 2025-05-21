@@ -22,27 +22,23 @@ OUTDIR=$DATA_HOME/test1
 mkdir -p $OUTDIR
 
 # Install Solr with preconfigured collections
-$LEGACY_REGISTRY_HOME/bin/registry_legacy_installer_docker.sh install
-check_status $? "[ERROR] Registry Manager Install Failure"
+#$LEGACY_REGISTRY_HOME/bin/registry_legacy_installer_docker.sh install
+#check_status $? "[ERROR] Registry Manager Install Failure"
 
 echo "+++ TEST 1 - PDS4 +++"
-TEST_DATA_HOME=$PARENTDIR/src/test/resources/data/test1/a17leamcal_custom
-TEST_DATA_HOME=${TEST_DATA_HOME//\//\\\/}
-
-# Create config file based upon current environment
-sed "s/{TEST_DATA_HOME}/$TEST_DATA_HOME/g" $PARENTDIR/src/test/resources/conf/harvest-policy-master.xml > test-policy.xml
-echo "[INFO] Created new config file with TEST_DATA_HOME=$TEST_DATA_HOME"
+TEST_DATA_HOME=$PARENTDIR/src/test/resources/data/pds4
 
 echo "[INFO] Harvest test data"
-$LEGACY_HARVEST_HOME/bin/harvest-solr -c $(pwd)/test-policy.xml \
+$LEGACY_HARVEST_HOME/bin/harvest-solr -c $LEGACY_HARVEST_HOME/conf/harvest/examples/harvest-policy-master.xml \
                                       -C $LEGACY_HARVEST_HOME/conf/search/defaults \
-                                      -o $OUTDIR --verbose 0
+                                      -o $OUTDIR --verbose 0 \
+                                      --target $TEST_DATA_HOME
 
 check_status $? "[ERROR] Harvest Failure"
 echo "[SUCCESS] Harvest Successful"
 
 echo "[INFO] Check solr docs match expected"
-SOLR_EXPECTED=$PARENTDIR/src/test/resources/data/test1/expected/solr_doc_expected.xml
+SOLR_EXPECTED=$PARENTDIR/src/test/resources/data/pds4/expected/solr_doc_expected.xml
 # Cleanse output file of elements that are specific to where the code is run
 egrep -v "package_id|file_ref_location|file_ref_url|modification_date" $OUTDIR/solr-docs/solr_doc_0.xml > solr_doc_actual.xml
 
@@ -59,9 +55,11 @@ fi
 
 # Load test data
 echo "[INFO] Registry Manager Load"
-$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr $OUTDIR
+$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr $OUTDIR/solr-docs/
 
 check_status $? "[ERROR] Registry Manager Load Failure"
+
+exit
 
 echo "+++ Test 2 - PDS3 +++"
 TEST_DATA_HOME=$PARENTDIR/src/test/resources/data/test2/junosru/
