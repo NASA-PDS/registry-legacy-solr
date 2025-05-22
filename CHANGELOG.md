@@ -1,11 +1,12 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-05-20)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-05-22)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...«unknown»)
 
 **Requirements:**
 
+- As a user, I want to search by the new List\_Author and List\_Editor attributes [\#199](https://github.com/NASA-PDS/registry-legacy-solr/issues/199)
 - As a user, I want to provide a data input path via command-line [\#179](https://github.com/NASA-PDS/registry-legacy-solr/issues/179)
 
 **Defects:**
