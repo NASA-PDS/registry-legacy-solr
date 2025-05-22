@@ -25,10 +25,24 @@ repos:
             args:
               - '--baseline'
               - '.secrets.baseline'
-              - --exclude-files '\.secrets..*'
-              - --exclude-files '\.git.*'
-              - --exclude-files '\.pre-commit-config\.yaml'
-              - --exclude-files 'target'
+              - '--disable-plugin'
+              - 'AbsolutePathDetectorExperimental'
+              - '--exclude-files'
+              - '\.git.*'
+              - '--exclude-files'
+              - '\.pre-commit-config\.yaml'
+              - '--exclude-files'
+              - '\.secrets..*'
+              - '--exclude-files'
+              - 'target'
+              - '--exclude-files'
+              - '.*\.tfstate'
+              - '--exclude-files'
+              - '.*\.terraform'
+              - '--exclude-files'
+              - '.*\.terraformrc'
+              - '--exclude-files'
+              - '.*\terraform.rc'
 
 ...
 
