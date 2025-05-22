@@ -1,0 +1,43 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "
+10 Mar 1999, A.C.Raugh     First draft from available information
+14 Mar 2004, T.L.Brown     Added M1 information"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "PHOBOS"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "SATELLITE"
+    PRIMARY_BODY_NAME             = "MARS"
+    ORBIT_DIRECTION               = "PROGRADE"
+    ROTATION_DIRECTION            = "SYNCHRONOUS"
+    TARGET_DESC                   = "
+
+    Phobos (or M1 Phobos) is the first satellite of Mars.  The
+    following properties are from K.R. Lang, 'Astrophysical Data:
+    Planets and Stars', pp.70-73:
+ 
+      Distance from planet center:     9.37e03    km
+                                       2.76       planet radii
+                   Orbital period:     0.3189     days
+                     Eccentricity:     0.0150     degrees
+                      Inclination:     1.1        degrees
+ 
+                           Radius:     14 x 10    km
+                             Mass:     9.6e-5     1.e23 grams
+                          Density:  <= 2          grams/cm^3
+               Visual Magnitude
+                    at Opposition:    11.6
+                 at Unit Distance:   +11.9
+          Geometric Visual Albedo:     0.06"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "UNK"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

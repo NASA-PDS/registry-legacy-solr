@@ -188,33 +188,6 @@ public class HarvesterSearch {
       }
       crawlers.add(pc);
     }
-    // Crawl a PDS3 directory
-    // for (String directory : policy.getPds3Directories().getPath()) {
-    // PDS3ProductCrawler p3c = new PDS3ProductCrawler();
-    // // If the objectType attribute was set to "Product_File_Repository",
-    // // then the tool should just register everything as a
-    // // Product_File_Repository product.
-    // String pds3ObjectType = policy.getCandidates().getPds3ProductMetadata().getObjectType();
-    // if (pds3ObjectType != null && pds3ObjectType.equals(Constants.FILE_OBJECT_PRODUCT_TYPE))
-    // {
-    // PDS3FileCrawler crawler = new PDS3FileCrawler();
-    // crawler.setChecksumManifest(checksums);
-    // crawler.setGenerateChecksums(policy.getChecksums().isGenerate());
-    // p3c = crawler;
-    // }
-    // Pds3MetExtractorConfig pds3MetExtractorConfig = new Pds3MetExtractorConfig(
-    // policy.getCandidates().getPds3ProductMetadata());
-    // p3c.setPDS3MetExtractorConfig(pds3MetExtractorConfig);
-    // p3c.setProductPath(directory);
-    // if (policy.getPds3Directories().getFileFilter() != null) {
-    // p3c.setFileFilter(policy.getPds3Directories().getFileFilter());
-    // }
-    // if (policy.getPds3Directories().getDirectoryFilter() != null) {
-    // p3c.setDirectoryFilter(policy.getPds3Directories().getDirectoryFilter());
-    // }
-    // crawlers.add(p3c);
-    // }
-
 
     // Perform crawl while looping through the crawler list if
     // crawler persistance is disabled.
@@ -223,7 +196,6 @@ public class HarvesterSearch {
       crawler.setSearchUrl(searchUrl);
       crawler.setIngester(ingester);
       crawler.setCounter(this.searchDocState);
-      // crawler.setSearchDocGenerator(new SearchDocGenerator(configDir, outputDir));
       crawler.crawl();
     }
 

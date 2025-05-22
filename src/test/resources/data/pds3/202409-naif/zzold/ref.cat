@@ -1,0 +1,267 @@
+PDS_VERSION_ID            = PDS3
+RECORD_TYPE               = STREAM
+LABEL_REVISION_NOTE       = "
+  2015-03-05 jmafi - initial version;
+  2017-06-16 rchen merged JNC's with many others and alphabetized;
+  2017-06-19 rchen merged ATM's
+  2022-01-27 rchen added SRU's BECKERETAL*"
+
+/* JIRAM */
+OBJECT                    = REFERENCE                                       
+  REFERENCE_KEY_ID        = "ADRIANI2008"                                   
+  REFERENCE_DESC          = "ADRIANI2008, 'JIRAM, the Image Spectrometer,   
+    in the Near Infrared on Board the Juno Mission to Jupiter',          
+    ASTROBIOLOGY, Volume 8, Number 3, 2008"                              
+END_OBJECT                = REFERENCE                                       
+
+/* JIRAM */
+OBJECT                    = REFERENCE                                       
+  REFERENCE_KEY_ID        = "ADRIANI2014"                                   
+  REFERENCE_DESC          = "ADRIANI2014, 'JIRAM, the Jovian Infrared       
+    Auroral Mapper', Springer Science +Business Media Dordrecht 2014."  
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "ASMAR&RENZETTI1993"
+  REFERENCE_DESC          = "
+      Asmar, S.W., and N.A. Renzetti, The Deep Space Network as
+      an Instrument for Radio Science Research, Jet Propulsion
+      Laboratory Publication 80-93, Rev. 1, 15 April 1993."
+END_OBJECT                = REFERENCE
+
+/* FGM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "BAGENALETAL2014"
+  REFERENCE_DESC          = "Bagenal, F., A. Adriani, F. Allegrini, 
+    S.J. Bolton, B. Bonfond, and 16 others, Magnetospheric Science
+    Objectives of the Juno Mission, Space Sci. Rev.,
+    doi:10.1007/s11214-014-0036-8, 2014."
+END_OBJECT                = REFERENCE
+
+/* SRU */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "BECKERETAL2017"
+  REFERENCE_DESC          = "Becker, H.N., J.W. Alexander, A. Adriani,
+    A. Mura, A. Cicchetti, R. Noschese, and 22 others, The Juno
+    Radiation Monitoring (RM) Investigation, Space Science Reviews,
+    213(1-4), https://doi.org/10.1007/s11214-017-0345-9, 2017."
+END_OBJECT                = REFERENCE
+
+/* SRU */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "BECKERETAL2020"
+  REFERENCE_DESC          = "Becker, H.N., J.W. Alexander, S.K. Atreya,
+    S.J. Bolton, M.J. Brennan, S.T. Brown, and 7 others, Small
+    lightning flashes from shallow electrical storms on Jupiter, Nature,
+    584(7819), 55-58. https://doi.org/10.1038/s41586-020-2532-1, 2020."
+END_OBJECT                = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "BELLETAL2009"
+  REFERENCE_DESC          = "Bell, J.F., III, M.J. Wolff, M.C. Malin,
+    W.M. Calvin, B.A. Cantor, M.A. Caplinger, R.T. Clancy, K.S.
+    Edgett, L.J. Edwards, J. Fahle, F. Ghaemi, R.M. Haberle, A.
+    Hale, P.B. James, S.W. Lee, T. McConnochie, E. Noe Dobrea,
+    M.A. Ravine, D. Schaeffer, K.D. Supulver, and P.C. Thomas,
+    Mars Reconnaissance Orbiter Mars Color Imager (MARCI):
+    Instrument description, calibration, and performance, J.
+    Geophys. Res., 114, E08S92, doi:10.1029/2008JE003315, 2009."
+END_OBJECT                = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "CAPLINGER2013"
+  REFERENCE_DESC          = "Caplinger, M.C., Software
+    Interface Specification (SIS) Junocam Standard Data Products, 2013."
+END_OBJECT                = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "CAPLINGER2013B"
+  REFERENCE_DESC          = "Caplinger, M.C., Software
+    Interface Specification (SIS) Junocam Global/Regional Map Image
+    Standard Data Product, Version 1.0, 2013."
+END_OBJECT                = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "CAPLINGER2015"
+  REFERENCE_DESC          = "Caplinger, M., Software
+    Interface Specification (SIS) Junocam Standard Data Products,
+    Version 1.2, 2015."
+END_OBJECT                = REFERENCE
+
+/* JIRAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "DINELLI2017"
+  REFERENCE_DESC          = "Dinelli, B.M., F. Fabiano, A. Adriani,
+    F. Altieri, M. L. Moriconi, A. Mura, G. Sindoni, G. Filacchione,
+    F. Tosi, A. Migliorini, D. Grassi, G. Piccioni, R. Noschese,
+    A. Cicchetti, S. Bolton, J.E.P. Connerney, S.K. Atreya, F. Bagenal,
+    G.R. Gladstone, C.J. Hansen, W. Kurth, S.M. Levin, B.H. Mauk,
+    D.J. McComas, J.-C. Gerard, D. Turrini, S. Stefani, M. Amoroso,
+    and A. Olivieri, Preliminary Results from the JIRAM Auroral
+    Observations taken during the first Juno orbit: 1 - Methodology and
+    Analysis Applied to the Jovian Northern Polar Region,
+    Geophys. Res. Lett., doi:10.1002/2017GL072929, 2017."
+END_OBJECT                = REFERENCE
+
+/* UVS */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "GLADSTONEETAL2014"
+  REFERENCE_DESC          = "Gladstone, G.R., S.C. Persyn, J.S. Eterno,
+    B.C. Walther, D.C. Slater, M.W. Davis, M.H. Versteeg, K.B. Persson,
+    M.K. Young, G.J. Dirks, A.O. Sawka, J. Tumlinson, H. Sykes,
+    J. Beshears, C.L. Rhoad, J.P. Cravens, G.S. Winters, R.A. Klar,
+    W. Lockhart, B.M. Piepgrass, T.K. Greathouse, B.J. Trantham,
+    P.M. Wilcox, and M.W. Jackson,
+    The Ultraviolet Spectrograph on NASA's Juno Mission,
+    Space Science Reviews, doi:10.1007/s11214-014-0040-z, 2014."
+END_OBJECT                = REFERENCE
+
+/* JIRAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "GRASSI2017"
+  REFERENCE_DESC          = "Grassi, D., A. Adriani, A. Mura,
+    B.M. Dinelli, G. Sindoni, D. Turrini, G. Filacchione, A. Migliorini,
+    M.L. Moriconi, F. Tosi, R. Noschese, A. Cicchetti, F. Altieri,
+    F. Fabiano, G. Piccioni, S. Stefani, S. Atreya, J. Lunine, G. Orton,
+    A. Ingersoll, S. Bolton, S. Levin, J. Connerney, A. Olivieri, and
+    M. Amoroso, Preliminary results on the composition of Jupiter's
+    troposphere in hot spot regions from the JIRAM/Juno instrument,
+    Geophys. Res. Lett., 44, doi:10.1002/2017GL072841, 2017."
+END_OBJECT                            = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "HANSENETAL2014"
+  REFERENCE_DESC          = "Hansen, C.J., M.A. Caplinger, A. Ingersoll,
+    M.A. Ravine, E. Jensen, S. Bolton, and G. Orton,
+    Junocam: Juno's Outreach Camera, Space Science Reviews,
+    doi:10.1007/s11214-014-0079-x, 2014."
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT = REFERENCE
+  REFERENCE_KEY_ID        = "ISO96601988"
+  REFERENCE_DESC          = "Information processing - Volume and file
+    structure of CD-ROM for information interchange, ISO 9660:1988,
+    14 April 1988."
+END_OBJECT = REFERENCE
+
+/* MWR */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "JANSSENETAL2005"
+  REFERENCE_DESC          = "Janssen, M.A., M.D. Hofstadter, S. Gulkis,
+    A.P. Ingersoll, M. Allison, S.J. Bolton, S.M. Levin, and L.W. Kamp,
+    Microwave remote sensing of Jupiter's atmosphere from an
+    orbiting spacecraft, Icarus, 173(2), 447-453,
+    doi:10.1016/j.icarus.2004.08.012, 2005."
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "JPLD-35556"
+  REFERENCE_DESC          = "Stephens, S. K., Juno Project Mission Plan,
+    Rev. D, JPL D-35556, 15 August 2013."
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "KURTH2010"
+  REFERENCE_DESC          = "Science Data Management and Archive Plan,
+    UI 98-60050, 30 January 2010."
+END_OBJECT                = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "MALINETAL2001"
+  REFERENCE_DESC          = "Malin, M.C., J.F. Bell III, W. Calvin,
+    R.T. Clancy, R.M. Haberle, P.B. James, S.W. Lee, P.C. Thomas,
+    and M.A. Caplinger, Mars Color Imager (MARCI) on the Mars
+    Climate Orbiter, J. Geophys. Res., 106, E8, 17651-17672,
+    doi:10.1029/1999JE001145, 2001."
+END_OBJECT                = REFERENCE
+
+/* JUNOCAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "MALINETAL2005"
+  REFERENCE_DESC          = "Malin, M.C., J.F. Bell III, J. Cameron, W.E.
+    Dietrich, K.S. Edgett, B. Hallet, K.E. Herkenhoff, M.T. Lemmon,
+    T.J. Parker, R.J. Sullivan, D.Y. Sumner, P.C. Thomas, E.E.
+    Wohl, M.A. Ravine, M.A. Caplinger, and J.N. Maki, The Mast
+    Cameras and Mars Descent Imager (MARDI) for the 2009 Mars Science
+    Laboratory, Lunar and Planetary Science XXXVI, Abstract 1214, 2005."
+END_OBJECT                = REFERENCE
+
+/* JADE */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "MCCOMASETAL2013"
+  REFERENCE_DESC          = "McComas, D.J., N. Alexander, F. Allegrini, F.
+    Bagenal, C. Beebe, G. Clark, F. Crary, M.I. Desai, A. De Los
+    Santos, D. Demkee, J. Dickinson, D. Everett, T. Finley, A.
+    Gribanova, R. Hill, J. Johnson, C. Kofoed, C. Loeffler, P. Louarn,
+    M. Maple, W. Mills, C. Pollock, M. Reno, B. Rodriguez, J. Rouzaud,
+    D. Santos-Costa, P. Valek, S. Weidner, P. Wilson, R.J. Wilson,
+    and D. White, The Jovian Auroral Distributions Experiment
+    (JADE) on the Juno Mission to Jupiter, Space Science Reviews,
+    doi:10.1007/s11214-013-9990-9, 2013."
+END_OBJECT                = REFERENCE
+
+/* FGM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "MERAYOETAL2000"
+  REFERENCE_DESC          = "Merayo, J.M.G., P. Brauer, F. Primdahl, J.R.
+    Petersen, and O.V. Nielsen, Scalar Calibration of Vector
+    Magnetometers, Meas. Sci. Technol., 11(2), 120-132,
+    doi:10.1088/O957-0233/11/2/304, 2000."
+END_OBJECT                = REFERENCE
+
+/* FGM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "MERAYOETAL2001"
+  REFERENCE_DESC          = "Merayo, J.M.G., P. Brauer, F. Primdahl, and J.R.
+    Petersen, Absolute Calibration and Alignment of Vector
+    Magnetometers in the Earth's Field, Ground and In-Flight Space
+    Magnetometer Calibration Techniques, ESA SP-490, F. Primdahl & A.
+    Balogh (eds), 2001."
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "PDSAPG2006"
+  REFERENCE_DESC          = "Planetary Data System Archive Preparation Guide,
+    JPL D-31224, Version 1.1, 29 August 2006."
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "PDSDD2008"
+  REFERENCE_DESC          = "Planetary Science Data Dictionary Document,
+    JPL D-7116, Rev. F, 20 October 2008."
+END_OBJECT                = REFERENCE
+
+/* mission-wide */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "PDSSR2009"
+  REFERENCE_DESC          = "Planetary Data System Standards Reference,
+    Jet Propulsion Laboratory Document D-7669, Part 2, February 27, 2009."
+END_OBJECT                = REFERENCE
+
+/* JIRAM */
+OBJECT                    = REFERENCE
+  REFERENCE_KEY_ID        = "SINDONI2017"
+  REFERENCE_DESC          = "Sindoni, G., D. Grassi, A. Adriani,
+    A. Mura, M.L. Moriconi, B.M. Dinelli, G. Filacchione, F. Tosi,
+    G. Piccioni, A. Migliorini, F. Altieri, F. Fabiano, D. Turrini,
+    R. Noschese, A. Cicchetti, S. Stefani, S.J. Bolton, J.E.P. Connerney,
+    S.K. Atreya, F. Bagenal, C. Hansen, A. Ingersoll, M. Jansen,
+    S.M. Levin, J.I. Lunine, G. Orton, A. Olivieri, and M. Amoroso,
+    Characterization of the white ovals on Jupiter's southern hemisphere
+    using the first data by the Juno/JIRAM instrument,
+    Geophys. Res. Lett., 44, doi:10.1002/2017GL072940, 2017."
+END_OBJECT                = REFERENCE
+
+END

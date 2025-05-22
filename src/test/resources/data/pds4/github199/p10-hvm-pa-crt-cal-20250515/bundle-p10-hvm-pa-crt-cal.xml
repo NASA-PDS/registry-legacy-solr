@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.sch" 
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1N00_1310.sch" 
+   schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Bundle
+    xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:msn="http://pds.nasa.gov/pds4/msn/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    http://pds.nasa.gov/pds4/pds/v1
+    https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.xsd
+    http://pds.nasa.gov/pds4/msn/v1
+    https://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1N00_1310.xsd
+    ">
+    <Identification_Area>
+        <logical_identifier>urn:nasa:pds:p10-hvm-pa-crt-cal</logical_identifier>
+        <version_id>1.0</version_id>
+        <title>Pioneer 10 HVM PA CRT Calibrated Bundle</title>
+        <information_model_version>1.23.0.0</information_model_version>
+        <product_class>Product_Bundle</product_class>
+        <Citation_Information>
+            <publication_year>2025</publication_year>
+            <doi>10.17189/fw9v-p765</doi>
+            <description>This bundle contains merged Pioneer 10 data taken by the Helium 
+                Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
+                and Cosmic Ray (CRT) instruments from the solar wind and Jupiter 
+                encounter period.</description>
+            <List_Author>
+                <Organization>
+                    <organization_name>Jet Propulsion Laboratory</organization_name>
+                    <organization_rorid>https://ror.org/027k65916</organization_rorid>
+                </Organization>
+                <Person>
+                    <given_name>Edward J.</given_name>
+                    <family_name>Smith</family_name>
+                    <Affiliation>
+                        <organization_name>Jet Propulsion Laboratory</organization_name>
+                        <organization_rorid>https://ror.org/027k65916</organization_rorid>
+                        <sequence_number>1</sequence_number>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <given_name>Aaron</given_name>
+                    <family_name>Barnes</family_name>
+                    <Affiliation>
+                        <organization_name>NASA Ames Research Center</organization_name>
+                        <organization_rorid>https://ror.org/02acart68</organization_rorid>
+                        <sequence_number>1</sequence_number>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <given_name>Frank Bethune</given_name>
+                    <family_name>McDonald</family_name>
+                    <Affiliation>
+                        <organization_name>Institute for Physical Science and Technology
+                            University of Maryland</organization_name>
+                        <organization_rorid>https://ror.org/047s2c258</organization_rorid>
+                        <sequence_number>1</sequence_number>
+                    </Affiliation>
+                </Person>
+            </List_Author>
+            <List_Editor>
+                <Organization>
+                    <organization_name>Lunar and Planetary Institute</organization_name>
+                    <organization_rorid>https://ror.org/027k65916</organization_rorid>
+                </Organization>
+                <Person>
+                    <given_name>George</given_name>
+                    <family_name>Washington</family_name>
+                    <Affiliation>
+                        <organization_name>USA</organization_name>
+                        <sequence_number>1</sequence_number>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <given_name>Abraham</given_name>
+                    <family_name>Lincoln</family_name>
+                    <Affiliation>
+                        <organization_name>USA</organization_name>
+                        <sequence_number>2</sequence_number>
+                    </Affiliation>
+                </Person>
+            </List_Editor>
+        </Citation_Information>
+        <Modification_History>
+            <Modification_Detail>
+                <modification_date>2025-05-09</modification_date>
+                <version_id>1.0</version_id>
+                <description>The data in this bundle were released previously as part of the 
+                    following PDS3 data set: 
+                    P10-J-HVM/PA-4-SUMM-MERGED-1HR-V1.0(https://doi.org/10.17189/1519771).
+                    This bundle includes data from this dataset and also a full range in 
+                    addition to the Jupiter flyby data.</description>
+            </Modification_Detail>
+        </Modification_History>
+    </Identification_Area>
+    <Context_Area>
+        <Time_Coordinates>
+            <start_date_time>1972-03-03T00:00:00.000Z</start_date_time>
+            <stop_date_time>1995-12-31T23:00:00.000Z</stop_date_time>
+        </Time_Coordinates>
+        <Investigation_Area>
+            <name>Pioneer 10</name>
+            <type>Mission</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:investigation:mission.pioneer_10</lid_reference>
+                <reference_type>bundle_to_investigation</reference_type>
+            </Internal_Reference>
+        </Investigation_Area>
+        <Observing_System>
+            <Observing_System_Component>
+                <name>Helium Vector Magnetometer (HVM)</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:hvm.p10</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Quadraspherical Plasma Analyzer (PA)</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:pa.p10</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Cosmic Ray Telescope (CRT)</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:crt.p10</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>Pioneer 10</name>
+                <type>Host</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.p10</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>Solar Wind</name>
+            <type>Plasma Stream</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:plasma_stream.solar_wind</lid_reference>
+                <reference_type>bundle_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+        <Target_Identification>
+            <name>Jupiter</name>
+            <type>Planet</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:planet.jupiter</lid_reference>
+                <reference_type>bundle_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+        <Discipline_Area>
+            <msn:Mission_Information>
+                <msn:mission_phase_name>Earth-Jupiter Cruise</msn:mission_phase_name>
+                <msn:mission_phase_name>Jupiter Encounter</msn:mission_phase_name>
+                <msn:mission_phase_name>Post-Jupiter Cruise</msn:mission_phase_name>
+            </msn:Mission_Information>
+        </Discipline_Area>
+    </Context_Area>
+    <Reference_List>
+        <Internal_Reference>
+            <lid_reference>urn:nasa:pds:context:resource:resource.p10-hvm-pa-crt-cal_online</lid_reference>
+            <reference_type>has_resource</reference_type>
+        </Internal_Reference>
+        <Internal_Reference>
+            <lid_reference>urn:nasa:pds:p10-hvm-pa-crt-cal:document:errata</lid_reference>
+            <reference_type>bundle_to_errata</reference_type>
+        </Internal_Reference>
+    </Reference_List>
+    <Bundle>
+        <bundle_type>Archive</bundle_type>
+        <description>This bundle contains merged Pioneer 10 data taken by the Helium 
+            Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
+            and Cosmic Ray (CRT) instruments from the solar wind and Jupiter 
+            encounter period.</description>
+    </Bundle>
+    <File_Area_Text>
+        <File>
+            <file_name>readme-p10-hvm-pa-crt-cal.md</file_name>
+            <creation_date_time>2025-05-09</creation_date_time>
+            <file_size unit="byte">2764</file_size>
+            <md5_checksum>3c7825e21e9a2077e86e4e8a5c3d0f28</md5_checksum>
+        </File>
+        <Stream_Text>
+            <offset unit="byte">0</offset>
+            <parsing_standard_id>7-Bit ASCII Text</parsing_standard_id>
+            <record_delimiter>Carriage-Return Line-Feed</record_delimiter> 
+        </Stream_Text>
+    </File_Area_Text>
+    <Bundle_Member_Entry>
+        <lidvid_reference>urn:nasa:pds:p10-hvm-pa-crt-cal:data-merged-1hour::1.0</lidvid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_data_collection</reference_type>
+    </Bundle_Member_Entry>
+    <Bundle_Member_Entry>
+        <lidvid_reference>urn:nasa:pds:p10-hvm-pa-crt-cal:document::1.0</lidvid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_document_collection</reference_type>
+    </Bundle_Member_Entry>
+</Product_Bundle>

@@ -1,0 +1,917 @@
+PDS_VERSION_ID        = PDS3                                          
+LABEL_REVISION_NOTE   = "C. STANZEL, 2004-09-08 Updated 2004-11-11    
+                         D. Heather (PSA) 2006-10-10 - padded file to 
+                            70 characters"                            
+RECORD_TYPE           = STREAM                                        
+                                                                      
+OBJECT                = REFERENCE                                     
+ REFERENCE_KEY_ID     = "ACUNAETAL1992"                               
+ REFERENCE_DESC       = "Acuna, M.H., J.E.P. Connerney,               
+   P. Wasilewski, R.P. Lin, K.A. Anderson, C.W. Carlson, J. McFadden, 
+   D.W. Curtis, H. Reme, A. Cros, J.L. Medale, J.A. Sauvaud,          
+   C. d'Uston, D.J. Bauer, P. Cloutier, M. Mayhew and N.F. Ness,      
+   Mars Observer Magnetic Fields Investigation, J. Geophys. Res., 97, 
+   7799-7814, 1992."                                                  
+END_OBJECT             = REFERENCE                                    
+                                                                      
+                                                                      
+                                                                      
+OBJECT                 = REFERENCE                                    
+ REFERENCE_KEY_ID      = "ALBEEETAL1992"                              
+ REFERENCE_DESC        = "Albee, A.L., R.E. Arvidson and F.D.         
+   Palluconi, Mars Observer Mission, J. Geophys. Res., 97, 7665-7680, 
+   1992."                                                             
+END_OBJECT             = REFERENCE                                    
+                                                                      
+                                                                      
+                                                                      
+OBJECT                 = REFERENCE                                    
+ REFERENCE_KEY_ID      = "ALBEEETAL1998"                              
+ REFERENCE_DESC        = "Albee, A.L., F.D. Palluconi and R.E.        
+   Arvidson, Mars Global Surveyor Mission: Overview and Status,       
+   Science, 279, 1671-1672, 1998."                                    
+END_OBJECT             = REFERENCE                                    
+                                                                      
+                                                                      
+                                                                      
+OBJECT                 = REFERENCE                                    
+ REFERENCE_KEY_ID      = "ALLAN1966"                                  
+ REFERENCE_DESC        = "Allan, D.W., Statistics of Atomic Frequency 
+   Standards, Proceedings of the IEEE, 54, 221-230, 1966."            
+END_OBJECT             = REFERENCE                                    
+                                                                      
+                                                                      
+                                                                      
+OBJECT                 = REFERENCE                                    
+ REFERENCE_KEY_ID      = "ANDERSONETAL1984"                           
+ REFERENCE_DESC        = "Anderson, J.D, Armstrong, J.W., Estabrook,  
+   F.B., Hellings, R.W., Lau, E.K. and Wahlquist, H.D., Pioneer 10    
+   search for gravitational waves - No evidence for coherent          
+   radiation from Geminga, Nature, 308, 158-160, 1984."               
+END_OBJECT              = REFERENCE                                   
+                                                                      
+                                                                      
+                                                                      
+OBJECT                  = REFERENCE                                   
+ REFERENCE_KEY_ID       = "ANDERSONETAL1992"                          
+ REFERENCE_DESC         = "Anderson, J.D., Armstrong, J.W.,           
+   Campbell, J.K., Estabrook, F.B., Krisher, T.P. and Lau, E.L.,      
+   Gravitation and celestial mechanics investigations with Galileo,   
+   Space Sci. Rev., 60, 591-610, 1992."                               
+END_OBJECT              = REFERENCE                                   
+                                                                      
+                                                                      
+                                                                      
+OBJECT                  = REFERENCE                                   
+ REFERENCE_KEY_ID       = "ANDERSONETAL1987"                          
+ REFERENCE_DESC         = "Anderson, J.D., Krisher, T. and Borutzki,  
+   S. et al., Radio range measurements of coronal electron densities  
+   at 13 and 3.6 cm wavelengths, Astrophys. J., 323, L141-L143,       
+   1987."                                                             
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "ANDERSONETAL1993"                         
+ REFERENCE_DESC          = "Anderson, J.D., J.W. Armstrong, and       
+   E.L. Lau, Upper Limits for Gravitational Radiation from            
+   Supermassive Coalescing Binaries, Astrophys. J., 408, 287-292,     
+   1993."                                                             
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "ASMAR&HERRERA1993"                        
+ REFERENCE_DESC          = "Asmar, S.W. and R.G. Herrera, Radio       
+   Science Handbook, JPL D-7938 Volume 4, Jet Propulsion Laboratory,  
+   Pasadena, CA, 22 January 1993."                                    
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "ASMARETAL1995"                            
+ REFERENCE_DESC          = "Asmar, S.W., R.G. Herrera and T. Priest,  
+   Radio Science Handbook, JPL D-7938 Volume 6, Jet Propulsion        
+   Laboratory, Pasadena, CA, 1995."                                   
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "ASMAR&RENZETTI1993"                       
+ REFERENCE_DESC          = "Asmar, S.W. and N.A. Renzetti, The Deep   
+   Space Network as an Instrument for Radio Science Research, Jet     
+   Propulsion Laboratory Publication 80-93, Rev. 1, 15 April 1993."   
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "BAERETAL1999"                             
+ REFERENCE_DESC          = "Baer, A., Boehnhardt H. and Drechsel H.,  
+   ESTEC Contract Report, 1999."                                      
+END_OBJECT               = REFERENCE                                  
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "BERTAUXETAL2004"                          
+ REFERENCE_DESC          = "Bertaux, J-L, et. al., SPICAM: Studying   
+   the Global Structure and Composition of the Martian Atmosphere,    
+   ESA SP-1240, September 2004"                                       
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "BERTOTTIETAL1992"                         
+ REFERENCE_DESC          = "Bertotti, B., Ambrosini, R., Asmar,       
+   S.W., Brenkle, J.P., Comoretto, G., Giampieri, G., Iess, L.,       
+   Messeri, A., and Wahlquist, H.D., The gravitational wave           
+   experiment, Astron. Astrophys. Suppl. Series, 92, 431-440., 1992." 
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "BIBRINGETAL2004"                          
+ REFERENCE_DESC          = "Bibring, J-P, et. al., OMEGA:             
+   Observatoire pour la Mineralogie, l'Eau, les Glaces et l'Activite, 
+   ESA SP-1240, September 2004"                                       
+END_OBJECT               = REFERENCE                                  
+                                                                      
+                                                                      
+                                                                      
+OBJECT                   = REFERENCE                                  
+ REFERENCE_KEY_ID        = "BIRDETAL1994"                             
+ REFERENCE_DESC          = "Bird, M.K., Volland, H., Paetzold, M.,    
+   Edenhofer, P., Asmar, S.W. and Brenkle, J.P., The coronal electron 
+   density distribution determined from dual-frequency ranging        
+   measurements during the 1991 solar conjunction of the Ulysses      
+   spacecraft, Astrophys. J., 426, 373-381, 1994."                    
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "BOEHNHARDTETAL1997"                      
+ REFERENCE_DESC           = "Boehnhardt, H., Babion, J. and West,     
+   R.M., An optimized detection technique for faint moving objects on 
+   a star-rich background,  Astron. Astrophys. 320, 642-651, 1997."   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "BOEHNHARDTETAL2002"                      
+ REFERENCE_DESC           = "Boehnhardt, H., C. Delahodde, T.         
+   Sekiguchi, G.P. Tozzi, R. Amestica, O. Hainaut, J. Spyromilio, M.  
+   Tarenghi, R.M. West, R. Schulz and G. Schwehm, VLT observations of 
+   comet 46P/Wirtanen, Astron. Astrophys. 387, 1107, 2002."           
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "CAMPBELLETAL1989"                        
+ REFERENCE_DESC           = "Campbell, D.B., Harmon, J.K. and         
+   Shapiro, I.I., Radar observations of comet Halley, Astrophys. J.,  
+   338, 1094-1105, 1989."                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "CHRISTENSENETAL1992"                     
+ REFERENCE_DESC           = "Christensen, P.R., D.L. Anderson, S.C.   
+   Chase, R.N. Clark, H.H. Kieffer, M.C. Malin, J.C. Pearl, J.        
+   Carpenter, N. Bandiera, F.G. Brown and S. Silverman, Thermal       
+   Emission Spectrometer Experiment: Mars Observer Mission, J.        
+   Geophys. Res., 97, 7719-7734, 1992."                               
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DAVIESETAL1989"                          
+ REFERENCE_DESC           = "Davies, M.E., V.K. Abalakin, M. Bursa,   
+   G.E. Hunt, J.H. Lieske, B. Morando, R.H. Rapp, P.K. Seidelmann,    
+   A.T. Sinclair and Y.S. Tyuflin, Report of the IAU/IAG/COSPAR       
+   Working Group on Cartographic Coordinates and Rotational Elements  
+   of the Planets and Satellites: 1988, Celestial Mechanics and       
+   Dynamical Astronomy, 46, 187-204, 1989."                           
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DAVIESETAL1992"                          
+ REFERENCE_DESC           = "Davies, M. E., V. K. Abalakin, A.        
+   Brahic, M. Bursa, B.H. Chovitz, J. H. Lieske, P. K. Seidelmann, A. 
+   T. Sinclair, Y. S. Tjuflin, Report of the IAU/IAG/COSPAR Working   
+   Group on Cartographic Coordinates and Rotational Elements of the   
+   Planets and Satellites: 1991, Celestial Mechanics and Dynamical    
+   Astronomy, 53, 377-397, 1992."                                     
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DAVIESETAL1995"                          
+ REFERENCE_DESC           = "Davies, M. E., V. K. Abalakin, M. Bursa, 
+   J. H. Lieske, B. Morando, D. Morrison, P. K. Seidelmann, A. T.     
+   Sinclair, B. Yallop, Y. S. Tjuflin, Report of the IAU/IAG/COSPAR   
+   Working Group on Cartographic Coordinates and Rotational Elements  
+   of the Planets and Satellites: 1994, Celestial Mechanics and       
+   Dynamical Astronomy, 63, 127-148, 1995."                           
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DSN810-5"                                
+ REFERENCE_DESC           = "Deep Space Network / Flight Project      
+   Interface Design Book, Document 810-5, Jet Propulsion Laboratory,  
+   Pasadena, CA."                                                     
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DSN821-104"                              
+ REFERENCE_DESC           = "Deep Space Mission Systems, Tracking and 
+   Navigation Service, Requirements and Design, DSMS No. 821-104,     
+   Rev. B, JPL D-17235, Jet Propulsion Laboratory, Pasadena,          
+   CA, 2003."                                                         
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DSN821-110"                              
+ REFERENCE_DESC           = "Deep Space Mission Systems, Radio        
+   Science Service, Requirements and Design, DSMS No. 821-110, Rev.   
+   A, JPL D-17241, Jet Propulsion Laboratory, Pasadena, CA, 2001."    
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DSN871-049-041"                          
+ REFERENCE_DESC           = "Deep Space Mission Systems, Mars Express 
+   (MEX) Project, Network Operations Plan, DSMS No. 871-049-041, JPL  
+   D-25808, Jet Propulsion Laboratory, Pasadena, CA, 2003."           
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "DSNTRK-2-18"                             
+ REFERENCE_DESC           = "Deep Space Network / Tracking System     
+   Interfaces, Orbit Data File Interface, Document TRK-2-18, Jet      
+   Propulsion Laboratory, Pasadena, CA, 2000."                        
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "ESTABROOKETAL1995"                       
+ REFERENCE_DESC           = "Estabrook, F.B. and H.D. Wahlquist,      
+   Response of Doppler Spacecraft Tracking to Gravitational           
+   Radiation, Gen. Rel. Grav., 6, 439-447, 1995."                     
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "FJELDBOETAL1971"                         
+ REFERENCE_DESC           = "Fjeldbo, G., A.J. Kliore, and V.R.       
+   Eshleman, The Neutral Atmosphere of Venus as Studied with the      
+   Mariner V Radio Occultation Data, Astron. J., 76, 123-140, 1971."  
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "FORMISANOETAL2004"                       
+ REFERENCE_DESC           = "Formisano, V., et. al., The Planetary    
+   Fourier Spectrometer (PFS) for Mars Express, ESA SP-1240,          
+   September 2004."                                                   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "GEO-10REVD"                              
+ REFERENCE_DESC           = "DSN Geometry and Spacecraft Visibility,  
+   Document 810-5, Rev. D, Vol. I, DSN/Flight Project Interface       
+   Design, Jet Propulsion Laboratory, Pasadena, CA, 1987."            
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "GILLETAL1996"                            
+ REFERENCE_DESC           = "Gill, E., Montenbruck, O. and Paetzold,  
+   M., Perturbation forces  acting on the Rosetta spacecraft in a     
+   close orbit around comet P/Wirtanen,  AAS paper 96-150, Houston,   
+   1996."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "HARMONETAL1989"                          
+ REFERENCE_DESC           = "Harmon, J.K., Campbell, D.B., Hine,      
+   A.A., Shapiro, I.I. and Marsden, B.G., Radar observations of comet 
+   Iras-Araki-Alcock,  Astrophys. J., 338, 1071-1093, 1989."          
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "HARMONETAL1997"                          
+ REFERENCE_DESC           = "Harmon, J.K., S.J. Ostro, L.A.M.         
+   Benner, K.D. Rosema, R.F. Jurgens, R. Winkler, D.K. Yeomans, D.    
+   Choate, R. Cormier, J.D. Giorgini, D.L. Mitchell, P.W. Chodas, R.  
+   Rose, D. Kelley, M.A. Slade and M.L. Thomas, Radar detection of    
+   the nucleus and coma of Comet Hyakutake (C/1996 B2), Science 278,  
+   1921, 1997."                                                       
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "JPLD-12088"                              
+ REFERENCE_DESC           = "Mars Global Surveyor Project, Mission    
+   Plan, Final Version (MGS 542-405), JPL Document D-12088, Jet       
+   Propulsion Laboratory, Pasadena, CA, 1995."                        
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "JPLD-14027"                              
+ REFERENCE_DESC           = "Mars Global Surveyor Project,            
+   Telecommunications System Operations Reference Handbook, Version   
+   2.1 (MGS 542-257), JPL Document D-14027, Jet Propulsion            
+   Laboratory, Pasadena, CA, 1996."                                   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "JPLD-16765"                              
+ REFERENCE_DESC           = "Deep Space Mission System (DSMS)         
+   External Interface Specification (820-013, JPL D-16765), Radio     
+   Science Receiver Standard Formatted Data Unit (SFDU), Jet          
+   Propulsion Laboratory, Pasadena, CA, 2001."                        
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "KAMOUNETAL1982"                          
+ REFERENCE_DESC           = "Kamoun, P., D.B. Campbell, S.J. Ostro,   
+   G.H. Pettengill, and I.I. Shapiro, Comet Encke: Radar detection of 
+   the nucleus, Science 216, 293, 1982."                              
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "KAMOUNETAL1999"                          
+ REFERENCE_DESC           = "Kamoun, P., D. Campbell, G. Pettengill   
+   and I. Shapiro, Radar observations of three comets and detection   
+   of one: P/Grigg-Skjellerup, Planet. Space Sci. 47, 23-28, 1999."   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "KAULA1966"                               
+ REFERENCE_DESC           = "Kaula, W.M., Theory of Satellite         
+   Geodesy, Blaisdell, Waltham, MA, 1966."                            
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "KONOPLIV&SJOGREN1995"                    
+ REFERENCE_DESC           = "Konopliv, A. S., and W. L. Sjogren, The  
+   JPL Mars Gravity Field, Mars50C, Based upon Viking and Mariner 9   
+   Doppler Tracking Data, Jet Propulsion Laboratory Publication 95-5, 
+   Pasadena, CA., 73 pp., 1995."                                      
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "LAMYETAL1998"                            
+ REFERENCE_DESC           = "Lamy, P.L., I. Toth, L. Jorda, H.A.      
+   Weaver and M. A'Hearn, The nucleus and inner coma of Comet         
+   46P/Wirtanen, Astron. Astrophys. 335, L25-L29, 1998."              
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "LEMOINEETAL1999"                         
+ REFERENCE_DESC           = "Lemoine, F.G., D.D. Rowlands, D.E.       
+   Pavlis, D.S. Chinn, S.B. Luthcke, G.A. Neumann, and D.E. Smith,    
+   Paper AAS 99-147, AAS/AIAA Space Flight Mechanics Meeting,         
+   Breckenridge, CO, 7-10 February 1999."                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "LEMOINEETAL2001"                         
+ REFERENCE_DESC           = "Lemoine, F.G., D.E. Smith, D.D.          
+   Rowlands, M.T. Zuber, G.A. Neumann, D.S. Chinn, and D.E. Pavlis,   
+   An Improved Solution for the Gravity Field of Mars (GMM-2B) from   
+   Mars Global Surveyor, J. Geophys. Res., 106, 23359-23376, 2001."   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "LERCH1991"                               
+ REFERENCE_DESC           = "Lerch, F.J., Optimum Data Weighting and  
+   Error Calibration for Estimation of Gravitational Parameters,      
+   Bull. Geodesy, 65, 44-52, 1991."                                   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MALINETAL1992"                           
+ REFERENCE_DESC           = "Malin, M.C., G.E. Danielson, A.P.        
+   Ingersoll, H. Masursky, J. Veverka, M.A. Ravine, and T.A.          
+   Soulanille, Mars Observer Camera, J. Geophys. Res., 97, 7699-7718, 
+   1992."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MAROUFETAL1982"                          
+ REFERENCE_DESC           = "Marouf, E.A., Tyler, G.L. and Eshleman,  
+   V.R., Theory of radio occultation by Saturn's rings, Icarus, 49,   
+   161-193, 1982."                                                    
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MAROUFETAL1983"                          
+ REFERENCE_DESC           = "Marouf, E. A., Tyler, G.L., Zebker,      
+   H.A., Simpson, R.A. and  Eshleman, V.R., Particle size             
+   distributions in Saturn's rings  from Voyager 1 radio              
+   occultations, Icarus, 54, 189-211, 1983."                          
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MAROUF&BIRD1995"                         
+ REFERENCE_DESC           = "Marouf, E. A. and Bird, M.K., Rosetta    
+   and bistatic-radar  detectability of cometary nuclei, (Abstract)   
+   AGU Fall Meeting, San Francisco, CA, December 11-15, 1995."        
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MARSDENETAL1995"                         
+ REFERENCE_DESC           = "Marsden, B.G. and Williams, G.V.,        
+   Catalogue of Cometary orbits , Tenth Ed., IAU Central Bureau for   
+   Astronomical telegrams, Cambridge, MA, 1995."                      
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MARSUSERMANUAL2020"                      
+ REFERENCE_DESC           = "MARS EXPRESS ORBITER RADIO SCIENCE       
+   (MaRS)Flight Operations Manual / Experiment User Manual, MEX-MRS-  
+   IGM-MA-3008, 2004."                                                
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MARSFNC2020"                             
+ REFERENCE_DESC           = "MARS EXPRESS ORBITER RADIO SCIENCE       
+   (MaRS) File Naming Convention / File Formats, MEX-MRS-IGM-IS-3016, 
+   2004."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MATRAMARCONI1999"                        
+ REFERENCE_DESC           = "Matra Marconi, Rosetta S/X Transponder   
+   Design Report, RO-MMB-RS-3122,1999."                               
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MEX-EST-PL-13128"                        
+ REFERENCE_DESC           = "MEX-EST-PL-13128, 'Mars Express, Master  
+   Science Plan', ESA Project Documentation, Patrick Martin, Version  
+   1.5, July 2004."                                                   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MEX-ESC-RP-5500"                         
+ REFERENCE_DESC           = "MEX-ESC-RP-5500, 'Mars Express           
+   Consolidated Report on Mission Analysis (CREMA)', M. Hechler,      
+   Arturo Yanez, Issue 3.1, 6 May 2003."                              
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MEX-ESC-PL-5500"                         
+ REFERENCE_DESC           = "MEX-ESC-PL-5500, 'Mars Express Mission   
+   Implementation Plan', Issue 1.0, September 1999."                  
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MEX-MMT-RP-0221"                         
+ REFERENCE_DESC           = "MEX-MMT-RP-0221, 'Mars Express Mission   
+   Plan', Issue 4.0, July 2000."                                      
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MEX-MMT-MA-1091"                         
+ REFERENCE_DESC           = "Mars Express, Spacecraft User Manual,    
+   Issue 4, Revision 0, 15 May 2003, Volume 1: Mission and Spacecraft 
+   Design."                                                           
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MILLERETAL1995"                          
+ REFERENCE_DESC           = "Miller, J.K., Williams, B.G., Bollman,   
+   W.E., Davis, R.P., Helfrich, C.E., Scheeres, D.J., Synnott, S.P.,  
+   Wang, T.C. and Yeomans, D.K., Navigation analysis for Eros         
+   rendezvous and orbital phases,  J. Astronaut. Sci., 43, 453-476,   
+   1995."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "MUHLEMANETAL1981"                        
+ REFERENCE_DESC           = "Muhleman, D.O. and Anderson, J.D.,       
+   Solar wind electron density from Viking dual-frequency radio       
+   measurements, Astrophys. J., 247, 1093-1101, 1981."                
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "NEUKUM&JAUMANN2004"                      
+ REFERENCE_DESC           = "Neukum, G. and Jaumann, R., HRSC: the    
+   High Resolution Stereo Camera of Mars Express, ESA SP-1240,        
+   September 2004."                                                   
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "OSTRO1985"                               
+ REFERENCE_DESC           = "Ostro, S. J., Radar observations of      
+   asteroids and comets, Pub. Astron. Soc. Pacific, 97, 877-884,      
+   1985."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "OSTROETAL1992"                           
+ REFERENCE_DESC           = "Ostro, S.J., Campbell, D.B., Simpson,    
+   R.A., Hudson, R.S., Chandler, J.F., Rosema, K.D., Shapiro, I.I.,   
+   Standish, E.M., Winkler, R., Yeomans, D.K., Velez, R. and          
+   Goldstein, R.M., Europa, Ganymede, and Callisto: new  radar        
+   results from Arecibo and Goldstone, J. Geophys. Res., 97, 18,227-  
+   18,244, 1992."                                                     
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PAETZOLDETAL1991A"                       
+ REFERENCE_DESC           = "Paetzold, M., Bird, M.K., Volland, H.,   
+   Edenhofer, P. and Buschert, H., Dynamics of the Giotto spacecraft  
+   in the inner dust coma of comet P/Halley; Part 1: Observations, Z. 
+   Flugwiss. Weltraumforsch., 15, 89-96, 1991."                       
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PAETZOLDETAL1991B"                       
+ REFERENCE_DESC           = "Paetzold, M., Bird, M.K., Volland, H.,   
+   Edenhofer, P. and Buschert, H., Dynamics of the Giotto spacecraft  
+   in the inner dust coma of comet P/Halley; Part 2: Interpretations, 
+   Z. Flugwiss. Weltraumforsch., 15, 159-164, 1991."                  
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PAETZOLDETAL1993"                        
+ REFERENCE_DESC           = "Paetzold, M., Bird, M.K. and Edenhofer,  
+   P., The change of Giotto's dynamical state during the P/Grigg-     
+   Skjellerup flyby caused by dust particle impacts, J. Geophys.      
+   Res., 98, 20911-20920, 1993."                                      
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PAETZOLDETAL1995"                        
+ REFERENCE_DESC           = "Paetzold, M., Bird, M.K., Edenhofer,     
+   P., Asmar, S.W. and McElrath, T.P., Dual-frequency radio sounding  
+   of the solar corona during the 1995 conjunction of the Ulysses     
+   spacecraft, Geophys. Res. Lett., 22, 3313-3316, 1995."             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PAETZOLDETAL1997"                        
+ REFERENCE_DESC           = "Paetzold, M., Neubauer, F.M., Andreev,   
+   V.E. and Gavrik, A.I., Detection of the inner plasma pile-up       
+   region at comet Halley during the VEGA-1 flyby by the radio        
+   sounding experiment, J. Geophys. Res. 102, 2213-2222, 1997."       
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PAETZOLDETAL2004"                        
+ REFERENCE_DESC           = "Paetzold, M., et. al., MaRS: Mars        
+   Express Orbiter Radio Science, ESA SP-1240, September 2004."       
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PICARDIETAL2004"                         
+ REFERENCE_DESC           = "Picardi, G., et. al., MARSIS: Mars       
+   Advanced Radar for Subsurface and Ionosphere Sounding,             
+   ESA-SP-1240, September 2004."                                      
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "PULLANETAL2004"                          
+ REFERENCE_DESC           = "Pullan, D., et. al., Beagle 2: the       
+   Exobiological Lander of Mars Express, ESA SP-1240, September       
+   2004."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "RICHTER&KELLER1995"                      
+ REFERENCE_DESC           = "Richter, K. and Keller, H.U., On the     
+   stability of dust particle orbits around cometary nuclei, Icarus   
+   14, 355-371, 1995."                                                
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SCHEERES1995"                            
+ REFERENCE_DESC           = "Scheeres, D.J., Analysis of orbital      
+   motion around 433 Eros, J. Astronaut. Sci., 43, pp. 427-452,       
+   1995."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SIMSETAL1999"                            
+ REFERENCE_DESC           = "Sims, M. et al, Beagle2: The Exo-Biology 
+   Lander on ESA's 2003 Mars Express Mission, SPIE Proceedings, 3755, 
+   10-23, 1999."                                                      
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SIMPSON1993"                             
+ REFERENCE_DESC           = "Simpson, R.A., Spacecraft Studies of     
+   Planetary Surfaces Using Bistatic Radar, IEEE Transactions on      
+   Geoscience and Remote Sensing, 31, 465-482, March 1993."           
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SIMPSON&TYLER1981"                       
+ REFERENCE_DESC          = "Simpson, R.A. and Tyler, G.L., Viking     
+   bistatic radar experiment: summary of first-order results          
+   emphasizing north polar data, Icarus, 46, 361-389, 1981."          
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SIMPSON&TYLER2001"                       
+ REFERENCE_DESC           = "Simpson, R.A., and G.L. Tyler, Mars      
+   Global Surveyor bistatic radar probing of the MPL/DS2 target area, 
+   Icarus, 152, 70-74, 2001."                                         
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SJOGREN1979"                             
+ REFERENCE_DESC           = "Sjogren, W.L., Mars gravity high         
+   resolution results from Viking Orbiter 2, Science, 203, 1006-1010, 
+   1979."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SMITHETAL1993"                           
+ REFERENCE_DESC           = "Smith, D.E., F.J. Lerch, R.S. Nerem,     
+   M.T. Zuber, G.B. Patel, S.K. Fricke, and F.G. Lemoine, An Improved 
+   Gravity Model for Mars: Goddard Mars Model 1, J. Geophys. Res.,    
+   98, 20871-20889, 1993."                                            
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "SNYDER1987"                              
+ REFERENCE_DESC           = "Snyder, John P., Map Projections -- A    
+   Working Manual, U. S. Geol. Surv. Professional Paper 1395, 383p.,  
+   1987."                                                             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TRACADISETAL2001"                        
+ REFERENCE_DESC           = "Tracadis, P.W., M.T. Zuber, D.E. Smith,  
+   and F.G. Lemoine, Density Structure of the Upper Thermosphere of   
+   Mars from Measurements of Air Drag on the Mars Global Surveyor     
+   Spacecraft, J. Geophys. Res., 106, 23349-23357, 2001."             
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TYLER&HOWARD1973"                        
+ REFERENCE_DESC           = "Tyler, G.L. and Howard, H.T., Dual-      
+   frequency bistatic-radar investigations of the Moon with Apollos   
+   14 and 15, J. Geophys. Res., 78, 4852-4874, 1973."                 
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TYLERETAL1983"                           
+ REFERENCE_DESC           = "Tyler, G. L., Marouf, E.A., Simpson,     
+   R.A., Zebker, H.A. and Eshleman, V.R., The microwave opacity of    
+   Saturn's rings at wavelengths of 3.6 and 13 cm from Voyager 1      
+   radio occultation, Icarus, 54, 160-188, 1983."                     
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TYLER1987"                               
+ REFERENCE_DESC           = "Tyler, G.L., Radio propagation           
+   experiments in the outer solar system with Voyager, Proceedings of 
+   the IEEE, 75, 1404-1431, 1987."                                    
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TYLERETAL1992A"                          
+ REFERENCE_DESC           = "Tyler, G.L., G. Balmino, D.P. Hinson,    
+   W.L. Sjogren, D.E. Smith, R. Woo, S.W. Asmar, M.J. Connally, C.L.  
+   Hamilton, and R.A. Simpson, Radio Science Investigations with Mars 
+   Observer, J. Geophys. Res., 97, 7759-7779, 1992."                  
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TYLERETAL1992B"                          
+ REFERENCE_DESC           = "Tyler, G.L., Simpson, R.A., Maurer,      
+   M.J. and Holmann, E., Scattering properties of the Venusian        
+   surface: Preliminary results from Magellan, J. Geophys. Res., 97,  
+   13115-13140, 1992."                                                
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "TYLERETAL2001"                           
+ REFERENCE_DESC           = "Tyler, G.L., G. Balmino, D.P. Hinson,    
+   W.L. Sjogren, D.E. Smith, R.A. Simpson, S.W. Asmar, P. Priest, and 
+   J.D. Twicken, Radio science observations with Mars Global          
+   Surveyor: Orbit insertion through one Mars year in mapping orbit,  
+   J. Geophys. Res., 106, 23327-23348, 2001."                         
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "WOO1993"                                 
+ REFERENCE_DESC           = "Woo, R., Spacecraft Radio Scintillation  
+   and Solar System Exploration, Wave Propagation in Random Media     
+   (Scintillation), Society of Photo-Optical Instrumentation          
+   Engineers, Bellingham, WA, 1993."                                  
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "YEH&LIU1972"                             
+ REFERENCE_DESC           = "Yeh, K.C., and C.H. Liu, Theory of       
+   Ionospheric Waves, 464 pp, Academic Press, San Diego, 1972."       
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "YOEMANS1987"                             
+ REFERENCE_DESC           = "Yeomans, D.K., Physical interpretations  
+   from the motions of comets Halley and Giacobini-Zinner,  ESA SP-   
+   250 II , pp. 419-425, 1987."                                       
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "YOEMANSETAL1981"                         
+ REFERENCE_DESC           = "Yeomans, D.K., Ananda, M., Sjogren,      
+   W.L. and Wood, L.J., Cometary mass determination, J. Astronaut.    
+   Sci., 29, 19-33, 1981."                                            
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "YUANETAL2001"                            
+ REFERENCE_DESC           = "Yuan, D.-N., W.L. Sjogren, A.S.          
+   Konopliv, and A.B. Kucinskas, Gravity Field of Mars: A 75th Degree 
+   and Order Model, J. Geophys. Res., 106, 23377-23401, 2001."        
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "ZUBERETAL1992"                           
+ REFERENCE_DESC           = "Zuber, M.T., D.E. Smith, S.C. Solomon,   
+   D.O. Muhleman, J.W. Head, J.B. Garvin, J.B. Abshire, and J.L.      
+   Bufton, The Mars Observer Laser Altimeter Investigation, J.        
+   Geophys. Res., 97, 7781-7797, 1992."                               
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+OBJECT                    = REFERENCE                                 
+ REFERENCE_KEY_ID         = "ZUBER&SMITH2002"                         
+ REFERENCE_DESC           = "Zuber, M.T., and D.E. Smith, Rotational  
+   dynamics and time-variable gravity of Mars and implications for    
+   volatile cycling and atmospheric structure, Lunar and Planetary    
+   Science Conference XXXIII, Paper 1925.pdf, Houston, 2002."         
+END_OBJECT                = REFERENCE                                 
+                                                                      
+                                                                      
+                                                                      
+END                                                                   
+                                                                      
+                                                                      
+OBJECT                          = REFERENCE                                   
+ REFERENCE_KEY_ID               = "MANNUCCIETAL1998"                          
+ REFERENCE_DESC                 = "Mannucci, A.J., B.D. Wilson,               
+     D.N. Yuan, C.H. Ho, U.J. Lindqwister, and T.F. Runge, A Global           
+     Mapping Technique for GPS-Derived Ionospheric Total Electron             
+     Content Measurements, Radio Science, 33, 565-582, 1998."                 
+END_OBJECT                      = REFERENCE                
+                                                                      
+END                                                                   

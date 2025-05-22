@@ -1,0 +1,219 @@
+PDS_VERSION_ID                    = PDS3
+LABEL_REVISION_NOTE               = "2007-10-10 RS: L. Carone"
+RECORD_TYPE                       = STREAM
+
+
+OBJECT                            = PERSONNEL
+ PDS_USER_ID                      = MPAETZOLD
+
+ OBJECT                           = PERSONNEL_INFORMATION
+  FULL_NAME                       = "MARTIN PAETZOLD"
+  LAST_NAME                       = PAETZOLD
+  TELEPHONE_NUMBER                = "+49-221-27781810"
+  ALTERNATE_TELEPHONE_NUMBER      = "N/A"
+  FAX_NUMBER                      = "+49-221-4002320"
+  INSTITUTION_NAME                = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     PLANETENFORSCHUNG"
+  NODE_ID                         = "N/A"
+  PDS_AFFILIATION                 = "N/A"
+  PDS_ADDRESS_BOOK_FLAG           = "Y"
+  REGISTRATION_DATE               = 2004-08-25
+  ADDRESS_TEXT                    = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     ABTEILUNG PLANETENFORSCHUNG,
+                                     AN DER DER UNIVERSITAET ZU
+                                     KOELN
+                                     AACHENERSTR. 209
+                                     50931 COLOGNE
+                                     GERMANY"
+ END_OBJECT                       = PERSONNEL_INFORMATION
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "MPAETZOL@UNI-KOELN.DE"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 1
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "PAETZOLD.MARTIN@WEB.DE"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 2
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+END_OBJECT                        = PERSONNEL
+
+
+OBJECT                            = PERSONNEL
+ PDS_USER_ID                      = BHAEUSLER
+
+ OBJECT                           = PERSONNEL_INFORMATION
+  FULL_NAME                       = "BERND HAEUSLER"
+  LAST_NAME                       = HAEUSLER
+  TELEPHONE_NUMBER                = "(49)-89-6004-2138"
+  ALTERNATE_TELEPHONE_NUMBER      = "N/A"
+  FAX_NUMBER                      = "(49)-89-6004-2138"
+  INSTITUTION_NAME                = "INSTITUT FUER RAUMFAHRTTECHNIK"
+  NODE_ID                         = "N/A"
+  PDS_AFFILIATION                 = "N/A"
+  PDS_ADDRESS_BOOK_FLAG           = "Y"
+  REGISTRATION_DATE               = 2004-08-25
+  ADDRESS_TEXT                    = "INSTITUT FUER RAUMFAHRTTECHNIK,
+                                     UNIVERSITAET DER BUNDESWEHR,
+                                     MUENCHEN, D-85577 NEUBIBERG,
+                                     GERMANY"
+ END_OBJECT                       = PERSONNEL_INFORMATION
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "BERND.HAEUSLER@UNIBW-MUENCHEN.DE"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 1
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+END_OBJECT                        = PERSONNEL
+
+
+OBJECT                            = PERSONNEL
+ PDS_USER_ID                      = RSIMPSON
+
+ OBJECT                           = PERSONNEL_INFORMATION
+  FULL_NAME                       = "RICHARD A. SIMPSON"
+  LAST_NAME                       = SIMPSON
+  TELEPHONE_NUMBER                = "+1-650-723-3525"
+  ALTERNATE_TELEPHONE_NUMBER      = "+1-650-723-0296"
+  FAX_NUMBER                      = "+1-650-723-9251"
+  INSTITUTION_NAME                = "STANFORD UNIVERSITY"
+  NODE_ID                         = "N/A"
+  PDS_AFFILIATION                 = "RADIO SCIENCE ADVISOR"
+  PDS_ADDRESS_BOOK_FLAG           = "Y"
+  REGISTRATION_DATE               = 1994-01-21
+  ADDRESS_TEXT                    = "STANFORD UNIVERSITY
+                                     CENTER FOR RADAR ASTRONOMY;
+                                     PACKARD BLDG - ROOM 332,
+                                     STANFORD, CA 94305, USA"
+ END_OBJECT                       = PERSONNEL_INFORMATION
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "RSIMPSON@MAGELLAN.STANFORD.EDU"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 1
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "RSIMPSON@STANFORD.EDU"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 2
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+END_OBJECT                        = PERSONNEL
+
+
+
+OBJECT                            = PERSONNEL
+ PDS_USER_ID                      = LCARONE
+
+ OBJECT                           = PERSONNEL_INFORMATION
+  FULL_NAME                       = "LUDMILA CARONE"
+  LAST_NAME                       = CARONE
+  TELEPHONE_NUMBER                = "+49-221-27781814"
+  ALTERNATE_TELEPHONE_NUMBER      = "N/A"
+  FAX_NUMBER                      = "+49-221-4002320"
+  INSTITUTION_NAME                = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     PLANETENFORSCHUNG"
+  NODE_ID                         = "N/A"
+  PDS_AFFILIATION                 = "N/A"
+  PDS_ADDRESS_BOOK_FLAG           = "N"
+  REGISTRATION_DATE               = 2005-02-22
+  ADDRESS_TEXT                    = "RHEINISCHES INSTITUT FUER UMWELT-
+                                     FORSCHUNG, ABTEILUNG PLANETEN-
+                                     FORSCHUNG,
+                                     AN DER DER UNIVERSITAET ZU KOELN
+                                     AACHENERSTR. 209
+                                     50931 COLOGNE
+                                     GERMANY"
+ END_OBJECT                       = PERSONNEL_INFORMATION
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "LUDMILA.CARONE@UNI-KOELN.DE"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 1
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+END_OBJECT                        = PERSONNEL
+
+
+OBJECT                            = PERSONNEL
+ PDS_USER_ID                      = CSTANZEL
+
+ OBJECT                           = PERSONNEL_INFORMATION
+  FULL_NAME                       = "CHRISTINA STANZEL"
+  LAST_NAME                       = STANZEL
+  TELEPHONE_NUMBER                = "+49-221-27781812"
+  ALTERNATE_TELEPHONE_NUMBER      = "N/A"
+  FAX_NUMBER                      = "+49-221-4002320"
+  INSTITUTION_NAME                = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     PLANETENFORSCHUNG"
+  NODE_ID                         = "N/A"
+  PDS_AFFILIATION                 = "N/A"
+  PDS_ADDRESS_BOOK_FLAG           = "N"
+  REGISTRATION_DATE               = 2005-02-22
+  ADDRESS_TEXT                    = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     ABTEILUNG PLANETENFORSCHUNG,
+                                     AN DER DER UNIVERSITAET ZU
+                                     KOELN
+                                     AACHENERSTR. 209
+                                     50931 COLOGNE
+                                     GERMANY"
+ END_OBJECT                       = PERSONNEL_INFORMATION
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "CSTANZEL@UNI-KOELN.DE"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 1
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+END_OBJECT                        = PERSONNEL
+
+END
+
+
+OBJECT                            = PERSONNEL
+ PDS_USER_ID                      = STELLMANN
+
+ OBJECT                           = PERSONNEL_INFORMATION
+  FULL_NAME                       = "SILVIA TELLMANN"
+  LAST_NAME                       = TELLMANN
+  TELEPHONE_NUMBER                = "+49-221-27781813"
+  ALTERNATE_TELEPHONE_NUMBER      = "N/A"
+  FAX_NUMBER                      = "+49-221-4002320"
+  INSTITUTION_NAME                = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     PLANETENFORSCHUNG"
+  NODE_ID                         = "N/A"
+  PDS_AFFILIATION                 = "N/A"
+  PDS_ADDRESS_BOOK_FLAG           = "N"
+  REGISTRATION_DATE               = 2005-02-23
+  ADDRESS_TEXT                    = "RHEINISCHES INSTITUT FUER
+                                     UMWELTFORSCHUNG,
+                                     ABTEILUNG PLANETENFORSCHUNG,
+                                     AN DER DER UNIVERSITAET ZU
+                                     KOELN
+                                     AACHENERSTR. 209
+                                     50931 COLOGNE
+                                     GERMANY"
+ END_OBJECT                       = PERSONNEL_INFORMATION
+
+ OBJECT                           = PERSONNEL_ELECTRONIC_MAIL
+  ELECTRONIC_MAIL_ID              = "SILVIA.TELLMANN@UNI-KOELN.DE"
+  ELECTRONIC_MAIL_TYPE            = "INTERNET"
+  PREFERENCE_ID                   = 1
+ END_OBJECT                       = PERSONNEL_ELECTRONIC_MAIL
+
+END_OBJECT                        = PERSONNEL
+
+END
+
+
