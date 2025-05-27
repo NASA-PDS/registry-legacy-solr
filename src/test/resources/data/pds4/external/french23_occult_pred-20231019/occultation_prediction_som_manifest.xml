@@ -2,7 +2,7 @@
 <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
-<Product_Document
+<Product_External
     xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="
@@ -13,7 +13,7 @@
         <version_id>1.0</version_id>
         <title>Occultation Predictions from R. G. French and D. Souami (2023) </title>
         <information_model_version>1.20.0.0</information_model_version>
-        <product_class>Product_Document</product_class>
+        <product_class>Product_External</product_class>
         <Citation_Information>
             <author_list>French, R.G.; Souami, D.</author_list>
             <editor_list>Mace, M.J.T.; Gordon, M.K.; Tiscareno, M.S.</editor_list>
@@ -26,8 +26,9 @@
             <keyword>titan</keyword>
             <keyword>triton</keyword>
             <description>
-                Supplementary Online Material (SOM) for Occultation Predictions, 
-                R. G. French and D. Souami (2023)
+                Supplementary Online Material (SOM) for Earth-based Stellar Occultation Predictions
+                for Jupiter, Saturn, Uranus, Neptune, Titan, and Triton: 2023–2050, 
+                R. G. French and D. Souami (2023).
             </description>
         </Citation_Information>
         <Modification_History>
@@ -55,35 +56,21 @@
                 in this collection.</description>
         </External_Reference>
     </Reference_List>
-<!--    <File_Area_External> -->
-<!--        <File> -->
-<!--            <file_name>occultation_prediction_som_manifest.txt</file_name>             -->
-<!--            <creation_date_time>2023-10-13T16:35:45</creation_date_time>  -->
-<!--            <file_size unit="byte">3084963</file_size>  -->
-<!--            <comment> -->
-<!--                Text file containing a list of all the files present in the  -->
-<!--                Supplementary Online Material (SOM) for Occultation Predictions,  -->
-<!--                R. G. French and D. Souami (2023) -->
-<!--            </comment> -->
-<!--        </File> -->
-<!--        <Encoded_External> -->
-<!--            <md5_checksum>3c6ac46879b68286cdc4495e7bfa2aa6</md5_checksum>  -->
-<!--            <offset unit="byte">0</offset> -->
-<!--            <encoding_standard_id>ASCII_File_Name</encoding_standard_id>  -->
-<!--        </Encoded_External>  -->
-<!--    </File_Area_External> -->
-    <Document>
-        <author_list>Frahm, R.</author_list>
-        <publication_date>2021-03-19</publication_date>
-        <document_editions>1</document_editions>
-        <Document_Edition>
-            <edition_name>In lieu of Product_External working</edition_name>
-            <language>English</language>
-            <files>1</files>
-            <Document_File>
-                <file_name>occultation_prediction_som_manifest.txt</file_name>
-                <document_standard_id>7-Bit ASCII Text</document_standard_id>
-            </Document_File>
-        </Document_Edition>
-    </Document>
-</Product_Document>
+    <File_Area_External> 
+        <File> 
+            <file_name>occultation_prediction_som_manifest.txt</file_name>             
+            <creation_date_time>2023-12-05T15:59:09</creation_date_time> 
+            <file_size unit="byte">3084997</file_size> 
+            <comment>
+                Text file containing a list of all the files present in the 
+                Supplementary Online Material (SOM) for Occultation Predictions, 
+                R. G. French and D. Souami (2023).
+            </comment>
+        </File>
+        <Encoded_External>
+            <md5_checksum>e2c750ce6d4347bf3ce7a8077caf1f72</md5_checksum> 
+            <offset unit="byte">0</offset>
+            <encoding_standard_id>ASCII_File_Name</encoding_standard_id>
+        </Encoded_External> 
+    </File_Area_External>
+</Product_External>
