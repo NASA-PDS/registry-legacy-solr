@@ -12,7 +12,7 @@
 SOLR_URL=http://localhost:8983/solr
 SCRIPT_DIR=`cd "$( dirname $0 )" && pwd`
 PARENT_DIR=`cd ${SCRIPT_DIR}/.. && pwd`
-SEARCH_CONF=${PARENT_DIR}/conf/search/defaults
+SEARCH_CONF=${PARENT_DIR}/conf/search/defaults/pds/pds4
 # JAVA_HOME=
 
 ################################################################################
