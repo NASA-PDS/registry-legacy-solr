@@ -1,5 +1,13 @@
 # Changelog
 
+## [release/4.5.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.5.2) (2025-05-28)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.1...release/4.5.2)
+
+**Requirements:**
+
+- As a user, I want to load and search Product\_Externals [\#201](https://github.com/NASA-PDS/registry-legacy-solr/issues/201)
+
 ## [v4.5.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.1) (2025-05-28)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.0...v4.5.1)
@@ -17,6 +25,11 @@
 - As a user, I want to search by the new List\_Author and List\_Editor attributes [\#199](https://github.com/NASA-PDS/registry-legacy-solr/issues/199)
 - As a user, I want to provide a data input path via command-line [\#179](https://github.com/NASA-PDS/registry-legacy-solr/issues/179)
 
+**Improvements:**
+
+- Upgrade Solr to 9.8 due to some known issues with 9.7 [\#197](https://github.com/NASA-PDS/registry-legacy-solr/issues/197)
+- Update regex to avoid potential vulnerability [\#195](https://github.com/NASA-PDS/registry-legacy-solr/issues/195)
+
 **Defects:**
 
 - NullPointerException being thrown and catalog-solr is not completing execution [\#184](https://github.com/NASA-PDS/registry-legacy-solr/issues/184) [[s.critical](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.critical)]
@@ -24,8 +37,6 @@
 
 **Other closed issues:**
 
-- Upgrade Solr to 9.8 due to some known issues with 9.7 [\#197](https://github.com/NASA-PDS/registry-legacy-solr/issues/197)
-- Update regex to avoid potential vulnerability [\#195](https://github.com/NASA-PDS/registry-legacy-solr/issues/195)
 - Remove Tools from Registry for MVP delivery [\#141](https://github.com/NASA-PDS/registry-legacy-solr/issues/141)
 
 ## [v4.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.3.0) (2024-12-09)
