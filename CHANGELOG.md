@@ -1,8 +1,16 @@
 # Changelog
 
-## [release/4.5.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.5.0) (2025-05-27)
+## [release/4.5.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.5.1) (2025-05-28)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...release/4.5.0)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.0...release/4.5.1)
+
+**Defects:**
+
+- Bug introduced when supporting product external and missing resource\_refs [\#204](https://github.com/NASA-PDS/registry-legacy-solr/issues/204) [[s.high](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.high)]
+
+## [v4.5.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.0) (2025-05-27)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.3.0...v4.5.0)
 
 **Requirements:**
 
