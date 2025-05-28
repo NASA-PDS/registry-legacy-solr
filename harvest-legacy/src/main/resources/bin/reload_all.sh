@@ -16,7 +16,7 @@ fi
 if [ "$ENV" = "staging" ]; then
     LOG=/scratch/pds4/registry-solr-data/harvest-logs/harvest_$(date +"%Y%m%d%H%M%S").txt
     echo "Processing PDS4 data (harvest-solr). See log file: $LOG"
-    HARVEST_SOLR_CONFIG=$HARVEST_SOLR_CONF_HOME/harvest-policy-reload-edwg.xml
+    HARVEST_SOLR_CONFIG=$HARVEST_SOLR_CONF_HOME/harvest-policy-reload-all.xml
     $HARVEST_SOLR_HOME/bin/harvest-solr -c $HARVEST_SOLR_CONFIG \
                         -o $PDS4_SOLR_DOC_HOME > $LOG
 
