@@ -49,6 +49,15 @@
     <field name="agency_name" type="string">
       <outputString format="text">nasa</outputString>
     </field>
+    <field name="resource_name" type="string">
+      <registryPath>resource_ref.resource_name</registryPath>
+    </field>
+    <field name="resource_ref" type="string">
+      <registryPath>resource_ref</registryPath>
+    </field>
+    <field name="resource_url" type="string">
+      <registryPath>resource_ref.resource_url</registryPath>
+    </field>
     <!-- Identification_Area Fields -->
     <field name="product_class" type="string">
       <registryPath>product_class</registryPath>
