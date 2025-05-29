@@ -1,8 +1,16 @@
 # Changelog
 
-## [release/4.5.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.5.2) (2025-05-28)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-05-29)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.1...release/4.5.2)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.2...«unknown»)
+
+**Requirements:**
+
+- As a user, I want to load instrument context products that use the CTLI LDD to specify instrument type [\#206](https://github.com/NASA-PDS/registry-legacy-solr/issues/206)
+
+## [v4.5.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.2) (2025-05-28)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.1...v4.5.2)
 
 **Requirements:**
 
