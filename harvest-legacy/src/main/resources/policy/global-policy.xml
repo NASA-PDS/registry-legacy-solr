@@ -16,6 +16,7 @@
 
   <candidates>
     <namespace harvest:prefix="pds" harvest:uri="http://pds.nasa.gov/pds4/pds/v1" harvest:default="true"/>
+    <namespace harvest:prefix="ctli" harvest:uri="http://pds.nasa.gov/pds4/ctli/v2" harvest:default="true"/>
 
     <productMetadata harvest:objectType="Product_Attribute_Definition">
       <!-- Identification_Area -->
@@ -1040,7 +1041,10 @@
       <xPath harvest:slotName="facility_description">//Facility/description</xPath>
       <!-- Instrument -->
       <xPath harvest:slotName="instrument_name">//Instrument/name</xPath>
-      <xPath harvest:slotName="instrument_type">//Instrument/type</xPath>
+      <xPath harvest:slotName="instrument_type_legacy">//Instrument/type</xPath>
+      <xPath harvest:slotName="instrument_type">//Type_List_Area/ctli:Type_List/ctli:type</xPath>
+      <xPath harvest:slotName="instrument_subtype_legacy">//Instrument/subtype</xPath>
+      <xPath harvest:slotName="instrument_subtype">//Type_List_Area/ctli:Type_List/ctli:subtype</xPath>
       <xPath harvest:slotName="instrument_description">//Instrument/description</xPath>
       <xPath harvest:slotName="instrument_model_id">//Instrument/model_id</xPath>
       <xPath harvest:slotName="instrument_naif_id">//Instrument/naif_instrument_id</xPath>

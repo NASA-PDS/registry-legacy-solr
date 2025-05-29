@@ -18,7 +18,7 @@
   <xsl:function name="pds:clean" as="xs:string">
     <xsl:param name="text" as="xs:string" />
 
-    <xsl:value-of select="upper-case(replace($text,'_',' '))" />
+    <xsl:value-of select="replace($text,'_',' ')" />
 
   </xsl:function>
 

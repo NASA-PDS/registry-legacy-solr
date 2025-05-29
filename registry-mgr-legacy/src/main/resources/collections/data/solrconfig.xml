@@ -810,6 +810,7 @@
       <str name="fq">-product_class:Product_SIP_Deep_Archive</str>
       <str name="fq">-resource_type:Information.Science_Portal</str>
       <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
+      <str name="fq">-objectType:Product_Mission_PDS3 AND -objectType:Product_Instrument_PDS3 AND -objectType:Product_Target_PDS3 AND -objectType:Product_Instrument_Host_PDS3</str>
       
       <!-- Boosts -->
       <str name="qf">target_name^1 investigation_name^1 instrument_host_name^1 instrument_name^1 title^3 alternate_id^1 alternate_title^1 citation_keyword^1</str>
@@ -931,6 +932,7 @@
       <str name="fq">-product_class:Product_SIP_Deep_Archive</str>
       <str name="fq">-resource_type:Information.Science_Portal</str>
       <str name="fq">-objectType:Product_Attribute_Definition AND -objectType:Product_Class_Definition</str>
+      <str name="fq">-objectType:Product_Mission_PDS3 AND -objectType:Product_Instrument_PDS3 AND -objectType:Product_Target_PDS3 AND -objectType:Product_Instrument_Host_PDS3</str>
     </lst>
 
     <arr name="last-components">

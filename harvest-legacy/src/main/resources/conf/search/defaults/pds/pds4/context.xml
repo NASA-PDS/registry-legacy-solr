@@ -212,6 +212,11 @@
     </field>
     <field name="instrument_type" type="string">
       <registryPath>instrument_type</registryPath>
+      <registryPath>instrument_type_legacy</registryPath>
+    </field>
+    <field name="instrument_subtype" type="string">
+      <registryPath>instrument_subtype</registryPath>
+      <registryPath>instrument_subtype_legacy</registryPath>
     </field>
     <field name="instrument_description" type="string">
       <registryPath>instrument_description</registryPath>
