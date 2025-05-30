@@ -5,7 +5,7 @@
   <parent>
     <groupId>gov.nasa</groupId>
     <artifactId>pds</artifactId>
-    <version>1.18.0</version>
+    <version>1.17.0</version>
   </parent>
 
   <groupId>gov.nasa.pds</groupId>
@@ -48,15 +48,15 @@
 	          <target>11</target>
 	        </configuration>
 	      </plugin>
-		<plugin>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-site-plugin</artifactId>
-	        <version>4.0.0-M16</version>
-	        <configuration>
-	          <skip>false</skip> <!-- skipping site build for now -->
-	          <skipDeploy>false</skipDeploy>
-	        </configuration>
-	      </plugin>
+        <!-- Disable Site for now -->
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>4.0.0-M14</version>
+          <configuration>
+            <skip>true</skip>
+            <skipDeploy>true</skipDeploy>
+          </configuration>
+        </plugin>
 	   </plugins>
    </build>
    
