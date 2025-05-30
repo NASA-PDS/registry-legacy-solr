@@ -53,8 +53,8 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>4.0.0-M14</version>
           <configuration>
-            <skip>true</skip>
-            <skipDeploy>true</skipDeploy>
+            <skip>false</skip>
+            <skipDeploy>false</skipDeploy>
           </configuration>
         </plugin>
 	   </plugins>
