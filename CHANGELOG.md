@@ -1,16 +1,12 @@
 # Changelog
 
-## [4.5.4](https://github.com/NASA-PDS/registry-legacy-solr/tree/4.5.4) (2025-05-30)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-05-30)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/release/4.5.4...4.5.4)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.3...«unknown»)
 
 **Requirements:**
 
 - As a user, I want to only execute one harvest-solr at a time [\#208](https://github.com/NASA-PDS/registry-legacy-solr/issues/208)
-
-## [release/4.5.4](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.5.4) (2025-05-30)
-
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.3...release/4.5.4)
 
 ## [v4.5.3](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.3) (2025-05-29)
 
