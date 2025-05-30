@@ -21,6 +21,40 @@ SEARCH_CONF=${PARENT_DIR}/conf/search/defaults/pds/pds4
 # WARNING: Should not need to update below. Proceed with caution.
 ################################################################################
 
+# Check if PDS4_SOLR_DOC_HOME is set
+if [ -z "${PDS4_SOLR_DOC_HOME}" ]; then
+    echo "Error: PDS4_SOLR_DOC_HOME environment variable is not set"
+    exit 1
+fi
+
+# Check if PDS4_SOLR_DOC_HOME directory exists
+if [ ! -d "${PDS4_SOLR_DOC_HOME}" ]; then
+    echo "Error: PDS4_SOLR_DOC_HOME directory does not exist: ${PDS4_SOLR_DOC_HOME}"
+    exit 1
+fi
+
+# Define lock file path
+LOCK_FILE="${PDS4_SOLR_DOC_HOME}/harvest-solr.lock"
+
+# Check if lock file exists
+if [ -f "$LOCK_FILE" ]; then
+    echo "Error: Another instance of harvest-solr is already running."
+    echo "If this is incorrect, please remove the lock file: $LOCK_FILE"
+    exit 1
+fi
+
+# Create lock file
+touch "$LOCK_FILE"
+
+# Function to clean up lock file on exit
+cleanup() {
+    rm -f "$LOCK_FILE"
+    echo "Lock file removed."
+}
+
+# Set up trap to ensure lock file is removed on script exit
+trap cleanup EXIT
+
 # Check if the JAVA_HOME environment variable is set.
 if [ -z "${JAVA_HOME}" ]; then
    JAVA_CMD=`which java`
