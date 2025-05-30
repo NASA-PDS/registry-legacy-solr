@@ -36,15 +36,13 @@ fi
 # Define lock file path
 LOCK_FILE="${PDS4_SOLR_DOC_HOME}/harvest-solr.lock"
 
-# Check if lock file exists
-if [ -f "$LOCK_FILE" ]; then
-    echo "Error: Another instance of harvest-solr is already running."
-    echo "If this is incorrect, please remove the lock file: $LOCK_FILE"
+LOCK_FILE="${PDS4_SOLR_DOC_HOME}/harvest-solr.lock"
+FD=123
+exec $FD>$LOCK_FILE
+/usr/bin/flock --nonblock $FD || {
+    echo "Another instance is running…"
     exit 1
-fi
-
-# Create lock file
-touch "$LOCK_FILE"
+}
 
 # Function to clean up lock file on exit
 cleanup() {
