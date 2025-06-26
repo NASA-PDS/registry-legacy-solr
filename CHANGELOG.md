@@ -2,11 +2,7 @@
 
 ## [v4.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.5) (2025-05-30)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/release/4.5.5...v4.5.5)
-
-## [release/4.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/4.5.5) (2025-05-30)
-
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.3...release/4.5.5)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.3...v4.5.5)
 
 **Requirements:**
 
