@@ -39,6 +39,9 @@ echo "Loading historical PDS3 data..."
 export PDS3_HISTORY=/scratch/pds4/registry-solr-data/pds3/solr-docs_BASELINE/
 $REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr $PDS3_HISTORY
 
+# Delete legacy context products that are mistakenly included in that PDS3 data
+curl -X POST -H 'Content-Type: application/json' --data-binary '{"delete":{"query":"data_class:Facility OR data_class:Instrument OR data_class:Instrument_Host OR data_class:Target OR data_class:Telescope OR data_class:Investigation" }}' 'http://localhost:8983/solr/data/update?commit=true'
+
 # Reload PDS4 data
 echo "Loading PDS4 data..."
 $REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr $PDS4_SOLR_DOC_HOME/solr-docs
