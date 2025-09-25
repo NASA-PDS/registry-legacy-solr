@@ -129,6 +129,7 @@ start_registry_container() {
       -d -p 8983:8983 \
       -v ${DATA_HOME}/${DOCKER_VOLUME}:/var/solr/ \
       -e SOLR_HEAP=$SOLR_HEAP \
+      --restart unless-stopped \
       $DOCKER_IMAGE:$VERSION | tee -a $LOG 2>&1
 
     print_status $?
