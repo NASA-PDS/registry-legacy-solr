@@ -1,5 +1,13 @@
 # Changelog
 
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-10-01)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.5...«unknown»)
+
+**Improvements:**
+
+- Auto-restart the registry legacy docker container unless stopped [\#217](https://github.com/NASA-PDS/registry-legacy-solr/issues/217)
+
 ## [v4.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.5) (2025-05-30)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.3...v4.5.5)
