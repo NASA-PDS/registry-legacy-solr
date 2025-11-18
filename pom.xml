@@ -5,7 +5,7 @@
   <parent>
     <groupId>gov.nasa.pds</groupId>
     <artifactId>parent</artifactId>
-    <version>1.19.0</version>
+    <version>1.20.0</version>
   </parent>
 
   <groupId>gov.nasa.pds</groupId>
@@ -57,7 +57,15 @@
             <skipDeploy>false</skipDeploy>
           </configuration>
         </plugin>
-	   </plugins>
+		<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <source>17</source>
+            <target>17</target>
+          </configuration>
+        </plugin>
+      </plugins>
    </build>
    
   
