@@ -1,0 +1,23 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "NULL"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "IO"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "SATELLITE"
+    PRIMARY_BODY_NAME             = "JUPITER"
+    ORBIT_DIRECTION               = "UNK"
+    ROTATION_DIRECTION            = "UNK"
+    TARGET_DESC                   = "UNK"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "UNK"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

@@ -1,0 +1,13 @@
+PDS_VERSION_ID = PDS3
+RECORD_TYPE = STREAM
+
+LABEL_REVISION_NOTE         = "2016-09-16 C. Piker"
+
+OBJECT                       = REFERENCE
+  REFERENCE_KEY_ID            = "SAMPLETAL2016"
+  REFERENCE_DESC              = "Sampl, M., W. Macher, T. Oswald,
+    D. Plettemeier, H.O. Rucker, and W.S. Kurth, Juno model rheometry and
+    simulation, Radio Science, in press, doi:10.1002/2016RS005954."
+END_OBJECT                   = REFERENCE
+
+END

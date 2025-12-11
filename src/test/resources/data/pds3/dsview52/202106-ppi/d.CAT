@@ -1,0 +1,20 @@
+PDS_VERSION_ID = PDS3
+RECORD_TYPE = STREAM
+LABEL_REVISION_NOTE = NULL
+
+/* Template: NSSDC Data Set Template                    Rev: 19990302 */
+
+/* This file last edited - 20071115, SLA/EN                           */
+
+OBJECT                           = NSSDCDSID
+  DATA_SET_COLL_OR_DATA_SET_ID   = "JNO-E/J/SS-WAV-3-CDR-BSTFULL-V2.0"
+  NSSDC_DATA_SET_ID              = "NULL"
+  MEDIUM_TYPE                    = "N/A"
+END_OBJECT                       = NSSDCDSID
+OBJECT                           = NSSDCDSID
+  DATA_SET_COLL_OR_DATA_SET_ID   = "JNO-E/J/SS-WAV-3-CDR-SRVFULL-V2.0"
+  NSSDC_DATA_SET_ID              = "NULL"
+  MEDIUM_TYPE                    = "N/A"
+END_OBJECT                       = NSSDCDSID
+
+END

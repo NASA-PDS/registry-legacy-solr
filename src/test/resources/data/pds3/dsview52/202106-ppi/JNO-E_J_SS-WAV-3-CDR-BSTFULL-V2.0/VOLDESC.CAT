@@ -1,0 +1,110 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+LABEL_REVISION_NOTE     = "
+    C. Piker 2011-10-14;
+    C. Piker 2012-06-04 Changes post PPI review;
+    J. Mafi  2018-07-10 Release #5 (perijoves 9-10) update;
+  J. Mafi    2018-08-25 Release #6 (perijoves 11-12) update;
+    J. Mafi  2019-02-05 Release #7 (perijoves 13-14) update;
+    J. Mafi  2019-05-22 Release #8 (perijoves 15-16) update;
+    J. Mafi  2019-09-11 Release #9 (perijoves 17-18) update;
+  D. Kazden  2019-11-21 Release #10 (perijoves 19-20) update;
+    D. Kazden  2020-04-01 Release #11 (perijoves 21-22) update;
+    D. Kazden  2020-07-16 Release #12 (perijoves 23-24) update;
+    D. Kazden  2020-11-06 Release #13 (perijoves 25-26) update;
+  D. Kazden  2021-02-19 Release #14 (perijoves 27-28) update;
+    C. Piker 2021-03-28 Update to ver. 2.0;
+    D. Kazden  2021-06-04 Release #15 (perijoves 29-30) update;
+    "
+
+OBJECT                  = VOLUME
+  VOLUME_SERIES_NAME      = "JUNO MISSION TO JUPITER"
+  VOLUME_SET_NAME         = "JUNO WAVES"
+  VOLUME_SET_ID           = USA_NASA_PDS_JNOWAV_0000
+  VOLUMES                 = 2
+  VOLUME_NAME             = "JUNO WAVES BURST STANDARD SCIENCE
+                             PRODUCTS"
+  VOLUME_ID               = JNOWAVB1000
+  VOLUME_VERSION_ID       = "16"
+  VOLUME_FORMAT           = TAR
+  MEDIUM_TYPE             = ELECTRONIC
+  PUBLICATION_DATE        = 2021-06-04
+  DESCRIPTION             = "CERTIFIED
+                             This volume contains documentation and all
+                             available Juno Waves standard data products and
+                             browse data for spacecraft event times (SCET)
+                             2011-08-05 to 2020-12-04T11:36:33.
+
+                             All data are as complete as possible and
+                             calibrated via the best known transfer functions
+                             which are also included.  These products were
+                             generated from the reformatted EDRs on volume
+                             JNOWAV_0000."
+
+DATA_SET_ID               = "JNO-E/J/SS-WAV-3-CDR-BSTFULL-V2.0"
+MISSION_NAME              = "JUNO"
+
+  OBJECT                  = DATA_PRODUCER
+    INSTITUTION_NAME        = "UNIVERSITY OF IOWA"
+    FACILITY_NAME           = "DEPARTMENT OF PHYSICS AND ASTRONOMY"
+    FULL_NAME               = "CHRISTOPHER W. PIKER"
+    ADDRESS_TEXT            = "CHRIS PIKER
+                               DEPARTMENT OF PHYSICS AND ASTRONOMY
+                               THE UNIVERSITY OF IOWA
+                               IOWA CITY, IOWA 52242"
+    TELEPHONE_NUMBER        = "3193351960"
+    ELECTRONIC_MAIL_ID      = "CHRIS-PIKER@UIOWA.EDU"
+    ELECTRONIC_MAIL_TYPE    = "INTERNET"
+  END_OBJECT              = DATA_PRODUCER
+
+  OBJECT                  = DATA_PRODUCER
+    INSTITUTION_NAME        = "UNIVERSITY OF IOWA"
+    FACILITY_NAME           = "DEPARTMENT OF PHYSICS AND ASTRONOMY"
+    FULL_NAME               = "DR. WILLIAM S. KURTH"
+    ADDRESS_TEXT            = "DR. WILLIAM S. KURTH
+                               DEPARTMENT OF PHYSICS AND ASTRONOMY
+                               THE UNIVERSITY OF IOWA
+                               IOWA CITY, IOWA 52242"
+    TELEPHONE_NUMBER        = "3193351926"
+    ELECTRONIC_MAIL_ID      = "WILLIAM-KURTH@UIOWA.EDU"
+    ELECTRONIC_MAIL_TYPE    = "INTERNET"
+  END_OBJECT              = DATA_PRODUCER
+
+  OBJECT                  = DATA_SUPPLIER
+    INSTITUTION_NAME        = "UNIVERSITY OF CALIFORNIA, LOS ANGELES"
+    FACILITY_NAME           = "GEOPHYSICS AND PLANETARY PHYSICS"
+    DISCIPLINE_NAME         = "PLASMA INTERACTIONS"
+    FULL_NAME               = "DR. RAYMOND J. WALKER"
+    ADDRESS_TEXT            = "DR. RAYMOND J. WALKER
+                               INST. OF GEOPHYSICS AND PLANETARY PHYSICS
+                               UCLA
+                               405 HILGARD AVE.
+                               LOS ANGELES, CA 90095-1567"
+    TELEPHONE_NUMBER        = "3108257685"
+    ELECTRONIC_MAIL_ID      = "RWALKER@IGPP.UCLA.EDU"
+    ELECTRONIC_MAIL_TYPE    = "INTERNET"
+  END_OBJECT              = DATA_SUPPLIER
+
+  OBJECT                  = CATALOG
+    ^INSTRUMENT_CATALOG      = "../zzold/WAVESINST.CAT"
+    ^DATA_SET_CATALOG        = "BURST_DS.CAT"
+    ^PERSONNEL_CATALOG       = "../zzold/PERSON.CAT"
+    ^REFERENCE_CATALOG       = {"../zzold/WAVESREF.CAT",
+                                "../zzold/refJUNO.CAT"}
+    ^MISSION_CATALOG         = "../zzold/missionJUNO.CAT"
+    ^INSTRUMENT_HOST_CATALOG = "../zzold/hostJUNO.CAT"
+    ^HOUSEKEEPING_CATALOG    = "hsk.CAT"
+    ^TARGET_CATALOG          = {
+      "../zzold/targCALLISTO.CAT", "../zzold/targDUST.CAT",
+      "../zzold/targEARTH.CAT", "../zzold/targEUROPA.CAT", 
+      "../zzold/targGANYMEDE.CAT", "../zzold/targIO.CAT",
+      "../zzold/targIO.PLASMA.TORUS.CAT", "../zzold/targJ_RINGS.CAT",
+      "../zzold/targJUPITER.CAT", "../zzold/targMOON.CAT",
+      "../zzold/targSOLAR_SYSTEM.CAT", "../zzold/targSOLAR.WIND.CAT"}
+  END_OBJECT              = CATALOG
+
+  NOTE                    = "Group: 'flight'"
+
+
+END_OBJECT              = VOLUME
+END

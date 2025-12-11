@@ -1,0 +1,23 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "20 Apr 2007  B.Carcich,  Creation"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "J RINGS"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "RING"
+    PRIMARY_BODY_NAME             = "JUPITER"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "N/A"
+    TARGET_DESC                   = "N/A"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "N/A"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

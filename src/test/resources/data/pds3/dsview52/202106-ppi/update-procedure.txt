@@ -1,0 +1,4 @@
+/usr/local/catalog/bin/catalog -m ingest -t JNO-E_J_SS-WAV-3-CDR-BSTFULL-V1.0superseded/VOLDESC.CAT -s http://localhost:9000 -T http://localhost:8000/product -v1 -r ../../log/202106-ppi/catalog-JNO-E_J_SS-WAV-3-CDR-BSTFULL-V1.0superseded.log
+/usr/local/catalog/bin/catalog -m ingest -t JNO-E_J_SS-WAV-3-CDR-BSTFULL-V2.0/VOLDESC.CAT -s http://localhost:9000 -T http://localhost:8000/product -v1 -r ../../log/202106-ppi/catalog-JNO-E_J_SS-WAV-3-CDR-BSTFULL-V2.0.log
+/usr/local/catalog/bin/catalog -m ingest -t JNO-E_J_SS-WAV-3-CDR-SRVFULL-V1.0superseded/VOLDESC.CAT -s http://localhost:9000 -T http://localhost:8000/product -v1 -r ../../log/202106-ppi/catalog-JNO-E_J_SS-WAV-3-CDR-SRVFULL-V1.0superseded.log
+/usr/local/catalog/bin/catalog -m ingest -t JNO-E_J_SS-WAV-3-CDR-SRVFULL-V2.0/VOLDESC.CAT -s http://localhost:9000 -T http://localhost:8000/product -v1 -r ../../log/202106-ppi/catalog-JNO-E_J_SS-WAV-3-CDR-SRVFULL-V2.0.log

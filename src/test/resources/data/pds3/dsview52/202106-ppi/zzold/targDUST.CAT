@@ -1,0 +1,27 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "
+10 Mar 1999, A.C.Raugh, First draft from available information."
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "DUST"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "DUST"
+    PRIMARY_BODY_NAME             = "N/A"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "N/A"
+    TARGET_DESC                   = "
+
+  Target Overview
+  ===============
+    The DUST target name is used in the PDS archives to identify those
+    datasets concerned with observations of any kind of cosmic dust."
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "N/A"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END

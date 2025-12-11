@@ -1,0 +1,389 @@
+PDS_VERSION_ID = PDS3
+RECORD_TYPE = STREAM
+
+LABEL_REVISION_NOTE     = "
+  2010-05-29, W. Kurth (U. IOWA), initial;
+  2010-05-31, C. Piker (U. IOWA), general revision;
+  2012-05-30, C. Piker (U. IOWA), changed high-rate data layout;
+  2012-06-04, C. Piker (U. IOWA), added notes on dataset limitations;
+  2018-09-23, C. Piker (U. IOWA), added antenna length caution;
+  2018-03-28, J. Mafi (UCLA), updated for orbits 7 and 8 release;
+  2018-07-10, J. Mafi (UCLA), updated for orbits 9 and 10 release;
+  2018-08-02, D. Kazden (UCLA), removed ARCHIVE_STATUS keyword;
+  2018-10-25, J. Mafi (UCLA), updated for orbits 11 and 12 release;
+  2019-02-05, J. Mafi (UCLA), updated for orbits 13 and 14 release;
+  2019-05-22, J. Mafi (UCLA), updated for orbits 15 and 16 release;
+  2019-09-10, J. Mafi (UCLA), updated for orbits 17 and 18 release;
+  2019-12-20, J. Mafi (UCLA), updated for orbits 19 and 20 release;
+  2020-02-03, D. Kazden (UCLA), updated DATA_SET_RELEASE_DATE and
+                                CITATION_DESC;
+  2020-04-06, J. Mafi (UCLA), updated for orbits 21 and 22 release;
+  2020-06-24, D. Kazden (UCLA), updated for orbits 23 and 24 release;
+  2020-11-06, D. Kazden (UCLA), updated for orbits 25 and 26 release;
+  2020-11-17, C. Piker (U. IOWA), updates to effective antenna length;
+  2021-02-19, D. Kazden (UCLA), updated for orbits 27 and 28 release;
+  2021-03-28, C. Piker (U. IOWA), update data_set_id to 2.0;
+  2021-06-04, D. Kazden (UCLA), updated for orbits 29 and 30 release;
+"
+
+OBJECT                  = DATA_SET
+  DATA_SET_ID             = "JNO-E/J/SS-WAV-3-CDR-BSTFULL-V2.0"
+
+  OBJECT                  = DATA_SET_INFORMATION
+    DATA_SET_NAME           = "
+      JUNO E/J/S/SS WAVES CALIBRATED BURST FULL RESOLUTION V2.0"
+    DATA_SET_COLLECTION_MEMBER_FLG = "N"
+    DATA_OBJECT_TYPE        = TABLE
+    ARCHIVE_STATUS = "ARCHIVED - ACCUMULATING" 
+    START_TIME              = 2011-08-09T16:56:56
+    STOP_TIME               = 2020-11-08T04:31:44.042
+    DATA_SET_RELEASE_DATE   = 2021-06-04
+    PRODUCER_FULL_NAME      = "DR. WILLIAM S. KURTH"
+    DETAILED_CATALOG_FLAG   = "N"
+    DATA_SET_TERSE_DESC     = "
+      The Juno Waves calibrated burst waveform full resolution data set
+      includes all high rate science waveform information calibrated in units
+      of electric or magnetic field for the entire Juno mission."
+
+    ABSTRACT_DESC           = "
+      The Juno Waves calibrated burst waveform full resolution data set
+      includes all high rate science electric field waveforms from 50Hz up to
+      45.25 MHz and magnetic field waveforms from 50Hz to 20kHz with sample
+      rates that depend on the receiver used to obtain the waveforms.  This
+      is the complete waveform data set containing all high rate binning mode
+      data and record mode data received from Waves from launch until the end
+      of mission including initial checkout, the Earth flyby, the Jupiter
+      orbits and cruise.
+
+      Data are acquired from the Waves Low Frequency Receiver (LFR) and High
+      Frequency Receiver (HFR) and are typically losslessly compressed on
+      board.  These data are presented in binary SERIES objects.  This data
+      set comprises highest temporal resolution data obtained by Waves (or all
+      other Juno instruments, for that matter).  Pre-rendered spectrograms
+      generated from these data are included as well to provide the user with
+      a quick view of the content of the data.  This data set should be among
+      the last used of any in the Waves archive as it provides highly detailed
+      information on very short isolated intervals in time.  The Waves full
+      resolution survey data provide context for these data."
+
+
+
+    CITATION_DESC           = "Kurth, W.S., and Piker C.W.,
+      JUNO E/J/S/SS WAVES CALIBRATED BURST FULL RESOLUTION V2.0,
+      JNO-E/J/SS-WAV-3-CDR-BSTFULL-V2.0, NASA Planetary Data System, 2020."
+
+    DATA_SET_DESC           = "
+
+      Data Set Overview
+      =================
+      The Juno Waves calibrated burst waveform full resolution data set
+      includes all high rate science electric field waveforms from 50Hz up to
+      45.25 MHz and magnetic field waveforms from 50Hz to 20kHz with sample
+      rates that depend on the receiver used to obtain the waveforms.  This
+      is the complete waveform data set containing all high rate binning mode
+      data and record mode data received from Waves from launch until the end
+      of mission including initial checkout, the Earth flyby, the Jupiter
+      orbits and cruise.
+
+      Data are acquired from the Waves Low Frequency Receiver (LFR) and High
+      Frequency Receiver (HFR) and are typically losslessly compressed on
+      board.  These data are presented in binary SERIES objects.  This data
+      set comprises highest temporal resolution data obtained by Waves (or all
+      other Juno instruments, for that matter).  Pre-rendered spectrograms
+      generated from these data are included as well to provide the user with
+      a quick view of the content of the data.  This data set should be among
+      the last used of any in the Waves archive as it provides highly detailed
+      information on very short isolated intervals in time.  The Waves full
+      resolution survey data provide context for these data.
+
+
+      Parameters
+      ==========
+      This data set consists of calibrated electric and magnetic field
+      waveforms obtained in the following manner:
+
+        1.  Magnetic field waveforms from the LFR receiver B Channel
+            sampled at a rate of 50 ksps with 16 bit resolution.
+
+        2.  Electric field waveforms from the LFR receiver Lo-E Channel
+            sampled at a rate of 50 ksps with 16 bit resolution.
+
+        3.  Electric field waveforms from the LFR receiver Hi-E Channel
+            sampled at a rate of 375 ksps with 16 bit resolution.
+
+        4.  Electric field waveforms from an HFR receiver Baseband Channel
+            with a sample rate of 7 Msps with 12 bit resolution.
+
+        5.  Electric field waveforms from an HFR receiver Paired-Mixer
+            Channel in a selected 1-MHz bandwidth sampled at a rate of
+            1.3125 Msps with 12 bit resolution.
+
+      Each set of waveforms are sampled regularly at the rates stated above
+      to comprise a series of samples of at least 1024 samples.  Series
+      length may vary by instrument mode, compression efficiency and for
+      other reasons.  Because of telemetry limitations, none of the receivers
+      is the sampling continuous in time.  After a 1024 sample collection,
+      there will be a time gap of a fraction of a second or more.  These gaps
+      are important to understand should the data be Fourier transformed, as
+      including the gaps in a Fourier transform will introduce artifacts into
+      the resulting spectrum.
+
+
+      Electric Antenna Length
+      -----------------------
+      Originally Waves Survey electric field data were calibrated using
+      an effective antenna length of 2.41 m based on the geometry of the
+      deployed, physical antenna elements.  Starting with release 14 (Sept.
+      2020) the effective antenna length was revised to 0.5 m and all
+      previously released data product files were regenerated and re-released
+      using the new value.  The rationale for this revision is summarized
+      below.
+
+      In very simple terms, the Waves instrument measures the differential
+      potential between the two elements of the electric antenna.  The
+      electric field E is simply:
+
+             -V/Leff
+
+      where V is the measured potential and Leff is the effective antenna
+      length.
+
+      The pre-launch calibration utilized the geometric antenna length which
+      is basically the distance between the mid-points of the two conducting
+      antenna elements, 2.41 m.  The second revision calibration modifies this
+      length by two important electrical considerations.  These are discussed
+      in detail by Kurth et al. (2017)
+      https://doi.org/10.1007/s11214-017-0396-y, but the first involves taking
+      the complex and large surrounding spacecraft structure, including the
+      solar panels, into account.  This structure is the ground plane for the
+      antenna system.  Given the very short antenna elements (2.8 m) in the
+      presence of the spacecraft with ~ 8-m solar panels and associated
+      structure, the spacecraft effectively decreases the effective length of
+      the antenna system.  This effect was studied by Sampl et al. (2012;
+      2016) https://doi.org/10.1002/2016RS005954, using both an analog
+      rheometry analysis as well as a surface patch model of the spacecraft.
+      The result is that the antenna has an effective length, after taking
+      into account the complex ground plane of the spacecraft of 1.46 m.
+
+      The second effect is a capacitive divider effect due to the base
+      capacitance of the antenna and the capacitance of the antenna to space.
+      While the base capacitance is somewhat uncertain, this is effectively a
+      decrease in sensitivity (equivalently, another decrease in effective
+      length) of 8 db.  Combining these, we've used an effective antenna
+      length of
+
+            0.5 meters
+
+      for the Juno electric antenna in the second revision calibration tables.
+      Clearly, this means the newly-calibrated electric field associated with
+      a 1-V potential difference is 4.8 times greater than the old one.  And,
+      spectral densities that are proportional to E**2 will increase by a
+      factor of about 23.
+
+
+      Processing
+      ==========
+      Data products for this data set were generated by the CDR data
+      production pipeline as described in section 3.3.2 of the VOLSIS document
+      found under the DOCUMENTS sub directory.  The inputs to the processing
+      are:
+
+        1.  Science and housekeeping packets from the Waves Level 2 data
+            set.
+
+        2.  Calibration tables located on this volume.
+
+        3.  NAIF Juno mission SPICE kernels.
+
+        4.  A listing of mission phase names and orbit number by UTC.
+
+      The result of the processing is one file per receiver band per burst
+      interval.
+
+      The WAVES_CAL document in the DOCUMENT directory provides details of
+      the calibration process.  These data are calibrated using the best
+      calibration tables and algorithms available at the time the data were
+      archived.  Should a significant improvement in calibration become
+      available, an erratum will be noted in the erratum section.  Initial
+      calibrations of the electric field waveforms from an HFR receiver
+      in a selected 1-MHz bandwidth (data set 5 above) are currently being
+      reanalyzed and improved.  Later versions of the products will contain
+      better calibrations.
+
+      The calibration for these data are performed, basically, by applying a
+      multiplicative factor to the waveform based on the receiver gain
+      (including any gain/attenuation settings) at the center of the receiver
+      band.  An alternate method of calibrating these data is to Fourier
+      transform the data, apply the frequency response of the receiver
+      (convoluted with the preamp, where necessary), apply the gain factor,
+      and then perform an inverse Fourier transform.  The information
+      required to perform this type of calibration, starting from the EDR
+      data set is provided in the calibration documentation on this volume,
+      however, it is not the intention of the Waves team to archive data using
+      this calibration method.
+
+
+      Data
+      ====
+      The Waves calibrated burst waveform data set includes files from each
+      of the receiver/sensor combinations from which there are waveform data
+      for the burst interval.  These include magnetic field waveforms the
+      LFR-LO receiver, and electric field waveforms from both the LFR-LO and
+      LFR-HI, the baseband of an HFR as well as one or more of the upper
+      spectrum paired-mixer bands of an HFR.   Each file contains a fixed
+      number of fields containing the measurement initiation times by
+      spacecraft clock and UTC, a flag to indicate the employment of on-board
+      noise mitigation techniques, a column indicating the count of data
+      samples (as opposed to fill) in the row, as well as one field, with an
+      item for each waveform sample.
+
+      Ancillary Data
+      ==============
+      Ancillary data included with the data set collection include a series
+      of files that describe the Waves operating modes as a function of
+      time and provide a time-ordered listing of the Instrument Expanded
+      Block (IEB) trigger commands (WAV_MAJOR_MODE) (the mode by which Waves
+      is reconfigured).  Also a detailed description of each of the modes
+      (or IEBs) is provided.
+
+      Other data which are ancillary to this data set, but which are archived
+      separately from this collection are the Navigation and Ancillary
+      Information Facility's SPICE kernels describing the position and
+      attitude of Juno and various solar system bodies as a function of time.
+
+
+      Coordinate Systems
+      ==================
+      The data in this data set are measurements of electric and magnetic
+      field waveforms measured by the Waves electric and magnetic sensors.
+      These fields are presented as detected by the sensors and are not
+      rotated into any other coordinate system.  If desired the SPICE kernels
+      can be used with the SPICE toolkit to convert from the spacecraft frame
+      to virtually any frame which may be of use in analyzing these data.
+      However, for many purposes, because of the broad beam of the dipole-like
+      sensors, the waveforms are extremely useful and may be entirely
+      adequate with no coordinate transformations at all.
+
+
+      Software
+      ========
+      TBD - We may include software to output these data as ASCII comma
+            separated values.
+
+
+      Media/Format
+      ============
+      This data set is provided to the Planetary Data System electronically
+      as part of a volume level 'tarball' file, though the standards for file
+      names, directory names and path lengths follow the guidelines provided
+      in the 'Planetary Data System Standards Reference', version 3.8, under
+      section 10.1.3, 'Specification for Files Delivered Electronically'.
+
+      The 'tarball' file contains all files for a release of this volume in a
+      single GNU Tar file that has then been compressed via the GNU gzip
+      utility.  The tar file preserves the relative directory path for each
+      file so when unpacked the original volume directory structure is
+      recreated.  See Section 4 of the VOLSIS for more details on the data
+      transfer methods."
+
+
+    CONFIDENCE_LEVEL_NOTE   = "
+
+
+      Confidence Level Overview
+      =========================
+      This data set contains all calibrated waveform data for the Juno Waves
+      instrument for the interval defined by the  START_TIME and STOP_TIME
+      elements above.  Every effort has been made to ensure that all data
+      returned to the ground from the spacecraft are included and that the
+      calibration is accurate.
+
+      This section will be updated with information on known issues with the
+      data, such as interference from other spacecraft systems, or other
+      information needed to use the data with confidence.
+
+
+      Review
+      ======
+      The Waves calibrated burst waveform data will be reviewed internally by
+      the Juno Waves team prior to release to the PDS. The data set will also
+      be peer reviewed by the PDS.
+
+
+      Data Coverage and Quality
+      =========================
+      TBD
+
+
+      Limitations
+      ===========
+      Waves amplitude data from the upper bands of the high frequency
+      receivers are not collected via a direct sampling of the electric field
+      in time.  Since the A/D converters employed in the instrument are not
+      capable of sampling at the rates needed for direct measurements, the
+      incoming 'real-world' signal has been mixed with the output of a local
+      oscillator.  The down-mixed, in-phase and quadrature signals are then
+      sampled at a fixed 1.3125 MHz rate, regardless of the band of interest.
+      This produces a set of waveforms with ambiguous frequency components.
+      Since a simple Fourier Transform of these time domain data will *not*
+      produce a meaningful spectra we have converted these waveform data
+      into spectra with unambiguous frequency components.  These products
+      have the filename pattern:
+
+        WAV_yyyydddThhmmss_E_NBS_qqq_Vnn.DAT
+
+      and contain electric field amplitudes versus frequency.  Here the
+      parameter 'qqq' can read either 'REC' or 'BST'.  In this case
+      the first amplitude of each row is *not* a DC component.  Rather these
+      spectra comprise a roughly 1 MHz band centered on the frequency of the
+      local oscillator used to down-mix the signal to a measurable range.
+      This center frequency can change from row to row in an attempt to track
+      the electron cyclotron frequency.  Appendix C in the
+      DOCUMENT/VOLSIS/VOLSIS.HTM document provides more information on how
+      spectra are derived from the down-mixed waveforms.
+
+      The instrument response across the 1 MHz band is not flat, however
+      applying frequency corrections artificially inflates background noise
+      levels within the receiver to the point that these artificial data
+      exceed the real signal level in many cases.  Thus frequency corrections
+      have not been applied to these products.  Persons wishing to apply such
+      correction may use the calibration file:
+
+      WAV_CAL_BST_NBS_FREQ_Vnn.CSV
+
+      to normalize the response across the 1 MHz band with the response at
+      a calibrated frequency.
+  "
+
+  END_OBJECT              = DATA_SET_INFORMATION
+
+
+  OBJECT                  = DATA_SET_TARGET
+    TARGET_NAME             = "EARTH"
+  END_OBJECT              = DATA_SET_TARGET
+
+  OBJECT                  = DATA_SET_TARGET
+    TARGET_NAME             = "JUPITER"
+  END_OBJECT              = DATA_SET_TARGET
+
+  OBJECT                  = DATA_SET_TARGET
+    TARGET_NAME             = "SOLAR_SYSTEM"
+  END_OBJECT              = DATA_SET_TARGET
+
+  OBJECT                  = DATA_SET_HOST
+    INSTRUMENT_HOST_ID      = "JNO"
+    INSTRUMENT_ID           = "WAV"
+  END_OBJECT              = DATA_SET_HOST
+
+  OBJECT                  = DATA_SET_MISSION
+    MISSION_NAME            = "JUNO"
+  END_OBJECT              = DATA_SET_MISSION
+
+
+  OBJECT                  = DATA_SET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID        = "NULL"
+  END_OBJECT              = DATA_SET_REFERENCE_INFORMATION
+
+END_OBJECT              = DATA_SET
+
+END

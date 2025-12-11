@@ -1,0 +1,43 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "10 Mar 1999, A.C.Raugh First draft from available information"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "MOON"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "SATELLITE"
+    PRIMARY_BODY_NAME             = "EARTH"
+    ORBIT_DIRECTION               = "PROGRADE"
+    ROTATION_DIRECTION            = "SYNCHRONOUS"
+    TARGET_DESC                   = "
+
+    Target Overview
+    ===============
+    The target name MOON is used for those data sets concerned with
+    observations of Earth's moon. The following parameters are from
+    the tabulation in K.R. Lang, 'Astrophysical Data: Planets and
+    Stars', pp. 70-73 [LANG1992]:
+ 
+    Distance from planet center:  384.4e03   km
+    60.2 planet radii
+    Orbital period:               27.3217 days
+    Eccentricity:                 0.05490 degrees
+    Inclination:                  18.2 to 28.8 degrees
+ 
+    Radius:                       1738 km
+    Mass:                         735 1.e23 grams
+    Density:                      3.34 grams/cm^3
+    Visual Magnitude at Opposition: N/A
+    at Unit Distance:             +0.21
+    Geometric Visual Albedo:       0.12"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "LANG1992"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

@@ -1,0 +1,116 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "CREATED: 2001-06-06, J. MAFI"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "IO PLASMA TORUS"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "PLASMA CLOUD"
+    PRIMARY_BODY_NAME             = "JUPITER"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "PROGRADE"
+    TARGET_DESC                   = "
+
+      Target Overview
+      ===============
+      The Io Plasma Torus (IPT) is a cloud of charged particles in orbit
+      around Jupiter and centered on the centrifugal equator. It extends
+      from inside Io's orbit (about 5 Rj) out to around Europa's orbit,
+      though exact estimates of the outer boundary vary.
+ 
+      The IPT consists primarily of ionized sulfur and oxygen, and
+      electrons. The main source of these particles is Io, though Europa
+      may also contribute. The particles orbit Jupiter at a velocity
+      which lags slightly behind the corrotation velocity.
+ 
+ 
+      Target Parameters
+      =================
+      The parameters relevant to the torus are difficult to quantify as
+      they vary with radial distance, Jovian latitude, Jovian longitude,
+      and even with time. The following description (adapted from
+      [BAGENAL1994]) describes the characteristics of five radially
+      defined regions:
+ 
+        The inner torus 5-5.4 Rj. The plasma is cold (~1 eV) with few
+        suprathermal ions or electrons. The composition is dominated by
+        S+ (45-75% of charge fraction) and O+ (20-45% charge fraction)
+        with small, quantities of O++ and SO2+.
+ 
+        The precipice region 5.4-5.6 Rj. There are sharp changes in the
+        slope of the number of ions per shell of magnetic flux (NL^2)
+        and in the composition. The supra thermal ions comprise >10% of
+        the density.
+ 
+        The ribbon region 5.6-6 Rj. Here are the highest densities
+        (>3000 cm^-3). The temperature and composition (for >5.75 Rj
+        ~40% O+, ~17% S++, ~10% S+ of charge fraction) are similar to
+        the rest of the warm torus (>5.7 Rj).
+ 
+        The ledge region 6-7.5 Rj. This is the uniform region of the
+        warm torus, where there are gradual changes in density,
+        composition, and temperature.
+ 
+        The ramp region > 7.5 Rj. There is a drop in NL^2, perhaps due
+        to impoundment of the torus material by the middle
+        magnetospheric ring current. The current sheet begins to affect
+        the magnetic field. The ions change in composition towards
+        higher ionization state and higher oxygen fraction. Suprathermal
+        ions are diffusing inwards. Europa is a possible source of
+        plasma in this region.
+ 
+ 
+      Target References
+      =================
+      Results from Voyager 1 investigations of the IPT include
+      [BRIDGEETAL1979A] (PLS), [BROADFOOTETAL1979] (UVS), and
+      [WARWICKETAL1979A] and [BIRMINGHAMETAL1981] (PRA electron
+      studies). [BROWNETAL1983] gives a post Pioneer and Voyager
+      description of the IPT's characteristics. [BAGENAL1994] models the
+      plasma conditions between 5 and 10 Rj using updated analyses of
+      Voyager 1 observations. [SCHNEIDER&TRAUGE1995] discuss IPT
+      asymmetries. Periodicities in the brightness of the torus are
+      discussed in [DESSLER&SANDEL1992], and [BROWN1995]."
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "BAGENAL1994"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "BIRMINGHAMETAL1981"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "BRIDGEETAL1979A"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "BROADFOOTETAL1979"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "BROWN1995"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "BROWNETAL1983"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "DESSLER&SANDEL1992"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "SCHNEIDER&TRAUGE1995"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "WARWICKETAL1979A"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+
