@@ -1,13 +1,21 @@
 # Harvest Tool
 The Harvest Tool provides functionality for capturing and indexing product metadata. The tool will run locally at the Discipline Node to crawl the local data repository in order to discover products and index associated metadata with the Search Service. The Tool additionally stores the entire product label contents into another index within the Search Service.
 
+## Prerequisites
+
+- **OpenJDK 17 or higher** - Required for building and running
+- **Maven 3.x** - For building the project
+
 # Documentation
 The documentation for the latest release of the Validate Tool, including release notes, installation and operation of the software are online at https://nasa-pds-incubator.github.io/harvest/.
 
 If you would like to get the latest documentation, including any updates since the last release, you can execute the "mvn site:run" command and view the documentation locally at http://localhost:8080.
 
 # Build
-The software can be compiled and built with the "mvn compile" command but in order 
+
+**Note:** Ensure you have OpenJDK 17 or higher installed and `JAVA_HOME` set correctly before building.
+
+The software can be compiled and built with the "mvn compile" command but in order
 to create the JAR file, you must execute the "mvn compile jar:jar" command. 
 
 In order to create a complete distribution package, execute the 
