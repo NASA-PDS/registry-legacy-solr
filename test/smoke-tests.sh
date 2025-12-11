@@ -193,6 +193,50 @@ find_solr_doc() {
 }
 
 # ============================================================================
+# Docker and Volume Diagnostics
+# ============================================================================
+
+log_info "==============================================="
+log_info "Pre-Installation Docker Diagnostics"
+log_info "==============================================="
+
+# Check Docker is running
+if ! docker info > /dev/null 2>&1; then
+    log_error "Docker is not running or not accessible"
+    log_info "Try: sudo systemctl start docker (Linux) or start Docker Desktop (Mac)"
+    cleanup_and_exit 1
+fi
+log_success "Docker is running"
+
+# Show Docker version
+log_info "Docker version: $(docker --version)"
+
+# Check if DATA_HOME exists and show its permissions
+log_info "DATA_HOME: $DATA_HOME"
+if [ ! -d "$DATA_HOME" ]; then
+    log_warning "DATA_HOME does not exist, creating it..."
+    mkdir -p "$DATA_HOME"
+fi
+
+log_info "DATA_HOME permissions before setup:"
+ls -ld "$DATA_HOME"
+
+# Check if running in CI environment
+if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
+    log_info "Running in CI environment: adjusting permissions for Solr (UID 8983)"
+    # In CI, we need to ensure the Solr user (8983) can write to DATA_HOME
+    # The solrdata subdirectory will be created by the installer
+    sudo chown -R 8983:8983 "$DATA_HOME" 2>/dev/null || {
+        log_warning "Could not chown DATA_HOME to 8983:8983 (may not have sudo)"
+    }
+    sudo chmod -R 777 "$DATA_HOME" 2>/dev/null || {
+        log_warning "Could not chmod DATA_HOME to 777 (may not have sudo)"
+    }
+    log_info "DATA_HOME permissions after CI adjustments:"
+    ls -ld "$DATA_HOME"
+fi
+
+# ============================================================================
 # Solr Installation
 # ============================================================================
 
@@ -201,23 +245,156 @@ log_info "Installing Solr with Docker"
 log_info "==============================================="
 
 "$LEGACY_REGISTRY_HOME/bin/registry_legacy_installer_docker.sh" install
-check_status $? "Registry Manager installation failed"
+
+# Check if installation failed
+if [ $? -ne 0 ]; then
+    log_error "Registry Manager installation failed"
+
+    # Show detailed diagnostics
+    log_info "=== Docker Container Status ==="
+    docker ps -a | grep -i registry || log_warning "No registry container found"
+
+    log_info "=== Docker Logs (last 50 lines) ==="
+    docker logs registry-legacy 2>&1 | tail -50 || log_warning "Could not get container logs"
+
+    log_info "=== Docker Volume Inspection ==="
+    docker volume ls | grep solrdata || log_warning "No solrdata volume found"
+    docker volume inspect solrdata 2>&1 || log_warning "Could not inspect volume"
+
+    log_info "=== DATA_HOME Directory Contents ==="
+    ls -laR "$DATA_HOME" || log_warning "Could not list DATA_HOME"
+
+    cleanup_and_exit 1
+fi
 
 log_success "Solr installation completed"
 
-# Wait for Solr to be fully ready
+# ============================================================================
+# Verify Docker Volume Mount
+# ============================================================================
+
+log_info "==============================================="
+log_info "Verifying Docker Volume Mount"
+log_info "==============================================="
+
+# Check container is running
+if ! docker ps | grep -q registry-legacy; then
+    log_error "Registry container is not running"
+    log_info "Container status:"
+    docker ps -a | grep registry-legacy
+    log_info "Container logs:"
+    docker logs registry-legacy 2>&1 | tail -50
+    cleanup_and_exit 1
+fi
+
+log_success "Registry container is running"
+
+# Verify volume mount
+log_info "Checking volume mount inside container..."
+MOUNT_CHECK=$(docker exec registry-legacy df -h /var/solr 2>&1)
+if [ $? -eq 0 ]; then
+    log_success "Volume is mounted:"
+    echo "$MOUNT_CHECK" | grep -E "(Filesystem|solr)"
+else
+    log_error "Could not verify volume mount"
+fi
+
+# Test write access inside container
+log_info "Testing write access inside container..."
+if docker exec --user=solr registry-legacy touch /var/solr/test-write-access 2>&1; then
+    log_success "Solr user can write to /var/solr"
+    docker exec --user=solr registry-legacy rm /var/solr/test-write-access 2>/dev/null
+else
+    log_error "Solr user CANNOT write to /var/solr - permission denied"
+    log_info "This is likely the cause of Solr startup failure"
+
+    # Show what we can see
+    log_info "Directory listing inside container:"
+    docker exec registry-legacy ls -la /var/solr 2>&1 || true
+
+    log_info "Permissions on host:"
+    ls -la "$DATA_HOME/solrdata/" 2>&1 || true
+
+    cleanup_and_exit 1
+fi
+
+# Verify solrdata directory exists on host
+log_info "Verifying solrdata directory on host..."
+if [ -d "$DATA_HOME/solrdata" ]; then
+    log_success "solrdata directory exists on host"
+    log_info "Permissions:"
+    ls -ld "$DATA_HOME/solrdata"
+
+    # Check if data directory exists
+    if [ -d "$DATA_HOME/solrdata/data" ]; then
+        log_info "solrdata/data subdirectory:"
+        ls -ld "$DATA_HOME/solrdata/data"
+    fi
+
+    # Warn if directory is empty (might indicate mount isn't working)
+    if [ -z "$(ls -A $DATA_HOME/solrdata 2>/dev/null)" ]; then
+        log_warning "solrdata directory is EMPTY - volume mount may not be working correctly"
+        log_warning "Data may be written to container's internal filesystem instead of host"
+    else
+        log_success "solrdata directory has contents (volume mount appears to be working)"
+        log_info "Contents:"
+        ls -la "$DATA_HOME/solrdata"
+    fi
+else
+    log_error "solrdata directory does not exist at $DATA_HOME/solrdata"
+    cleanup_and_exit 1
+fi
+
+# ============================================================================
+# Wait for Solr to Start
+# ============================================================================
+
+log_info "==============================================="
+log_info "Waiting for Solr to Start"
+log_info "==============================================="
+
+# Wait for Solr to be fully ready with better diagnostics
 log_info "Waiting for Solr to be ready..."
+SOLR_READY=false
+
 for i in {1..30}; do
     if curl -s "http://localhost:8983/solr/admin/cores?action=STATUS" > /dev/null 2>&1; then
         log_success "Solr is ready"
+        SOLR_READY=true
         break
     fi
-    if [ $i -eq 30 ]; then
-        log_error "Solr failed to start within 30 seconds"
-        cleanup_and_exit 1
+
+    # Show progress every 5 seconds
+    if [ $((i % 5)) -eq 0 ]; then
+        log_info "Still waiting... (attempt $i/30)"
+
+        # Check if container is still running
+        if ! docker ps | grep -q registry-legacy; then
+            log_error "Registry container stopped running!"
+            log_info "Last 50 lines of container logs:"
+            docker logs registry-legacy 2>&1 | tail -50
+            cleanup_and_exit 1
+        fi
     fi
+
     sleep 1
 done
+
+if [ "$SOLR_READY" = false ]; then
+    log_error "Solr failed to start within 30 seconds"
+
+    log_info "=== Container Status ==="
+    docker ps -a | grep registry-legacy
+
+    log_info "=== Container Logs (last 100 lines) ==="
+    docker logs registry-legacy 2>&1 | tail -100
+
+    log_info "=== Attempting to check Solr logs inside container ==="
+    docker exec registry-legacy cat /var/solr/logs/solr.log 2>&1 | tail -50 || \
+        log_warning "Could not access Solr logs inside container"
+
+    cleanup_and_exit 1
+fi
 
 # ============================================================================
 # TEST 1: PDS4 Harvest and Load

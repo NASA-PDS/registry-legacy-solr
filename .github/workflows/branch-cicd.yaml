@@ -73,11 +73,11 @@ jobs:
             -
                 name: 🩺 Run Smoke Tests
                 run: |
-                    echo "Prep environment"
+                    echo "Preparing environment for smoke tests"
                     export DATA_HOME=/tmp/registry-data
-                    sudo mkdir $DATA_HOME
-                    sudo chown 8983:8983 $DATA_HOME
-                    sudo chmod 777 $DATA_HOME
+                    sudo mkdir -p $DATA_HOME
+                    sudo chown -R 8983:8983 $DATA_HOME
+                    sudo chmod -R 777 $DATA_HOME
 
                     source test/setup-test-env.sh
                     cd test
