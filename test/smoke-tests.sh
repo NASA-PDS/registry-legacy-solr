@@ -294,11 +294,11 @@ log_info "==============================================="
 log_info "Verifying Docker Volume Mount"
 log_info "==============================================="
 
-# Check container is running
-if ! docker ps | grep -q registry-legacy; then
+# Check container is running using docker inspect (more reliable than grep)
+if [ "$(docker inspect -f '{{.State.Running}}' registry-legacy 2>/dev/null)" != "true" ]; then
     log_error "Registry container is not running"
     log_info "Container status:"
-    docker ps -a | grep registry-legacy
+    docker ps -a --filter "name=registry-legacy"
     log_info "Container logs:"
     docker logs registry-legacy 2>&1 | tail -50
     cleanup_and_exit 1
