@@ -95,6 +95,30 @@ build_docker_image() {
 create_docker_volumes() {
     echo "Creating docker volumes and associated data directory        " | tee -a $LOG
     mkdir -p $DATA_HOME/$DOCKER_VOLUME/data
+
+    # Ensure Solr user (8983) can write to the data directory
+    # In CI environments, this directory may be created with wrong ownership
+    if command -v chown > /dev/null 2>&1; then
+        # Detect if we're in CI and sudo is available
+        CHOWN_CMD="chown"
+        if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
+            if command -v sudo > /dev/null 2>&1; then
+                CHOWN_CMD="sudo chown"
+                echo "  Detected CI environment, using sudo for ownership change" | tee -a $LOG
+            fi
+        fi
+
+        # Attempt to change ownership to Solr user (8983)
+        if $CHOWN_CMD -R 8983:8983 $DATA_HOME/$DOCKER_VOLUME >>$LOG 2>&1; then
+            echo "  Successfully set ownership to Solr user (8983:8983)" | tee -a $LOG
+        else
+            echo "WARNING: Could not chown $DATA_HOME/$DOCKER_VOLUME to 8983:8983" | tee -a $LOG
+            echo "         You may need to run with sudo or adjust permissions manually" | tee -a $LOG
+            echo "         Current permissions:" | tee -a $LOG
+            ls -la $DATA_HOME/$DOCKER_VOLUME | tee -a $LOG
+        fi
+    fi
+
     docker volume create $DOCKER_VOLUME >>$LOG 2>&1
 }
 

@@ -221,19 +221,10 @@ fi
 log_info "DATA_HOME permissions before setup:"
 ls -ld "$DATA_HOME"
 
-# Check if running in CI environment
+# Note: The installer script will automatically handle permissions
+# It detects CI environments and uses sudo chown when necessary
 if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
-    log_info "Running in CI environment: adjusting permissions for Solr (UID 8983)"
-    # In CI, we need to ensure the Solr user (8983) can write to DATA_HOME
-    # The solrdata subdirectory will be created by the installer
-    sudo chown -R 8983:8983 "$DATA_HOME" 2>/dev/null || {
-        log_warning "Could not chown DATA_HOME to 8983:8983 (may not have sudo)"
-    }
-    sudo chmod -R 777 "$DATA_HOME" 2>/dev/null || {
-        log_warning "Could not chmod DATA_HOME to 777 (may not have sudo)"
-    }
-    log_info "DATA_HOME permissions after CI adjustments:"
-    ls -ld "$DATA_HOME"
+    log_info "Running in CI environment - installer will automatically set permissions for Solr (UID 8983)"
 fi
 
 # ============================================================================
