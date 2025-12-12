@@ -2,6 +2,12 @@
 
 This package software repo contains all the necessary components to support the PDS Legacy Solr Registry, which drives the [PDS Keyword Search]([url](https://pds.nasa.gov/datasearch/keyword-search/)) and [Tool Registry]([url](https://pds.nasa.gov/tools/tool-registry/)), among other parts of the system.
 
+## Prerequisites
+
+- **OpenJDK 17 or higher** - Required for building and running all components
+- **Maven 3.x** - For building the project
+- **Docker** - For Solr deployment (optional for local development)
+
 ## Harvest Solr
 The Harvest Tool provides functionality for capturing and indexing product metadata. The tool will run locally alongside a data archive, crawl the local data repository in order to discover products and generate Solr-readable documents that will be passed onto Registry Manager for loading in the PDS Solr Registry. The Tool additionally stores the entire product label contents into another index within the Solr Registry
 
@@ -19,7 +25,10 @@ The documentation for the latest release, including release notes, installation 
 If you would like to get the latest documentation, including any updates since the last release, you can execute the "mvn site:run" command and view the documentation locally at http://localhost:8080.
 
 # Build
-The software can be compiled and built with the "mvn compile" command but in order 
+
+**Note:** Ensure you have OpenJDK 17 or higher installed and `JAVA_HOME` set correctly before building.
+
+The software can be compiled and built with the "mvn compile" command but in order
 to create the JAR file, you must execute the "mvn compile jar:jar" command. 
 
 In order to create a complete distribution package, execute the 

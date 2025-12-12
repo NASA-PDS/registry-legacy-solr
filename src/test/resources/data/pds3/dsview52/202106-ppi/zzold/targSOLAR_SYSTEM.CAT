@@ -1,0 +1,45 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "2001-01-01, S. JOY (PPI), initial release;"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "SOLAR_SYSTEM"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "PLANETARY SYSTEM"
+    PRIMARY_BODY_NAME             = "GALAXY"
+    ORBIT_DIRECTION               = "N/A"
+    ROTATION_DIRECTION            = "N/A"
+    TARGET_DESC                   = "
+
+  Target Overview
+  ===============
+    The Solar System consists of the Sun, all celestial bodies orbiting
+    the Sun (including the planets, their satellites, asteroids, comets,
+    and meteroids), and the interplanetary medium (including dust)
+    extending to the heliopause. This target is primarily used by the
+    PDS to describe data acquired during the interplanetary cruise
+    portion of planetary missions. The assignment of the 'SOLAR SYSTEM'
+    target to a data set does not imply that the data within the data
+    set are unmodified by the interstellar medium or other sources
+    outside of the Solar System.
+ 
+  Target Parameters
+  =================
+    None of the normal parameters that the PDS maintains about other
+    targets apply to the Solar System, except possibly mass. The Sun
+    (1.9891E30 Kg) contains 99.86% of the mass of the Solar System and
+    most of the remaining mass is contained in Jupiter. The Solar System
+    Barycenter moves in a nearly circular orbit about the center of the
+    Galaxy (which lies about 8500 parsecs away in the constellation
+    Sagittarius) at a mean speed of about 220 km/sec."
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "UNK"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

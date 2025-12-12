@@ -1,0 +1,434 @@
+PDS_VERSION_ID = PDS3
+RECORD_TYPE = STREAM
+
+LABEL_REVISION_NOTE     = "
+  2010-05-25, C. Piker (U. IOWA), initial;
+  2010-05-29, W. Kurth (U. IOWA), general revision;
+  2015-09-10, C. Piker (U. IOWA), Lien Resolution additions;
+  2018-09-23, C. Piker (U. IOWA), added antenna length caution;
+  2018-03-28, J. Mafi (UCLA), Perijoves 7 and 8 release update;
+  2018-07-10, J. Mafi (UCLA), Perijoves 9 and 10 release update;
+  2018-10-25, J. Mafi (UCLA), Perijoves 11 and 12 release update;
+  2019-02-05, J. Mafi (UCLA), Perijoves 13 and 14 release update;
+  2019-05-22, J. Mafi (UCLA), Perijoves 15 and 16 release update;
+  2019-09-10, J. Mafi (UCLA), Perijoves 17 and 18 release update;
+  2019-12-20, J. Mafi (UCLA), Perijoves 19 and 20 release update;
+  2020-02-03, D. Kazden (UCLA), updated DATA_SET_RELEASE_DATE and
+                                CITATION_DESC;
+  2020-04-06, J. Mafi (UCLA), Perijoves 21 and 22 release update;
+  20200703 RChen/EN work around catalog ingest. Delete this line next time.
+"
+
+OBJECT                  = DATA_SET
+  DATA_SET_ID             = "JNO-E/J/SS-WAV-3-CDR-SRVFULL-V1.0"
+
+  OBJECT                  = DATA_SET_INFORMATION
+    DATA_SET_NAME           = "
+      JUNO E/J/SS WAVES CALIBRATED SURVEY FULL RESOLUTION V1.0"
+    DATA_SET_COLLECTION_MEMBER_FLG = "N"
+    DATA_OBJECT_TYPE        = SPREADSHEET
+    ARCHIVE_STATUS = SUPERSEDED
+    START_TIME              = 2011-08-09T00:00:00
+    STOP_TIME               = 2019-10-09T00:00:00
+    DATA_SET_RELEASE_DATE   = 2020-04-08
+    PRODUCER_FULL_NAME      = "DR. WILLIAM S. KURTH"
+    DETAILED_CATALOG_FLAG   = "N"
+    DATA_SET_TERSE_DESC     = "
+      The Juno Waves calibrated full resolution survey data set includes all
+      low rate science spectral information calibrated in units of spectral
+      density for the entire Juno mission."
+
+    ABSTRACT_DESC           = "
+      The Juno Waves calibrated full resolution survey data set includes all
+      low rate science electric spectral densities from 50Hz to 41MHz and
+      magnetic spectral densities from 50Hz to 20kHz with complete sweeps at
+      30, 10 and 1 second intervals depending on the instrument mode.  This is
+      a complete full resolution data set containing all low rate science data
+      received from Waves from launch until the end of mission including
+      initial checkout, the Earth flyby, the Jupiter orbits and all cruise
+      data.
+
+      Data are acquired from the Waves Low Frequency Receiver (LFR) and High
+      Frequency Receiver (HFR) and are processed into spectra on board.
+      These data are presented as ASCII text spreadsheets for ease of use.
+      This data set is intended to be the most comprehensive and complete data
+      set included in the Juno Waves archive.  Pre-rendered spectrograms
+      generated from these data are included as well to lead the user to the
+      particular data file(s) of interest.  This data set should be among the
+      first used of any in the Waves archive as it will lead one to the
+      information required to locate more detailed products."
+
+
+    CITATION_DESC           = "Kurth, W.S., and Piker C.W.,
+      JUNO E/J/S/SS WAVES CALIBRATED SURVEY FULL RESOLUTION V1.0,
+      JNO-E/J/SS-WAV-3-CDR-SRVFULL-V1.0, NASA Planetary Data System, 2019."
+
+    DATA_SET_DESC           = "
+      Data Set Overview
+      =================
+      The Juno Waves calibrated full resolution survey data set includes all
+      low rate science electric spectral densities from 50Hz to 41MHz and
+      magnetic spectral densities from 50Hz to 20kHz with complete sweeps at
+      30, 10 and 1 second intervals depending on the instrument mode.  This is
+      a complete full resolution data set containing all low rate science data
+      received from Waves from launch until the end of mission including near
+      Earth checkout, the Earth flyby, the Jupiter orbits and all cruise data.
+      Data are acquired from the Waves Low Frequency Receiver (LFR) and High
+      Frequency Receiver (HFR) and are processed into spectra in flight.
+      These data are presented as ASCII text spreadsheets for ease of use.
+      This data set is intended to be the most comprehensive and complete data
+      set included in the Juno Waves archive.  Pre-rendered spectrograms
+      generated from these data are included as well to lead the user to the
+      particular data file(s) of interest.  This data set should be among the
+      first used of any in the Waves archive as it will lead one to the
+      information required to locate more detailed products.
+
+
+      Parameters
+      ==========
+      This data set consists of electric and magnetic field spectral densities
+      in the following frequency bands:
+
+        Spectral Density    Frequency Range      Receiver, Band
+        ----------------   ------------------    ------------------------
+        Magnetic            50 Hz  to  20 kHz    LFR, B
+        Electric            50 Hz  to  20 kHz    LFR, Lo E
+        Electric            19 kHz to 150 kHz    LFR, Hi E
+        Electric           133 kHz to   3 MHz    HFR (44 or 45), Baseband
+        Electric             3 MHz to  41 MHz    HFR (44 or 45), Hi Bands
+
+      The frequency bands are derived from the analysis bandwidths of the Low
+      Frequency Receiver (LFR) and High Frequency Receivers (HFR-44, HFR-45).
+      The the center frequencies of the bins are roughly log spaced in
+      frequency.   The time between frequency sweeps depends on the instrument
+      operating mode as follows:
+
+        1. Periapsis Cadence    - 1 complete sweep per second
+        2. Intermediate Cadence - 1 complete sweep every 10 seconds
+        3. Apoapsis Cadence     - 1 complete sweep every 30 seconds
+
+      Additional cadences can be programmed in flight should the science or
+      unknown operating constraints dictate.
+
+      Typically electric measurements from 50 Hz to 150 kHz and magnetic
+      measurements from 20 kHz to 20 kHz are measured simultaneously,
+      however this is not always the case.  Waves has the ability to sample
+      solar panel switching noise and to mitigate this noise to a limited
+      extent.  When operating in this mode it is not possible to collect all
+      data below 150 kHz simultaneously.  In these instances time tags on
+      the magnetic data will not line up with time tags on the corresponding
+      electric, however in either case timing information in the data files
+      are accurate and should be relied upon when processing the data.
+
+      Electric Antenna Length
+      -----------------------
+      Note that the electric field measurements are calibrated using an
+      effective antenna length of 2.41 m based on the geometry of the
+      deployed, physical antenna elements.  We caution the user to be aware of
+      section 5.1.1 in Kurth et al. (2017) {the Space Science Reviews
+      instrument description} in which the effective electrical antenna length
+      is 1.46 m based on Sampl et al. (2016).  The reference then mentions the
+      additional capacitive divider effect that can reduce this to 0.58 or
+      even 0.46 m, depending on the value of the total base capacitance, which
+      is not well known. This means that the calibrated electric field
+      strengths could be underestimated by a factor of about 5, or spectral
+      densities could be underestimated by a factor of ~25.
+
+
+      Processing
+      ==========
+      Data products for this data set were generated by the CDR data
+      production pipeline as described in section 3 of the VOLSIS document
+      found under the DOCUMENTS sub-directory.  The inputs to the processing
+      are:
+
+        1. Science and Housekeeping packets from the Waves Level 2 data set.
+        2. Calibration tables located on this volume.
+        3. NAIF Juno mission SPICE kernels.
+        4. A listing of mission phase names and orbit number by UTC.
+
+      The result of the processing is one spreadsheet file per frequency band
+      per day in which data are available.
+
+      The WAVES_CAL document in the DOCUMENT directory provides details of
+      the calibration process.  These data are calibrated using the best
+      calibration tables and algorithms available at the time the data were
+      archived.  Should a significant improvement in calibration become
+      available, an erratum will be noted in the erratum section.  Later
+      versions of the products may contain better calibrations.
+
+
+      Data
+      ====
+      The Waves calibrated full resolution survey mode data set includes five
+      ASCII spreadsheets of wave spectra as a function of time from both the
+      upper and lower band of the LFR, the lower band of the HFR as well as
+      the upper spectrum analyzer bands of the HFR.   Each spreadsheet
+      contains a fixed number of fields containing the measurement initiation
+      times by spacecraft clock and UTC, a flag to indicate the employment of
+      on-board noise mitigation techniques, a flag to indicate whether the
+      row is a science measurement or a noise sample spectra, and a flag to
+      indicate the presence of burst mode data near the given measurement
+      time, as well as one field for each frequency bin.
+
+      Typically electric measurements from 50 Hz to 150 kHz and magnetic
+      measurements from 20 kHz to 20 kHz are measured simultaneously,
+      however this is not always the case.  Waves has the ability to sample
+      solar panel switching noise and to mitigate this noise to a limited
+      extent.  When operating in this mode it is not possible to collect all
+      data below 150 kHz simultaneously.  In these instances time tags on
+      the magnetic data will not line up with time tags on the corresponding
+      electric data, however regardless of the operating mode timing
+      information in the data files is accurate and should be relied upon when
+      processing these data instead of assuming any particular time
+      correspondence between receiver bands and sensors.
+
+
+      Ancillary Data
+      ==============
+      Ancillary data included with the data set collection include a series
+      of files that describe the Waves operating modes as a function of
+      time and provide a time-ordered listing of the Instrument Expanded
+      Block (IEB) trigger commands (WAV_MAJOR_MODE) (the mode by which Waves
+      is reconfigured).  Also a detailed description of each of the modes
+      (or IEBs) is provided.
+
+      Other data which are ancillary to this data set, but which are archived
+      separately from this collection are the Navigation and Ancillary
+      Information Facility's SPICE kernels describing the position and
+      attitude of Juno and various solar system bodies as a function of time.
+
+
+      Coordinate Systems
+      ==================
+      The data in this data set are measurements of wave electric and
+      magnetic field spectral densities measured by the Waves electric and
+      magnetic sensors.  These fields are presented as detected by the sensors
+      and are not rotated into any other coordinate system.  If desired the
+      SPICE kernels can be used with the SPICE toolkit to convert from the
+      spacecraft frame to virtually any frame which may be of use in analyzing
+      these data.  However, for many purposes, because of the broad beam of
+      the dipole-like sensors, the spectral densities are extremely useful and
+      may be entirely adequate with no coordinate transformations at all.
+
+
+      Software
+      ========
+      As these data are calibrated and in simple ASCII form, no software is
+      provided, and none is required, for conversion or interpretation.
+      However the EXTRAS/SOFTWARE directory does contain the viewing tool used
+      to generate the BROWSE directory spectrograms.  This tool may be used to
+      'zoom in' on regions of interest and to view burst mode data when
+      available.
+
+
+      Media/Format
+      ============
+      This data set is provided to the Planetary Data System electronically
+      as part of a volume level 'tarball' file, though the standards for file
+      names, directory names and path lengths follow the guidelines provided
+      in the 'Planetary Data System Standards Reference', version 3.8, under
+      section 10.1.3, 'Specification for Files Delivered Electronically'.
+
+      The 'tarball' file contains all files for a release of this volume in a
+      single GNU Tar file that has then been compressed via the GNU gzip
+      utility.  The tar file preserves the relative directory path for each
+      file so when unpacked the original volume directory structure is
+      recreated.  See Section 4 of the VOLSIS for more details on the data
+      transfer methods.
+
+      The primary data products are comma separated values (CSV) files.  Since
+      this is a survey product, an attempt has been made to group a single
+      sweep of all frequency ranges routinely covered by the instrument into
+      single rows in the product data files.  In actuality every receiver
+      section may be scheduled independently of the others and there are
+      operational modes where it is not possible to include measurements from
+      all frequencies with a single row in the product files.
+
+      At Apoapsis Cadence (1 sweep/30 seconds), or Intermediate Cadence
+      (1 sweep/10 seconds), one row in the product data files typically
+      contains an amplitude measurement for each frequency.  However when
+      operating in one of the Periapsis Cadence modes (~1 sweep/second)
+      certain instrument bands will only be sampled once for every two times
+      a higher frequency band is covered.  In these cases a single row in the
+      data product files may have many empty entries.  This is normal and
+      reflects the original collection scheduling.  It is not a transmission
+      error nor a processing error.
+      "
+
+
+    CONFIDENCE_LEVEL_NOTE   = "
+
+      Confidence Level Overview
+      =========================
+      This data set contains all survey mode full resolution calibrated data
+      for the Juno Waves instrument for the interval defined by the START_TIME
+      and STOP_TIME elements above.  Every effort has been made to ensure that
+      all data returned to the ground from the spacecraft are included and
+      that the calibration is accurate.
+
+      This section will be updated with information on known issues with the
+      data, such as interference from other spacecraft systems, or other
+      information needed to use the data with confidence.
+
+      Review
+      ======
+      The Waves calibrated full resolution survey data will be reviewed
+      internally by the Juno Waves team prior to release to the PDS.  The
+      initial release of this data set was also peer reviewed by the PDS.
+
+      Data Coverage and Quality
+      =========================
+      The analog-to-digital converter used for the High Frequency Receiver
+      upper channels (above 3 MHz) has an idiosyncrasy caused by an
+      oscillation in the chip's reference voltage.  As a result, the converted
+      values can deviate from the correct ones by of order 10 data numbers.
+      Hence, the HFR channels above 3 MHz may show quasi-random variations
+      around their correct values when the oscillation is occurring.
+      Since the same converter is used for some housekeeping parameters, some
+      of those parameters can be monitored for fluctuations from their nominal
+      values as an indicator of this condition.  We have added a flag in the
+      QUALITY_FLAGS column of the SURVEY data set to indicate times when we
+      suspect this condition is present where the flag value of 1 indicates
+      suspect data and a value of 0 indicates the condition is not suspected.
+      It is possible for a low-level of this condition to be present in the
+      HFR channels without the housekeeping parameters indicating the
+      condition.  Experience has shown that resetting the chip can stop or
+      reduce the oscillation, hence, such a reset can be performed as a part
+      of setting up major modes.  It is planned to do this reset a small
+      number of times per Jupiter orbit at major mode changes.
+
+      The baseband HFR (150 kHz to 3 MHz) has an unidentified temperature-
+      dependent noise band which can be seen to move through this range of
+      frequencies as the temperature of Waves varies. Changes in the Waves
+      mode of operation and/or changes in the power state of other vault-
+      located equipment have been noted to result in the movement of this
+      band.  Presently, there is no method with which to remove or mitigate
+      this noise band.
+
+      Limitations
+      ===========
+      The Waves instrument collects data samples via three receivers, the
+      LFR, HFR-44 and HFR-45.  In addition, each receiver contains different
+      analog signal paths for different frequency bands.  Furthermore the
+      electric and magnetic pre-amps have different gains and there are two
+      different sensors from which Waves can sample the near space
+      environment.  Taken together this constitutes 17 separate analog signal
+      pathways that signals may take before being converted to digital data
+      values.  Due the the peculiarities of circuit board layout, part
+      selection and necessary design compromises, each path potentially
+      exhibits a different sensitivity range.
+
+      The two tables below describe the well-calibrated sensitivity range of
+      each analog pathway.  The well-calibrated range is the input amplitude
+      region where a proportional change in physical signal amplitude
+      corresponds to a proportional change in Waves output data numbers in
+      some well-defined space.  In cases below, proportionality is described
+      in either Linear-Log space, or Log-Log space.  Waves data are
+      calibrated outside this range, however absolute amplitudes become more
+      uncertain the further above or below this range they occur.
+
+
+      Electric Spectral Density Well-calibrated Range
+      -----------------------------------------------
+      DN = Data Number, raw value from the instrument
+      V = Root mean square voltage
+      Range Units are: V**2 m**-2 Hz**-1
+
+                          Proportionality    Well-Calibrated      Test Tone
+      Signal Path              Space              Range           Frequency
+      -----------------  -----------------  ------------------    ----------
+      LFR, LO_E          Log(DN) vs Log(V)  4.6e-15   to 3.1e-1  @   5.0  kHz
+      LFR, HI_E          Log(DN) vs Log(V)  2.0e-15   to 6.4e-2  @  25.0  kHz
+
+      HFR-44, Baseband   Log(DN) vs Log(V)  5.5E-13*  to 2.0E-3  @   1.0  MHz
+
+      HFR-44, 3-5 MHz       DN   vs Log(V)  1.5E-14   to 3.4E-4  @   3.75 MHz
+      HFR-44, 5-8 MHz       DN   vs Log(V)  1.5E-14   to 3.4E-4  @   6.75 MHz
+      HFR-44, 8-15 MHz      DN   vs Log(V)  1.5E-14   to 3.4E-4  @  10.75 MHz
+      HFR-44, 15-26 MHz     DN   vs Log(V)  2.6E-13** to 3.4E-4  @  21.75 MHz
+      HFR-44, 26-34 MHz     DN   vs Log(V)  2.3E-14   to 3.4E-4  @  29.75 MHz
+      HFR-44, 34-41 MHz     DN   vs Log(V)  4.2E-14   to 3.4E-4  @  38.75 MHz
+
+      HFR-45, Baseband   Log(DN) vs Log(V)  5.5E-13*  to 2.0E-3  @   1.0  MHz
+
+      HFR-45, 3-5 MHz       DN   vs Log(V)  1.0E-14   to 3.4E-4  @   3.75 MHz
+      HFR-45, 5-8 MHz       DN   vs Log(V)  1.0E-14   to 3.4E-4  @   6.75 MHz
+      HFR-45, 8-15 MHz      DN   vs Log(V)  1.0E-14   to 3.4E-4  @  10.75 MHz
+      HFR-45, 15-26 MHz     DN   vs Log(V)  3.7E-13** to 3.4E-4  @  21.75 MHz
+      HFR-45, 26-34 MHz     DN   vs Log(V)  2.3E-14   to 3.4E-4  @  29.75 MHz
+      HFR-45, 34-41 MHz     DN   vs Log(V)  4.2E-14   to 3.4E-4  @  38.75 MHz
+
+      * Lower value is affected by temperature effects and my be higher
+        than stated here.  See the Data Coverage and Quality section
+        above.
+
+      ** The HFR_HI 21 MHz channel picks up noise from the Waves micro-
+         processors.  The lower sensitivity bound provided here applies only
+         to the 21 MHz channel.  Other channels in the range 15 to 26 MHz have
+         a lower noise floor, most likely at about 2.0E-14, but data for these
+         noise floors were not collected during ground calibrations.
+
+
+      Magnetic Spectral Density Well-calibrated Range
+      -----------------------------------------------
+      DN = Data Number, raw value from the instrument
+      nT = Root mean square nanoTeslas
+      Range Units are:  nT**2 Hz**-1
+
+                     Proportionality    Well-Calibrated     Test Tone
+      Signal Path         Space             Range           Frequency
+      -----------   ------------------  ----------------    ---------
+      LFR, B        Log(DN) vs Log(nT)  6.6E-9 to 1.5E-2  @  5.0 kHz
+
+
+      Note that the absolute noise floor of certain signal pathways,
+      especially those involving the LFR, is below the bottom of the well-
+      calibrated range in the chart above.   In most cases this lower end is
+      not known precisely from direct measurements.  This is because ambient
+      electrical noise in flight is typically much less than the levels seen
+      in terrestrial calibration environments.   Histograms of quit cruise
+      data provide reasonable estimates of the noise floor of each signal
+      pathway.
+
+      When viewing the included BROWSE images the archive user should know
+      that calibrations have been applied such that large amplitude signals
+      (as expected near Jupiter periapsis) are valid.  However most cruise
+      data are near the noise floor of each receiver.  Care must be taken when
+      comparing weak signals across receiver bands.  Browse images included
+      on this volume are designed to correspond to the rough sensitivity
+      range of each receiver, not to place identical signal amplitudes at
+      identical hues.
+      "
+
+  END_OBJECT              = DATA_SET_INFORMATION
+
+
+  OBJECT                  = DATA_SET_TARGET
+    TARGET_NAME             = "EARTH"
+  END_OBJECT              = DATA_SET_TARGET
+
+  OBJECT                  = DATA_SET_TARGET
+    TARGET_NAME             = "JUPITER"
+  END_OBJECT              = DATA_SET_TARGET
+
+  OBJECT                  = DATA_SET_TARGET
+    TARGET_NAME             = "SOLAR_SYSTEM"
+  END_OBJECT              = DATA_SET_TARGET
+
+  OBJECT                  = DATA_SET_HOST
+    INSTRUMENT_HOST_ID      = "JNO"
+    INSTRUMENT_ID           = "WAV"
+  END_OBJECT              = DATA_SET_HOST
+
+  OBJECT                  = DATA_SET_MISSION
+    MISSION_NAME            = "JUNO"
+  END_OBJECT              = DATA_SET_MISSION
+
+  OBJECT                  = DATA_SET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID        = "NULL"
+  END_OBJECT              = DATA_SET_REFERENCE_INFORMATION
+
+END_OBJECT              = DATA_SET
+
+END

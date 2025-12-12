@@ -1,0 +1,66 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "
+2009-03-27   A.C.Raugh   Recreated from reference"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "GANYMEDE"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "SATELLITE"
+    PRIMARY_BODY_NAME             = "JUPITER"
+    ORBIT_DIRECTION               = "PROGRADE"
+    ROTATION_DIRECTION            = "PROGRADE"
+    TARGET_DESC                   = "
+
+      The following properties are from K.R. Lang, 'Astrophysical
+ 
+      Data: Planets and Stars', pp 70 and 73:
+ 
+ 
+ 
+        Name:               J3 Ganymede
+ 
+                            (Jupiter III)
+ 
+        Distance from
+ 
+          Jupiter Center:   1,070,000 km
+ 
+                           (15.1 Jupiter radii)
+ 
+        Orbital Period:     7.155 days
+ 
+        Eccentricity:       0.001 (variable)
+ 
+        Inclination:        0.2 degrees
+ 
+        Radius:             2631 km
+ 
+        Mass:               1490x10^23 grams
+ 
+        Density:            1.93 grams/cm^3
+ 
+        Visual magnitude
+ 
+          at opposition:    4.6
+ 
+        Visual magnitude
+ 
+          at unit distance,
+ 
+          V(1,0):           -2.09
+ 
+        Geometrical visual
+ 
+          albedo:           0.43"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "LANG1992"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

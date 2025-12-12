@@ -1,0 +1,437 @@
+PDS_VERSION_ID = PDS3
+RECORD_TYPE = STREAM
+
+
+LABEL_REVISION_NOTE               = "
+    2014-04-27,  W. Kurth, C. Piker, Revision 1;
+    2014-04-28,  W. Kurth, general edits;
+    2014-05-02,  G. Hospodarsky, calibration updates;
+    2015-10-l6,  C. Piker, Lien Resolution updates;
+    2018-07-10,  J. Mafi, Added instrument paper reference;
+"
+
+OBJECT                = INSTRUMENT
+  INSTRUMENT_HOST_ID  = JNO
+  INSTRUMENT_ID       = WAV
+
+  OBJECT              = INSTRUMENT_INFORMATION
+    INSTRUMENT_NAME     = "WAVES"
+    INSTRUMENT_TYPE     = "PLASMA WAVE SPECTROMETER"
+    INSTRUMENT_DESC     = "
+
+  Instrument Overview
+  ===================
+
+    Instrument Id                  : WAV
+    Instrument Host Id             : JNO
+    Principal Investigator         : WILLIAM KURTH
+    PI PDS User Id                 : WKURTH
+    Instrument Name                : Waves
+    Instrument Type                : PLASMA WAVE SPECTROMETER
+    Build Date                     : 2010-10-14
+    Instrument Manufacturer Name   : THE UNIVERSITY OF IOWA
+
+  The Waves instrument consists of one electric dipole antenna, one magnetic
+  search coil, two pre-amplifiers, three receivers, and a digital processing
+  unit.  Taken together these components can detect and digitize wave electric
+  fields from 50 Hz to 45.25 MHz and wave magnetic fields from 50 Hz to 20
+  kHz.  At the highest duty cycle, Waves can record one sweep per second
+  across all spectral bands while simultaneously capturing 5 waveforms in
+  various bands.
+
+  Electric fields are detected via an electric dipole antenna deployed from
+  the aft flight deck in a 'V' configuration with a tip-tip length of about 4
+  meters.  The signal from the electric antenna is conditioned in the electric
+  preamplifier which has three frequency bands and each band has an attenuator
+  that can be selected or not, to limit the input to the receivers under
+  strong signal conditions.  When enabled attenuations are 25.3 dB, 25.3 dB,
+  and 19.0 dB for the 50 Hz - 20 kHz, 10 kHz - 150 kHz and 100 kHz - 45 MHz
+  bands respectively.  Wave magnetic components, are detected via a magnetic
+  search coil which is also mounted to the aft flight deck.  The signals from
+  the search coil are conditioned by a magnetic preamplifier located close to
+  the sensor, but within the spacecraft thermal environment.
+
+  The instrument includes three receivers to detect signals from the sensors.
+  The first is a 3-channel low frequency receiver (LFR) that is used to
+  analyze plasma waves.  Two channels measure electric fields in the frequency
+  ranges of 50 Hz to 20 kHz and 10 to 150 kHz, and one channel measures
+  magnetic fields in the range of 50 Hz to 20 kHz.  The electric channels
+  include an attenuator that may be toggled either on or off by the automatic
+  gain control software in the data processing unit.  When on signals are
+  attenuated by 19.8 dB (low-band) and 19.4 dB (high-band) in addition to any
+  attenuation by the electric preamp.  All 3 LFR channels are sampled
+  simultaneously.  This receiver produces a digitized waveform from each
+  channel which is either sent directly to the ground (after compression) in
+  burst mode or spectrum analyzed in the Waves digital signal processor to
+  produce spectra with ~ 10 logarithmically-spaced channels per decade of
+  frequency.
+
+  The LFR also has a noise input from the spacecraft power distribution unit
+  (PDDU).  By subtracting this noise channel from the channel from either
+  antenna, a noise cancellation process can be carried out. Based on in-flight
+  experience, there is insufficient spacecraft noise as determined from the
+  line from the PDDU to merit this additional processing; this will be
+  re-evaluated at Jupiter.
+
+  Waves also contains two nearly identical high frequency receivers, HFR-44
+  and HFR-45.  (The numeric suffix is just a tracking ID and bares no
+  relationship to frequency.)  Each receiver contains three channels.  A
+  baseband channel, which handles measurements in the 0.1 to 3 MHz band, a
+  down-mixed log response channel for sweep frequency operations in the 3 MHz
+  to 41 MHz range, and a paired-mixer channel covering the 3 MHz to 45.25 MHz
+  range for acquiring high frequency resolution spectra near the electron
+  cyclotron frequency.  To provide additional support for handling large
+  amplitude signals, each HFR has a front-end 32 dB step-attenuator that may
+  be set to add further attenuation to incoming signals, in 2 dB steps.  The
+  operation of the step-attenuators is handled automatically by the Waves
+  digital signal processing unit.
+
+  The HFR baseband channel operates much as the LFR, though waveforms are
+  digitized at the much higher rate of 7 Msps.  Like the LFR, HFR baseband
+  samples may be sent out 'as-is' (with compression) in burst mode or sent to
+  the digital signal processor for conversion to spectra in survey made.
+
+  The HFR down-mixed log response channel operates quite differently.
+  Incoming signals are mixed with a locally generated pure sine wave.  The
+  result is then low-pass filtered below 500 kHz.  Due to the low pass filter,
+  only frequency components within 500 kHz of the of local mixer frequency
+  contribute to the output signal power.  This down-mixed signal is directed
+  to a log-amplifier which produces an output voltage proportional to the
+  logarithm of the energy in the band, which is then digitized at 8-bit
+  resolution.  Measurements are taken as in a classic swept frequency
+  receiver.  The mixer signal is set to 3.5 MHz and then incremented in 1 MHz
+  steps ending at 40.5 MHz, thus producing successive measurements of spectral
+  density in 1 MHz bands from 3 MHz to 41 MHz.  This channel is used
+  exclusively for generating survey mode data.
+
+	The HFR paired-mixer channel shares components with the log response channel
+  but feeds incoming signals to two frequency mixers instead of just one.
+  Both mixers are set to the same mixing frequency, but for one mixer, the
+  local tone is 90 degrees out of phase with the other.  As with the log
+  response channel, the mixer output is low-pass filtered below 500 kHz and
+  the two resulting down-mixed signals are digitized at 1.3125 MHz and
+  transmitted to the ground for further processing into high resolution 1 MHz
+  bandwidth spectra, details of the processing steps are outlined in Appendix
+  C of VOLSIS.HTM.  The purpose for collecting high resolution measurements
+  far above the baseband is to examine detailed structure near the electron
+  cyclotron frequency, so instead of merely sweeping the receiver across all
+  bands in a regular cadence, the mixer tone is either commanded to a
+  particular frequency or set to automatically track Fce using measurements
+  provided by the MAG instrument on-board.  The mixer frequency can be set
+  between 3.5 and 44.75 MHz in 0.25 MHz steps, which allows for 1 MHz spectra
+  covering the range of 3 MHz to 45.25 MHz.  In cases where Fce drops below
+  3 MHz the HFR baseband channel is used for data collection and the mixers
+  are disabled.
+
+  The Waves digital signal processing unit is implemented in a field-
+  programmable gate array.  This unit handles all measurement scheduling,
+  automatically controls receiver attenuators, provides facilities for
+  converting digitized waveforms to spectra, provides loss-less Rice
+  compression, and handles communications with the Juno spacecraft command
+  and data system.
+
+
+    Platform Mounting Description
+    -----------------------------
+    The Waves instrument utilizes two sensors. For the detection of the
+    electric component of waves, an electric dipole antenna is used. The
+    antenna is mounted on the aft flight deck, centered under solar panel wing
+    #1 which has the Magnetometer boom at its end. Each element of the dipole
+    is 2.8 m long. The two elements are deployed shortly after launch in a
+    plane that is tilted aft of the aft flight deck by 45 degrees and with a
+    subtended angle between the two elements of 120 degrees. An electric
+    preamp is housed at the root of the two dipole elements. The symmetry axis
+    of the dipole projected into the aft flight deck plane is parallel to the
+    Magnetometer solar panel. The antenna pattern of the dipole for low
+    frequencies is approximately a dipole with maximum sensitivity to electric
+    fields parallel to the Y-axis of the spacecraft, i.e. perpendicular to
+    both the MAG boom axis and the spin axis.
+
+    For the detection of the magnetic component of waves, a magnetic search
+    coil (MSC) is used. The search coil consists of a rod of mu-metal
+    (permalloy) material 15 cm long with 10,000 turns of copper wire on a
+    bobbin surrounding the rod. The coil is attached to the aft flight deck
+    with its preamplifier mounted close by. The long axis of the MSC is
+    parallel to the spacecraft Z axis (along the high gain antenna axis),
+    hence, the antenna pattern is approximately that of a dipole with maximum
+    sensitivity parallel to the spin axis of the spacecraft.  Since Juno's
+    spin axis is mostly perpendicular to Jupiter's strong magnetic field,
+    this configuration minimizes the variation of signal at the spin
+    frequency.
+
+    The Waves electronics (other than the preamplifiers mentioned above)
+    reside in the main electronics box in the Juno radiation vault, which
+    is located directly behind the high-gain antenna.
+
+    Lead Co-Investigator
+    ----------------------
+    The Lead Co-Investigator for the Waves instrument is William Kurth.
+
+
+  Scientific Objectives
+  =====================
+  One of the four overarching science objectives of the Juno mission is to
+  explore, for the first time, the three-dimensional structure of Jupiter's
+  polar magnetosphere and auroras. The Waves investigation directly supports
+  this theme. The Waves science objectives supporting this overarching
+  objective are to (1) determine the nature of coupling between Jupiter's
+  internal magnetic field, the ionosphere, and the magnetosphere, (2)
+  investigate and characterize the three-dimensional structure of Jupiter's
+  polar magnetosphere, and (3) identify and characterize auroral processes at
+  Jupiter. These main objectives are further broken down into the following:
+
+    * Locate and determine the nature of the auroral acceleration region.
+
+    * Identify the major current systems coupling the magnetosphere to the
+      ionosphere.
+
+    * Determine the role wave-particle interactions play in the Jovian aurora.
+
+    * Measure radio and plasma wave phenomena (auroral hiss, electron and ion
+      phase space holes, auroral radio emissions, etc.) emission
+      characteristics (intensity, electric and magnetic fields) inside source
+      regions.
+
+    * Identify and characterize emission processes.
+
+    * Determine the fundamental differences between aurora associated with
+      + The breakdown of co-rotation in the middle magnetosphere
+      + The solar wind
+      + Io (or other Galilean satellite) flux tube
+
+    * Determine the beaming properties of Jovian radio emissions at high
+      latitudes.
+
+    * Determine the source locations for Jovian auroral radio emissions.
+
+  Additional issues to be addressed by the Waves investigation include (1)
+  the determination of dust flux in the region above the atmosphere and below
+  Jupiter's ring system at and near the Jovigraphic equator and (2) to look
+  for lightning-generated whistlers.
+
+  Operational Considerations
+  ==========================
+  Juno's highly elliptical orbit will carry the Waves instrument through very
+  different environments at very different velocities.  Near perijove full
+  electric spectra from 50 Hz to 41 MHz and full magnetic spectra from 50 Hz
+  to 20 kHz will be collected with a temporal resolution of one to two
+  seconds. For the remainder of the orbit this rate will be stepped down to
+  one sweep per ~30 seconds.  An intermediate cadence of a complete electric
+  and magnetic spectrum every 10 seconds is available for distant plasmasheet
+  crossings and/or for regions just outside the periapsis region.  For the
+  auroral regions burst-mode high rate waveform measurements are made. The
+  burst mode is automatically triggered inside regions of interest based on
+  the detection of intense waves in various bands.
+
+  The majority of the data collected by Waves during each pass occurs during
+  the ~12 hours near perijove.  Most of these are stored for later
+  transmission through out the remainder of the orbit.
+
+  Calibration
+  ===========
+  The Juno Waves instrument was calibrated in two by applying known amplitude
+  and frequency signals to the input of the receivers and sensors, and
+  recording output of instrument.  This results in lookup tables of input
+  signal strength for instrument output data number.  Calibrations were
+  performed on the individual receivers and sensors, and also end-to-end
+  calibrations were performed on the sensors plus receiver system.
+  Calibrations and tests were performed at the extremes of the expected
+  operating range of the instrument (-35C and +75C), and at the expected
+  typical operating temperature of +22C which is used as the primary
+  calibration.  The individual sensor and receiver calibrations were combined
+  and compared to the end-to-end calibrations and found to be in good
+  agreement.
+
+  Magnetic Search Coil (MSC) sensor and preamplifier calibrations:  The
+  calibration of the MSC sensor and preamplifier was performed using a
+  solenoid drive coil to produce a known magnetic field strength over the
+  amplitude and frequency range of the sensor while the output voltage of the
+  sensor was recorded, producing a transfer function over frequency of the
+  output voltage of the preamplifier for a strength of the wave magnetic field
+  in nT.
+
+  Electric Preamplifier Calibrations:  The Electric Preamplifier was
+  calibrated by applying a known voltage to the input of the preamplifier over
+  the amplitude and frequency range of the instrument and recording the output
+  voltage of the preamplifier, producing a transfer function over frequency of
+  the output voltage of the preamplifier for a given input voltage.
+
+  Receivers:  Each of the Waves receivers were calibrated by applying a known
+  voltage to the input of the receiver over the amplitude and frequency range
+  of the receiver and measuring the output data number of the instrument.
+
+  End-to-End Calibrations:  Calibrations were then performed with the MSC
+  sensor and preamplifier, and electric preamplifier attached to the Waves
+  instrument. Input signals of known amplitude and frequency were applied to
+  the MSC sensor and the electric preamplifier and the data number out of the
+  instrument were recorded to produce calibration tables  showing the measured
+  electric  or magnetic field for each data number out of the instrument.
+
+
+  Operational Modes
+  =================
+  Though highly programmable, the Waves Instrument is expected to operate in
+  four basic modes, in order of increasing data volume:
+
+     Apojove Mode, Intermediate Mode, Perijove Mode, Burst Mode
+
+  The major mode commands associated with each operational mode are listed
+  below.  This list of operating modes is not exhaustive.  For a complete
+  listing and for more detail on each mode command, consult the Waves User's
+  Guide on the JNOWAV_1000 volume in the DOCUMENT directory.
+
+
+    Apojove Mode
+    ------------
+    This will be used for most of the orbit.
+
+    * Full electric sweeps from 50 Hz to 41 MHz, once per 30 seconds.
+
+    * Full magnetic sweeps from 50 Hz to 20 kHz, once per 30 seconds.
+
+    * No waveform data are transmitted outside the instrument.
+
+    Major mode commands which place Waves into this state:
+
+      APO1, APO2, APO3, APO9, AP0A, APS1, APS2, APS3
+
+
+    Perijove Mode
+    -------------
+    This mode is intended for use in the roughly 12 hours centered on
+    Jupiter closest approach.
+
+    * Full electric sweeps from 50 Hz to 41 MHz, once per second.
+
+    * Full magnetic sweeps from 50 Hz to 20 kHz, once per second.
+
+    * No waveform data are transmitted outside the instrument.
+
+    Major mode commands which place Waves into this state:
+
+      PER1, PER2, PER3, PER9, PERA, PES1, PES2, PES3
+
+
+    Intermediate Mode
+    -----------------
+    This mode is intended for use in selected distant plasmasheet crossings
+    and possibly before and/or after perijove intervals.
+
+    * Full electric sweeps from 50 Hz to 41 MHz, once per 10 seconds.
+
+    * Full magnetic sweeps from 50 Hz to 20 kHz, once per 10 seconds.
+
+    * No waveform data are transmitted outside the instrument.
+
+    Major mode commands which place Waves into this state:
+
+      INT1, INT2, INT3, INS1, INS2, INS3
+
+
+    Burst Mode
+    ----------
+    The Burst Mode is a highly flexible mode and is executed in two distinct
+    methods.  The Binning Mode assigns n buffers (or bins) of fixed length
+    and, with the assistance of the spacecraft data system and Waves
+    determination of 'quality factors' based on wave intensities in selectable
+    bands, the 'best' N buffers are retained for transmission to the ground
+    based on the quality factors for the data within each buffer.  Typically,
+    the instrument is in a Binning Mode for an interval of time much longer
+    than the sum of the time that can be stored in the n buffers.  The quality
+    factors allow the instrument to find the 'best' intervals to record.  The
+    primary use of this mode is to record wave phenomena on auroral field
+    lines. It is expected that auroral field line crossing may take only
+    seconds, but likely can't be targeted in time any better than 30 to 90
+    minutes.  This mode typically records waveform data from all of the low
+    frequency receiver bands and one of the high frequency receiver bands
+    selected on the basis of the onboard determination of the electron
+    cyclotron frequency.
+
+    The Record Mode method of the Burst mode simply records for a specified
+    interval in time. The primary use for this mode is to collect data
+    centered on the jovigraphic equator near periapsis to target the region
+    where dust impacts are expected.  Because this location can be accurately
+    targeted, the selection features of the Binning Mode are not needed.
+    Also, it is anticipated that only the electric field in the range of 50 Hz
+    to 20 kHz will be recorded, as this channel is expected to respond best to
+    dust impacts.
+
+
+    Record Method:
+
+    This method was designed with crossings of the Jovian equator near
+    perijove in mind. Typically data from just the LFR-Lo (E) channel will be
+    recorded to be used to identify micron-sized dust particle impacts with
+    the spacecraft as Juno crosses the ring plane.
+
+    * Full electric sweeps from 50 Hz to 41 MHz, once per second.
+
+    * Full magnetic sweeps from 50 Hz to 20 kHz, once per second.
+
+    * Waveform data are collected in a programmed frequency band.
+
+    Major mode commands which place Waves into this state:
+
+      REC1, REC2, REC3, REC9, RECA, RES1, RES2, RES3
+
+    Note this this is a layered mode which may only be triggered on top of an
+    existing Perijove Mode.  It adds in basic waveform data collection
+    ability.
+
+
+    Binning Method:
+
+    When configured to this this state, Waves looks for intense, broadband
+    signatures of crossings of auroral field lines carrying a host of
+    intense wave modes.  It continuously sends waveform data, to the Juno
+    Command and Data Handling (C&DH) system which stores them in two or
+    more buffers sized to hold approximately a minute's worth of waveform
+    data.  Waves also characterizes such broadband bursts with a quality
+    index, which the C&DH uses to determine whether to keep or over-write a
+    buffer. At the end of the binning session, the buffers with the highest
+    quality indices will be formatted by the C&DH for transmission to the
+    ground.
+
+    * Full electric sweeps from 50 Hz to 41 MHz, once per second.
+
+    * Full magnetic sweeps from 50 Hz to 20 kHz, once per second.
+
+    * Waveform data are collected in bands that automatically track the
+      electron cyclotron frequency.
+
+    * Waveform data bins are ranked in order of most to least activity
+
+    Major mode commands which place Waves into this state:
+
+      BUR1, BUR2, BUR3, BUR4, BUR9, BURA, BUS1, BUS2, BUS3, BUS4
+
+    Note that this is a layered mode which may only be triggered on top of an
+    existing Perijove Mode.  It adds in selective waveform data collection
+    ability.
+
+
+    Major Mode Names
+    ----------------
+    It should be noted that the last two characters in the Major Mode names
+    have more to do with how the instrument is set up than the final data
+    products from that mode.  For example modes xxx1 include noise
+    cancellation, modes xxx2 include noise cancellation and the un-filtered,
+    filtered, and noise channel data are all returned for diagnostic purposes.
+    Modes xxx3 and xxx4 do not utilize noise cancellation.  Modes with xxSx do
+    an instrument reset in the course of setting up the mode.
+
+    Also, periapsis modes all execute with 1-second cadence except for xxx2.
+    Because of the additional overhead required to handle the additional
+    diagnostics data, the cadence is 2 seconds for this mode.
+  "
+
+  END_OBJECT          = INSTRUMENT_INFORMATION
+
+  OBJECT              = INSTRUMENT_REFERENCE_INFO
+    REFERENCE_KEY_ID    = "KURTHETAL2017"
+  END_OBJECT          = INSTRUMENT_REFERENCE_INFO
+
+END_OBJECT          = INSTRUMENT
+
+
+END

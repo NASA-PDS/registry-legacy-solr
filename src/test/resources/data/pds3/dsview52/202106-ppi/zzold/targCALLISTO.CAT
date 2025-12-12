@@ -1,0 +1,66 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "
+2009-03-27   A.C.Raugh   Recreated from reference"
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "CALLISTO"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "SATELLITE"
+    PRIMARY_BODY_NAME             = "JUPITER"
+    ORBIT_DIRECTION               = "PROGRADE"
+    ROTATION_DIRECTION            = "PROGRADE"
+    TARGET_DESC                   = "
+
+      The following properties are from K.R. Lang, 'Astrophysical
+ 
+      Data: Planets and Stars', pp 70 and 73:
+ 
+ 
+ 
+        Name:               J4 Callisto
+ 
+                            (Jupiter VI)
+ 
+        Distance from
+ 
+          Jupiter Center:   1,880,000 km
+ 
+                           (26.6 Jupiter radii)
+ 
+        Orbital Period:     16.60 days
+ 
+        Eccentricity:       0.010
+ 
+        Inclination:        0.2 degrees
+ 
+        Radius:             2400 km
+ 
+        Mass:               1075x10^23 grams
+ 
+        Density:            1.83 grams/cm^3
+ 
+        Visual magnitude
+ 
+          at opposition:    5.6
+ 
+        Visual magnitude
+ 
+          at unit distance,
+ 
+          V(1,0):           -1.05
+ 
+        Geometrical visual
+ 
+          albedo:           0.17"
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "LANG1992"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+

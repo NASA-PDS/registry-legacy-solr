@@ -1,0 +1,29 @@
+PDS_VERSION_ID                    = PDS3
+RECORD_TYPE                       = STREAM
+LABEL_REVISION_NOTE               = "30 January 2003 S. L. Adams - Skeleton
+28 Jan 2005, A.C.Raugh  Corrected to standards and expanded according to
+apparent use."
+
+OBJECT                            = TARGET
+  TARGET_NAME                     = "SOLAR WIND"
+
+  OBJECT                          = TARGET_INFORMATION
+    TARGET_TYPE                   = "N/A"
+    PRIMARY_BODY_NAME             = "SUN"
+    ORBIT_DIRECTION               = "UNK"
+    ROTATION_DIRECTION            = "UNK"
+    TARGET_DESC                   = "
+
+      The 'SOLAR WIND' target name is often used to indicated generic
+      cruise observations between encounter phases of spacecraft
+      missions."
+
+  END_OBJECT                      = TARGET_INFORMATION
+
+  OBJECT                          = TARGET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID              = "N/A"
+  END_OBJECT                      = TARGET_REFERENCE_INFORMATION
+END_OBJECT                        = TARGET
+END
+
+
