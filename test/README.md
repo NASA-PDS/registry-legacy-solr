@@ -22,6 +22,9 @@ This directory contains end-to-end smoke tests for Registry Legacy Solr componen
 
 ```bash
 # From repository root
+export DATA_HOME=/tmp/registry-data
+mkdir -p $DATA_HOME
+
 source test/setup-test-env.sh
 cd test
 ./smoke-tests.sh
@@ -32,10 +35,12 @@ cd test
 If you prefer to set environment variables manually:
 
 ```bash
+export DATA_HOME=/tmp/registry-data
+mkdir -p $DATA_HOME
+
 export LEGACY_REGISTRY_HOME=$(pwd)/registry-mgr-legacy-4.6.0-SNAPSHOT
 export LEGACY_HARVEST_HOME=$(pwd)/harvest-legacy-4.6.0-SNAPSHOT
 export LEGACY_CATALOG_HOME=$(pwd)/catalog-legacy-4.6.0-SNAPSHOT
-export DATA_HOME=/tmp/registry-data
 
 cd test
 ./smoke-tests.sh
@@ -97,7 +102,12 @@ source test/setup-test-env.sh
 
 1. Check Docker is running: `docker ps`
 2. Check if port 8983 is already in use: `lsof -i :8983`
-3. If Solr container exists, remove it: `docker rm -f registry`
+3. Clean up any existing Solr containers and data:
+   ```bash
+   docker rm -f registry-legacy
+   docker volume rm solrdata
+   rm -rf $DATA_HOME
+   ```
 
 ### "No Solr document found"
 
