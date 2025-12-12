@@ -401,6 +401,9 @@ PDS4_EXPECTED="$PARENTDIR/src/test/resources/data/expected/pds4/solr_doc_expecte
 
 mkdir -p "$PDS4_OUTDIR"
 
+# Set PDS4_SOLR_DOC_HOME for harvest-solr script (required for lock file management)
+export PDS4_SOLR_DOC_HOME="$PDS4_OUTDIR"
+
 # Run harvest
 log_info "Running PDS4 harvest..."
 "$LEGACY_HARVEST_HOME/bin/harvest-solr" \
