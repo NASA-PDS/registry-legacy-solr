@@ -1,12 +1,16 @@
 # Changelog
 
-## [v5.0.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.0.0) (2025-12-15)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2025-12-16)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.5...v5.0.0)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v4.5.5...«unknown»)
 
 **Improvements:**
 
 - Auto-restart the registry legacy docker container unless stopped [\#217](https://github.com/NASA-PDS/registry-legacy-solr/issues/217)
+
+**Other closed issues:**
+
+- Upgrade Apache Solr from 9.8.0 to 9.10.0 [\#228](https://github.com/NASA-PDS/registry-legacy-solr/issues/228)
 
 ## [v4.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/v4.5.5) (2025-05-30)
 
