@@ -21,7 +21,7 @@ The modules have dependencies: harvest-legacy and catalog-legacy depend on searc
 
 - **OpenJDK 17 or higher** (target/source in pom.xml)
 - **Maven** for build management
-- **Apache Solr 9.8.0** for search/indexing
+- **Apache Solr 9.10.0** for search/indexing
 - **PDS4/PDS3 XML** for metadata extraction
 - **Docker** for Solr deployment
 
