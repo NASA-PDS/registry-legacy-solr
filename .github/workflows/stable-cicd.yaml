@@ -35,7 +35,6 @@ on:
     push:
         tags:
             - 'release/*'
-concurrency: roundup
 
 
 # What to Do
