@@ -1,4 +1,4 @@
-FROM solr:9.8.0
+FROM solr:9.10.0
 ADD VERSION.txt .
 
 # Config sets
