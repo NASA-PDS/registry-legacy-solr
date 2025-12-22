@@ -134,11 +134,24 @@ public class CIToolIngester
 		boolean isVolumeCatalog = false;
 		
 		// TODO: need to add to handle multiple catalog objects (sets of catalog references???)
-		for (Label lbl : catLabels) 
+		for (Label lbl : catLabels)
 		{
 			CatalogObject catObj = new CatalogObject(this.report);
 			boolean validFile = catObj.processLabel(lbl);
             if (validFile) {
+				if(catObj.getCatObjType() == null) {
+					// Log diagnostic information about the label
+					StringBuilder objTypes = new StringBuilder();
+					for (gov.nasa.pds.tools.label.ObjectStatement obj : lbl.getObjects()) {
+						if (objTypes.length() > 0) objTypes.append(", ");
+						objTypes.append(obj.getIdentifier());
+					}
+					log.warning("Catalog object type is null for label: " + lbl.getLabelURI() +
+					           ". Objects found in label: [" + objTypes.toString() + "]. " +
+					           "None match expected catalog types. Skipping this catalog object.");
+					continue;
+				}
+
 				if(catObj.getCatObjType().equalsIgnoreCase("VOLUME"))
 				{
 					pointerFiles = catObj.getPointerFiles();
@@ -194,10 +207,17 @@ public class CIToolIngester
         //Parser must have "parser.pointers" set to false
         DefaultLabelParser parser = new DefaultLabelParser(false, true, resolver);
         Label label = null;
-        try 
+        try
         {
             label = parser.parseLabel(url);
-        } 
+
+            // Filter out line ending errors - the parser can still read LF files correctly
+            if (label != null && label.getProblems() != null) {
+                label.getProblems().removeIf(problem ->
+                    problem.getMessage() != null &&
+                    problem.getMessage().contains("Line ending must be CRLF"));
+            }
+        }
         catch (LabelParserException lp) 
         {
         	lp.printStackTrace();

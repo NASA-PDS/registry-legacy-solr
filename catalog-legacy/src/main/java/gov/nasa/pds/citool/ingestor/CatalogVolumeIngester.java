@@ -365,19 +365,25 @@ public class CatalogVolumeIngester
 			if (catObj.getCatObjType().equalsIgnoreCase(Constants.DATASET_OBJ)) 
 			{
 				Metadata md = catObj.getMetadata();				
-				if (md.isMultiValued(keyToLook)) 
+				if (md.isMultiValued(keyToLook))
 				{
 					List<String> tmpValues = md.getAllMetadata(keyToLook);
-					for (String instId: tmpValues) 
-					{					
-						if (instId.equalsIgnoreCase(valueToFind)) 
+					for (String instId: tmpValues)
+					{
+						if (instId == null) {
+							log.warning("Found null value in multi-valued " + keyToLook +
+							           " for DATA_SET catalog object: " + catObj.getFilename());
+							continue;
+						}
+
+						if (instId.equalsIgnoreCase(valueToFind))
 						{
 							String dsId = md.getMetadata("DATA_SET_ID");
 							dsId = Utility.replaceChars(dsId);
-			    			dsId = dsId.toLowerCase(); 
+			    			dsId = dsId.toLowerCase();
 			    			String dsLid = Constants.LID_PREFIX+"data_set:data_set." + dsId;
-			    		
-			    			if (!Utility.valueExists(dsLid, values)) 
+
+			    			if (!Utility.valueExists(dsLid, values))
 			    			{
 								values.add(dsLid);
 			    			}
@@ -387,7 +393,10 @@ public class CatalogVolumeIngester
 				else 
 				{
 					String instId = md.getMetadata(keyToLook);
-					if (instId.equalsIgnoreCase(valueToFind)) 
+					if (instId == null) {
+						log.warning("Missing " + keyToLook + " field in DATA_SET catalog object: " +
+						           catObj.getFilename());
+					} else if (instId.equalsIgnoreCase(valueToFind)) 
 					{
 						String dsId = md.getMetadata("DATA_SET_ID");
 						dsId = Utility.replaceChars(dsId);
