@@ -5,6 +5,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -43,11 +45,18 @@ public class CIToolIngester
      * @param target URL of the target (directory or file)
      * @throws Exception
      */
-    public void ingest(Target target, boolean recurse) throws Exception 
+    public void ingest(Target target, boolean recurse) throws Exception
     {
         if(target.isDirectory())
         {
             List<URL> urls = target.traverse(recurse);
+            // Sort URLs alphabetically to make processing order predictable and debuggable
+            Collections.sort(urls, new Comparator<URL>() {
+                @Override
+                public int compare(URL url1, URL url2) {
+                    return url1.toString().compareTo(url2.toString());
+                }
+            });
             List<Label> catLabels = parseLabels(urls);
             processVolume(catLabels);
         }
@@ -194,7 +203,7 @@ public class CIToolIngester
      * 
      * @return a Label object
      */
-    public Label parse(URL url) 
+    public Label parse(URL url)
     {
     	URI uri = null;
         try {
@@ -202,6 +211,10 @@ public class CIToolIngester
         } catch (URISyntaxException u) {
             //Ignore
         }
+
+        // Log which file is being processed to help identify hangs
+        System.out.println("PROCESSING: " + url.toString());
+
         ManualPathResolver resolver = new ManualPathResolver();
         resolver.setBaseURI(ManualPathResolver.getBaseURI(uri));
         //Parser must have "parser.pointers" set to false
@@ -211,14 +224,20 @@ public class CIToolIngester
         {
             label = parser.parseLabel(url);
 
-            // Filter out line ending errors - the parser can still read LF files correctly
+            // Filter out line ending errors - they don't prevent reading the file
+            // PDS3 standard requires CRLF, but many files use Unix LF line endings
             if (label != null && label.getProblems() != null) {
+                int beforeCount = label.getProblems().size();
                 label.getProblems().removeIf(problem ->
-                    problem.getMessage() != null &&
-                    problem.getMessage().contains("Line ending must be CRLF"));
+                    "parser.error.badLineEnding".equals(problem.getKey()));
+                int afterCount = label.getProblems().size();
+                if (beforeCount != afterCount) {
+                    System.err.println("INFO: Filtered out " + (beforeCount - afterCount) +
+                        " line ending errors from " + url);
+                }
             }
         }
-        catch (LabelParserException lp) 
+        catch (LabelParserException lp)
         {
         	lp.printStackTrace();
             //Product tools library records files that have a missing
