@@ -38,65 +38,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -269,65 +222,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -494,65 +400,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -689,65 +548,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -919,65 +731,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1128,65 +893,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1275,65 +993,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1423,65 +1094,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1571,65 +1195,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1704,65 +1281,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1839,65 +1369,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -1973,65 +1456,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -2121,65 +1557,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -2269,65 +1658,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -2401,65 +1743,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>      
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -2534,65 +1829,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -2676,65 +1924,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year
@@ -2810,65 +2011,18 @@
       <xPath harvest:slotName="citation_editor_list">
         //Identification_Area/Citation_Information/editor_list
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_name
+      <!-- Extract List_Author and List_Editor as JSON to preserve nested structure -->
+      <xPath harvest:slotName="citation_author_person_json">
+        //Identification_Area/Citation_Information/List_Author/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Organization/organization_rorid
+      <xPath harvest:slotName="citation_author_organization_json">
+        //Identification_Area/Citation_Information/List_Author/Organization
       </xPath>
-      <xPath harvest:slotName="citation_author_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Organization/contributor_type
+      <xPath harvest:slotName="citation_editor_person_json">
+        //Identification_Area/Citation_Information/List_Editor/Person
       </xPath>
-      <xPath harvest:slotName="citation_author_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Author/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Author/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_given_name">
-        //Identification_Area/Citation_Information/List_Author/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_family_name">
-        //Identification_Area/Citation_Information/List_Author/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_orcid">
-        //Identification_Area/Citation_Information/List_Author/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_author_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Author/Person/Affiliation/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Organization/organization_rorid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_organization_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Organization/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_contributor_type">
-        //Identification_Area/Citation_Information/List_Editor/Person/contributor_type
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_display_full_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/display_full_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_given_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/given_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_family_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/family_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_orcid">
-        //Identification_Area/Citation_Information/List_Editor/Person/person_orcid
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_name">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_name
-      </xPath>
-      <xPath harvest:slotName="citation_editor_person_affiliation_organization_rorid">
-        //Identification_Area/Citation_Information/List_Editor/Person/Affiliation/organization_rorid
+      <xPath harvest:slotName="citation_editor_organization_json">
+        //Identification_Area/Citation_Information/List_Editor/Organization
       </xPath>
       <xPath harvest:slotName="citation_publication_year">
         //Identification_Area/Citation_Information/publication_year

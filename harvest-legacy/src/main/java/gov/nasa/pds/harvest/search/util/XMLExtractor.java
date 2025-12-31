@@ -1,6 +1,7 @@
 package gov.nasa.pds.harvest.search.util;
 
 import java.io.File;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,8 @@ import net.sf.saxon.tree.tiny.TinyNodeImpl;
 import net.sf.saxon.trans.XPathException;
 import net.sf.saxon.xpath.XPathEvaluator;
 
+import org.json.JSONObject;
+import org.json.XML;
 import org.xml.sax.InputSource;
 
 /**
@@ -285,5 +288,82 @@ public class XMLExtractor {
             }
         }
         return vals;
+    }
+
+    /**
+     * Gets the values of the given expression as JSON strings.
+     * Each matching node is converted to a JSON object and returned as a string.
+     *
+     * @param expression An XPath expression.
+     *
+     * @return A list of JSON strings, one for each matching node.
+     *
+     * @throws XPathExpressionException If the given expression was malformed.
+     */
+    public List<String> getValuesAsJsonFromDoc(String expression)
+    throws XPathExpressionException {
+        return getValuesAsJsonFromItem(expression, xml);
+    }
+
+    /**
+     * Gets the values of the given expression as JSON strings.
+     * Each matching node is converted to a JSON object and returned as a string.
+     *
+     * @param expression An XPath expression.
+     * @param item The starting point from which to evaluate the XPath expression.
+     *
+     * @return A list of JSON strings, one for each matching node.
+     *
+     * @throws XPathExpressionException If the given expression was malformed.
+     */
+    public List<String> getValuesAsJsonFromItem(String expression, Object item)
+    throws XPathExpressionException {
+        List<String> jsonStrings = new ArrayList<String>();
+        List<TinyElementImpl> nList = (List<TinyElementImpl>) xpath.evaluate(
+            expression, item, XPathConstants.NODESET);
+
+        if (nList != null) {
+            for (int i = 0, sz = nList.size(); i < sz; i++) {
+                TinyElementImpl node = nList.get(i);
+                try {
+                    // Convert the node to an XML string
+                    String xmlString = nodeToString(node);
+
+                    // Convert XML to JSON using org.json library
+                    JSONObject jsonObject = XML.toJSONObject(xmlString);
+
+                    // Add the JSON string to the result list
+                    jsonStrings.add(jsonObject.toString());
+                } catch (Exception e) {
+                    // If conversion fails, log and skip this node
+                    System.err.println("Warning: Failed to convert XML node to JSON: " + e.getMessage());
+                }
+            }
+        }
+        return jsonStrings;
+    }
+
+    /**
+     * Converts a TinyElementImpl node to an XML string.
+     *
+     * @param node The node to convert.
+     *
+     * @return An XML string representation of the node.
+     *
+     * @throws Exception If conversion fails.
+     */
+    private String nodeToString(TinyElementImpl node) throws Exception {
+        // Use Saxon's built-in serialization
+        net.sf.saxon.s9api.Processor processor = new net.sf.saxon.s9api.Processor(false);
+        net.sf.saxon.s9api.Serializer serializer = processor.newSerializer();
+
+        StringWriter writer = new StringWriter();
+        serializer.setOutputWriter(writer);
+        serializer.setOutputProperty(net.sf.saxon.s9api.Serializer.Property.OMIT_XML_DECLARATION, "yes");
+        serializer.setOutputProperty(net.sf.saxon.s9api.Serializer.Property.INDENT, "no");
+
+        serializer.serializeNode(new net.sf.saxon.s9api.XdmNode(node));
+
+        return writer.toString();
     }
 }

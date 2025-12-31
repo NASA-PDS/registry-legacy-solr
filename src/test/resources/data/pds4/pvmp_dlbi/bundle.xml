@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.sch"
+    schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<Product_Bundle xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1N00.xsd">
+    <Identification_Area>
+        <logical_identifier>urn:nasa:pds:pvmp_dlbi</logical_identifier>
+        <version_id>1.0</version_id>
+        <title>Pioneer Venus Multiprobe DLBI Relative Crustal and Atmospheric Velocity Components Data Bundle</title>
+        <information_model_version>1.23.0.0</information_model_version>
+        <product_class>Product_Bundle</product_class>
+        <Citation_Information>
+            <publication_year>2025</publication_year>
+            <doi>10.17189/kzg5-ep44</doi>
+            <description>
+                This bundle contains data on relative crustal and atmospheric velocity
+                components from the Pioneer Venus Multiprobe Differential Long Base Line
+                Interferometer (DLBI) experiments conducted during the descent of four
+                entry probes through the atmosphere of Venus on 9 December 1978. The time
+                resolution is approximately 6.3 seconds for the large probe data and 18.9
+                seconds for the three small probes.
+            </description>
+            <List_Author>
+                <Person>
+                    <display_full_name>Young-In Won</display_full_name>
+                    <given_name>Young-In</given_name>
+                    <family_name>Won</family_name>
+                    <person_orcid>https://orcid.org/0009-0003-0452-774X</person_orcid>
+                    <sequence_number>1</sequence_number>
+                    <Affiliation>
+                        <organization_name>ADNET Systems, Inc.</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Space Science Data Coordinated Archive</organization_name>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <display_full_name>Stephanie A. McLaughlin</display_full_name>
+                    <given_name>Stephanie A.</given_name>
+                    <family_name>McLaughlin</family_name>
+                    <sequence_number>2</sequence_number>
+                    <Affiliation>
+                        <organization_name>Telophase Corporation</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Space Science Data Coordinated Archive</organization_name>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <display_full_name>Charles C. Counselman III</display_full_name>
+                    <given_name>Charles C. III</given_name>
+                    <family_name>Counselman</family_name>
+                    <person_orcid>https://orcid.org/0000-0001-6034-2377</person_orcid>
+                    <sequence_number>3</sequence_number>
+                    <Affiliation>
+                        <organization_name>Massachusetts Institute of Technology</organization_name>
+                    </Affiliation>
+                </Person>
+            </List_Author>
+            <List_Editor>
+                <Person>
+                    <display_full_name>Young-In Won</display_full_name>
+                    <given_name>Young-In</given_name>
+                    <family_name>Won</family_name>
+                    <person_orcid>https://orcid.org/0009-0003-0452-774X</person_orcid>
+                    <sequence_number>1</sequence_number>
+                    <Affiliation>
+                        <organization_name>ADNET Systems, Inc.</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Space Science Data Coordinated Archive</organization_name>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <display_full_name>Stephanie A. McLaughlin</display_full_name>
+                    <given_name>Stephanie A.</given_name>
+                    <family_name>McLaughlin</family_name>
+                    <sequence_number>2</sequence_number>
+                    <Affiliation>
+                        <organization_name>Telophase Corporation</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Space Science Data Coordinated Archive</organization_name>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <display_full_name>Lynn D. V. Neakrase</display_full_name>
+                    <given_name>Lynn D. V.</given_name>
+                    <family_name>Neakrase</family_name>
+                    <person_orcid>https://orcid.org/0000-0002-6370-5791</person_orcid>
+                    <sequence_number>3</sequence_number>
+                    <Affiliation>
+                        <organization_name>New Mexico State University</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Planetary Data System</organization_name>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <display_full_name>Nancy J. Chanover</display_full_name>
+                    <given_name>Nancy J.</given_name>
+                    <family_name>Chanover</family_name>
+                    <person_orcid>https://orcid.org/0000-0002-9984-4670</person_orcid>
+                    <sequence_number>4</sequence_number>
+                    <Affiliation>
+                        <organization_name>New Mexico State University</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Planetary Data System</organization_name>
+                    </Affiliation>
+                </Person>
+                <Person>
+                    <display_full_name>David R. Williams</display_full_name>
+                    <given_name>David R.</given_name>
+                    <family_name>Williams</family_name>
+                    <person_orcid>https://orcid.org/0000-0003-2187-2716</person_orcid>
+                    <sequence_number>5</sequence_number>
+                    <Affiliation>
+                        <organization_name>Goddard Space Flight Center</organization_name>
+                    </Affiliation>
+                    <Affiliation>
+                        <organization_name>NASA Space Science Data Coordinated Archive</organization_name>
+                    </Affiliation>
+                </Person>
+            </List_Editor>
+        </Citation_Information>
+        <Modification_History>
+            <Modification_Detail>
+                <modification_date>2025-03-27</modification_date>
+                <version_id>1.0</version_id>
+                <description>Initial version</description>
+            </Modification_Detail>
+        </Modification_History>
+    </Identification_Area>
+    <Context_Area>
+        <Time_Coordinates>
+            <start_date_time>1978-12-09Z</start_date_time>
+            <stop_date_time>1978-12-09Z</stop_date_time>
+        </Time_Coordinates>
+        <Primary_Result_Summary>
+            <purpose>Science</purpose>
+            <processing_level>Derived</processing_level>
+            <Science_Facets>
+                <discipline_name>Atmospheres</discipline_name>
+                <facet1>Structure</facet1>
+            </Science_Facets>
+            <Science_Facets>
+                <discipline_name>Radio Science</discipline_name>
+            </Science_Facets>
+        </Primary_Result_Summary>
+        <Investigation_Area>
+            <name>PIONEER VENUS</name>
+            <type>Mission</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:investigation:mission.pioneer_venus</lid_reference>
+                <reference_type>bundle_to_investigation</reference_type>
+            </Internal_Reference>
+        </Investigation_Area>
+        <Observing_System>
+           <name>Pioneer Venus Large Probe</name>
+            <Observing_System_Component>
+                <name>PIONEER VENUS LARGE PROBE</name>
+                <type>Host</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.pvmp.lp</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>PIONEER VENUS LARGE PROBE DIFFERENTIAL LONG BASE LINE INTERFEROMETER</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:pvmp.lp.dlbi</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Observing_System>
+            <name>Pioneer Venus Small Probe (Day)</name>
+            <Observing_System_Component>
+                <name>PIONEER VENUS SMALL PROBE (DAY)</name>
+                <type>Host</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.pvmp.sp-day</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>PIONEER VENUS SMALL PROBE (DAY) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:pvmp.sp-day.dlbi</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Observing_System>
+            <name>Pioneer Venus Small Probe (Night)</name>
+            <Observing_System_Component>
+                <name>PIONEER VENUS SMALL PROBE (NIGHT)</name>
+                <type>Host</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.pvmp.sp-night</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>PIONEER VENUS SMALL PROBE (NIGHT) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:pvmp.sp-night.dlbi</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Observing_System>
+            <name>Pioneer Venus Small Probe (North)</name>
+            <Observing_System_Component>
+                <name>PIONEER VENUS SMALL PROBE (NORTH)</name>
+                <type>Host</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.pvmp.sp-north</lid_reference>
+                    <reference_type>is_instrument_host</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+            <Observing_System_Component>
+                <name>PIONEER VENUS SMALL PROBE (NORTH) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</name>
+                <type>Instrument</type>
+                <Internal_Reference>
+                    <lid_reference>urn:nasa:pds:context:instrument:pvmp.sp-north.dlbi</lid_reference>
+                    <reference_type>is_instrument</reference_type>
+                </Internal_Reference>
+            </Observing_System_Component>
+        </Observing_System>
+        <Target_Identification>
+            <name>Venus</name>
+            <type>Planet</type>
+            <Internal_Reference>
+                <lid_reference>urn:nasa:pds:context:target:planet.venus</lid_reference>
+                <reference_type>bundle_to_target</reference_type>
+            </Internal_Reference>
+        </Target_Identification>
+    </Context_Area>
+    <Bundle>
+        <bundle_type>Archive</bundle_type>
+    </Bundle>
+    <Bundle_Member_Entry>
+        <lid_reference>urn:nasa:pds:pvmp_dlbi:data</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_data_collection</reference_type>
+    </Bundle_Member_Entry>
+    <Bundle_Member_Entry>
+        <lid_reference>urn:nasa:pds:pvmp_dlbi:document</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_document_collection</reference_type>
+    </Bundle_Member_Entry>
+    <Bundle_Member_Entry>
+        <lid_reference>urn:nasa:pds:pvmp_dlbi:context</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_context_collection</reference_type>
+    </Bundle_Member_Entry>
+    <Bundle_Member_Entry>
+        <lid_reference>urn:nasa:pds:pvmp_dlbi:xml_schema</lid_reference>
+        <member_status>Primary</member_status>
+        <reference_type>bundle_has_schema_collection</reference_type>
+    </Bundle_Member_Entry>
+</Product_Bundle>
