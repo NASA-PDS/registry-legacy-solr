@@ -190,12 +190,24 @@ public class Pds4MetExtractor implements MetExtractor {
             name = node.getDisplayName();
           }
         }
-        List<String> values = extractor.getValuesFromDoc(xpath.getValue());
+
+        // Check if this should be extracted as JSON (slot name ends with "_json")
+        List<String> values;
+        if (name != null && name.endsWith("_json")) {
+          // Extract as JSON
+          values = extractor.getValuesAsJsonFromDoc(xpath.getValue());
+        } else {
+          // Extract as regular text values
+          values = extractor.getValuesFromDoc(xpath.getValue());
+        }
+
         if (values != null && (!values.isEmpty())) {
           Slot slot = new Slot(name, values);
-          String unit = node.getAttributeValue("", Constants.UNIT);
-          if (unit != null) {
-            slot.setSlotType(unit);
+          if (node != null) {
+            String unit = node.getAttributeValue("", Constants.UNIT);
+            if (unit != null) {
+              slot.setSlotType(unit);
+            }
           }
           slots.add(slot);
         }

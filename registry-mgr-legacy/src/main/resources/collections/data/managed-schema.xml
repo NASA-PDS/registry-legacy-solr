@@ -71,26 +71,11 @@
    <field name="citation_author_list" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="citation_description" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="citation_editor_list" type="text_general" indexed="false" stored="true" multiValued="true" />
-    <field name="citation_author_organization_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_organization_rorid" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_organization_contributor_type" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_contributor_type" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_display_full_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_given_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_family_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_orcid" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_affiliation_organization_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_author_person_affiliation_organization_rorid" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_organization_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_organization_rorid" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_organization_contributor_type" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_contributor_type" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_display_full_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_given_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_family_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_orcid" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_affiliation_organization_name" type="text_general" indexed="true" stored="true" multiValued="true" />
-    <field name="citation_editor_person_affiliation_organization_rorid" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <!-- JSON fields for authors and editors to preserve nested structure -->
+   <field name="citation_author_person_json" type="text_general" indexed="false" stored="true" multiValued="true" />
+   <field name="citation_author_organization_json" type="text_general" indexed="false" stored="true" multiValued="true" />
+   <field name="citation_editor_person_json" type="text_general" indexed="false" stored="true" multiValued="true" />
+   <field name="citation_editor_organization_json" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="citation_doi" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="citation_keyword" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
    <field name="citation_publication_year" type="string" indexed="false" stored="true" multiValued="true" />
