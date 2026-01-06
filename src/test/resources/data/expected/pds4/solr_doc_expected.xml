@@ -7,11 +7,13 @@
       </field>
 <field name="investigation_name">CHANDRAYAAN-1</field>
 <field name="lid">urn:nasa:pds:ch1_m3</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Bundle</field>
 <field name="product_class">Product_Bundle</field>
 <field name="citation_author_list">C. Pieters, S. Lundee, J. Sunshine</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:m3.ch1-orb</field>
 <field name="file_ref_size">6731</field>
+<field name="modification_date">2021-01-30T00:00:00.000Z</field>
 <field name="external_reference_text">Chandrayaan-1 Orbiter Moon Mineralogy Mapper Collected Data Sets</field>
 <field name="file_ref_name">bundle_ch1_m3.xml</field>
 <field name="observation_stop_date_time">2009-08-16T05:25:55.000Z</field>
@@ -71,6 +73,7 @@
         into more compliant and/or usable formats.
       </field>
 <field name="citation_publication_year">2021</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/bundle_ch1_m3.xml</field>
 <field name="title">Chandrayaan-1 Orbiter Moon Mineralogy Mapper Collected Data Sets</field>
 <field name="resLocation">/ds-view/pds/viewBundle.jsp?identifier=urn%3Anasa%3Apds%3Ach1_m3&amp;version=1.0</field>
 <field name="data_product_type">Bundle</field>
@@ -2366,11 +2369,13 @@ STR      Star TRacker
 SWT      Science Working Team
 TGM      Transition to global mapping
         </field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="title">INTERNATIONAL ROSETTA MISSION</field>
 <field name="resLocation">/ds-view/pds/viewMissionProfile.jsp?MISSION_NAME=INTERNATIONAL+ROSETTA+MISSION</field>
 <field name="objectType">Product_Mission_PDS3</field>
 <field name="product_class">Product_Mission_PDS3</field>
 <field name="data_product_type">Investigation</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Auster U. et al., ROMAP: Rosetta Magnetometer and Plasma Monitor Space Sci.
                    Rev., 128(1-4), 221-240, Feb. 2007.
@@ -4871,6 +4876,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Apollo 17</field>
 <field name="instrument_host_name">Apollo 17 ALSEP</field>
 <field name="lid">urn:nasa:pds:a17leamcal:data</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Data</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -4878,6 +4884,7 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:leam.a17a</field>
 <field name="file_ref_size">11400</field>
 <field name="file_ref_size">241</field>
+<field name="modification_date">2015-05-22T00:00:00.000Z</field>
 <field name="external_reference_text">Apollo 17 Preliminary Science Report, NASA SP-330, published by NASA,
       Washington, D.C., 1973.</field>
 <field name="external_reference_text">Apollo Scientific Experiments Data Handbook, NASA Technical Memorandum
@@ -4937,6 +4944,8 @@ TGM      Transition to global mapping
 <field name="collection_member_count">4</field>
 <field name="description">Fake test collection</field>
 <field name="citation_publication_year">2017</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/collection_data.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/collection_data_inventory.csv</field>
 <field name="title">Apollo 17 Lunar Ejecta And Meteorites Experiment Data Notebook Fake Test Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Aa17leamcal%3Adata&amp;version=1.0</field>
 <field name="data_product_type">Collection</field>
@@ -4965,6 +4974,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Resource</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1579</field>
 <field name="modification_description">
                     Initial revision.
@@ -4979,12 +4989,14 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:resource:resource.a17leamcal_online</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2020-09-09T00:00:00.000Z</field>
 <field name="file_ref_name">resource_a17leamcal.xml</field>
 <field name="resource_url">https://pds-geosciences.wustl.edu/missions/apollo/index.htm</field>
 <field name="resource_type">Information.Science_Portal</field>
 <field name="description">
             Initial version of Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/resource_a17leamcal.xml</field>
 <field name="title">Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook Archive Online</field>
 <field name="resLocation">https://pds-geosciences.wustl.edu/missions/apollo/index.htm</field>
 <field name="data_product_type">Resource</field>
@@ -4998,12 +5010,14 @@ TGM      Transition to global mapping
 <field name="investigation_name">Apollo 17</field>
 <field name="instrument_host_name">Apollo 17 ALSEP</field>
 <field name="lid">urn:nasa:pds:a17leamcal</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Bundle</field>
 <field name="product_class">Product_Bundle</field>
 <field name="citation_author_list">Berg, O.E.; Williams, D.R.; Gaddy, M.</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:leam.a17a</field>
 <field name="file_ref_size">5346</field>
 <field name="file_ref_size">600</field>
+<field name="modification_date">2015-05-22T00:00:00.000Z</field>
 <field name="file_ref_name">bundle.xml</field>
 <field name="file_ref_name">readme.txt</field>
 <field name="observation_stop_date_time">1977-09-30T00:00:00.000Z</field>
@@ -5029,6 +5043,8 @@ TGM      Transition to global mapping
       Experiment detector, which was identical to Pioneer 8 and 9 Cosmic Dust Detectors
       (CDD).</field>
 <field name="citation_publication_year">2017</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/bundle.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/readme.txt</field>
 <field name="title">Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook Bundle</field>
 <field name="resLocation">/ds-view/pds/viewBundle.jsp?identifier=urn%3Anasa%3Apds%3Aa17leamcal&amp;version=1.0</field>
 <field name="data_product_type">Bundle</field>
@@ -5052,6 +5068,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Resource</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1592</field>
 <field name="modification_description">
                     Initial revision.
@@ -5066,12 +5083,14 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:resource:resource.a17leamcal_2_online</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2020-09-09T00:00:00.000Z</field>
 <field name="file_ref_name">resource_a17leamcal_2.xml</field>
 <field name="resource_url">https://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-a17leamcal/</field>
 <field name="resource_type">Information.Science_Portal</field>
 <field name="description">
             Initial version of Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook 2
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/resource_a17leamcal_2.xml</field>
 <field name="title">Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook 2 Archive Online</field>
 <field name="resLocation">https://pds-geosciences.wustl.edu/lunar/urn-nasa-pds-a17leamcal/</field>
 <field name="data_product_type">Resource</field>
@@ -5085,6 +5104,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Apollo 17</field>
 <field name="instrument_host_name">Apollo 17 ALSEP</field>
 <field name="lid">urn:nasa:pds:a17leamcal:calibration</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Calibration</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -5092,6 +5112,7 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:leam.a17a</field>
 <field name="file_ref_size">11875</field>
 <field name="file_ref_size">269</field>
+<field name="modification_date">2015-05-22T00:00:00.000Z</field>
 <field name="external_reference_text">Apollo 17 Preliminary Science Report, NASA SP-330, published by NASA,
       Washington, D.C., 1973.</field>
 <field name="external_reference_text">Apollo Scientific Experiments Data Handbook, NASA Technical Memorandum
@@ -5161,6 +5182,8 @@ TGM      Transition to global mapping
       calibrate the Apollo 17 LEAM data. Dr. Berg was the principal investigator for all three
       instruments.</field>
 <field name="citation_publication_year">2017</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/collection_calibration.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/a17leamcal_custom/collection_calibration_inventory.csv</field>
 <field name="title">Apollo 17 Lunar Ejecta And Meteorites Experiment Calibration Notebook Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Aa17leamcal%3Acalibration&amp;version=1.0</field>
 <field name="data_product_type">Collection</field>
@@ -5189,6 +5212,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Resource</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1701</field>
 <field name="modification_description">
                     Initial revision.
@@ -5203,12 +5227,14 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:resource:resource.productexternal_french23_occult_pred1_online</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2023-02-23T00:00:00.000Z</field>
 <field name="file_ref_name">resource_rms-annex_colxn_document_colxn_french23_occult_pred1.xml</field>
 <field name="resource_url">https://pds-rings.seti.org/rms-annex/french23_occult_pred/SOM/</field>
 <field name="resource_type">Information.Science_Portal</field>
 <field name="description">
             Initial version of Occultation Predictions from R. G. French et al (2023)
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/external/french23_occult_pred-20231019/resource_rms-annex_colxn_document_colxn_french23_occult_pred1.xml</field>
 <field name="title">Initial version of Occultation Predictions from R. G. French et al (2023) Archive Online</field>
 <field name="resLocation">https://pds-rings.seti.org/rms-annex/french23_occult_pred/SOM/</field>
 <field name="data_product_type">Resource</field>
@@ -5217,6 +5243,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Resource</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1693</field>
 <field name="modification_description">
                     Initial revision.
@@ -5231,12 +5258,14 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:resource:resource.productexternal_french23_occult_pred2_online</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2023-02-23T00:00:00.000Z</field>
 <field name="file_ref_name">resource_rms-annex_colxn_document_colxn_french23_occult_pred2.xml</field>
 <field name="resource_url">https://doi.org/10.3847/PSJ/aced50</field>
 <field name="resource_type">Information.Science_Portal</field>
 <field name="description">
             Initial version of Occultation Predictions from R. G. French et al (2023)
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/external/french23_occult_pred-20231019/resource_rms-annex_colxn_document_colxn_french23_occult_pred2.xml</field>
 <field name="title">Initial version of Occultation Predictions from R. G. French et al (2023) Archive Online</field>
 <field name="resLocation">https://doi.org/10.3847/PSJ/aced50</field>
 <field name="data_product_type">Resource</field>
@@ -5245,6 +5274,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:rms-annex:french23_occult_pred</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="citation_keyword">jupiter</field>
 <field name="citation_keyword">saturn</field>
 <field name="citation_keyword">uranus</field>
@@ -5256,6 +5286,7 @@ TGM      Transition to global mapping
 <field name="citation_author_list">French, R.G.; Souami, D.</field>
 <field name="file_ref_size">4045</field>
 <field name="file_ref_size">3084997</field>
+<field name="modification_date">2023-06-29T00:00:00.000Z</field>
 <field name="external_reference_text">R.G. French, D. Souami, Earth-based Stellar Occultation Predictions for Jupiter, Saturn, Uranus, Neptune, Titan, and Triton: 2023-2050 
                 2023, PSJ, 4</field>
 <field name="file_ref_name">occultation_prediction_som_manifest.xml</field>
@@ -5268,12 +5299,16 @@ TGM      Transition to global mapping
                 for Jupiter, Saturn, Uranus, Neptune, Titan, and Triton: 2023&#8211;2050, 
                 R. G. French and D. Souami (2023).
             </field>
+<field name="file_ref_location">/Users/jpadams/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/external/french23_occult_pred-20231019</field>
+<field name="file_ref_location">/Users/jpadams/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/external/french23_occult_pred-20231019</field>
 <field name="description">
                 Supplementary Online Material (SOM) for Earth-based Stellar Occultation Predictions
                 for Jupiter, Saturn, Uranus, Neptune, Titan, and Triton: 2023&#8211;2050, 
                 R. G. French and D. Souami (2023).
             </field>
 <field name="citation_publication_year">2023</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/external/french23_occult_pred-20231019/occultation_prediction_som_manifest.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/external/french23_occult_pred-20231019/occultation_prediction_som_manifest.txt</field>
 <field name="title">Occultation Predictions from R. G. French and D. Souami (2023)</field>
 <field name="resLocation">/ds-view/pds/viewProductExternal.jsp?identifier=urn%3Anasa%3Arms-annex%3Afrench23_occult_pred&amp;version=1.0</field>
 <field name="data_product_type">External</field>
@@ -5289,7 +5324,102 @@ TGM      Transition to global mapping
                 in this collection.</field>
 </doc>
 <doc>
+<field name="investigation_name">PIONEER VENUS</field>
+<field name="lid">urn:nasa:pds:pvmp_dlbi</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
+<field name="objectType">Product_Bundle</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:1,&quot;display_full_name&quot;:&quot;Young-In Won&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;person_orcid&quot;:&quot;https://orcid.org/0009-0003-0452-774X&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Young-In&quot;,&quot;family_name&quot;:&quot;Won&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;ADNET Systems, Inc.&quot;},{&quot;organization_name&quot;:&quot;NASA Space Science Data Coordinated Archive&quot;}]}}</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:2,&quot;display_full_name&quot;:&quot;Stephanie A. McLaughlin&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Stephanie A.&quot;,&quot;family_name&quot;:&quot;McLaughlin&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;Telophase Corporation&quot;},{&quot;organization_name&quot;:&quot;NASA Space Science Data Coordinated Archive&quot;}]}}</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:3,&quot;display_full_name&quot;:&quot;Lynn D. V. Neakrase&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;person_orcid&quot;:&quot;https://orcid.org/0000-0002-6370-5791&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Lynn D. V.&quot;,&quot;family_name&quot;:&quot;Neakrase&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;New Mexico State University&quot;},{&quot;organization_name&quot;:&quot;NASA Planetary Data System&quot;}]}}</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:4,&quot;display_full_name&quot;:&quot;Nancy J. Chanover&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;person_orcid&quot;:&quot;https://orcid.org/0000-0002-9984-4670&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Nancy J.&quot;,&quot;family_name&quot;:&quot;Chanover&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;New Mexico State University&quot;},{&quot;organization_name&quot;:&quot;NASA Planetary Data System&quot;}]}}</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:5,&quot;display_full_name&quot;:&quot;David R. Williams&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;person_orcid&quot;:&quot;https://orcid.org/0000-0003-2187-2716&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;David R.&quot;,&quot;family_name&quot;:&quot;Williams&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;Goddard Space Flight Center&quot;},{&quot;organization_name&quot;:&quot;NASA Space Science Data Coordinated Archive&quot;}]}}</field>
+<field name="product_class">Product_Bundle</field>
+<field name="instrument_ref">urn:nasa:pds:context:instrument:pvmp.lp.dlbi</field>
+<field name="instrument_ref">urn:nasa:pds:context:instrument:pvmp.sp-day.dlbi</field>
+<field name="instrument_ref">urn:nasa:pds:context:instrument:pvmp.sp-night.dlbi</field>
+<field name="instrument_ref">urn:nasa:pds:context:instrument:pvmp.sp-north.dlbi</field>
+<field name="file_ref_size">14042</field>
+<field name="modification_date">2025-03-27T00:00:00.000Z</field>
+<field name="file_ref_name">bundle.xml</field>
+<field name="observation_stop_date_time">1978-12-09T00:00:00.000Z</field>
+<field name="observing_system_name">Pioneer Venus Large Probe</field>
+<field name="observing_system_name">Pioneer Venus Small Probe (Day)</field>
+<field name="observing_system_name">Pioneer Venus Small Probe (Night)</field>
+<field name="observing_system_name">Pioneer Venus Small Probe (North)</field>
+<field name="primary_result_discipline_name">Atmospheres</field>
+<field name="primary_result_discipline_name">Radio Science</field>
+<field name="modification_description">Initial version</field>
+<field name="instrument_host_ref">urn:nasa:pds:context:instrument_host:spacecraft.pvmp.lp</field>
+<field name="instrument_host_ref">urn:nasa:pds:context:instrument_host:spacecraft.pvmp.sp-day</field>
+<field name="instrument_host_ref">urn:nasa:pds:context:instrument_host:spacecraft.pvmp.sp-night</field>
+<field name="instrument_host_ref">urn:nasa:pds:context:instrument_host:spacecraft.pvmp.sp-north</field>
+<field name="citation_author_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:1,&quot;display_full_name&quot;:&quot;Young-In Won&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;person_orcid&quot;:&quot;https://orcid.org/0009-0003-0452-774X&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Young-In&quot;,&quot;family_name&quot;:&quot;Won&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;ADNET Systems, Inc.&quot;},{&quot;organization_name&quot;:&quot;NASA Space Science Data Coordinated Archive&quot;}]}}</field>
+<field name="citation_author_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:2,&quot;display_full_name&quot;:&quot;Stephanie A. McLaughlin&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Stephanie A.&quot;,&quot;family_name&quot;:&quot;McLaughlin&quot;,&quot;Affiliation&quot;:[{&quot;organization_name&quot;:&quot;Telophase Corporation&quot;},{&quot;organization_name&quot;:&quot;NASA Space Science Data Coordinated Archive&quot;}]}}</field>
+<field name="citation_author_person_json">{&quot;Person&quot;:{&quot;sequence_number&quot;:3,&quot;display_full_name&quot;:&quot;Charles C. Counselman III&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;person_orcid&quot;:&quot;https://orcid.org/0000-0001-6034-2377&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Charles C. III&quot;,&quot;family_name&quot;:&quot;Counselman&quot;,&quot;Affiliation&quot;:{&quot;organization_name&quot;:&quot;Massachusetts Institute of Technology&quot;}}}</field>
+<field name="observing_system_component_type">Host</field>
+<field name="observing_system_component_type">Instrument</field>
+<field name="observing_system_component_type">Host</field>
+<field name="observing_system_component_type">Instrument</field>
+<field name="observing_system_component_type">Host</field>
+<field name="observing_system_component_type">Instrument</field>
+<field name="observing_system_component_type">Host</field>
+<field name="observing_system_component_type">Instrument</field>
+<field name="pds_model_version">pds4</field>
+<field name="primary_result_processing_level">Derived</field>
+<field name="bundle_type">Archive</field>
+<field name="instrument_name">PIONEER VENUS LARGE PROBE DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="instrument_name">PIONEER VENUS SMALL PROBE (DAY) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="instrument_name">PIONEER VENUS SMALL PROBE (NIGHT) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="instrument_name">PIONEER VENUS SMALL PROBE (NORTH) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="citation_doi">10.17189/kzg5-ep44</field>
+<field name="citation_description">
+                This bundle contains data on relative crustal and atmospheric velocity
+                components from the Pioneer Venus Multiprobe Differential Long Base Line
+                Interferometer (DLBI) experiments conducted during the descent of four
+                entry probes through the atmosphere of Venus on 9 December 1978. The time
+                resolution is approximately 6.3 seconds for the large probe data and 18.9
+                seconds for the three small probes.
+            </field>
+<field name="observation_start_date_time">1978-12-09T00:00:00.000Z</field>
+<field name="target_name">Venus</field>
+<field name="page_type">Data</field>
+<field name="description">
+                This bundle contains data on relative crustal and atmospheric velocity
+                components from the Pioneer Venus Multiprobe Differential Long Base Line
+                Interferometer (DLBI) experiments conducted during the descent of four
+                entry probes through the atmosphere of Venus on 9 December 1978. The time
+                resolution is approximately 6.3 seconds for the large probe data and 18.9
+                seconds for the three small probes.
+            </field>
+<field name="citation_publication_year">2025</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/pvmp_dlbi/bundle.xml</field>
+<field name="title">Pioneer Venus Multiprobe DLBI Relative Crustal and Atmospheric Velocity Components Data Bundle</field>
+<field name="resLocation">/ds-view/pds/viewBundle.jsp?identifier=urn%3Anasa%3Apds%3Apvmp_dlbi&amp;version=1.0</field>
+<field name="data_product_type">Bundle</field>
+<field name="primary_result_purpose">Science</field>
+<field name="agency_name">nasa</field>
+<field name="target_ref">urn:nasa:pds:context:target:planet.venus</field>
+<field name="target_type">Planet</field>
+<field name="version_id">1.0</field>
+<field name="investigation_ref">urn:nasa:pds:context:investigation:mission.pioneer_venus</field>
+<field name="search_id">pds4:urn:nasa:pds:pvmp_dlbi</field>
+<field name="investigation_type">Mission</field>
+<field name="collection_ref">urn:nasa:pds:pvmp_dlbi:data</field>
+<field name="collection_ref">urn:nasa:pds:pvmp_dlbi:document</field>
+<field name="collection_ref">urn:nasa:pds:pvmp_dlbi:context</field>
+<field name="collection_ref">urn:nasa:pds:pvmp_dlbi:xml_schema</field>
+<field name="observing_system_component_name">PIONEER VENUS LARGE PROBE</field>
+<field name="observing_system_component_name">PIONEER VENUS LARGE PROBE DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="observing_system_component_name">PIONEER VENUS SMALL PROBE (DAY)</field>
+<field name="observing_system_component_name">PIONEER VENUS SMALL PROBE (DAY) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="observing_system_component_name">PIONEER VENUS SMALL PROBE (NIGHT)</field>
+<field name="observing_system_component_name">PIONEER VENUS SMALL PROBE (NIGHT) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+<field name="observing_system_component_name">PIONEER VENUS SMALL PROBE (NORTH)</field>
+<field name="observing_system_component_name">PIONEER VENUS SMALL PROBE (NORTH) DIFFERENTIAL LONG BASE LINE INTERFEROMETER</field>
+</doc>
+<doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">6311</field>
 <field name="modification_description">Updated schema version. Adding missing &quot;investigation&quot; references. Update instrument type/subtype to use valid CTLI LDD.</field>
 <field name="modification_description">
@@ -5312,6 +5442,8 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2025-01-02T00:00:00.000Z</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Hanel, R.A., D. Crosby, L.W. Herath, D. Vanous, D.
                    Collins, H. Creswick, C. Harris, and M. Rhodes, Infrared
@@ -5333,6 +5465,7 @@ TGM      Transition to global mapping
 <field name="file_ref_name">vg1.iris_1.1.xml</field>
 <field name="instrument_name">Infrared Interferometer Spectrometer and Radiometer for VG1</field>
 <field name="description">The Infrared Interferometer Spectrometer and Radiometer (IRIS) instrument on board of Voyager 1 is used to investigate energy balances and atmospheric composition, such as vertical temperature profiles of the planets and satellites. It also investigates the composition, thermal properties, and size of particles in Saturn&#8217;s rings. IRIS consists of a Michelson interferometer for measurements in the thermal infrared and a single channel radiometer that operates in the visible and near infrared. The two components of the instrument share a 50 cm Cassegrain telescope with an effective focal length of 303.5 cm and an angular field of view of 0.25 degree. Entering light is divided into two beams by a dichroic mirror, with longer than ~2.5 micrometers going to the infrared interferometer, and radiation between 0.33 and 2 micrometers going to the radiometer. The effective spectral range of the interferometer is 180-2500 cm**-1 and the apodized spectral resolution is 4.3 cm**-1. The detector of the infrared interferometer is a low-impedance Schwartz-type four-junction thermopile with a thermal time constant of 12 millisecond and is operated at a temperature of 200 K. To minimize systematic errors from possible small changes in the instrument responsivity, the calibration must be updated as a function of time during the encounter. Sampled Visible Radiance is a series of 8 radiometer samples taken during a 48 second data frame with the high gain channel, while Integrated Visable Radiance is the broadband, reflected solar radiometer signal integrated over the 45.6 seconds in that IRIS data are taken within the 48 second data frame. The quantity given is power at the detector in Watts. Note that a systematic error on the order of 10% may exist in the calibration of one or both of the IRIS instruments&apos; radiometer systems.</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github206/vg1.iris_1.1.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">Infrared Interferometer Spectrometer and Radiometer for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.iris&amp;version=1.1</field>
@@ -5346,6 +5479,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">3816</field>
 <field name="modification_description">Updated schema version. Adding missing &quot;investigation&quot; references.</field>
 <field name="modification_description">
@@ -5364,6 +5498,8 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:instrument:vg1.eng</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2025-01-02T00:00:00.000Z</field>
+<field name="modification_date">2021-04-12T00:00:00.000Z</field>
 <field name="external_reference_text">
                 Kohlhase, C., The Voyager Neptune Travel Guide, JPL Publication 89-24, 276 pp.,
                 Jet Propulsion Laboratory, Pasadena, CA, 1989.
@@ -5375,6 +5511,7 @@ TGM      Transition to global mapping
 <field name="file_ref_name">vg1.eng_1.1.xml</field>
 <field name="instrument_name">Voyager 1 Spacecraft Sensors</field>
 <field name="description">The Voyager 1 spacecraft is equipped with multiple sensors, including magnetometers, plasma detectors, charged particle instruments, and imaging systems, to study planetary environments and interstellar space.</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github206/vg1.eng_1.1.xml</field>
 <field name="instrument_type">Spacecraft Sensor</field>
 <field name="title">Voyager 1 Spacecraft Sensors</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.eng&amp;version=1.1</field>
@@ -5392,7 +5529,9 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:system_bundle:product_sip_deep_archive:insight_documents_v2.0_20200702</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="product_class">Product_SIP_Deep_Archive</field>
+<field name="modification_date">2020-07-02T00:00:00.000Z</field>
 <field name="manifest_url">https://pds.nasa.gov/data/pds4/manifests/insight_documents_v2.0_sip_v1.0_20200702.tab</field>
 <field name="modification_description">SIP was verisoned and created</field>
 <field name="description">Submission Information Package for theMars InSight Lander Document Archive</field>
@@ -5405,7 +5544,9 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:system_bundle:product_sip_deep_archive:insight_documents_v2.0_20200702</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="product_class">Product_SIP_Deep_Archive</field>
+<field name="modification_date">2020-07-02T00:00:00.000Z</field>
 <field name="manifest_url">https://pds.nasa.gov/data/pds4/manifests/insight_documents_v2.0_sip_v1.0_20200702.tab</field>
 <field name="modification_description">SIP was verisoned and created</field>
 <field name="description">Submission Information Package for theMars InSight Lander Document Archive</field>
@@ -5420,6 +5561,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">INSIGHT</field>
 <field name="instrument_host_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Bundle</field>
 <field name="product_class">Product_Bundle</field>
 <field name="citation_author_list">
@@ -5453,6 +5595,9 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:rise.insight</field>
 <field name="file_ref_size">15192</field>
 <field name="file_ref_size">1494</field>
+<field name="modification_date">2019-05-22T00:00:00.000Z</field>
+<field name="modification_date">2019-05-31T00:00:00.000Z</field>
+<field name="modification_date">2019-09-12T00:00:00.000Z</field>
 <field name="external_reference_text">
                 Smrekar, S. E., Lognonne, P., Spohn, T. et al., Pre-mission InSights on
                 the Interior of Mars, Space Sci. Rev. (2019) 215:3. 
@@ -5540,6 +5685,8 @@ TGM      Transition to global mapping
                 whole. 
             </field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/bundle_insight_documents.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/readme.txt</field>
 <field name="title">Mars InSight Lander Document Archive</field>
 <field name="resLocation">/ds-view/pds/viewBundle.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents&amp;version=2.0</field>
 <field name="data_product_type">Bundle</field>
@@ -5584,6 +5731,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_mission:insight_pip_final-2015_redacted_5-10-19reda</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:apss-ifg.insight</field>
@@ -5598,6 +5746,8 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">8222</field>
 <field name="file_ref_size">4825989</field>
+<field name="modification_date">2019-03-15T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">InSight_PIP_final-2015_Redacted_5-10-19reda.xml</field>
 <field name="file_ref_name">InSight_PIP_final-2015_Redacted_5-10-19reda.pdf</field>
 <field name="observing_system_name">Insight</field>
@@ -5639,6 +5789,8 @@ TGM      Transition to global mapping
                 on the title page, and converted to PDF/A format for archiving.
             </field>
 <field name="citation_publication_year">2015</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_mission/InSight_PIP_final-2015_Redacted_5-10-19reda.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_mission/InSight_PIP_final-2015_Redacted_5-10-19reda.pdf</field>
 <field name="title">Interior Exploration Using Seismic Investigations, Geodesy, and Heat Transport (InSight) Summary</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_mission%3Ainsight_pip_final-2015_redacted_5-10-19reda&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -5666,6 +5818,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_mission</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -5681,6 +5834,8 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">7577</field>
 <field name="file_ref_size">100</field>
+<field name="modification_date">2018-10-12T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">collection_document_mission.xml</field>
 <field name="file_ref_name">collection_document_mission.csv</field>
 <field name="modification_description">Placeholder for the InSight Mission document collection.</field>
@@ -5714,6 +5869,8 @@ TGM      Transition to global mapping
 <field name="collection_member_count">1</field>
 <field name="description">InSight Mission Document Collection.</field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_mission/collection_document_mission.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_mission/collection_document_mission.csv</field>
 <field name="title">InSight Mission Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_mission&amp;version=1.1</field>
 <field name="data_product_type">Collection</field>
@@ -5739,11 +5896,16 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise:release_notes</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:rise.insight</field>
 <field name="file_ref_size">3778</field>
 <field name="file_ref_size">3234</field>
+<field name="modification_date">2020-02-05T00:00:00.000Z</field>
+<field name="modification_date">2019-10-16T00:00:00.000Z</field>
+<field name="modification_date">2019-07-23T00:00:00.000Z</field>
+<field name="modification_date">2019-04-02T00:00:00.000Z</field>
 <field name="file_ref_name">release_notes.xml</field>
 <field name="file_ref_name">release_notes.txt</field>
 <field name="modification_description">
@@ -5771,6 +5933,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">InSight RISE Release Notes</field>
 <field name="citation_publication_year">2020</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/release_notes.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/release_notes.txt</field>
 <field name="title">InSight RISE Release Notes</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise%3Arelease_notes&amp;version=4.0</field>
 <field name="data_product_type">Document</field>
@@ -5783,12 +5947,17 @@ TGM      Transition to global mapping
 <field name="investigation_name">InSight</field>
 <field name="instrument_host_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:rise.insight</field>
 <field name="file_ref_size">5616</field>
 <field name="file_ref_size">352</field>
+<field name="modification_date">2017-05-31T00:00:00.000Z</field>
+<field name="modification_date">2019-09-23T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
+<field name="modification_date">2020-04-01T00:00:00.000Z</field>
 <field name="file_ref_name">collection_document_inventory.xml</field>
 <field name="file_ref_name">collection_document_inventory.csv</field>
 <field name="observing_system_name">InSight</field>
@@ -5808,6 +5977,8 @@ TGM      Transition to global mapping
 <field name="collection_member_count">6</field>
 <field name="description">InSight RISE Document Collection</field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/collection_document_inventory.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/collection_document_inventory.csv</field>
 <field name="title">InSight RISE Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise&amp;version=4.0</field>
 <field name="data_product_type">Collection</field>
@@ -5826,6 +5997,7 @@ TGM      Transition to global mapping
 <doc>
 <field name="investigation_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise:trk-2-24-reva-l5_wea</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="file_ref_size">2466</field>
@@ -5837,6 +6009,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">TRK-2-24 DSN Tracking System Interfaces Weather Data Interface, Deep Space Network (DSN) External Interface Specification 820-013, JPL D-16765, Revision A, March 15, 2006, Jet Propulsion Laboratory, California Institute of Technology</field>
 <field name="citation_publication_year">2006</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/trk-2-24-reva-l5_wea.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/trk-2-24-reva-l5_wea.pdf</field>
 <field name="title">TRK-2-24 DSN Tracking System Interfaces Weather Data Interface</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise%3Atrk-2-24-reva-l5_wea&amp;version=1.0</field>
 <field name="data_product_type">Document</field>
@@ -5850,6 +6024,7 @@ TGM      Transition to global mapping
 <doc>
 <field name="investigation_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise:trk-2-34-revn-l5_tnf</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="file_ref_size">2413</field>
@@ -5861,6 +6036,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">TRK-2-34 DSN Tracking System Data Archival Format, Deep Space Network (DSN) No. 820-013, JPL D-76488, Revision N, November 7, 2013, Jet Propulsion Laboratory, California Institute of Technology</field>
 <field name="citation_publication_year">2013</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/trk-2-34-revn-l5_tnf.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/trk-2-34-revn-l5_tnf.pdf</field>
 <field name="title">TRK-2-34 DSN Tracking System Data Archival Format</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise%3Atrk-2-34-revn-l5_tnf&amp;version=1.0</field>
 <field name="data_product_type">Document</field>
@@ -5873,6 +6050,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise:rise_raw_sis</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="file_ref_size">3645</field>
@@ -5883,6 +6061,7 @@ TGM      Transition to global mapping
 <field name="file_ref_size">34391</field>
 <field name="file_ref_size">30739</field>
 <field name="file_ref_size">53762</field>
+<field name="modification_date">2017-06-27T00:00:00.000Z</field>
 <field name="file_ref_name">RISE_InSight_SIS_Raw.xml</field>
 <field name="file_ref_name">RISE_InSight_SIS_Raw.pdf</field>
 <field name="file_ref_name">RISE_InSight_SIS_Raw.htm</field>
@@ -5897,6 +6076,14 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">InSight RISE Raw Data Product Software Interface Specification</field>
 <field name="citation_publication_year">2017</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw.pdf</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw.htm</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw_files/image001.jpg</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw_files/image002.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw_files/image003.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw_files/image004.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/RISE_InSight_SIS_Raw_files/image005.png</field>
 <field name="title">InSight RISE Raw Data Product SIS</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise%3Arise_raw_sis&amp;version=1.0</field>
 <field name="data_product_type">Document</field>
@@ -5913,6 +6100,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise:east_west_mga</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="file_ref_size">6233</field>
@@ -5932,6 +6120,7 @@ TGM      Transition to global mapping
 <field name="file_ref_size">174</field>
 <field name="file_ref_size">175</field>
 <field name="file_ref_size">26034</field>
+<field name="modification_date">2017-06-21T00:00:00.000Z</field>
 <field name="file_ref_name">InSight_EastWestMGA.xml</field>
 <field name="file_ref_name">InSight_EastWestMGA.pdf</field>
 <field name="file_ref_name">InSight_EastWestMGA.htm</field>
@@ -5957,6 +6146,23 @@ TGM      Transition to global mapping
 <field name="description">Describes the geometry of the Medium Gain Antennas (MGA) on the InSight RISE
               instrument with directions for determining which antenna is being utilized at a given time.</field>
 <field name="citation_publication_year">2017</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA.pdf</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA.htm</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image001.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image002.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image003.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image004.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image005.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image006.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image007.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image008.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image009.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image010.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image011.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image012.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image013.png</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/InSight_EastWestMGA_files/image014.png</field>
 <field name="title">InSight Antenna Utilization Geometry</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise%3Aeast_west_mga&amp;version=1.0</field>
 <field name="data_product_type">Document</field>
@@ -5984,12 +6190,17 @@ TGM      Transition to global mapping
 <field name="investigation_name">InSight</field>
 <field name="instrument_host_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:rise.insight</field>
 <field name="file_ref_size">5621</field>
 <field name="file_ref_size">426</field>
+<field name="modification_date">2017-05-31T00:00:00.000Z</field>
+<field name="modification_date">2019-09-23T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
+<field name="modification_date">2020-04-01T00:00:00.000Z</field>
 <field name="file_ref_name">collection_document_inventory_v5.0.xml</field>
 <field name="file_ref_name">collection_document_inventory_v5.0.csv</field>
 <field name="observing_system_name">InSight</field>
@@ -6009,6 +6220,8 @@ TGM      Transition to global mapping
 <field name="collection_member_count">6</field>
 <field name="description">InSight RISE Document Collection</field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/collection_document_inventory_v5.0.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/collection_document_inventory_v5.0.csv</field>
 <field name="title">InSight RISE Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise&amp;version=5.0</field>
 <field name="data_product_type">Collection</field>
@@ -6027,6 +6240,7 @@ TGM      Transition to global mapping
 <doc>
 <field name="investigation_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_rise:trk-2-23-revc-l5_ion_tro</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="file_ref_size">2421</field>
@@ -6038,6 +6252,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">TRK-2-23 Media Calibration Interface, Deep Space Network (DSN) External Interface Specification 820-013, JPL D-16765, Revision C, March 5, 2008, Jet Propulsion Laboratory, California Institute of Technology</field>
 <field name="citation_publication_year">2008</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/trk-2-23-revc-l5_ion_tro.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_rise/trk-2-23-revc-l5_ion_tro.pdf</field>
 <field name="title">TRK-2-23 Media Calibration Interface</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_rise%3Atrk-2-23-revc-l5_ion_tro&amp;version=1.0</field>
 <field name="data_product_type">Document</field>
@@ -6050,11 +6266,17 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:seis_release_notes</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">4321</field>
 <field name="file_ref_size">12775</field>
+<field name="modification_date">2019-05-16T00:00:00.000Z</field>
+<field name="modification_date">2019-06-10T00:00:00.000Z</field>
+<field name="modification_date">2019-09-18T00:00:00.000Z</field>
+<field name="modification_date">2019-12-08T00:00:00.000Z</field>
+<field name="modification_date">2020-04-01T00:00:00.000Z</field>
 <field name="file_ref_name">seis_release_notes.xml</field>
 <field name="file_ref_name">seis_release_notes.txt</field>
 <field name="modification_description">
@@ -6087,6 +6309,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">InSight SEIS Release Notes</field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/seis_release_notes.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/seis_release_notes.txt</field>
 <field name="title">InSight SEIS Release Notes</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Aseis_release_notes&amp;version=5.0</field>
 <field name="data_product_type">Document</field>
@@ -6099,11 +6323,13 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:fdsn-station-availability-1.0</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">4003</field>
 <field name="file_ref_size">5502</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">fdsn-station-availability-1.0.xml</field>
 <field name="file_ref_name">fdsn-station-availability-1.0.xsd</field>
 <field name="observing_system_name">Insight</field>
@@ -6122,6 +6348,8 @@ TGM      Transition to global mapping
 <field name="description">Extension of the base FDSN StationXML schema
                 that includes time series data availability structures</field>
 <field name="citation_publication_year">2012</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/fdsn-station-availability-1.0.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/fdsn-station-availability-1.0.xsd</field>
 <field name="title">FDSN StationXML Time Series Availability Extension</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Afdsn-station-availability-1.0&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6140,6 +6368,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:seis_channel_naming</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="citation_author_list">Pardo, C.</field>
@@ -6147,6 +6376,8 @@ TGM      Transition to global mapping
 <field name="file_ref_size">4039</field>
 <field name="file_ref_size">156316</field>
 <field name="file_ref_size">3137997</field>
+<field name="modification_date">2019-01-09T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">ins-st-grds-1500-ipgp_seed_channelnaming.xml</field>
 <field name="file_ref_name">ins-st-grds-1500-ipgp_seed_channelnaming.xlsx</field>
 <field name="file_ref_name">ins-st-grds-1500-ipgp_seed_channelnaming.pdf</field>
@@ -6169,6 +6400,9 @@ TGM      Transition to global mapping
         Descriptions of InSight SEIS network, station, channel and location codes
       </field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/ins-st-grds-1500-ipgp_seed_channelnaming.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/ins-st-grds-1500-ipgp_seed_channelnaming.xlsx</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/ins-st-grds-1500-ipgp_seed_channelnaming.pdf</field>
 <field name="title">InSight SEIS Seismometer SEED Channel Configuration for SEIS Data</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Aseis_channel_naming&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6188,6 +6422,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -6195,6 +6430,11 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">8394</field>
 <field name="file_ref_size">576</field>
+<field name="modification_date">2019-05-07T00:00:00.000Z</field>
+<field name="modification_date">2019-06-18T00:00:00.000Z</field>
+<field name="modification_date">2019-09-18T00:00:00.000Z</field>
+<field name="modification_date">2019-12-17T00:00:00.000Z</field>
+<field name="modification_date">2020-03-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                 Lognonne, P., Banerdt, W. B., Giardini, D., et al. (2019), SEIS: InSight&apos;s 
                 Seismic Experiment for Internal Structure of Mars, Space Sci. Rev. 215:12.
@@ -6280,6 +6520,8 @@ TGM      Transition to global mapping
                      
             </field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/collection_document_seis.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/collection_document_seis_inventory.csv</field>
 <field name="title">InSight SEIS Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis&amp;version=5.0</field>
 <field name="data_product_type">Collection</field>
@@ -6299,11 +6541,14 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:seed_manual</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">3930</field>
 <field name="file_ref_size">16717376</field>
+<field name="modification_date">2019-01-10T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">seedmanual_v2.4.xml</field>
 <field name="file_ref_name">seedmanual_v2.4.pdf</field>
 <field name="observing_system_name">Insight</field>
@@ -6333,6 +6578,8 @@ TGM      Transition to global mapping
         https://www.fdsn.org/seed_manual/SEEDManual_V2.4.pdf.
       </field>
 <field name="citation_publication_year">2012</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/seedmanual_v2.4.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/seedmanual_v2.4.pdf</field>
 <field name="title">SEED Reference Manual</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Aseed_manual&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6351,11 +6598,13 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:variations-fdsnsxml-seed</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">3611</field>
 <field name="file_ref_size">3915</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">variations-fdsnsxml-seed.xml</field>
 <field name="file_ref_name">variations-fdsnsxml-seed.txt</field>
 <field name="observing_system_name">Insight</field>
@@ -6378,6 +6627,8 @@ TGM      Transition to global mapping
         From https://www.fdsn.org/xml/station/. 
       </field>
 <field name="citation_publication_year">2012</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/variations-fdsnsxml-seed.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/variations-fdsnsxml-seed.txt</field>
 <field name="title">Variations Between SEED 2.4 and FDSN StationXML</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Avariations-fdsnsxml-seed&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6396,11 +6647,15 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:seis_sis</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">3788</field>
 <field name="file_ref_size">666924</field>
+<field name="modification_date">2019-05-21T00:00:00.000Z</field>
+<field name="modification_date">2019-06-24T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">seis_sis.xml</field>
 <field name="file_ref_name">seis_sis.pdf</field>
 <field name="observing_system_name">Insight</field>
@@ -6421,6 +6676,8 @@ TGM      Transition to global mapping
         InSight Seismometer (SEIS) Software Interface Specification 
       </field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/seis_sis.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/seis_sis.pdf</field>
 <field name="title">InSight SEIS SIS Document</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Aseis_sis&amp;version=1.2</field>
 <field name="data_product_type">Document</field>
@@ -6439,11 +6696,13 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:fdsn-station-1.0</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">4102</field>
 <field name="file_ref_size">44061</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">fdsn-station-1.0.xml</field>
 <field name="file_ref_name">fdsn-station-1.0.xsd</field>
 <field name="observing_system_name">Insight</field>
@@ -6464,6 +6723,8 @@ TGM      Transition to global mapping
                 This is an XML representation of the most important and commonly 
                 used structures of SEED 2.4 metadata.</field>
 <field name="citation_publication_year">2012</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/fdsn-station-1.0.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/fdsn-station-1.0.xsd</field>
 <field name="title">FDSN StationXML Schema</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Afdsn-station-1.0&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6482,12 +6743,15 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_seis:location_codes_only</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:seis.insight</field>
 <field name="file_ref_size">3908</field>
 <field name="file_ref_size">56274</field>
 <field name="file_ref_size">1517072</field>
+<field name="modification_date">2018-10-05T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">location_codes_only.xml</field>
 <field name="file_ref_name">location_codes_only.xlsx</field>
 <field name="file_ref_name">location_codes_only.pdf</field>
@@ -6510,6 +6774,9 @@ TGM      Transition to global mapping
         Location Codes Only 
       </field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/location_codes_only.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/location_codes_only.xlsx</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_seis/location_codes_only.pdf</field>
 <field name="title">InSight SEIS Location Codes Document</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_seis%3Alocation_codes_only&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6527,12 +6794,18 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:insight_documents:document_hp3rad:release_notes</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:hp3.insight</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:radiometer.insight</field>
 <field name="file_ref_size">3988</field>
 <field name="file_ref_size">9113</field>
+<field name="modification_date">2019-01-23T00:00:00.000Z</field>
+<field name="modification_date">2019-06-26T00:00:00.000Z</field>
+<field name="modification_date">2019-09-23T00:00:00.000Z</field>
+<field name="modification_date">2019-12-11T00:00:00.000Z</field>
+<field name="modification_date">2020-03-09T00:00:00.000Z</field>
 <field name="file_ref_name">release_notes.xml</field>
 <field name="file_ref_name">release_notes.txt</field>
 <field name="modification_description">
@@ -6558,6 +6831,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">InSight HP3 and RAD Release Notes</field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_hp3rad/release_notes.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_hp3rad/release_notes.txt</field>
 <field name="title">InSight HP3 and RAD Release Notes</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_hp3rad%3Arelease_notes&amp;version=5.0</field>
 <field name="data_product_type">Document</field>
@@ -6570,6 +6845,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_hp3rad</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -6577,6 +6853,12 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:radiometer.insight</field>
 <field name="file_ref_size">6082</field>
 <field name="file_ref_size">136</field>
+<field name="modification_date">2019-01-23T00:00:00.000Z</field>
+<field name="modification_date">2019-04-22T00:00:00.000Z</field>
+<field name="modification_date">2019-06-11T00:00:00.000Z</field>
+<field name="modification_date">2019-09-23T00:00:00.000Z</field>
+<field name="modification_date">2019-12-11T00:00:00.000Z</field>
+<field name="modification_date">2020-03-09T00:00:00.000Z</field>
 <field name="file_ref_name">collection_document_hp3rad.xml</field>
 <field name="file_ref_name">collection_document_hp3rad.csv</field>
 <field name="modification_description">InSight HP3 and RAD document collection, including the
@@ -6612,6 +6894,8 @@ TGM      Transition to global mapping
 <field name="collection_member_count">2</field>
 <field name="description">InSight HP3 and RAD Document Collection.</field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_hp3rad/collection_document_hp3rad.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_hp3rad/collection_document_hp3rad.csv</field>
 <field name="title">InSight HP3 and RAD Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_hp3rad&amp;version=5.0</field>
 <field name="data_product_type">Collection</field>
@@ -6631,12 +6915,16 @@ TGM      Transition to global mapping
 <field name="investigation_name">InSight</field>
 <field name="instrument_host_name">InSight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_hp3rad:hp3_rad_sis</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:hp3.insight</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:radiometer.insight</field>
 <field name="file_ref_size">5294</field>
 <field name="file_ref_size">2332644</field>
+<field name="modification_date">2018-10-15T00:00:00.000Z</field>
+<field name="modification_date">2019-04-22T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="file_ref_name">hp3_rad_sis.xml</field>
 <field name="file_ref_name">hp3_rad_sis.pdf</field>
 <field name="primary_result_discipline_name">Geosciences</field>
@@ -6659,6 +6947,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">InSight HP3 and RAD Data Product Software Interface Specification</field>
 <field name="citation_publication_year">2018</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_hp3rad/hp3_rad_sis.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_hp3rad/hp3_rad_sis.pdf</field>
 <field name="title">InSight HP3 and RAD Data Product SIS</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_hp3rad%3Ahp3_rad_sis&amp;version=1.1</field>
 <field name="data_product_type">Document</field>
@@ -6679,6 +6969,7 @@ TGM      Transition to global mapping
 <field name="investigation_name">Insight</field>
 <field name="instrument_host_name">Insight</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_ida</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -6686,6 +6977,9 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:ida.insight</field>
 <field name="file_ref_size">6498</field>
 <field name="file_ref_size">145</field>
+<field name="modification_date">2019-09-23T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
+<field name="modification_date">2020-01-02T00:00:00.000Z</field>
 <field name="external_reference_text">
                 Trebi-Ollennu, A. et al., 2018, InSight Mars Lander Robotics Instrument Deployment System, 
                 Space Science Reviews, 214:93, doi:10.1007/s11214-018-0520-7.
@@ -6732,6 +7026,8 @@ TGM      Transition to global mapping
                      
             </field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_ida/collection_document_ida.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_ida/collection_document_ida_inventory.csv</field>
 <field name="title">InSight IDA Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_ida&amp;version=3.0</field>
 <field name="data_product_type">Collection</field>
@@ -6751,12 +7047,15 @@ TGM      Transition to global mapping
 <field name="investigation_name">InSight</field>
 <field name="instrument_host_name">InSight Lander</field>
 <field name="lid">urn:nasa:pds:insight_documents:document_ida:insight_ida_bundle_sis</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="citation_author_list">S. Slavney, H. Abarca, E. Marteau, G. Lim, P. Zamani, G. Hollins, N. Udomkesmalee</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:ida.insight</field>
 <field name="file_ref_size">3719</field>
 <field name="file_ref_size">5200415</field>
+<field name="modification_date">2019-09-11T00:00:00.000Z</field>
+<field name="modification_date">2020-03-13T00:00:00.000Z</field>
 <field name="file_ref_name">insight_ida_bundle_sis.xml</field>
 <field name="file_ref_name">insight_ida_bundle_sis.pdf</field>
 <field name="observing_system_name">InSight</field>
@@ -6772,6 +7071,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">This document is a software interface specification describing the format of the InSight Deployment Arm PDS Archive Bundle</field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_ida/insight_ida_bundle_sis.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_ida/insight_ida_bundle_sis.pdf</field>
 <field name="title">InSight Software Interface Specification: Insight Deployment Arm (IDA) PDS Archive Bundle</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_ida%3Ainsight_ida_bundle_sis&amp;version=2.0</field>
 <field name="data_product_type">Document</field>
@@ -6788,11 +7089,15 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:insight_documents:document_ida:ida_release_notes</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Document</field>
 <field name="product_class">Product_Document</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:ida.insight</field>
 <field name="file_ref_size">3270</field>
 <field name="file_ref_size">2529</field>
+<field name="modification_date">2019-09-23T00:00:00.000Z</field>
+<field name="modification_date">2019-12-20T00:00:00.000Z</field>
+<field name="modification_date">2020-03-19T00:00:00.000Z</field>
 <field name="file_ref_name">ida_release_notes.xml</field>
 <field name="file_ref_name">ida_release_notes.txt</field>
 <field name="modification_description">
@@ -6810,6 +7115,8 @@ TGM      Transition to global mapping
 <field name="page_type">Resource</field>
 <field name="description">InSight IDA Release Notes</field>
 <field name="citation_publication_year">2019</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_ida/ida_release_notes.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/insight_documents/urn-nasa-pds-insight_documents/document_ida/ida_release_notes.txt</field>
 <field name="title">InSight IDA Release Notes</field>
 <field name="resLocation">/ds-view/pds/viewDocument.jsp?identifier=urn%3Anasa%3Apds%3Ainsight_documents%3Adocument_ida%3Aida_release_notes&amp;version=3.0</field>
 <field name="data_product_type">Document</field>
@@ -6822,6 +7129,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">12414</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -6972,6 +7280,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Alexander, J.K., Planetary Radio Astronomy from Voyager, Adv. Space Res.,
                    Vol. 3, No. 3, p. 17, 1983.
@@ -7151,6 +7460,7 @@ TGM      Transition to global mapping
     apart.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.pra_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">PLANETARY RADIO ASTRONOMY RECEIVER for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.pra&amp;version=1.0</field>
@@ -7170,6 +7480,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">19059</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -7469,6 +7780,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Acuna, M.H., L.F. Burlaga, R.P. Lepping, and N.F. Ness, Initial Results
                    from the Voyager 1 and 2 Magnetic Field Experiments, Proceedings of the
@@ -7792,6 +8104,7 @@ TGM      Transition to global mapping
     mounting positions and a complete description.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.mag_1.0.xml</field>
 <field name="instrument_type">Magnetometer</field>
 <field name="title">FLUXGATE MAGNETOMETER for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.mag&amp;version=1.0</field>
@@ -7810,6 +8123,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">25822</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -8263,6 +8577,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Hanel, R.A., D. Crosby, L.W. Herath, D. Vanous, D.
                    Collins, H. Creswick, C. Harris, and M. Rhodes, Infrared
@@ -8719,6 +9034,7 @@ TGM      Transition to global mapping
  
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.iris_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">INFRARED INTERFEROMETER SPECTROMETER AND RADIOMETER for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.iris&amp;version=1.0</field>
@@ -8732,6 +9048,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">25946</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -9119,6 +9436,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Carbary, J.F., and S.M. Krimigis, Encounters with Jupiter: The Low Energy
                    Charged Particle Results of Voyager, APL Tech. Digest, Vol. 1, p. 60, 1980.
@@ -9536,6 +9854,7 @@ TGM      Transition to global mapping
       30 degrees north of the ecliptic.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.lecp_1.0.xml</field>
 <field name="instrument_type">Particle Detector</field>
 <field name="title">LOW ENERGY CHARGED PARTICLE for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.lecp&amp;version=1.0</field>
@@ -9555,6 +9874,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">21219</field>
 <field name="modification_description">
                     The initial version of this context product, which describes the 
@@ -9793,6 +10113,7 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:instrument:vg1.eng</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-04-12T00:00:00.000Z</field>
 <field name="external_reference_text">
                 Kohlhase, C., The Voyager Neptune Travel Guide, JPL Publication 89-24, 276 pp.,
                 Jet Propulsion Laboratory, Pasadena, CA, 1989.
@@ -10028,6 +10349,7 @@ TGM      Transition to global mapping
             of the boom.                                                            
             
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.eng_1.0.xml</field>
 <field name="title">Voyager 1 Spacecraft Sensors</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.eng&amp;version=1.0</field>
 <field name="data_product_type">Instrument</field>
@@ -10044,6 +10366,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument_Host</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">34206</field>
 <field name="modification_description">
                     Added reference to instrument:vg1.eng
@@ -10438,6 +10761,10 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg1.pws</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg1.rss</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg1.uvs</field>
+<field name="modification_date">2021-05-13T00:00:00.000Z</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
+<field name="modification_date">2019-01-03T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Voyager Neptune/Interstellar Mission: Flight Science Office Science and Mission
                    Systems Handbook, JPL Project Document 618-128, Jet Propulsion Laboratory,
@@ -10807,6 +11134,7 @@ TGM      Transition to global mapping
     VLA        Very Large Array
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/spacecraft.vg1_1.3.xml</field>
 <field name="title">VOYAGER 1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument_host%3Aspacecraft.vg1&amp;version=1.3</field>
 <field name="data_product_type">Instrument_Host</field>
@@ -10852,6 +11180,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">16857</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -11163,6 +11492,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Scarf, F.L., and D.A. Gurnett, A Plasma Wave Investigation for the Voyager
                    Mission, Space Sci. Rev., Vol. 21, p. 289, 1977.
@@ -11463,6 +11793,7 @@ TGM      Transition to global mapping
     astronomy package.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.pws_1.0.xml</field>
 <field name="instrument_type">Plasma Wave Spectrometer</field>
 <field name="title">PLASMA WAVE RECEIVER for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.pws&amp;version=1.0</field>
@@ -11474,6 +11805,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Telescope</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2739</field>
 <field name="modification_description">
                     Created by A.C.Raugh from information downloaded from the Lowell Observatory 
@@ -11493,6 +11825,7 @@ TGM      Transition to global mapping
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:lowell.discovery_4m3.lmi</field>
+<field name="modification_date">2021-08-13T00:00:00.000Z</field>
 <field name="telescope_aperture">4.3</field>
 <field name="file_ref_name">lowell.discovery_4m3_1.0.xml</field>
 <field name="description">
@@ -11501,6 +11834,7 @@ TGM      Transition to global mapping
             6.2. The LDT instrument cube allows simultaneous attachment of five instruments to the
             telescope.
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/lowell.discovery_4m3_1.0.xml</field>
 <field name="title">Lowell Discovery Telescope (LDT)</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atelescope%3Alowell.discovery_4m3&amp;version=1.0</field>
 <field name="data_product_type">Telescope</field>
@@ -11510,6 +11844,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Target</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1716</field>
 <field name="modification_description">From PDS Rings node.</field>
 <field name="modification_description">From PDS RINGS node. LID changed from ...:satellite.moon</field>
@@ -11521,6 +11856,8 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:target:satellite.earth.moon</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2018-11-18T00:00:00.000Z</field>
+<field name="modification_date">2018-07-18T00:00:00.000Z</field>
 <field name="file_ref_name">satellite.earth.moon_1.1.xml</field>
 <field name="target_name">Moon</field>
 <field name="description">
@@ -11529,6 +11866,7 @@ TGM      Transition to global mapping
     LID of primary: urn:nasa:pds:context:target:planet.earth;
     NAIF ID of primary: 399;
   </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/satellite.earth.moon_1.1.xml</field>
 <field name="title">Moon</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atarget%3Asatellite.earth.moon&amp;version=1.1</field>
 <field name="data_product_type">Target</field>
@@ -11544,6 +11882,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">15514</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -11836,6 +12175,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Scarf, F.L., and D.A. Gurnett, A Plasma Wave Investigation for the Voyager
                    Mission, Space Sci. Rev., Vol. 21, p. 289, 1977.
@@ -12117,6 +12457,7 @@ TGM      Transition to global mapping
     astronomy package.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.pws_1.0.xml</field>
 <field name="instrument_type">Plasma Wave Spectrometer</field>
 <field name="title">PLASMA WAVE RECEIVER for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.pws&amp;version=1.0</field>
@@ -12128,6 +12469,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">15983</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -12432,6 +12774,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Lillie, C.F., C.W. Hord, K. Pang, D.L. Coffeen, and J.E. Hansen, The
                    Voyager mission photopolarimeter experiment, Space Sci. Rev., 21, 159-181,
@@ -12741,6 +13084,7 @@ TGM      Transition to global mapping
     analysis.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.pps_1.0.xml</field>
 <field name="instrument_type">Photometer</field>
 <field name="instrument_type">Polarimeter</field>
 <field name="title">PHOTOPOLARIMETER SUBSYSTEM for VG2</field>
@@ -12756,6 +13100,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">21776</field>
 <field name="modification_description">
                     The initial version of this context product, which describes the 
@@ -13002,6 +13347,7 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:instrument:vg2.eng</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-05-13T00:00:00.000Z</field>
 <field name="external_reference_text">
                 Kohlhase, C., The Voyager Neptune Travel Guide, JPL Publication 89-24, 276 pp.,
                 Jet Propulsion Laboratory, Pasadena, CA, 1989.
@@ -13245,6 +13591,7 @@ TGM      Transition to global mapping
             of the boom.                                                            
             
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.eng_1.0.xml</field>
 <field name="title">Voyager 2 Spacecraft Sensors</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.eng&amp;version=1.0</field>
 <field name="data_product_type">Instrument</field>
@@ -13261,6 +13608,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Facility</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="facility_address">Lowell Observatory
                                       P.O. Box 1269
                                       1400 West Mars Hill Road
@@ -13288,12 +13636,19 @@ TGM      Transition to global mapping
 <field name="lid">urn:nasa:pds:context:facility:observatory.lowell</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2016-04-04T00:00:00.000Z</field>
+<field name="modification_date">2019-01-23T00:00:00.000Z</field>
+<field name="modification_date">2021-08-13T00:00:00.000Z</field>
+<field name="modification_date">2023-03-02T00:00:00.000Z</field>
+<field name="modification_date">2024-05-08T00:00:00.000Z</field>
+<field name="modification_date">2024-05-09T00:00:00.000Z</field>
 <field name="file_ref_name">observatory.lowell_1.5.xml</field>
 <field name="description">
             Lowell Observatory, established in 1894 west of Flagstaff, Arizona, was founded by Percival Lowell. 
             The observatory consists of multiple buildings and telescopes on multiple sites including Mars Hill, Anderson Mesa, 
             and Happy Jack.
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/observatory.lowell_1.5.xml</field>
 <field name="title">Lowell Observatory</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Afacility%3Aobservatory.lowell&amp;version=1.5</field>
 <field name="data_product_type">Facility</field>
@@ -13309,6 +13664,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">18257</field>
 <field name="modification_description">
                     Removed DSN description.  This context product describes only the radio
@@ -13560,6 +13916,8 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-04-12T00:00:00.000Z</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Allan, D.W., Statistics of Atomic Frequency Standards, Proceedings of the IEEE,
                    54, 221-230, 1966.
@@ -13832,6 +14190,7 @@ TGM      Transition to global mapping
       X-band   approximately 7800-8500 MHz
       
     </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.rss_2.0.xml</field>
 <field name="title">Radio Science Subsystem for Voyager 1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.rss&amp;version=2.0</field>
 <field name="data_product_type">Instrument</field>
@@ -13854,6 +14213,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">42654</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -14801,6 +15161,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Barros, P.A., Voyager Flight Data System Flight Software Description, Reissued
                    January 1988, 618-236, Rev. A., Jet Propulsion Laboratory, California Institute
@@ -15823,6 +16184,7 @@ TGM      Transition to global mapping
         launch to present.  (June 7, 1989).
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.issn_1.0.xml</field>
 <field name="instrument_type">Imager</field>
 <field name="title">IMAGING SCIENCE SUBSYSTEM - NARROW ANGLE for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.issn&amp;version=1.0</field>
@@ -15853,6 +16215,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">16464</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -16119,6 +16482,7 @@ TGM      Transition to global mapping
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Acuna, M.H., L.F. Burlaga, R.P. Lepping, and N.F. Ness, Initial Results
                    from the Voyager 1 and 2 Magnetic Field Experiments, Proceedings of the
@@ -16391,6 +16755,7 @@ TGM      Transition to global mapping
     mounting positions and a complete description.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.mag_1.0.xml</field>
 <field name="instrument_type">Magnetometer</field>
 <field name="title">TRIAXIAL FLUXGATE MAGNETOMETER for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.mag&amp;version=1.0</field>
@@ -16405,6 +16770,7 @@ TGM      Transition to global mapping
 </doc>
 <doc>
 <field name="data_class">Instrument_Host</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">41596</field>
 <field name="modification_description">
                     Added reference to instrument:vg2.eng
@@ -16809,6 +17175,10 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg2.pws</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg2.rss</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg2.uvs</field>
+<field name="modification_date">2021-05-13T00:00:00.000Z</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
+<field name="modification_date">2019-01-03T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Voyager Neptune/Interstellar Mission: Flight Science Office Science and Mission
                    Systems Handbook, JPL Project Document 618-128, Jet Propulsion Laboratory,
@@ -17186,6 +17556,7 @@ TGM      Transition to global mapping
     VLA        Very Large Array
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/spacecraft.vg2_1.3.xml</field>
 <field name="title">VOYAGER 2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument_host%3Aspacecraft.vg2&amp;version=1.3</field>
 <field name="data_product_type">Instrument_Host</field>
@@ -17255,6 +17626,7 @@ TGM      Transition to global mapping
 <doc>
 <field name="investigation_name">VOYAGER</field>
 <field name="data_class">Investigation</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">30528</field>
 <field name="modification_description">
                     Per &quot;Guide toPDS4 Context Products&quot; v1.3,
@@ -17328,6 +17700,10 @@ TGM      Transition to global mapping
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg1.mag</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:vg1.pra</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:crs.vg1</field>
+<field name="modification_date">2019-01-03T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
+<field name="modification_date">2024-10-09T00:00:00.000Z</field>
+<field name="modification_date">2024-10-09T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Kohlhase, C.E. and P.A. Penzo, Voyager Mission Description, Space Sci.
                    Rev., Vol. 21, pp. 77-101, 1977.
@@ -17364,6 +17740,7 @@ TGM      Transition to global mapping
 <field name="description">The twin Voyager 1 and 2 spacecraft are exploring where nothing from Earth has flown before. Continuing on their more-than-40-year journey since their 1977 launches, they each are much farther away from Earth and the sun than Pluto. In August 2012, Voyager 1 made the historic entry into interstellar space, the region between stars, filled with material ejected by the death of nearby stars millions of years ago. Voyager 2 entered interstellar space on November 5, 2018 and scientists hope to learn more about this region. Both spacecraft are still sending scientific information about their surroundings through the Deep Space Network, or DSN.
 
 The primary mission was the exploration of Jupiter and Saturn. After making a string of discoveries there &#8212; such as active volcanoes on Jupiter&apos;s moon Io and intricacies of Saturn&apos;s rings &#8212; the mission was extended. Voyager 2 went on to explore Uranus and Neptune, and is still the only spacecraft to have visited those outer planets. The adventurers&apos; current mission, the Voyager Interstellar Mission (VIM), will explore the outermost edge of the Sun&apos;s domain. And beyond.</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/mission.voyager_1.2.xml</field>
 <field name="title">VOYAGER</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainvestigation%3Amission.voyager&amp;version=1.2</field>
 <field name="data_product_type">Investigation</field>
@@ -17441,6 +17818,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">103891</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -19281,6 +19659,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Allan, D.W., Statistics of Atomic Frequency Standards, Proceedings of the IEEE,
                    54, 221-230, 1966.
@@ -21145,6 +21524,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
  
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.rss_1.0.xml</field>
 <field name="instrument_type">Atmospheric Sciences</field>
 <field name="title">RADIO SCIENCE SUBSYSTEM for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.rss&amp;version=1.0</field>
@@ -21165,6 +21545,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <doc>
 <field name="data_class">Telescope</field>
 <field name="telescope_latitude">35.096832</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2357</field>
 <field name="telescope_longitude">248.464081</field>
 <field name="modification_description">Initial version exported from OLAF</field>
@@ -21181,6 +21562,8 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="lid">urn:nasa:pds:context:telescope:lowell.perkins_warner1m83</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2016-03-03T00:00:00.000Z</field>
+<field name="modification_date">2019-01-23T00:00:00.000Z</field>
 <field name="telescope_aperture">1.83</field>
 <field name="file_ref_name">lowell.perkins_warner1m83_1.1.xml</field>
 <field name="description">
@@ -21188,6 +21571,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
         
         Operational 1961+; from Perkins Obs.
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/lowell.perkins_warner1m83_1.1.xml</field>
 <field name="title">1.83-m Perkins Warner &amp;amp; Swasey reflector</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atelescope%3Alowell.perkins_warner1m83&amp;version=1.1</field>
 <field name="data_product_type">Telescope</field>
@@ -21197,6 +21581,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">38056</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -21970,6 +22355,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Barros, P.A., Voyager Flight Data System Flight Software Description, Reissued
                    January 1988, 618-236, Rev. A., Jet Propulsion Laboratory, California Institute
@@ -22816,6 +23202,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
  
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.issw_1.0.xml</field>
 <field name="instrument_type">Imager</field>
 <field name="title">IMAGING SCIENCE SUBSYSTEM - WIDE ANGLE for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.issw&amp;version=1.0</field>
@@ -22846,6 +23233,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">12414</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -22996,6 +23384,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Alexander, J.K., Planetary Radio Astronomy from Voyager, Adv. Space Res.,
                    Vol. 3, No. 3, p. 17, 1983.
@@ -23175,6 +23564,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
     apart.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.pra_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">PLANETARY RADIO ASTRONOMY RECEIVER for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.pra&amp;version=1.0</field>
@@ -23195,6 +23585,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <doc>
 <field name="data_class">Telescope</field>
 <field name="telescope_latitude">35.202778</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2110</field>
 <field name="telescope_longitude">248.335556</field>
 <field name="modification_description">Initial version</field>
@@ -23210,6 +23601,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="lid">urn:nasa:pds:context:telescope:lowell.21in0</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2019-01-23T00:00:00.000Z</field>
 <field name="telescope_aperture">0.5334</field>
 <field name="file_ref_name">lowell.21in0_1.0.xml</field>
 <field name="description">
@@ -23217,6 +23609,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
             The telescope ushered in photoelectric astronomy at Lowell. The 21-in is the only manually slewed telescope at Lowell
             and is still in use with minimal upgrades since 1953.
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/lowell.21in0_1.0.xml</field>
 <field name="title">Lowell Obersvatory 21-in Reflector</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atelescope%3Alowell.21in0&amp;version=1.0</field>
 <field name="data_product_type">Telescope</field>
@@ -23226,6 +23619,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">38411</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -24000,6 +24394,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Barros, P.A., Voyager Flight Data System Flight Software Description, Reissued
                    January 1988, 618-236, Rev. A., Jet Propulsion Laboratory, California Institute
@@ -24849,6 +25244,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
         launch to present.  (June 7, 1989).
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.issn_1.0.xml</field>
 <field name="instrument_type">Imager</field>
 <field name="title">IMAGING SCIENCE SUBSYSTEM - NARROW ANGLE for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.issn&amp;version=1.0</field>
@@ -24880,6 +25276,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <doc>
 <field name="data_class">Telescope</field>
 <field name="telescope_latitude">35.09593</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2374</field>
 <field name="telescope_longitude">248.46331</field>
 <field name="modification_description">Added location to the description</field>
@@ -24894,9 +25291,13 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:lowell.loneos_0m60.loneos_mosaic_ccd</field>
+<field name="modification_date">2024-05-09T00:00:00.000Z</field>
+<field name="modification_date">2023-12-01T00:00:00.000Z</field>
+<field name="modification_date">2022-11-07T00:00:00.000Z</field>
 <field name="telescope_aperture">0.6</field>
 <field name="file_ref_name">lowell.loneos_0m60_1.2.xml</field>
 <field name="description">0.6m Schmidt telescope with f/1.8 located on Anderson Mesa, Arizona</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/lowell.loneos_0m60_1.2.xml</field>
 <field name="title">LONEOS 0.6m Schmidt Telescope</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atelescope%3Alowell.loneos_0m60&amp;version=1.2</field>
 <field name="data_product_type">Telescope</field>
@@ -24906,6 +25307,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Target</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1809</field>
 <field name="modification_description">From PDS Rings node.</field>
 <field name="modification_description">From PDS RINGS node. Added NAIF ID alias. Shortened description</field>
@@ -24920,9 +25322,13 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="lid">urn:nasa:pds:context:target:planet.neptune</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2018-11-18T00:00:00.000Z</field>
+<field name="modification_date">2018-06-23T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="file_ref_name">planet.neptune_1.2.xml</field>
 <field name="target_name">Neptune</field>
 <field name="description">none</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/planet.neptune_1.2.xml</field>
 <field name="title">Neptune</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.neptune&amp;version=1.2</field>
 <field name="data_product_type">Target</field>
@@ -24933,6 +25339,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">12611</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -25119,6 +25526,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Bagenal, F., Variable Plasma Conditions Inside Io&apos;s Orbit: Voyager
                    Observations, J. Geophys. Res., Vol. 90, p. 311, 1985.
@@ -25324,6 +25732,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
     to this direction.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.pls_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">PLASMA SCIENCE EXPERIMENT for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.pls&amp;version=1.0</field>
@@ -25341,6 +25750,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">36396</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -26045,6 +26455,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Broadfoot, A.L., and B.R. Sandel, Self-scanned anode array with a
                    microchannel plate electron multiplier: The Ssanacon, Applied Optics, 16,
@@ -26771,6 +27182,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
         UVS
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.uvs_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">ULTRAVIOLET SPECTROMETER for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.uvs&amp;version=1.0</field>
@@ -26788,6 +27200,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Target</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1806</field>
 <field name="modification_description">From PDS Rings node.</field>
 <field name="modification_description">From PDS RINGS node. Added NAIF ID alias. Shortened description</field>
@@ -26802,9 +27215,13 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="lid">urn:nasa:pds:context:target:planet.uranus</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2018-11-18T00:00:00.000Z</field>
+<field name="modification_date">2018-06-23T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="file_ref_name">planet.uranus_1.2.xml</field>
 <field name="target_name">Uranus</field>
 <field name="description">none</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/planet.uranus_1.2.xml</field>
 <field name="title">Uranus</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.uranus&amp;version=1.2</field>
 <field name="data_product_type">Target</field>
@@ -26815,6 +27232,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">42055</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -27757,6 +28175,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Barros, P.A., Voyager Flight Data System Flight Software Description, Reissued
                    January 1988, 618-236, Rev. A., Jet Propulsion Laboratory, California Institute
@@ -28772,6 +29191,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
  
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.issw_1.0.xml</field>
 <field name="instrument_type">Imager</field>
 <field name="title">IMAGING SCIENCE SUBSYSTEM - WIDE ANGLE for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.issw&amp;version=1.0</field>
@@ -28802,6 +29222,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">11187</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -28921,6 +29342,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Gehrels, N., E.C. Stone, and J.H. Trainor, Energetic oxygen and sulfur in the
                    Jovian magnetosphere, J. Geophys. Res., 86, 8906, 1981.
@@ -29065,6 +29487,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
  
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.crs_1.0.xml</field>
 <field name="instrument_type">Particle Detector</field>
 <field name="title">COSMIC RAY SUBSYSTEM for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.crs&amp;version=1.0</field>
@@ -29083,6 +29506,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">11369</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -29205,6 +29629,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Gehrels, N., E.C. Stone, and J.H. Trainor, Energetic oxygen and sulfur in the
                    Jovian magnetosphere, J. Geophys. Res., 86, 8906, 1981.
@@ -29352,6 +29777,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
       the data.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.crs_1.0.xml</field>
 <field name="instrument_type">Particle Detector</field>
 <field name="title">COSMIC RAY SUBSYSTEM for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.crs&amp;version=1.0</field>
@@ -29370,6 +29796,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">25825</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -29824,6 +30251,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Hanel, R.A., D. Crosby, L.W. Herath, D. Vanous, D.
                    Collins, H. Creswick, C. Harris, and M. Rhodes, Infrared
@@ -30281,6 +30709,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
  
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.iris_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">INFRARED INTERFEROMETER SPECTROMETER AND RADIOMETER for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.iris&amp;version=1.0</field>
@@ -30294,6 +30723,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">36396</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -30998,6 +31428,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Broadfoot, A.L., and B.R. Sandel, Self-scanned anode array with a
                    microchannel plate electron multiplier: The Ssanacon, Applied Optics, 16,
@@ -31724,6 +32155,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
         UVS
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.uvs_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">ULTRAVIOLET SPECTROMETER for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.uvs&amp;version=1.0</field>
@@ -31741,6 +32173,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">12800</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -31932,6 +32365,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Barnett, A., and S. Olbert, Response Function of Modulated Grid Faraday
                    Cup Plasma Instruments, Rev. Sci. Instr., Vol. 57, p. 2432, 1986.
@@ -32132,6 +32566,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
       to this direction.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg2.pls_1.0.xml</field>
 <field name="instrument_type">Spectrometer</field>
 <field name="title">PLASMA SCIENCE EXPERIMENT for VG2</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg2.pls&amp;version=1.0</field>
@@ -32147,6 +32582,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="lid">urn:nasa:pds:context_pds3:service:outer_planets_unified_search</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Service</field>
 <field name="product_class">Product_Service</field>
 <field name="instrument_ref">urn:nasa:pds:context_pds3:instrument:instrument.issna__co</field>
@@ -32161,6 +32597,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_ref">urn:nasa:pds:context_pds3:instrument:instrument.lorri__nh</field>
 <field name="instrument_ref">urn:nasa:pds:context_pds3:instrument:instrument.ssi__go</field>
 <field name="file_ref_size">14368</field>
+<field name="modification_date">2016-11-30T00:00:00.000Z</field>
 <field name="file_ref_name">outer_planets_unified_search_1.0.xml</field>
 <field name="modification_description">Migration from Search Service Search Tools list.</field>
 <field name="instrument_host_ref">urn:nasa:pds:context_pds3:instrument_host:spacecraft.co</field>
@@ -32173,7 +32610,9 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="service_category">Search</field>
 <field name="pds_model_version">pds4</field>
 <field name="page_type">Tool</field>
+<field name="file_ref_location">/Users/jpadams/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4</field>
 <field name="description">Use OPUS to search for images and spectra from the Cassini, Galileo, New Horizons, and Voyager missions, and for solar system observations by the Hubble Space Telescope (ACS/WFC3/WFPC2). Enhanced geometric metadata, based on comprehensive &apos;in the field of view&apos; target lists and the most recent SPICE kernels, enables more detailed searches for Voyager ISS, New Horizons LORRI, and Cassini ISS, UVIS, and VIMS data, including surface search constraints for the planet, satellites and rings (e.g., latitudes and longitudes), and expanded sets of viewing and illumination constraints.</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/outer_planets_unified_search_1.0.xml</field>
 <field name="title">Outer Planets Unified Search (OPUS)</field>
 <field name="data_product_type">Service</field>
 <field name="agency_name">nasa</field>
@@ -32232,6 +32671,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <doc>
 <field name="data_class">Telescope</field>
 <field name="telescope_latitude">35.096748</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2395</field>
 <field name="telescope_longitude">248.46447</field>
 <field name="modification_description">Initial export from OLAF</field>
@@ -32246,9 +32686,12 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="product_class">Product_Context</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:lowell.hall_ritchey-chretien_1_1m07.nasa42cam</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:lowell.hall_ritchey-chretien_1_1m07.kron_photometer</field>
+<field name="modification_date">2022-11-07T00:00:00.000Z</field>
+<field name="modification_date">2023-03-03T00:00:00.000Z</field>
 <field name="telescope_aperture">1.07</field>
 <field name="file_ref_name">lowell.hall_ritchey-chretien_1_1m07_1.1.xml</field>
 <field name="description">Operational 1970+</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/lowell.hall_ritchey-chretien_1_1m07_1.1.xml</field>
 <field name="title">1.07-m Hall Ritchey-Chretien reflector #1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atelescope%3Alowell.hall_ritchey-chretien_1_1m07&amp;version=1.1</field>
 <field name="data_product_type">Telescope</field>
@@ -32258,6 +32701,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Instrument</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">24008</field>
 <field name="modification_description">
                     Changed inst LIDs from
@@ -32632,6 +33076,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="instrument_naif_id">not applicable</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2021-02-24T00:00:00.000Z</field>
 <field name="external_reference_text">
                    Carbary, J.F., and S.M. Krimigis, Encounters with Jupiter: The Low Energy
                    Charged Particle Results of Voyager, APL Tech. Digest, Vol. 1, p. 60, 1980.
@@ -33031,6 +33476,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
     the ecliptic.
 
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/vg1.lecp_1.0.xml</field>
 <field name="instrument_type">Particle Detector</field>
 <field name="title">LOW ENERGY CHARGED PARTICLE for VG1</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Ainstrument%3Avg1.lecp&amp;version=1.0</field>
@@ -33049,6 +33495,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 </doc>
 <doc>
 <field name="data_class">Target</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2959</field>
 <field name="modification_description">
           Updated for Cassini migration to PDS4 by PDS Radio Science Advisor.
@@ -33071,6 +33518,10 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <field name="lid">urn:nasa:pds:context:target:planet.saturn</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2020-07-12T00:00:00.000Z</field>
+<field name="modification_date">2018-11-18T00:00:00.000Z</field>
+<field name="modification_date">2018-06-23T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="external_reference_text">
         https://nssdc.gsfc.nasa.gov/planetary/factsheet/saturnfact.html
       </field>
@@ -33083,6 +33534,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
       The sixth planet from the Sun in the Solar System.
       The second largest of the gas giant planets.
     </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/planet.saturn_1.3.xml</field>
 <field name="title">Saturn</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.saturn&amp;version=1.3</field>
 <field name="data_product_type">Target</field>
@@ -33104,6 +33556,7 @@ The primary mission was the exploration of Jupiter and Saturn. After making a st
 <doc>
 <field name="data_class">Telescope</field>
 <field name="telescope_latitude">35.0985</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">2479</field>
 <field name="telescope_longitude">248.4642</field>
 <field name="modification_description">Initial export from OLAF</field>
@@ -33129,6 +33582,7 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:lowell.nuro_0m79.nasacam</field>
+<field name="modification_date">2023-02-28T00:00:00.000Z</field>
 <field name="telescope_aperture">0.8</field>
 <field name="file_ref_name">lowell.nuro_0m79_1.0.xml</field>
 <field name="description">The information was adapted from Lowell Observatory web pages.
@@ -33145,6 +33599,7 @@ The effective focal length is 11.78 m, and the f/ratio is 15.
 
 The 31-inch telescope is stopped down to 29.5 inches (0.75m). 
 The plate scale is 17 arcsec/mm.</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/lowell.nuro_0m79_1.0.xml</field>
 <field name="title">NURO 0.79m (31inch)</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atelescope%3Alowell.nuro_0m79&amp;version=1.0</field>
 <field name="data_product_type">Telescope</field>
@@ -33154,6 +33609,7 @@ The plate scale is 17 arcsec/mm.</field>
 </doc>
 <doc>
 <field name="data_class">Target</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1765</field>
 <field name="modification_description">From PDS Rings node.</field>
 <field name="modification_description">From PDS RINGS node</field>
@@ -33168,9 +33624,13 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="lid">urn:nasa:pds:context:target:planet.jupiter</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2018-11-18T00:00:00.000Z</field>
+<field name="modification_date">2018-06-23T00:00:00.000Z</field>
+<field name="modification_date">2016-10-01T00:00:00.000Z</field>
 <field name="file_ref_name">planet.jupiter_1.2.xml</field>
 <field name="target_name">Jupiter</field>
 <field name="description">none</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/context-pds4/planet.jupiter_1.2.xml</field>
 <field name="title">Jupiter</field>
 <field name="resLocation">/ds-view/pds/viewContext.jsp?identifier=urn%3Anasa%3Apds%3Acontext%3Atarget%3Aplanet.jupiter&amp;version=1.2</field>
 <field name="data_product_type">Target</field>
@@ -33181,6 +33641,7 @@ The plate scale is 17 arcsec/mm.</field>
 </doc>
 <doc>
 <field name="data_class">Resource</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="file_ref_size">1478</field>
 <field name="modification_description">
                     Initial revision.
@@ -33195,12 +33656,14 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="lid">urn:nasa:pds:context:resource:resource.p10-hvm-pa-crt-cal_online</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
+<field name="modification_date">2025-05-15T00:00:00.000Z</field>
 <field name="file_ref_name">resource_p10-hvm-pa-crt-cal.xml</field>
 <field name="resource_url">https://pds-ppi.igpp.ucla.edu/bundle/urn:nasa:pds:p10-hvm-pa-crt-cal</field>
 <field name="resource_type">Information.Science_Portal</field>
 <field name="description">
             Initial version of Pioneer 10 HVM PA CRT Calibrated
         </field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/resource_p10-hvm-pa-crt-cal.xml</field>
 <field name="title">Pioneer 10 HVM PA CRT Calibrated Archive Online</field>
 <field name="resLocation">https://pds-ppi.igpp.ucla.edu/bundle/urn:nasa:pds:p10-hvm-pa-crt-cal</field>
 <field name="data_product_type">Resource</field>
@@ -33210,17 +33673,16 @@ The plate scale is 17 arcsec/mm.</field>
 <doc>
 <field name="investigation_name">Pioneer 10</field>
 <field name="lid">urn:nasa:pds:p10-hvm-pa-crt-cal:data-merged-1hour</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Data</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
-<field name="citation_author_person_given_name">Edward J.</field>
-<field name="citation_author_person_given_name">Aaron</field>
-<field name="citation_author_person_given_name">Frank Bethune</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:hvm.p10</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:pa.p10</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:crt.p10</field>
 <field name="file_ref_size">10950</field>
 <field name="file_ref_size">1608</field>
+<field name="modification_date">2025-05-14T00:00:00.000Z</field>
 <field name="file_ref_name">collection-data-hvm-pa-crt-1hour-1.0.xml</field>
 <field name="file_ref_name">collection-data-hvm-pa-crt-1hour-1.0.csv</field>
 <field name="observation_stop_date_time">1995-12-31T23:00:00.000Z</field>
@@ -33231,10 +33693,6 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="instrument_host_ref">urn:nasa:pds:context:instrument_host:spacecraft.p10</field>
 <field name="source_product_description">A portion of the data were obtained from NSSDCA and these are the first 
         released from PDS. The DOI provided references the PDS3 source data set.</field>
-<field name="citation_author_person_affiliation_organization_name">Jet Propulsion Laboratory</field>
-<field name="citation_author_person_affiliation_organization_name">NASA Ames Research Center</field>
-<field name="citation_author_person_affiliation_organization_name">Institute for Physical Science and Technology
-              University of Maryland</field>
 <field name="observing_system_component_type">Instrument</field>
 <field name="observing_system_component_type">Instrument</field>
 <field name="observing_system_component_type">Instrument</field>
@@ -33263,15 +33721,11 @@ The plate scale is 17 arcsec/mm.</field>
       Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
       and Cosmic Ray (CRT) merged 1 hour averaged data</field>
 <field name="citation_publication_year">2025</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/collection-data-hvm-pa-crt-1hour-1.0.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/collection-data-hvm-pa-crt-1hour-1.0.csv</field>
 <field name="title">Pioneer 10 Calibrated HVM PA CRT 1 Hour Averaged Data Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ap10-hvm-pa-crt-cal%3Adata-merged-1hour&amp;version=1.0</field>
 <field name="data_product_type">Collection</field>
-<field name="citation_author_person_family_name">Smith</field>
-<field name="citation_author_person_family_name">Barnes</field>
-<field name="citation_author_person_family_name">McDonald</field>
-<field name="citation_author_person_affiliation_organization_rorid">https://ror.org/027k65916</field>
-<field name="citation_author_person_affiliation_organization_rorid">https://ror.org/02acart68</field>
-<field name="citation_author_person_affiliation_organization_rorid">https://ror.org/047s2c258</field>
 <field name="primary_result_purpose">Science</field>
 <field name="agency_name">nasa</field>
 <field name="target_ref">urn:nasa:pds:context:target:plasma_stream.solar_wind</field>
@@ -33292,20 +33746,19 @@ The plate scale is 17 arcsec/mm.</field>
 <doc>
 <field name="investigation_name">Pioneer 10</field>
 <field name="lid">urn:nasa:pds:p10-hvm-pa-crt-cal</field>
-<field name="citation_editor_organization_name">Lunar and Planetary Institute</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="objectType">Product_Bundle</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;George&quot;,&quot;family_name&quot;:&quot;Washington&quot;,&quot;Affiliation&quot;:{&quot;sequence_number&quot;:1,&quot;organization_name&quot;:&quot;USA&quot;}}}</field>
+<field name="citation_editor_person_json">{&quot;Person&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Abraham&quot;,&quot;family_name&quot;:&quot;Lincoln&quot;,&quot;Affiliation&quot;:{&quot;sequence_number&quot;:2,&quot;organization_name&quot;:&quot;USA&quot;}}}</field>
 <field name="product_class">Product_Bundle</field>
-<field name="citation_author_person_given_name">Edward J.</field>
-<field name="citation_author_person_given_name">Aaron</field>
-<field name="citation_author_person_given_name">Frank Bethune</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:hvm.p10</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:pa.p10</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:crt.p10</field>
 <field name="file_ref_size">10292</field>
 <field name="file_ref_size">2764</field>
+<field name="modification_date">2025-05-09T00:00:00.000Z</field>
 <field name="file_ref_name">bundle-p10-hvm-pa-crt-cal.xml</field>
 <field name="file_ref_name">readme-p10-hvm-pa-crt-cal.md</field>
-<field name="citation_editor_organization_rorid">https://ror.org/027k65916</field>
 <field name="observation_stop_date_time">1995-12-31T23:00:00.000Z</field>
 <field name="modification_description">The data in this bundle were released previously as part of the 
                     following PDS3 data set: 
@@ -33313,10 +33766,9 @@ The plate scale is 17 arcsec/mm.</field>
                     This bundle includes data from this dataset and also a full range in 
                     addition to the Jupiter flyby data.</field>
 <field name="instrument_host_ref">urn:nasa:pds:context:instrument_host:spacecraft.p10</field>
-<field name="citation_author_person_affiliation_organization_name">Jet Propulsion Laboratory</field>
-<field name="citation_author_person_affiliation_organization_name">NASA Ames Research Center</field>
-<field name="citation_author_person_affiliation_organization_name">Institute for Physical Science and Technology
-                            University of Maryland</field>
+<field name="citation_author_person_json">{&quot;Person&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Edward J.&quot;,&quot;family_name&quot;:&quot;Smith&quot;,&quot;Affiliation&quot;:{&quot;organization_rorid&quot;:&quot;https://ror.org/027k65916&quot;,&quot;sequence_number&quot;:1,&quot;organization_name&quot;:&quot;Jet Propulsion Laboratory&quot;}}}</field>
+<field name="citation_author_person_json">{&quot;Person&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Aaron&quot;,&quot;family_name&quot;:&quot;Barnes&quot;,&quot;Affiliation&quot;:{&quot;organization_rorid&quot;:&quot;https://ror.org/02acart68&quot;,&quot;sequence_number&quot;:1,&quot;organization_name&quot;:&quot;NASA Ames Research Center&quot;}}}</field>
+<field name="citation_author_person_json">{&quot;Person&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;given_name&quot;:&quot;Frank Bethune&quot;,&quot;family_name&quot;:&quot;McDonald&quot;,&quot;Affiliation&quot;:{&quot;organization_rorid&quot;:&quot;https://ror.org/047s2c258&quot;,&quot;sequence_number&quot;:1,&quot;organization_name&quot;:&quot;Institute for Physical Science and Technology\n                            University of Maryland&quot;}}}</field>
 <field name="observing_system_component_type">Instrument</field>
 <field name="observing_system_component_type">Instrument</field>
 <field name="observing_system_component_type">Instrument</field>
@@ -33331,8 +33783,6 @@ The plate scale is 17 arcsec/mm.</field>
                 Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
                 and Cosmic Ray (CRT) instruments from the solar wind and Jupiter 
                 encounter period.</field>
-<field name="citation_editor_person_family_name">Washington</field>
-<field name="citation_editor_person_family_name">Lincoln</field>
 <field name="observation_start_date_time">1972-03-03T00:00:00.000Z</field>
 <field name="target_name">Solar Wind</field>
 <field name="target_name">Jupiter</field>
@@ -33342,30 +33792,22 @@ The plate scale is 17 arcsec/mm.</field>
                 and Cosmic Ray (CRT) instruments from the solar wind and Jupiter 
                 encounter period.</field>
 <field name="citation_publication_year">2025</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/bundle-p10-hvm-pa-crt-cal.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/readme-p10-hvm-pa-crt-cal.md</field>
 <field name="title">Pioneer 10 HVM PA CRT Calibrated Bundle</field>
 <field name="resLocation">/ds-view/pds/viewBundle.jsp?identifier=urn%3Anasa%3Apds%3Ap10-hvm-pa-crt-cal&amp;version=1.0</field>
-<field name="citation_editor_person_given_name">George</field>
-<field name="citation_editor_person_given_name">Abraham</field>
 <field name="data_product_type">Bundle</field>
-<field name="citation_author_organization_name">Jet Propulsion Laboratory</field>
-<field name="citation_author_person_family_name">Smith</field>
-<field name="citation_author_person_family_name">Barnes</field>
-<field name="citation_author_person_family_name">McDonald</field>
-<field name="citation_author_person_affiliation_organization_rorid">https://ror.org/027k65916</field>
-<field name="citation_author_person_affiliation_organization_rorid">https://ror.org/02acart68</field>
-<field name="citation_author_person_affiliation_organization_rorid">https://ror.org/047s2c258</field>
 <field name="agency_name">nasa</field>
 <field name="target_ref">urn:nasa:pds:context:target:plasma_stream.solar_wind</field>
 <field name="target_ref">urn:nasa:pds:context:target:planet.jupiter</field>
 <field name="target_type">Plasma Stream</field>
 <field name="target_type">Planet</field>
+<field name="citation_editor_organization_json">{&quot;Organization&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;organization_rorid&quot;:&quot;https://ror.org/027k65916&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;organization_name&quot;:&quot;Lunar and Planetary Institute&quot;}}</field>
 <field name="version_id">1.0</field>
 <field name="investigation_ref">urn:nasa:pds:context:investigation:mission.pioneer_10</field>
 <field name="search_id">pds4:urn:nasa:pds:p10-hvm-pa-crt-cal</field>
-<field name="citation_author_organization_rorid">https://ror.org/027k65916</field>
+<field name="citation_author_organization_json">{&quot;Organization&quot;:{&quot;xmlns:msn&quot;:&quot;http://pds.nasa.gov/pds4/msn/v1&quot;,&quot;organization_rorid&quot;:&quot;https://ror.org/027k65916&quot;,&quot;xmlns&quot;:&quot;http://pds.nasa.gov/pds4/pds/v1&quot;,&quot;xmlns:xsi&quot;:&quot;http://www.w3.org/2001/XMLSchema-instance&quot;,&quot;organization_name&quot;:&quot;Jet Propulsion Laboratory&quot;}}</field>
 <field name="resource_ref">urn:nasa:pds:context:resource:resource.p10-hvm-pa-crt-cal_online</field>
-<field name="citation_editor_person_affiliation_organization_name">USA</field>
-<field name="citation_editor_person_affiliation_organization_name">USA</field>
 <field name="investigation_type">Mission</field>
 <field name="collection_ref">urn:nasa:pds:p10-hvm-pa-crt-cal:data-merged-1hour::1.0</field>
 <field name="collection_ref">urn:nasa:pds:p10-hvm-pa-crt-cal:document::1.0</field>
@@ -33381,6 +33823,7 @@ The plate scale is 17 arcsec/mm.</field>
 <doc>
 <field name="investigation_name">Pioneer 10</field>
 <field name="lid">urn:nasa:pds:p10-hvm-pa-crt-cal:document</field>
+<field name="package_id">53f6cf33-ce6d-4a69-b740-aa1c3699d7a7</field>
 <field name="collection_type">Document</field>
 <field name="objectType">Product_Collection</field>
 <field name="product_class">Product_Collection</field>
@@ -33389,6 +33832,7 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="instrument_ref">urn:nasa:pds:context:instrument:crt.p10</field>
 <field name="file_ref_size">5812</field>
 <field name="file_ref_size">389</field>
+<field name="modification_date">2025-04-21T00:00:00.000Z</field>
 <field name="file_ref_name">collection_document_1.0.xml</field>
 <field name="file_ref_name">collection_document_1.0.csv</field>
 <field name="observation_stop_date_time">1995-12-31T23:00:00.000Z</field>
@@ -33415,6 +33859,8 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="description">This collection contains the documents associated with 
       Pioneer 10 Calibrated HVM PA CRT bundle.</field>
 <field name="citation_publication_year">2025</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/collection_document_1.0.xml</field>
+<field name="file_ref_url">http://pds.nasa.gov/proj/pds/pdsen/workspace/registry-legacy-solr/src/test/resources/data/pds4/github199/p10-hvm-pa-crt-cal-20250515/collection_document_1.0.csv</field>
 <field name="title">Pioneer 10 Calibrated HVM PA CRT Document Collection</field>
 <field name="resLocation">/ds-view/pds/viewCollection.jsp?identifier=urn%3Anasa%3Apds%3Ap10-hvm-pa-crt-cal%3Adocument&amp;version=1.0</field>
 <field name="data_product_type">Collection</field>
