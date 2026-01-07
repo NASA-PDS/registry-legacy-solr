@@ -30,6 +30,7 @@
                     <sequence_number>1</sequence_number>
                     <Affiliation>
                         <organization_name>ADNET Systems, Inc.</organization_name>
+                        <organization_rorid>https://ror.org/1234</organization_rorid>
                     </Affiliation>
                     <Affiliation>
                         <organization_name>NASA Space Science Data Coordinated Archive</organization_name>
