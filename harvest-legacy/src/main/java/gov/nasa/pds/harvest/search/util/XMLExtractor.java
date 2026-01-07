@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.xpath.XPathConstants;
@@ -25,6 +26,9 @@ import org.xml.sax.InputSource;
  * Class to extract data from an XML file.
 */
 public class XMLExtractor {
+    /** Logger instance */
+    private static final Logger log = Logger.getLogger(XMLExtractor.class.getName());
+    
     /** The DOM source. */
     private DocumentInfo xml = null;
 
@@ -339,7 +343,7 @@ public class XMLExtractor {
                     throw e;
                 } catch (Exception e) {
                     // If conversion fails, log and skip this node
-                    System.err.println("Warning: Failed to convert XML node to JSON: " + e.getMessage());
+                    log.warning("Failed to convert XML node to JSON: " + e.getMessage());
                 }
             }
         }
