@@ -334,6 +334,9 @@ public class XMLExtractor {
 
                     // Add the JSON string to the result list
                     jsonStrings.add(jsonObject.toString());
+                } catch (RuntimeException e) {
+                    // Let RuntimeExceptions (programming errors) propagate
+                    throw e;
                 } catch (Exception e) {
                     // If conversion fails, log and skip this node
                     System.err.println("Warning: Failed to convert XML node to JSON: " + e.getMessage());
