@@ -489,6 +489,9 @@ PDS3_EXPECTED="$PARENTDIR/src/test/resources/data/expected/pds3/solr_doc_expecte
 
 mkdir -p "$PDS3_OUTDIR"
 
+# Set PDS3_SOLR_DOC_HOME for catalog-legacy-solr script (required for lock file management)
+export PDS3_SOLR_DOC_HOME="$PDS3_OUTDIR"
+
 # Run catalog tool
 log_info "Running PDS3 catalog tool..."
 "$LEGACY_CATALOG_HOME/bin/catalog-solr" \
