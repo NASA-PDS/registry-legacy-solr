@@ -8,7 +8,7 @@
   <parent>
     <groupId>gov.nasa.pds</groupId>
     <artifactId>registry-legacy</artifactId>
-    <version>5.1.0-SNAPSHOT</version>
+    <version>5.1.1</version>
   </parent>
 
   <groupId>gov.nasa.pds.registry-legacy</groupId>
