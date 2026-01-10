@@ -1,16 +1,12 @@
 # Changelog
 
-## [5.1.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/5.1.0) (2026-01-10)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-01-10)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/release/5.1.0...5.1.0)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.0.2...«unknown»)
 
 **Defects:**
 
 - harvest-solr XML flattening does not preserve relationships between nested elements [\#237](https://github.com/NASA-PDS/registry-legacy-solr/issues/237) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
-
-## [release/5.1.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/5.1.0) (2026-01-10)
-
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.0.2...release/5.1.0)
 
 ## [v5.0.2](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.0.2) (2025-12-31)
 
