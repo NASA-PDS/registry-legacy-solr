@@ -7,7 +7,7 @@
 '/github/workspace/search-core/src/main/java:/github/workspace/search-core/target/generated-sources/annotations:/github/workspace/harvest-legacy/src/main/java:/github/workspace/harvest-legacy/target/generated-sources/annotations:/github/workspace/catalog-legacy/src/main/java:/github/workspace/catalog-legacy/target/generated-sources/annotations:/github/workspace/registry-mgr-legacy/src/main/java:/github/workspace/registry-mgr-legacy/target/generated-sources/annotations'
 -author
 -bottom
-'Copyright &#169; 2025 Jet Propulsion Laboratory, California Institute of Technology. All rights reserved.'
+'Copyright &#169; 2026 Jet Propulsion Laboratory, California Institute of Technology. All rights reserved.'
 -charset
 'UTF-8'
 -d
@@ -15,8 +15,8 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Legacy Registry 5.0.2 API'
+'Legacy Registry 5.1.1 API'
 -use
 -version
 -windowtitle
-'Legacy Registry 5.0.2 API'
+'Legacy Registry 5.1.1 API'
