@@ -83,5 +83,5 @@ HARVEST_JAR=`ls ${LIB_DIR}/harvest-*.jar`
 
 # Executes Harvest via the executable jar file
 # Arguments are passed in to the tool via '$@'
-${JAVA_CMD} -Xms256m -Xmx1024m -Dcom.sun.xml.bind.v2.bytecode.ClassTailor.noOptimize=true -Dpds.search=${SOLR_URL} -Dpds.harvest.search.conf=${SEARCH_CONF} -Dresources.home=${PARENT_DIR}/resources -jar ${HARVEST_JAR} "$@"
+${JAVA_CMD} -Xms1024m -Xmx2048m -Dcom.sun.xml.bind.v2.bytecode.ClassTailor.noOptimize=true -Dpds.search=${SOLR_URL} -Dpds.harvest.search.conf=${SEARCH_CONF} -Dresources.home=${PARENT_DIR}/resources -jar ${HARVEST_JAR} "$@"
 
