@@ -23,9 +23,9 @@
     <field name="package_id" type="string" indexed="true" stored="true" required="true" multiValued="true" />
 
    <field name="identifier" type="string" indexed="true" stored="true" required="true" multiValued="true" />
-   <field name="lid" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="lid" type="string" indexed="true" stored="true" required="true" multiValued="false" docValues="true" />
    <field name="version_id" type="string" indexed="true" stored="true" multiValued="false" />
-   <field name="version_id_normalized" type="pfloat" indexed="true" stored="true" multiValued="false" />
+   <field name="version_id_normalized" type="pfloat" indexed="true" stored="true" multiValued="false" docValues="true" />
    <field name="lidvid" type="string" indexed="true" stored="true" required="true" multiValued="false" />
    <field name="abstract_text" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="agency_name" type="lowercase" indexed="true" stored="true" multiValued="true" />
