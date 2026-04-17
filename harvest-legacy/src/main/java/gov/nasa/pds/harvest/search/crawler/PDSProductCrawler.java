@@ -260,6 +260,13 @@ public class PDSProductCrawler extends ProductCrawler {
     if (Constants.collections.contains(product)) {
       return false;
     }
+    // Skip non-XML files (e.g., CSV inventory files, PDFs, TXT files, etc.)
+    String fileName = product.getName().toLowerCase();
+    if (!fileName.endsWith(".xml")) {
+      log.log(new ToolsLogRecord(ToolsLevel.SKIP, "Skipping non-XML file.", product));
+      ++HarvestSolrStats.numFilesSkipped;
+      return false;
+    }
     log.log(new ToolsLogRecord(ToolsLevel.DEBUG, "Begin processing.", product));
     boolean passFlag = true;
     objectType = "";
