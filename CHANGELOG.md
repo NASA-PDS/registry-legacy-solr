@@ -6,6 +6,7 @@
 
 **Defects:**
 
+- Harvest crawler processes non-XML files unnecessarily [\#246](https://github.com/NASA-PDS/registry-legacy-solr/issues/246)
 - Unexpected `Internal Reference` And `Reference` Page Types Values [\#243](https://github.com/NASA-PDS/registry-legacy-solr/issues/243) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 
 ## [v5.1.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.1.1) (2026-01-10)
