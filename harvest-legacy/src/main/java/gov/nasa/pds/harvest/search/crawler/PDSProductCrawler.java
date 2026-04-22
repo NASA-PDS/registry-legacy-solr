@@ -244,6 +244,7 @@ public class PDSProductCrawler extends ProductCrawler {
    * @return true if the file passes.
    */
   @Override
+  @SuppressWarnings("java:S2696") // Method overrides parent so cannot be static; static counters are intentional for harvest reporting
   protected boolean passesPreconditions(File product) {
     if (inPersistanceMode) {
       if (touchedFiles.containsKey(product)) {
