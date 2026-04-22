@@ -244,6 +244,7 @@ public class PDSProductCrawler extends ProductCrawler {
    * @return true if the file passes.
    */
   @Override
+  @SuppressWarnings("java:S2696") // Method overrides parent so cannot be static; static counters are intentional for harvest reporting
   protected boolean passesPreconditions(File product) {
     if (inPersistanceMode) {
       if (touchedFiles.containsKey(product)) {
@@ -258,6 +259,13 @@ public class PDSProductCrawler extends ProductCrawler {
       }
     }
     if (Constants.collections.contains(product)) {
+      return false;
+    }
+    // Skip non-XML files (e.g., CSV inventory files, PDFs, TXT files, etc.)
+    String fileName = product.getName().toLowerCase();
+    if (!fileName.endsWith(".xml") && !fileName.endsWith(".lblx")) {
+      log.log(new ToolsLogRecord(ToolsLevel.SKIP, "Skipping non-XML file.", product));
+      ++HarvestSolrStats.numFilesSkipped;
       return false;
     }
     log.log(new ToolsLogRecord(ToolsLevel.DEBUG, "Begin processing.", product));
