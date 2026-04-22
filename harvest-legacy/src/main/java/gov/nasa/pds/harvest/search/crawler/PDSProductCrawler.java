@@ -262,7 +262,7 @@ public class PDSProductCrawler extends ProductCrawler {
     }
     // Skip non-XML files (e.g., CSV inventory files, PDFs, TXT files, etc.)
     String fileName = product.getName().toLowerCase();
-    if (!fileName.endsWith(".xml")) {
+    if (!fileName.endsWith(".xml") && !fileName.endsWith(".lblx")) {
       log.log(new ToolsLogRecord(ToolsLevel.SKIP, "Skipping non-XML file.", product));
       ++HarvestSolrStats.numFilesSkipped;
       return false;
