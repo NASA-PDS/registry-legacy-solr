@@ -1,5 +1,13 @@
 # Changelog
 
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-04-22)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.1.1...«unknown»)
+
+**Defects:**
+
+- Unexpected `Internal Reference` And `Reference` Page Types Values [\#243](https://github.com/NASA-PDS/registry-legacy-solr/issues/243) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
+
 ## [v5.1.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.1.1) (2026-01-10)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.0.2...v5.1.1)
