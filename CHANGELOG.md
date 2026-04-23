@@ -6,6 +6,7 @@
 
 **Defects:**
 
+- Upgrade Apache Solr to 9.10.1 to address security vulnerabilities [\#249](https://github.com/NASA-PDS/registry-legacy-solr/issues/249)
 - Harvest crawler processes non-XML files unnecessarily [\#246](https://github.com/NASA-PDS/registry-legacy-solr/issues/246)
 - Unexpected `Internal Reference` And `Reference` Page Types Values [\#243](https://github.com/NASA-PDS/registry-legacy-solr/issues/243) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 
