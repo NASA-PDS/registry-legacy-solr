@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 
 public class DocWriter 
 {
@@ -40,7 +40,7 @@ public class DocWriter
 			for(String value: field.getValue())
 			{
 				writer.write("<field name=\"" + fieldName + "\">");
-				StringEscapeUtils.escapeXml(writer, value);
+				writer.write(StringEscapeUtils.escapeXml10(value));
 				writer.write("</field>\n");
 			}
 		}
