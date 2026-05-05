@@ -15,8 +15,7 @@ import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.ParseException;
-import org.apache.commons.configuration.AbstractConfiguration;
-import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.appender.ConsoleAppender;
@@ -285,7 +284,6 @@ public class CITool
     public void query(File configuration) throws ConfigurationException {
         try {
             ToolsPropertiesConfiguration config = null;
-            AbstractConfiguration.setDefaultListDelimiter(',');
             config = new ToolsPropertiesConfiguration(configuration);
             if (config.isEmpty()) {
                 throw new ConfigurationException(
