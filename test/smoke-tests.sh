@@ -192,12 +192,12 @@ query_solr() {
         return 1
     fi
 
-    if [ "$actual_count" -lt "$expected_count" ]; then
-        log_error "$test_name: Expected at least $expected_count documents, found $actual_count"
+    if [ "$actual_count" -ne "$expected_count" ]; then
+        log_error "$test_name: Expected exactly $expected_count documents, found $actual_count"
         return 1
     fi
 
-    log_success "$test_name: Found $actual_count documents in Solr (expected >= $expected_count)"
+    log_success "$test_name: Found $actual_count documents in Solr (expected $expected_count)"
     return 0
 }
 
@@ -456,10 +456,10 @@ log_info "Found generated Solr document: $PDS4_SOLR_DOC"
 # Verify document count
 log_info "Verifying PDS4 document count..."
 actual_count=$(grep -c "<doc>" "$PDS4_SOLR_DOC")
-expected_count=$(grep -c "<doc>" "$PDS4_EXPECTED")
+PDS4_DOC_COUNT=$(grep -c "<doc>" "$PDS4_EXPECTED")
 
-if [ "$actual_count" -ne "$expected_count" ]; then
-    log_error "Document count mismatch: expected $expected_count, got $actual_count"
+if [ "$actual_count" -ne "$PDS4_DOC_COUNT" ]; then
+    log_error "Document count mismatch: expected $PDS4_DOC_COUNT, got $actual_count"
     cleanup_and_exit 1
 fi
 log_success "Document count matches: $actual_count documents generated"
@@ -472,7 +472,7 @@ log_success "PDS4 data loaded into Solr"
 
 # Validate data in Solr
 sleep 2  # Give Solr time to commit
-query_solr "*:*" 1 "PDS4 Solr Validation"
+query_solr "*:*" "$PDS4_DOC_COUNT" "PDS4 Solr Validation"
 check_status $? "PDS4 Solr validation failed"
 
 # ============================================================================
@@ -512,10 +512,10 @@ log_info "Found generated Solr document: $PDS3_SOLR_DOC"
 # Verify document count
 log_info "Verifying PDS3 document count..."
 actual_count=$(grep -c "<doc>" "$PDS3_SOLR_DOC")
-expected_count=$(grep -c "<doc>" "$PDS3_EXPECTED")
+PDS3_DOC_COUNT=$(grep -c "<doc>" "$PDS3_EXPECTED")
 
-if [ "$actual_count" -ne "$expected_count" ]; then
-    log_error "Document count mismatch: expected $expected_count, got $actual_count"
+if [ "$actual_count" -ne "$PDS3_DOC_COUNT" ]; then
+    log_error "Document count mismatch: expected $PDS3_DOC_COUNT, got $actual_count"
     cleanup_and_exit 1
 fi
 log_success "Document count matches: $actual_count documents generated"
@@ -528,7 +528,8 @@ log_success "PDS3 data loaded into Solr"
 
 # Validate data in Solr (should have both PDS4 and PDS3 data now)
 sleep 2  # Give Solr time to commit
-query_solr "*:*" 2 "PDS3 Solr Validation"
+TOTAL_DOC_COUNT=$((PDS4_DOC_COUNT + PDS3_DOC_COUNT))
+query_solr "*:*" "$TOTAL_DOC_COUNT" "PDS3 Solr Validation"
 check_status $? "PDS3 Solr validation failed"
 
 # ============================================================================
