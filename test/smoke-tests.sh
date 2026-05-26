@@ -471,8 +471,12 @@ check_status $? "Failed to load PDS4 data into Solr"
 log_success "PDS4 data loaded into Solr"
 
 # Validate data in Solr
+# PDS4_SOLR_COUNT differs from PDS4_DOC_COUNT because Solr deduplicates documents
+# with identical lidvid (uniqueKey = lid::version_id). Test data includes products
+# harvested from multiple directories that share the same LIDVID.
+PDS4_SOLR_COUNT=82
 sleep 2  # Give Solr time to commit
-query_solr "*:*" "$PDS4_DOC_COUNT" "PDS4 Solr Validation"
+query_solr "*:*" "$PDS4_SOLR_COUNT" "PDS4 Solr Validation"
 check_status $? "PDS4 Solr validation failed"
 
 # ============================================================================
@@ -527,9 +531,14 @@ check_status $? "Failed to load PDS3 data into Solr"
 log_success "PDS3 data loaded into Solr"
 
 # Validate data in Solr (should have both PDS4 and PDS3 data now)
+# PDS3_SOLR_COUNT differs from PDS3_DOC_COUNT because Solr deduplicates documents
+# with identical lidvid. PDS3 SPICE context products (spacecraft, mission, instrument,
+# targets with version_id=99.0) repeat across multiple dataset catalogs, producing
+# 22 LIDVID collisions: 157 harvested - 22 duplicates = 135 unique docs in Solr.
+PDS3_SOLR_COUNT=135
+TOTAL_SOLR_COUNT=$((PDS4_SOLR_COUNT + PDS3_SOLR_COUNT))
 sleep 2  # Give Solr time to commit
-TOTAL_DOC_COUNT=$((PDS4_DOC_COUNT + PDS3_DOC_COUNT))
-query_solr "*:*" "$TOTAL_DOC_COUNT" "PDS3 Solr Validation"
+query_solr "*:*" "$TOTAL_SOLR_COUNT" "PDS3 Solr Validation"
 check_status $? "PDS3 Solr validation failed"
 
 # ============================================================================
