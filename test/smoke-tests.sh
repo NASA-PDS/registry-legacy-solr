@@ -192,12 +192,12 @@ query_solr() {
         return 1
     fi
 
-    if [ "$actual_count" -lt "$expected_count" ]; then
-        log_error "$test_name: Expected at least $expected_count documents, found $actual_count"
+    if [ "$actual_count" -ne "$expected_count" ]; then
+        log_error "$test_name: Expected exactly $expected_count documents, found $actual_count"
         return 1
     fi
 
-    log_success "$test_name: Found $actual_count documents in Solr (expected >= $expected_count)"
+    log_success "$test_name: Found $actual_count documents in Solr (expected $expected_count)"
     return 0
 }
 
@@ -456,10 +456,10 @@ log_info "Found generated Solr document: $PDS4_SOLR_DOC"
 # Verify document count
 log_info "Verifying PDS4 document count..."
 actual_count=$(grep -c "<doc>" "$PDS4_SOLR_DOC")
-expected_count=$(grep -c "<doc>" "$PDS4_EXPECTED")
+PDS4_DOC_COUNT=$(grep -c "<doc>" "$PDS4_EXPECTED")
 
-if [ "$actual_count" -ne "$expected_count" ]; then
-    log_error "Document count mismatch: expected $expected_count, got $actual_count"
+if [ "$actual_count" -ne "$PDS4_DOC_COUNT" ]; then
+    log_error "Document count mismatch: expected $PDS4_DOC_COUNT, got $actual_count"
     cleanup_and_exit 1
 fi
 log_success "Document count matches: $actual_count documents generated"
@@ -471,8 +471,12 @@ check_status $? "Failed to load PDS4 data into Solr"
 log_success "PDS4 data loaded into Solr"
 
 # Validate data in Solr
+# PDS4_SOLR_COUNT differs from PDS4_DOC_COUNT because Solr deduplicates documents
+# with identical lidvid (uniqueKey = lid::version_id). Test data includes products
+# harvested from multiple directories that share the same LIDVID.
+PDS4_SOLR_COUNT=82
 sleep 2  # Give Solr time to commit
-query_solr "*:*" 1 "PDS4 Solr Validation"
+query_solr "*:*" "$PDS4_SOLR_COUNT" "PDS4 Solr Validation"
 check_status $? "PDS4 Solr validation failed"
 
 # ============================================================================
@@ -512,10 +516,10 @@ log_info "Found generated Solr document: $PDS3_SOLR_DOC"
 # Verify document count
 log_info "Verifying PDS3 document count..."
 actual_count=$(grep -c "<doc>" "$PDS3_SOLR_DOC")
-expected_count=$(grep -c "<doc>" "$PDS3_EXPECTED")
+PDS3_DOC_COUNT=$(grep -c "<doc>" "$PDS3_EXPECTED")
 
-if [ "$actual_count" -ne "$expected_count" ]; then
-    log_error "Document count mismatch: expected $expected_count, got $actual_count"
+if [ "$actual_count" -ne "$PDS3_DOC_COUNT" ]; then
+    log_error "Document count mismatch: expected $PDS3_DOC_COUNT, got $actual_count"
     cleanup_and_exit 1
 fi
 log_success "Document count matches: $actual_count documents generated"
@@ -527,8 +531,14 @@ check_status $? "Failed to load PDS3 data into Solr"
 log_success "PDS3 data loaded into Solr"
 
 # Validate data in Solr (should have both PDS4 and PDS3 data now)
+# PDS3_SOLR_COUNT differs from PDS3_DOC_COUNT because Solr deduplicates documents
+# with identical lidvid. PDS3 SPICE context products (spacecraft, mission, instrument,
+# targets with version_id=99.0) repeat across multiple dataset catalogs, producing
+# 22 LIDVID collisions: 157 harvested - 22 duplicates = 135 unique docs in Solr.
+PDS3_SOLR_COUNT=135
+TOTAL_SOLR_COUNT=$((PDS4_SOLR_COUNT + PDS3_SOLR_COUNT))
 sleep 2  # Give Solr time to commit
-query_solr "*:*" 2 "PDS3 Solr Validation"
+query_solr "*:*" "$TOTAL_SOLR_COUNT" "PDS3 Solr Validation"
 check_status $? "PDS3 Solr validation failed"
 
 # ============================================================================
