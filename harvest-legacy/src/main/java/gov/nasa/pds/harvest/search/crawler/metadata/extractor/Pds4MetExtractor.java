@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 import javax.xml.xpath.XPathExpressionException;
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import gov.nasa.pds.harvest.search.constants.Constants;
 import gov.nasa.pds.harvest.search.inventory.ReferenceEntry;
 import gov.nasa.pds.harvest.search.logging.ToolsLevel;

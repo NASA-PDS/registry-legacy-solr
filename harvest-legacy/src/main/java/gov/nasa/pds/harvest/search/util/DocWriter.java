@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
-import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang3.StringEscapeUtils;
 import gov.nasa.pds.search.core.exception.InvalidDatetimeException;
 import gov.nasa.pds.search.core.exception.SearchCoreFatalException;
 import gov.nasa.pds.search.core.logging.ToolsLevel;
@@ -82,7 +82,7 @@ public class DocWriter
 							value = this.classname;
 						} 
 
-						String escValue = StringEscapeUtils.escapeXml(value);
+						String escValue = StringEscapeUtils.escapeXml10(value);
 						this.solrDoc.write("<field name=\"" + fieldName + "\">" + escValue + "</field>\n");
 					}
 				}

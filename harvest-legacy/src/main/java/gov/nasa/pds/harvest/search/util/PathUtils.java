@@ -28,7 +28,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import gov.nasa.pds.harvest.search.oodt.filemgr.exceptions.CasMetadataException;
 import gov.nasa.pds.harvest.search.oodt.filemgr.exceptions.CommonsException;
 import gov.nasa.pds.harvest.search.oodt.metadata.Metadata;
