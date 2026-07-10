@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 import javax.xml.bind.JAXBException;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.commons.lang.exception.ExceptionUtils;
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import gov.nasa.pds.harvest.search.constants.Constants;
 import gov.nasa.pds.harvest.search.file.FileObject;
 import gov.nasa.pds.harvest.search.file.FileSize;

@@ -20,7 +20,7 @@ import java.io.File;
 import java.util.List;
 import java.util.logging.Logger;
 // OODT imports
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import gov.nasa.pds.harvest.search.oodt.filemgr.exceptions.CrawlerActionException;
 import gov.nasa.pds.harvest.search.oodt.metadata.Metadata;
 
