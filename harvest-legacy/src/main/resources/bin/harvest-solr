@@ -59,23 +59,24 @@ touch "$LOCK_FILE"
 
 # Function to send email notification on exit
 send_notification() {
-    local exit_code=$?
+    local exit_code=$1
+    local harvest_succeeded=$2
 
     # Only send email if LEGACY_REGISTRY_EMAIL_RECIPIENTS is set
     if [ -z "${LEGACY_REGISTRY_EMAIL_RECIPIENTS}" ]; then
-        return $exit_code
+        return 0
     fi
 
     # Check if mail command is available
     if ! command -v mail > /dev/null 2>&1; then
         echo "WARNING: mail command not found, skipping email notification" >&2
-        return $exit_code
+        return 0
     fi
 
     local hostname_label="${HOSTNAME_LABEL:-$(hostname)}"
     local status_subject="[Harvest Solr] Succeeded on ${hostname_label}"
 
-    if [ $exit_code -ne 0 ]; then
+    if [ "$harvest_succeeded" != "true" ]; then
         status_subject="[Harvest Solr] FAILED on ${hostname_label} (Exit Code: $exit_code)"
     fi
 
@@ -83,7 +84,7 @@ send_notification() {
     local email_body="Harvest Solr completed.
 
 Hostname: ${hostname_label}
-Job Status: $([ $exit_code -eq 0 ] && echo "SUCCESS" || echo "FAILED (Exit Code: $exit_code)")
+Job Status: $([ "$harvest_succeeded" = "true" ] && echo "SUCCESS" || echo "FAILED (Exit Code: $exit_code)")
 Timestamp: $(date -Iseconds)
 "
 
@@ -152,9 +153,8 @@ marker_file() {
 
 exit_functions() {
     local exit_code=$?
-    send_notification
 
-    # Determine if harvest succeeded
+    # Determine if harvest succeeded FIRST (before sending notification)
     # Check log for success indicator if exit_code is non-zero (handles OOM at teardown)
     local harvest_succeeded=false
     if [ $exit_code -eq 0 ]; then
@@ -171,6 +171,10 @@ exit_functions() {
         echo "INFO: Harvest failed with exit code $exit_code (no log file to verify)"
     fi
 
+    # Send notification with both exit_code and harvest_succeeded status
+    send_notification "$exit_code" "$harvest_succeeded"
+
+    # Create marker file only on success
     if [ "$harvest_succeeded" = true ]; then
         marker_file
     fi
