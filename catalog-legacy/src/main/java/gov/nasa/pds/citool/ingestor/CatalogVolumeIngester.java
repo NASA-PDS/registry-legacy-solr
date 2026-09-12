@@ -28,6 +28,8 @@ public class CatalogVolumeIngester
   public static int registryCount = 0;
   public static int solrDocCount = 0;
   public static int failCount = 0;
+  public static int datasetCount = 0;
+  public static int datasetFailCount = 0;
 	
 	private String archiveStatus = null;
 	private String volumeId; 
@@ -422,16 +424,21 @@ public class CatalogVolumeIngester
       if (obj.getExtrinsicObject() == null) {
         return;
       }
-		
+
+      boolean isDataset = Constants.DATASET_OBJ.equalsIgnoreCase(obj.getCatObjType());
+      if (isDataset) datasetCount++;
+
 		try {
           DocGenerator.getInstance().addDoc(obj);
           solrDocCount++;
         } catch (DocGeneratorException e) {
+          if (isDataset) datasetFailCount++;
           LabelParserException lp = new LabelParserException(obj.getLabel().getLabelURI(), null,
               null, "ingest.warning.skipFile", ProblemType.INVALID_LABEL_WARNING, e.getMessage());
           obj.getLabel().addProblem(lp);
         } catch (IOException ex) {
-          log.log(Level.SEVERE, "Unexpected error trying to generate Solr Doc.", ex);
+          if (isDataset) datasetFailCount++;
+          log.log(Level.SEVERE, "Unexpected error trying to generate Solr Doc for dataset: " + obj.getLabel().getLabelURI(), ex);
         }
 	}
 }
