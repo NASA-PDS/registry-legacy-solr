@@ -438,7 +438,7 @@ public class CatalogVolumeIngester
           obj.getLabel().addProblem(lp);
         } catch (IOException ex) {
           if (isDataset) datasetFailCount++;
-          log.log(Level.SEVERE, "Unexpected error trying to generate Solr Doc for dataset: " + obj.getLabel().getLabelURI(), ex);
+          log.log(Level.SEVERE, "Unexpected error trying to generate Solr Doc for " + obj.getCatObjType() + ": " + obj.getLabel().getLabelURI(), ex);
         }
 	}
 }
