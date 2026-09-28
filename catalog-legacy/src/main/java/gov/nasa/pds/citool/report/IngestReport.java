@@ -122,24 +122,28 @@ public class IngestReport extends Report {
 
   @Override
   protected void printFooter(PrintWriter writer) {
-      int totalFiles = getNumPassed() + getNumFailed() + getNumSkipped();
+      int datasetCount = gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.datasetCount;
+      int datasetFailed = gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.datasetFailCount;
+      int datasetSucceeded = datasetCount - datasetFailed;
+
       writer.println();
       writer.println("Summary:");
       writer.println();
-      writer.println("  Number of files processed: " + totalFiles);
-      writer.println("  Number of files skipped: " + this.getNumSkipped());
-      writer.println("  Number of Solr Docs generated: "
+      writer.println("  Datasets encountered:         " + datasetCount);
+      writer.println("  Datasets Solr docs generated: " + datasetSucceeded);
+      writer.println("  Datasets failed:              " + datasetFailed);
+      writer.println("  Total Solr Docs generated:   "
           + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.solrDocCount);
 
-      writer.println();  
       if (printDetails) {
-        writer.println("Technical Summary:");
-        writer.println("  Number of successful local file object ingestions: "
-            + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.fileObjCount);
-        writer.println("  Number of successful registry ingestions: "
-            + gov.nasa.pds.citool.ingestor.CatalogVolumeIngester.registryCount);
-    	  writer.println();
+        int totalFiles = getNumPassed() + getNumFailed() + getNumSkipped();
+        writer.println();
+        writer.println("File Details:");
+        writer.println("  Catalog files processed: " + totalFiles);
+        writer.println("  Catalog files skipped:   " + this.getNumSkipped());
       }
+
+      writer.println();
       writer.println("End of Report\n");
       writer.flush();
   }
