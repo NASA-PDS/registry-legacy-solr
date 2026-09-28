@@ -149,13 +149,12 @@ public class CIToolIngester
 			boolean validFile = catObj.processLabel(lbl);
             if (validFile) {
 				if(catObj.getCatObjType() == null) {
-					// Log diagnostic information about the label
 					StringBuilder objTypes = new StringBuilder();
 					for (gov.nasa.pds.tools.label.ObjectStatement obj : lbl.getObjects()) {
 						if (objTypes.length() > 0) objTypes.append(", ");
 						objTypes.append(obj.getIdentifier());
 					}
-					log.warning("Catalog object type is null for label: " + lbl.getLabelURI() +
+					log.severe("Catalog object type is null for label: " + lbl.getLabelURI() +
 					           ". Objects found in label: [" + objTypes.toString() + "]. " +
 					           "None match expected catalog types. Skipping this catalog object.");
 					continue;
