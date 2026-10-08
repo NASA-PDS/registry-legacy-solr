@@ -28,6 +28,7 @@ import gov.nasa.pds.harvest.search.oodt.filemgr.exceptions.CrawlerActionExceptio
 import gov.nasa.pds.harvest.search.oodt.filemgr.exceptions.MetExtractionException;
 import gov.nasa.pds.harvest.search.oodt.metadata.Metadata;
 import gov.nasa.pds.harvest.search.policy.FileTypeMap;
+import net.sf.saxon.om.NamespaceUri;
 import gov.nasa.pds.harvest.search.policy.FileTypes;
 import gov.nasa.pds.harvest.search.stats.HarvestSolrStats;
 import gov.nasa.pds.harvest.search.util.PointerStatementFinder;
@@ -392,7 +393,7 @@ public class FileObjectRegistrationAction extends CrawlerAction {
           name = child.getStringValue();
         } else if ("file_size".equals(child.getLocalPart())) {
           size = Long.parseLong(child.getStringValue());
-          unit = child.getAttributeValue("", "unit");
+          unit = child.getAttributeValue(NamespaceUri.NULL, "unit");
           if (unit == null) {
             unit = "";
           }
