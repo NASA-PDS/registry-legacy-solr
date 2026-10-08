@@ -1,5 +1,21 @@
 # Changelog
 
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-10-08)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.2.0...«unknown»)
+
+**Requirements:**
+
+- As a EN Operator, I want to automate Registry load on Harvest's Solr doc creation [\#281](https://github.com/NASA-PDS/registry-legacy-solr/issues/281)
+- As a EN operator, I want to be able to exclude download of NASA files [\#277](https://github.com/NASA-PDS/registry-legacy-solr/issues/277)
+- As an EN operator, I want the ESA PSA sync to happen automatically [\#276](https://github.com/NASA-PDS/registry-legacy-solr/issues/276)
+- As a user, I want to sync ESA PSA products from the Search API [\#135](https://github.com/NASA-PDS/registry-legacy-solr/issues/135)
+
+**Defects:**
+
+- catalog-solr does not process hsk.cat files [\#283](https://github.com/NASA-PDS/registry-legacy-solr/issues/283)
+- `pds_sync_api.py` often errors with a code 429 [\#275](https://github.com/NASA-PDS/registry-legacy-solr/issues/275) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
+
 ## [v5.2.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.2.0) (2026-06-30)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.1.1...v5.2.0)
