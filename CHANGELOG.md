@@ -1,6 +1,6 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-10-09)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-10-14)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.2.0...«unknown»)
 
@@ -13,6 +13,8 @@
 
 **Defects:**
 
+- \(Bad\) PSA XML labels are not processable by Harvest due to missing `inventory reference_type` [\#292](https://github.com/NASA-PDS/registry-legacy-solr/issues/292) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
+- ESA PSA sync missing collections for urn:esa:psa:em16\_tgo\_cas \(and possibly others\) [\#286](https://github.com/NASA-PDS/registry-legacy-solr/issues/286) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 - catalog-solr does not process hsk.cat files [\#283](https://github.com/NASA-PDS/registry-legacy-solr/issues/283)
 - `pds_sync_api.py` often errors with a code 429 [\#275](https://github.com/NASA-PDS/registry-legacy-solr/issues/275) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 
