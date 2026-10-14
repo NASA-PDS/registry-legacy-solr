@@ -114,6 +114,13 @@ ${errors_text}
         fi
     fi
 
+    if [ ! -n "${HARVEST_SOLR_MARKER_FILE}" ]; then
+        email_body="${email_body}
+
+WARNING: HARVEST_SOLR_MARKER_FILE is not set; Registry will not automatically run on these new Solr docs.
+"
+    fi
+
     # Send email (non-fatal - don't let mail failure change exit code)
     if echo "${email_body}" | mail -s "${status_subject}" "${LEGACY_REGISTRY_EMAIL_RECIPIENTS}"; then
         echo "Email notification sent successfully" >&2
@@ -133,22 +140,22 @@ cleanup() {
 
 # Function to create marker file on exit so Registry knows to execute
 marker_file() {
-    # Check that the marker path is set
-    if [ -z "${HARVEST_SOLR_MARKER_FILE}" ]; then
-        echo "Error: HARVEST_SOLR_MARKER_FILE environment variable is not set"
-        exit 1
+    # Check that the marker path is set (non-fatal - don't let marker failure change exit code)
+    if [ -n "${HARVEST_SOLR_MARKER_FILE}" ]; then
+        echo ""
+        echo "Creating success marker file: $HARVEST_SOLR_MARKER_FILE"
+        {
+            echo "# This file signals that Harvest created new Solr docs."
+            echo "# Registry looks for this file as a marker to run."
+            echo "datetime=$(date -Iseconds)"
+            echo "timestamp=$(date +%s)"
+        } > "$HARVEST_SOLR_MARKER_FILE"
+        chmod 600 "$HARVEST_SOLR_MARKER_FILE"
+        echo "✓ Success marker created"
+    else
+        echo "WARNING: HARVEST_SOLR_MARKER_FILE environment variable is not set."
+        echo "         Registry will not know to run automatically on new Solr docs."
     fi
-
-    echo ""
-    echo "Creating success marker file: $HARVEST_SOLR_MARKER_FILE"
-    {
-        echo "# This file signals that Harvest created new Solr docs."
-        echo "# Registry looks for this file as a marker to run."
-        echo "datetime=$(date -Iseconds)"
-        echo "timestamp=$(date +%s)"
-    } > "$HARVEST_SOLR_MARKER_FILE"
-    chmod 600 "$HARVEST_SOLR_MARKER_FILE"
-    echo "✓ Success marker created"
 }
 
 exit_functions() {
@@ -212,5 +219,5 @@ HARVEST_JAR=`ls ${LIB_DIR}/harvest-*.jar`
 
 # Executes Harvest via the executable jar file
 # Arguments are passed in to the tool via '$@'
-${JAVA_CMD} -Xms1024m -Xmx2048m -Dcom.sun.xml.bind.v2.bytecode.ClassTailor.noOptimize=true -Dpds.search=${SOLR_URL} -Dpds.harvest.search.conf=${SEARCH_CONF} -Dresources.home=${PARENT_DIR}/resources -jar ${HARVEST_JAR} "$@"
+${JAVA_CMD} -Xms1024m -Xmx8g -Dcom.sun.xml.bind.v2.bytecode.ClassTailor.noOptimize=true -Dpds.search=${SOLR_URL} -Dpds.harvest.search.conf=${SEARCH_CONF} -Dresources.home=${PARENT_DIR}/resources -jar ${HARVEST_JAR} "$@"
 
