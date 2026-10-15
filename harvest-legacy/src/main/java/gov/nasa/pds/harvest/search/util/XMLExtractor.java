@@ -12,7 +12,8 @@ import javax.xml.xpath.XPathExpressionException;
 
 import net.sf.saxon.Configuration;
 import net.sf.saxon.lib.ParseOptions;
-import net.sf.saxon.om.DocumentInfo;
+import net.sf.saxon.om.NamespaceUri;
+import net.sf.saxon.om.TreeInfo;
 import net.sf.saxon.tree.tiny.TinyElementImpl;
 import net.sf.saxon.tree.tiny.TinyNodeImpl;
 import net.sf.saxon.trans.XPathException;
@@ -30,7 +31,7 @@ public class XMLExtractor {
     private static final Logger log = Logger.getLogger(XMLExtractor.class.getName());
     
     /** The DOM source. */
-    private DocumentInfo xml = null;
+    private TreeInfo xml = null;
 
     /** The XPath evaluator object. */
     private XPathEvaluator xpath = null;
@@ -48,7 +49,7 @@ public class XMLExtractor {
     public XMLExtractor() {
         xpath = new XPathEvaluator();
         xpath.getStaticContext().setDefaultElementNamespace(
-                defaultNamespaceUri);
+                NamespaceUri.of(defaultNamespaceUri));
         if(namespaceContext != null) {
             xpath.getStaticContext().setNamespaceContext(namespaceContext);
         }
@@ -67,8 +68,7 @@ public class XMLExtractor {
       configuration.setLineNumbering(true);
       configuration.setXIncludeAware(true);
       ParseOptions options = new ParseOptions();
-      options.setErrorListener(new XMLErrorListener());
-      xml = configuration.buildDocument(new SAXSource(new InputSource(uri)),
+      xml = configuration.buildDocumentTree(new SAXSource(new InputSource(uri)),
           options);
     }
 
@@ -125,7 +125,7 @@ public class XMLExtractor {
      */
     public String getValueFromDoc(String expression)
     throws XPathExpressionException, XPathException {
-        return getValueFromItem(expression, xpath.setSource(xml));
+        return getValueFromItem(expression, xml.getRootNode());
     }
 
     /**
@@ -220,8 +220,8 @@ public class XMLExtractor {
      * @return The Document Node.
      * @throws XPathException
      */
-    public DocumentInfo getDocNode() throws XPathException {
-        return xpath.setSource(xml).getDocumentRoot();
+    public TreeInfo getDocNode() throws XPathException {
+        return xml;
     }
 
     /**

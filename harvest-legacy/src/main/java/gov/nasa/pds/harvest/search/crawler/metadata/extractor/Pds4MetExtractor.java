@@ -21,6 +21,7 @@ import gov.nasa.pds.harvest.search.policy.XPath;
 import gov.nasa.pds.harvest.search.util.LidVid;
 import gov.nasa.pds.harvest.search.util.XMLExtractor;
 import gov.nasa.pds.registry.model.Slot;
+import net.sf.saxon.om.NamespaceUri;
 import net.sf.saxon.tree.tiny.TinyElementImpl;
 
 /**
@@ -204,7 +205,7 @@ public class Pds4MetExtractor implements MetExtractor {
         if (values != null && (!values.isEmpty())) {
           Slot slot = new Slot(name, values);
           if (node != null) {
-            String unit = node.getAttributeValue("", Constants.UNIT);
+            String unit = node.getAttributeValue(NamespaceUri.NULL, Constants.UNIT);
             if (unit != null) {
               slot.setSlotType(unit);
             }
