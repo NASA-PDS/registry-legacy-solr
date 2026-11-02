@@ -184,6 +184,7 @@ Loading takes about 11 seconds per 1000 products. A document with the same ident
 | `-host`, `-port`, `-proto` | Solr server (default `localhost`, `8983`, `http`) |
 | `-delete-pkg PACKAGE_ID` | Delete all documents of one harvest package |
 | `-delete-all` | Delete all documents from every collection (`registry` and `data`) |
+| `-mark-superseded` | Flag older versions of each product so keyword search hides them. Runs by itself after loading documents; this option runs only that step |
 
 Without a directory argument the tool looks in `$HOME/registry-data/solr-docs`.
 
@@ -195,6 +196,20 @@ curl -X POST -H 'Content-Type: application/json' --data-binary \
   '{"delete":{"query":"lid:\"'$LID'\""}}' \
   'http://localhost:8983/solr/data/update?commit=true'
 ```
+
+### Older versions of a product
+
+Every version of a product stays in the index, so version history is available through the `/all` handler and direct `lidvid` queries. Keyword search (`/keyword`) and the archive filter (`/archive-filter`) return only the latest version of each product, and a search term that appears only in an older version does not return the product.
+
+To hide older versions before matching, each older version carries `superseded=1` and the newest version carries no flag. Versions only move forward, so a flag is never cleared. After it loads documents, `registry-mgr-solr` reads the documents that are not flagged yet (the latest version of each product plus anything just loaded) and flags every version but the newest. Loading a document replaces it and drops its flag, so the step has to run after every load; run it yourself after loading documents with another tool:
+
+```bash
+"$REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr" -mark-superseded
+```
+
+Removing the newest version of a product leaves its older versions flagged, so the product no longer appears in keyword search. To make an older version current again, load its document again; loading drops the flag.
+
+The `superseded` field is part of the `data` schema. A registry installed before it existed gets it from `upgrade`; until then the step prints a warning and older versions stay visible.
 
 ## Check what is in Solr
 
@@ -238,6 +253,7 @@ Whether the indexes can be kept depends on the change:
 |---|---|
 | `solrconfig.xml` (request handlers, boosts, caches) | Yes |
 | Harvest policy or search configuration | Yes. Documents already loaded gain new fields only when they are generated and loaded again |
+| New field in the schema | Yes. Documents already loaded have no value for it until they are loaded again or a tool sets it (for example `registry-mgr-solr -mark-superseded`) |
 | Solr patch or minor upgrade (for example 9.8 to 9.10) | Yes |
 | Solr upgrade of one major version | Yes. Read the Solr release notes first |
 | Schema change to a field type, analyzer, `indexed`, `stored`, `docValues` or `multiValued` | No. Reinstall and load the documents again |

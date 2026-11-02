@@ -27,6 +27,9 @@
    <field name="version_id" type="string" indexed="true" stored="true" multiValued="false" />
    <field name="version_id_normalized" type="pfloat" indexed="true" stored="true" multiValued="false" docValues="true" />
    <field name="lidvid" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <!-- 1 when a newer version of the same lid exists. A docValues-only field so it can be updated in place; a
+        missing value means the latest version. Maintained by registry-mgr-solr -mark-superseded. -->
+   <field name="superseded" type="pint" indexed="false" stored="false" multiValued="false" docValues="true" />
    <field name="abstract_text" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="agency_name" type="lowercase" indexed="true" stored="true" multiValued="true" />
    <field name="agency_ref" type="string" indexed="true" stored="true" multiValued="true" />
