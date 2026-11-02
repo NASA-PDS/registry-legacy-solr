@@ -6,6 +6,7 @@ PROPS=("-Dauto=yes" "-Dparams=tr=add-hierarchy.xsl")
 RECURSIVE=""
 FILES=()
 DELETE=
+MARK_ONLY=
 SOLR_HOST=localhost
 SOLR_PORT=8983
 SOLR_PROTO=http
@@ -26,6 +27,8 @@ function print_usage() {
   echo "  -proto <proto>                  Solr protocl (default: $SOLR_PROTO)"
   echo "  -delete-pkg <package_id>        Delete a specific Harvest ingestion package"
   echo "  -delete-all                     Delete all data from all Registry collections"
+  echo "  -mark-superseded                Flag older versions of each product so keyword search hides them"
+  echo "                                  (also runs after loading documents)"
   echo ""
   echo "Optional Parameters:"
   echo "  SOLR-DOCS     solr-docs directory or an xml file"
@@ -61,6 +64,8 @@ while [ $# -gt 0 ]; do
       shift
       DELETE="<delete><query>*:*</query></delete>"
       break
+    elif [[ "$1" == "-mark-superseded" ]]; then
+      MARK_ONLY=yes
     elif [[ "$1" == "-h" ]]; then
       print_usage
       exit
@@ -73,6 +78,109 @@ while [ $# -gt 0 ]; do
 done
 
 SOLR_URL="$SOLR_PROTO://$SOLR_HOST:$SOLR_PORT/solr"
+
+# Flag every product version that has a newer version of the same lid (superseded=1), so the search
+# handlers can hide older versions before matching. Versions only move forward, so a flag is never
+# cleared: the pass reads only documents that are not flagged yet (the latest version of each product
+# plus anything just loaded) and flags all but the newest version of each lid, in place. Loading a
+# document replaces it and drops its flag, so this runs after every load. Safe to run at any time.
+# Returns 0 on success, 1 on failure, and 2 when the data schema has no superseded field yet (the
+# registry has not been upgraded), which only means older versions cannot be hidden.
+function mark_superseded() {
+  local url="$SOLR_URL/$DATA_COLLECTION"
+  local rows=10000
+  local start=0
+  local work
+  local count
+  local chunk
+
+  if ! curl -s -f "$url/schema/fields/superseded" > /dev/null; then
+    echo "WARNING: The 'superseded' field is not in the $DATA_COLLECTION schema, so older product versions cannot be marked." 1>&2
+    echo "         Upgrade the registry (registry_legacy_installer_docker.sh upgrade) to add it." 1>&2
+    return 2
+  fi
+
+  work=$(mktemp -d) || return 1
+  echo "INFO:  Marking superseded product versions"
+
+  # Page through the documents that are not flagged yet, newest version first within each lid
+  touch "$work/all.csv"
+  while true; do
+    if ! curl -s -f -G "$url/all" \
+        --data-urlencode "q=version_id_normalized:[* TO *]" \
+        --data-urlencode "fq=-{!frange l=1 u=1}superseded" \
+        --data-urlencode "fl=lid,lidvid" \
+        --data-urlencode "sort=lid asc,version_id_normalized desc,lidvid asc" \
+        --data-urlencode "start=$start" \
+        --data-urlencode "rows=$rows" \
+        --data-urlencode "wt=csv" \
+        --data-urlencode "csv.header=false" > "$work/page"; then
+      echo "ERROR: Failed to read product versions from Solr" 1>&2
+      rm -rf "$work"
+      return 1
+    fi
+    cat "$work/page" >> "$work/all.csv"
+    count=$(wc -l < "$work/page" | tr -d ' ')
+    if [ "$count" -lt "$rows" ]; then
+      break
+    fi
+    start=$((start + rows))
+  done
+
+  # The first row of each lid is its latest version; every row after it is superseded. A row that is
+  # quoted or does not split into two fields cannot be trusted, so nothing is changed in that case.
+  if ! awk -F',' '
+      /["\\]/ || NF != 2 { bad++; next }
+      {
+        if ($1 == prev) print $2
+        prev = $1
+      }
+      END { if (bad) { print bad " rows could not be parsed" > "/dev/stderr"; exit 2 } }
+    ' "$work/all.csv" > "$work/older.txt"; then
+    echo "ERROR: Could not work out which versions are superseded; no flags were changed" 1>&2
+    rm -rf "$work"
+    return 1
+  fi
+
+  count=$(wc -l < "$work/older.txt" | tr -d ' ')
+  if [ "$count" -eq 0 ]; then
+    echo "INFO:  No superseded flags need to change"
+  else
+    # Four-letter suffixes allow far more chunks than the two-letter default, which stops after 676
+    if ! split -a 4 -l 1000 "$work/older.txt" "$work/chunk."; then
+      echo "ERROR: Could not split the superseded versions into batches; no flags were changed" 1>&2
+      rm -rf "$work"
+      return 1
+    fi
+    for chunk in "$work"/chunk.????; do
+      awk '
+        BEGIN { printf "[" }
+        { printf "%s{\"lidvid\":\"%s\",\"superseded\":{\"set\":1}}", (NR > 1 ? "," : ""), $0 }
+        END { printf "]" }
+      ' "$chunk" > "$chunk.json"
+      if ! curl -s -f -X POST -H 'Content-Type: application/json' --data-binary @"$chunk.json" "$url/update" > /dev/null; then
+        echo "ERROR: Failed to update superseded flags in Solr" 1>&2
+        rm -rf "$work"
+        return 1
+      fi
+    done
+    if ! curl -s -f -H 'Content-Type: text/xml' --data-binary '<commit/>' "$url/update" > /dev/null; then
+      echo "ERROR: Failed to commit the superseded flags in Solr" 1>&2
+      rm -rf "$work"
+      return 1
+    fi
+    echo "INFO:  Updated the superseded flag on $count documents"
+  fi
+
+  rm -rf "$work"
+  return 0
+}
+
+# Only mark superseded versions
+if [ -n "$MARK_ONLY" ]; then
+  mark_superseded
+  exit $?
+fi
 
 # Setup Java
 if [ -n "$JAVA_HOME" ]; then
@@ -134,5 +242,14 @@ for file in $(find ${FILES[@]} -type f -name "*.xml"); do
   curl -X POST -H "Content-Type: text/xml" -d @$file "$SOLR_URL/$DATA_COLLECTION/update/xslt?commit=true&tr=add-hierarchy.xsl"
   sleep 5
 done
+
+# Loading replaces documents, which drops their superseded flag, so mark the older versions again.
+# A registry without the superseded field (status 2) only warns; any other failure fails the load
+# so that automation notices that older versions may still be visible.
+mark_superseded
+mark_status=$?
+if [[ $mark_status -eq 1 ]]; then
+  exit 1
+fi
 
 exit 0

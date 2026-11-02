@@ -201,6 +201,32 @@ query_solr() {
     return 0
 }
 
+# Query a specific Solr request handler and check the number of matching documents
+query_solr_handler() {
+    local handler=$1
+    local query=$2
+    local expected_count=$3
+    local test_name=$4
+
+    log_info "$test_name: Querying Solr handler /$handler: $query"
+
+    local response=$(curl -s -G "http://localhost:8983/solr/data/${handler}" --data-urlencode "q=${query}" --data-urlencode "wt=json")
+    local actual_count=$(echo "$response" | grep -o '"numFound":[0-9]*' | head -1 | cut -d':' -f2)
+
+    if [ -z "$actual_count" ]; then
+        log_error "$test_name: Failed to query Solr or parse response"
+        return 1
+    fi
+
+    if [ "$actual_count" -ne "$expected_count" ]; then
+        log_error "$test_name: Expected exactly $expected_count documents, found $actual_count"
+        return 1
+    fi
+
+    log_success "$test_name: Found $actual_count documents (expected $expected_count)"
+    return 0
+}
+
 # Find generated Solr doc files (handles variable filenames)
 find_solr_doc() {
     local output_dir=$1
@@ -542,6 +568,88 @@ query_solr "*:*" "$TOTAL_SOLR_COUNT" "PDS3 Solr Validation"
 check_status $? "PDS3 Solr validation failed"
 
 # ============================================================================
+# TEST 3: Superseded Product Versions
+# ============================================================================
+
+log_info "==============================================="
+log_info "TEST 3: Superseded Product Versions"
+log_info "==============================================="
+
+VERSIONS_TEST_DATA="$PARENTDIR/src/test/resources/data/versions"
+
+# Two versions of one product. The title of version 1.0 contains OLDNAME; the title of version 1.1 does not.
+log_info "Loading two versions of one product into Solr..."
+"$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$VERSIONS_TEST_DATA"
+check_status $? "Failed to load product versions into Solr"
+
+sleep 2  # Give Solr time to commit
+
+# Both versions stay in the index so version history is available
+query_solr_handler "all" "lid:\"urn:nasa:pds:context:instrument:test.versions\"" 2 "Versions Kept In Index"
+check_status $? "Both product versions should be in the index"
+
+# A term that only appears in the older version must not return it, and the current version must be found
+for handler in keyword archive-filter; do
+    query_solr_handler "$handler" "OLDNAME" 0 "Older Version Hidden ($handler)"
+    check_status $? "$handler returned a superseded product version"
+
+    query_solr_handler "$handler" "CURRENTNAME" 1 "Latest Version Found ($handler)"
+    check_status $? "$handler did not return the latest product version"
+done
+
+# A newer version loaded later supersedes the previous latest version
+VERSIONS_LID="lid:\"urn:nasa:pds:context:instrument:test.versions\""
+
+log_info "Loading a newer version of the same product..."
+"$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$PARENTDIR/src/test/resources/data/versions-newer"
+check_status $? "Failed to load the newer product version into Solr"
+
+sleep 2
+
+query_solr_handler "all" "$VERSIONS_LID" 3 "Newer Version Kept In Index"
+check_status $? "All three product versions should be in the index"
+
+for handler in keyword archive-filter; do
+    query_solr_handler "$handler" "CURRENTNAME" 0 "Previous Latest Hidden ($handler)"
+    check_status $? "$handler returned a version that a newer version supersedes"
+
+    query_solr_handler "$handler" "NEWESTNAME" 1 "Newest Version Found ($handler)"
+    check_status $? "$handler did not return the newest product version"
+done
+
+# Loading replaces a document and drops its flag, so loading the older versions again must hide them again
+log_info "Loading the older versions again..."
+"$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$VERSIONS_TEST_DATA"
+check_status $? "Failed to load the older product versions into Solr"
+
+sleep 2
+
+for handler in keyword archive-filter; do
+    query_solr_handler "$handler" "OLDNAME" 0 "Oldest Version Hidden After Reload ($handler)"
+    check_status $? "$handler returned a superseded product version after a reload"
+
+    query_solr_handler "$handler" "NEWESTNAME" 1 "Newest Version Found After Reload ($handler)"
+    check_status $? "$handler did not return the newest product version after a reload"
+done
+
+# Removing the newest version leaves the older ones flagged; loading an older version again makes it current
+log_info "Removing the newest version..."
+curl -s -X POST -H 'Content-Type: application/json' \
+    --data-binary '{"delete":{"query":"lid:\"urn:nasa:pds:context:instrument:test.versions\" AND version_id:1.2"}}' \
+    "http://localhost:8983/solr/data/update?commit=true" > /dev/null
+
+query_solr_handler "keyword" "CURRENTNAME" 0 "Older Versions Stay Hidden After Removing The Newest"
+check_status $? "Older versions should stay hidden until they are loaded again"
+
+"$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$VERSIONS_TEST_DATA"
+check_status $? "Failed to load the older product versions into Solr"
+
+sleep 2
+
+query_solr_handler "keyword" "CURRENTNAME" 1 "Older Version Current Again After Reload"
+check_status $? "Loading the older versions again should make the latest of them current"
+
+# ============================================================================
 # Final Summary
 # ============================================================================
 
@@ -554,5 +662,6 @@ log_success "✓ PDS4 Solr loading and verification"
 log_success "✓ PDS3 catalog processing and document generation"
 log_success "✓ PDS3 document validation"
 log_success "✓ PDS3 Solr loading and verification"
+log_success "✓ Superseded product versions hidden from search"
 
 cleanup_and_exit 0

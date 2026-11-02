@@ -83,10 +83,29 @@ This script automatically finds the unpacked distribution directories and sets a
 4. Loads documents into Solr
 5. Queries Solr to verify data was loaded
 
+### Test 3: Superseded Product Versions
+1. Loads two versions of one product (`src/test/resources/data/versions/`) and checks that both stay in the index while `/keyword` and `/archive-filter` return only the latest
+2. Loads a newer version (`src/test/resources/data/versions-newer/`) and checks that it supersedes the previous latest
+3. Loads the older versions again and checks that they are hidden again (loading drops the `superseded` flag, and `registry-mgr-solr` sets it after every load)
+4. Removes the newest version and checks that the older ones stay hidden until they are loaded again
+
+## Scale Test for Superseded Versions
+
+`versions-scale-test.sh` times `registry-mgr-solr -mark-superseded` on 180000 synthetic documents (60000 products with 3 versions each). It is a manual tool and is not part of the smoke tests or CI, because it takes a few minutes and its timings depend on the machine.
+
+Run it against an empty, throwaway Solr (for example the one the smoke tests install); it refuses to run when the `data` collection already holds documents, and removes its documents when it finishes:
+
+```bash
+# From the repository root
+export LEGACY_REGISTRY_HOME=$(echo $(pwd)/registry-mgr-legacy-*)
+test/versions-scale-test.sh
+```
+
 ## Test Data
 
 - **PDS4 Test Data:** `src/test/resources/data/pds4/`
 - **PDS3 Test Data:** `src/test/resources/data/pds3/`
+- **Product Version Test Data:** `src/test/resources/data/versions/` and `src/test/resources/data/versions-newer/`
 - **Expected Outputs:** `src/test/resources/data/expected/`
 
 ## Troubleshooting

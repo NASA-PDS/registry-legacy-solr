@@ -1,0 +1,19 @@
+<add>
+<!-- No lidvid field: the generateLIDVID update chain builds it from lid and version_id, as it does for harvested documents -->
+<doc>
+<field name="lid">urn:nasa:pds:context:instrument:test.versions</field>
+<field name="version_id">1.0</field>
+<field name="package_id">version-test</field>
+<field name="objectType">Product_Context</field>
+<field name="product_class">Product_Context</field>
+<field name="title">TEST VERSIONS INSTRUMENT FOR OLDNAME</field>
+</doc>
+<doc>
+<field name="lid">urn:nasa:pds:context:instrument:test.versions</field>
+<field name="version_id">1.1</field>
+<field name="package_id">version-test</field>
+<field name="objectType">Product_Context</field>
+<field name="product_class">Product_Context</field>
+<field name="title">Test Versions Instrument CURRENTNAME</field>
+</doc>
+</add>
