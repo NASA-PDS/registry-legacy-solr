@@ -209,7 +209,7 @@ To hide older versions before matching, each older version carries `superseded=1
 
 Removing the newest version of a product leaves its older versions flagged, so the product no longer appears in keyword search. To make an older version current again, load its document again; loading drops the flag.
 
-The `superseded` field is part of the `data` schema. A registry installed before it existed gets it from `upgrade`; until then the step prints a warning and older versions stay visible.
+The `superseded` field is part of the `data` schema. A registry installed before it existed gets it from `upgrade`; until then the step prints a warning and older versions stay visible. Any other failure while marking makes `registry-mgr-solr` exit with a non-zero status, so a scheduled load reports it.
 
 ## Check what is in Solr
 

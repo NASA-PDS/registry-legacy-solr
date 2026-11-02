@@ -55,7 +55,8 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# Documents for products start..start+n-1, with versions 1.0, 1.1 and 1.2
+# Documents for products start..start+n-1, with versions 1.0, 1.1 and 1.2. They carry no lidvid: the
+# generateLIDVID update chain builds it from lid and version_id, as it does for harvested documents.
 generate() {
     awk -v s="$1" -v n="$2" 'BEGIN {
         printf "["
