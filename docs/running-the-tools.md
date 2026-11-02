@@ -1,0 +1,282 @@
+# Running the Registry Legacy Solr Tools
+
+This guide covers how to install and operate the tools in this repository:
+
+| Tool | Command | Purpose |
+|---|---|---|
+| Registry Manager | `registry_legacy_installer_docker.sh` | Installs, backs up, upgrades and restores the Solr registry running in Docker |
+| Harvest | `harvest-solr` | Crawls PDS4 labels and generates Solr documents |
+| Catalog | `catalog-solr` | Reads PDS3 catalog objects and generates Solr documents |
+| Registry Manager | `registry-mgr-solr` | Loads Solr documents into the registry, and deletes them |
+
+## How the pieces fit together
+
+```
+PDS4 labels  --harvest-solr-->  Solr XML documents  --+
+                                                      +--registry-mgr-solr-->  Solr "data" collection
+PDS3 catalog --catalog-solr-->  Solr XML documents  --+
+```
+
+The installer creates a Solr instance (SolrCloud, in a Docker container) with two collections: `registry` and `data`. Harvest and Catalog never talk to Solr when generating documents. They write XML files to disk, and `registry-mgr-solr` loads those files. The generated files can be loaded into any number of Solr instances, and loaded again after a reinstall, without crawling the data again.
+
+## Prerequisites
+
+- OpenJDK 17 or higher, with `JAVA_HOME` set (or `java` on the `PATH`)
+- Docker, to run Solr
+- Maven 3.x, only to build from source
+
+## Getting the tools
+
+Download the `-bin.tar.gz` or `-bin.zip` of each tool from the [releases page](https://github.com/NASA-PDS/registry-legacy-solr/releases), or build from source:
+
+```bash
+mvn install -DskipTests
+```
+
+Unpack each distribution. Each one is self-contained, with `bin/`, `lib/` and configuration directories:
+
+```bash
+tar -xzf harvest-legacy/target/harvest-legacy-*-bin.tar.gz
+tar -xzf catalog-legacy/target/catalog-legacy-*-bin.tar.gz
+tar -xzf registry-mgr-legacy/target/registry-mgr-legacy-*-bin.tar.gz
+```
+
+The examples below use these variables for the unpacked directories. Set them to match your environment:
+
+```bash
+HARVEST_SOLR_HOME="$HOME/tools/harvest-legacy"
+CATALOG_SOLR_HOME="$HOME/tools/catalog-legacy"
+REGISTRY_MGR_SOLR_HOME="$HOME/tools/registry-mgr-legacy"
+```
+
+## Environment variables
+
+| Variable | Used by | Description |
+|---|---|---|
+| `DATA_HOME` | installer | Required. Directory that holds the Solr volume (`$DATA_HOME/solrdata`) |
+| `BACKUP_HOME` | installer | Directory for collection backups. Default: `$DATA_HOME/solr-backups` |
+| `PDS4_SOLR_DOC_HOME` | `harvest-solr` | Required. Existing directory where PDS4 Solr documents are written (under `solr-docs`). The lock file lives here |
+| `PDS3_SOLR_DOC_HOME` | `catalog-solr` | Required. Existing directory for the PDS3 lock file; use it as the output directory too |
+| `HARVEST_SOLR_LOG_FILE` | `harvest-solr` | If set, all output is appended to this file |
+| `HARVEST_SOLR_MARKER_FILE` | `harvest-solr` | If set, this file is created after a successful harvest so a scheduler can tell new documents are ready |
+| `LEGACY_REGISTRY_EMAIL_RECIPIENTS` | `harvest-solr` | If set (and `mail` is installed), a success or failure email with a log summary is sent when harvest ends |
+| `HOSTNAME_LABEL` | `harvest-solr` | Name used in the email subject instead of the hostname |
+| `JAVA_HOME` | all | Java installation to use |
+
+## Install Solr
+
+The installer builds a Docker image from the unpacked Registry Manager distribution, starts a container named `registry-legacy` on port 8983, and creates the two collections.
+
+```bash
+DATA_HOME="$HOME/registry-data"
+export DATA_HOME
+"$REGISTRY_MGR_SOLR_HOME/bin/registry_legacy_installer_docker.sh" install
+```
+
+Solr is then available at `http://localhost:8983/solr`. Index data is stored in `$DATA_HOME/solrdata`, outside the container. The Solr process in the container runs as user ID 8983, and the installer tries to give that user ownership of the data and backup directories. If your account is not allowed to do that, it prints a warning, and you need to set the ownership yourself.
+
+The installer commands are:
+
+| Command | Description |
+|---|---|
+| `install` | Build the image, start the container, create the `registry` and `data` collections |
+| `uninstall` | Delete both collections, stop and remove the container and image. Deletes the indexes |
+| `backup [LABEL]` | Back up both collections to `BACKUP_HOME` |
+| `upgrade` | Back up, replace the container with one built from the unpacked distribution, keep the indexes |
+| `restore [LABEL]` | Recreate the container and restore both collections from a backup |
+
+| Option | Description |
+|---|---|
+| `-n` | Do not prompt for confirmation (`uninstall`, `restore`) |
+| `-s` | Skip the automatic backup (`upgrade`) |
+
+## Generate PDS4 documents with Harvest
+
+Harvest reads a policy file that lists what to crawl, and a directory of search configuration that maps label content to Solr fields.
+
+```bash
+PDS4_SOLR_DOC_HOME="$HOME/registry-data/pds4"
+mkdir -p "$PDS4_SOLR_DOC_HOME"
+export PDS4_SOLR_DOC_HOME
+
+PDS4_DATA="/path/to/pds4/data"
+
+"$HARVEST_SOLR_HOME/bin/harvest-solr" \
+    -c "$HARVEST_SOLR_HOME/conf/harvest/examples/harvest-policy-master.xml" \
+    -C "$HARVEST_SOLR_HOME/conf/search/defaults" \
+    -o "$PDS4_SOLR_DOC_HOME" \
+    --target "$PDS4_DATA"
+```
+
+The Solr documents are written to `$PDS4_SOLR_DOC_HOME/solr-docs`.
+
+| Option | Description |
+|---|---|
+| `-c`, `--harvest-config` | Harvest policy file (required). Examples are in `conf/harvest/examples`; `harvest-policy-master.xml` covers all PDS4 product types |
+| `-C`, `--doc-config` | Directory of search configuration files (field mappings) |
+| `-o`, `--output-dir` | Directory for the generated Solr documents (default: current directory) |
+| `-t`, `--target` | One or more directories to crawl. Overrides the paths in the policy file |
+| `-e`, `--regexp` | File patterns to look for when crawling, in quotes |
+| `-D`, `--ignore-dir` | Directory name patterns to skip, in quotes |
+| `-pds3`, `--is-pds3-dir` | Treat the targets as PDS3 directories |
+| `-l`, `--log-file` | Log file (default: standard out) |
+| `-v`, `--verbose` | Log level: 0=Debug, 1=Info, 2=Warning, 3=Error (default 1) |
+| `-h`, `--help` | Show usage |
+| `-V`, `--version` | Show the version |
+
+Things to know:
+
+- Only one harvest can run at a time on a machine. The script creates `harvest-solr.lock` in `$PDS4_SOLR_DOC_HOME` and refuses to start if it exists. If a previous run was killed, remove the lock file.
+- Harvest runs with up to 8 GB of heap and takes roughly 0.6 seconds per label (about 10 minutes per 1000 labels).
+- The script sends output to `HARVEST_SOLR_LOG_FILE` when it is set. For long runs, run it in the background with output redirected:
+
+  ```bash
+  HARVEST_SOLR_LOG_FILE="$HOME/registry-data/harvest-logs/harvest_$(date +%Y%m%d%H%M%S).txt"
+  export HARVEST_SOLR_LOG_FILE
+  nohup "$HARVEST_SOLR_HOME/bin/harvest-solr" -c "$HARVEST_SOLR_HOME/conf/harvest/examples/harvest-policy-master.xml" -C "$HARVEST_SOLR_HOME/conf/search/defaults" -o "$PDS4_SOLR_DOC_HOME" --target "$PDS4_DATA" > /dev/null 2>&1 &
+  ```
+
+- The Solr URL the script uses for lookups is set at the top of `bin/harvest-solr` (`SOLR_URL`, default `http://localhost:8983/solr`).
+- Policy files for specific missions are in `conf/harvest`.
+
+## Generate PDS3 documents with Catalog
+
+```bash
+PDS3_SOLR_DOC_HOME="$HOME/registry-data/pds3"
+mkdir -p "$PDS3_SOLR_DOC_HOME"
+export PDS3_SOLR_DOC_HOME
+
+PDS3_DATA="/path/to/pds3/data"
+
+"$CATALOG_SOLR_HOME/bin/catalog-solr" \
+    --mode ingest \
+    --doc-config "$CATALOG_SOLR_HOME/search-conf/defaults/" \
+    --output-dir "$PDS3_SOLR_DOC_HOME" \
+    --target "$PDS3_DATA"
+```
+
+| Option | Description |
+|---|---|
+| `-m`, `--mode` | `ingest` to generate Solr documents; `compare` and `validate` are the other modes |
+| `-C`, `--doc-config` | Directory of document generation configuration files |
+| `-o`, `--output-dir` | Directory for the generated Solr documents (default: current directory) |
+| `-t`, `--target` | One or more catalog files or directories to process |
+| `-L`, `--local` | Do not descend into sub-directories of a target |
+| `-I`, `--include` | Paths to search for files referenced by pointer statements (default: the catalog file's directory) |
+| `-r`, `--report-file` | Report file (default: standard out) |
+| `-v`, `--verbose` | Report level: 1=info, 2=warning, 3=error (default 2) |
+
+As with Harvest, only one `catalog-solr` can run at a time (lock file `catalog-solr.lock` in `$PDS3_SOLR_DOC_HOME`).
+
+## Load documents into Solr
+
+`registry-mgr-solr` posts every `.xml` file in the directory it is given (searched recursively) to the `data` collection, and commits.
+
+```bash
+"$REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr" "$PDS4_SOLR_DOC_HOME/solr-docs"
+"$REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr" "$PDS3_SOLR_DOC_HOME"
+```
+
+Loading takes about 11 seconds per 1000 products. A document with the same identifier (`lid::version_id`) as one already indexed replaces it, so loading the same documents twice is safe.
+
+| Option | Description |
+|---|---|
+| `-host`, `-port`, `-proto` | Solr server (default `localhost`, `8983`, `http`) |
+| `-delete-pkg PACKAGE_ID` | Delete all documents of one harvest package |
+| `-delete-all` | Delete all documents from every collection (`registry` and `data`) |
+
+Without a directory argument the tool looks in `$HOME/registry-data/solr-docs`.
+
+Individual documents can be removed with the Solr update API, for example one PDS4 product by `lid`:
+
+```bash
+LID="urn:nasa:pds:context:instrument_host:spacecraft.a17s"
+curl -X POST -H 'Content-Type: application/json' --data-binary \
+  '{"delete":{"query":"lid:\"'$LID'\""}}' \
+  'http://localhost:8983/solr/data/update?commit=true'
+```
+
+## Check what is in Solr
+
+```bash
+SOLR_URL="http://localhost:8983/solr"
+curl -s "$SOLR_URL/data/select?q=*:*&rows=0&wt=json"
+curl -s "$SOLR_URL/admin/cores?action=STATUS"
+```
+
+`numFound` in the first response is the number of indexed documents. The search handler used by keyword search is `/keyword`, for example:
+
+```bash
+curl -s "$SOLR_URL/data/keyword?q=mars&rows=5&wt=json"
+```
+
+## Back up, upgrade and restore
+
+### Back up
+
+```bash
+BACKUP_HOME="$HOME/registry-backups"
+export BACKUP_HOME
+"$REGISTRY_MGR_SOLR_HOME/bin/registry_legacy_installer_docker.sh" backup before-upgrade
+```
+
+This copies both collections, while Solr keeps serving requests, to `$BACKUP_HOME/registry-before-upgrade` and `$BACKUP_HOME/data-before-upgrade`. The label is optional (default: a timestamp) and can only be used once. Keep `BACKUP_HOME` outside the Solr volume, and copy the backups off the machine for protection against disk loss.
+
+### Upgrade
+
+An upgrade installs a new release of the tools, including the Solr version and configuration in its Docker image, while keeping the existing indexes:
+
+```bash
+"$REGISTRY_MGR_SOLR_HOME/bin/registry_legacy_installer_docker.sh" upgrade
+```
+
+It backs up both collections, builds the new image, stops Solr, replaces the container (reusing the Solr volume), uploads the configuration from the new image to ZooKeeper, and reloads the collections. Use `-s` to skip the backup when you have a copy already.
+
+Whether the indexes can be kept depends on the change:
+
+| Change | Indexes kept? |
+|---|---|
+| `solrconfig.xml` (request handlers, boosts, caches) | Yes |
+| Harvest policy or search configuration | Yes. Documents already loaded gain new fields only when they are generated and loaded again |
+| Solr patch or minor upgrade (for example 9.8 to 9.10) | Yes |
+| Solr upgrade of one major version | Yes. Read the Solr release notes first |
+| Schema change to a field type, analyzer, `indexed`, `stored`, `docValues` or `multiValued` | No. Reinstall and load the documents again |
+| Solr upgrade that skips a major version | No. Reinstall and load the documents again |
+
+To reinstall and load again, run `uninstall`, then `install`, then `registry-mgr-solr` on the saved Solr document directories. Keep the generated documents until an upgrade has been verified, so no new harvest is needed.
+
+### Restore
+
+Restore recreates the container and the collections from a backup. Use it when the Solr volume has been deleted or damaged, or to go back to an earlier release.
+
+```bash
+LABEL="before-upgrade"
+"$REGISTRY_MGR_SOLR_HOME/bin/registry_legacy_installer_docker.sh" restore $LABEL
+```
+
+Without a label the latest backup is used. If the collections still exist, run `uninstall` first (this deletes the current indexes). The restored collections use the Solr configuration from the unpacked distribution, so restore with the release that took the backup, then `upgrade` to move to a newer one.
+
+Documents loaded after the backup was taken are not part of the restore; load them again from the saved Solr document directories.
+
+## Typical workflows
+
+**First load**: install Solr, run Harvest (and Catalog, if PDS3 data is needed), load the documents with `registry-mgr-solr`, and check the document count.
+
+**Adding data**: run Harvest on the new data into the same output directory, load `solr-docs`.
+
+**Adding or changing searchable attributes**: see [Adding New Attributes to Search](../README.md#adding-new-attributes-to-search). A schema change needs a reinstall and reload; a harvest or search configuration change needs the documents to be generated and loaded again.
+
+**Staging then production**: run Harvest once on a staging machine and load the documents there to verify the result, then load the same Solr document directory into each production instance with `registry-mgr-solr -host`.
+
+## Troubleshooting
+
+| Symptom | Cause and fix |
+|---|---|
+| `Another instance of harvest-solr is already running` | A lock file exists in `$PDS4_SOLR_DOC_HOME`. If no harvest is running, delete `harvest-solr.lock` (`catalog-solr.lock` in `$PDS3_SOLR_DOC_HOME` for Catalog) |
+| `PDS4_SOLR_DOC_HOME environment variable is not set` | Create the directory and export the variable before running Harvest (`PDS3_SOLR_DOC_HOME` for Catalog) |
+| Installer says `DATA_HOME environment variable must be set` | Export `DATA_HOME` before running the installer |
+| `Could not start Solr` | Check `docker ps -a` and `docker logs registry-legacy`; check nothing else uses port 8983 |
+| Installer warns it could not `chown` | The data or backup directory is not writable by user ID 8983 in the container. Set the ownership manually |
+| `backup` or `upgrade` reports `/backups` is not writable | The container was created without the backup directory mounted, or the backup directory has the wrong ownership. Take a copy of `$DATA_HOME/solrdata` while Solr is stopped, then run `upgrade -s`; the new container has the mount |
+| `restore` reports a collection already exists | Run `uninstall` first, or restore on a machine with no indexes |
+| Installer log | Each run writes `registry_installer_docker-log-<timestamp>.txt` to the home directory of the user running it |

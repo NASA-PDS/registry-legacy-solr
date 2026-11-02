@@ -248,8 +248,13 @@ bin/harvest-solr -c conf/harvest/examples/harvest-policy-master.xml \
 Scripts in `registry-mgr-legacy/src/main/resources/bin/`:
 
 ```bash
-# Install Solr with Docker
+# Install Solr with Docker (requires DATA_HOME; optional BACKUP_HOME)
 bin/registry_legacy_installer_docker.sh install
+
+# Back up, upgrade (keeps indexes) and restore the Docker install
+bin/registry_legacy_installer_docker.sh backup [LABEL]
+bin/registry_legacy_installer_docker.sh upgrade
+bin/registry_legacy_installer_docker.sh restore [LABEL]
 
 # Install Solr standalone
 bin/registry_legacy_installer_standalone.sh

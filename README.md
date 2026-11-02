@@ -20,6 +20,8 @@ The Registry Manager is responsible for managing and interacting with the PDS So
 Similar to the Harvest Tool, it leverages the [pds3-product-tools library](https://github.com/NASA-PDS/pds3-product-tools) to read PDS3 catalog objects, and create Solr Documents to write to Solr.
 
 # Documentation
+[Running the tools](docs/running-the-tools.md) explains how to install Solr, generate Solr documents with Harvest and Catalog, load them with Registry Manager, and back up, upgrade and restore the registry.
+
 The documentation for the latest release, including release notes, installation and operation of the software are online at https://nasa-pds-incubator.github.io/registry-legacy-solr/.
 
 If you would like to get the latest documentation, including any updates since the last release, you can execute the "mvn site:run" command and view the documentation locally at http://localhost:8080.
@@ -52,4 +54,4 @@ Create a new tag `release/x.x.x` and the [stable deployment](https://github.com/
 2. Update the [Master Config file](https://github.com/NASA-PDS/registry-legacy-solr/blob/main/harvest-legacy/src/main/resources/conf/harvest/examples/harvest-policy-master.xml) for any of the remaining products that you would like to parse these attributes from.
 3. Update the [Search Core config files](https://github.com/NASA-PDS/registry-legacy-solr/tree/main/harvest-legacy/src/main/resources/conf/search/defaults/pds/pds4) to map what was parse by harvest into the Solr fields.
 4. Update the [Solr schema](https://github.com/NASA-PDS/registry-legacy-solr/blob/main/registry-mgr-legacy/src/main/resources/collections/data/managed-schema.xml) to include these new search fields.
-5. NOTE: This will require a redeployment and reindex of Solr to support the new schema.
+5. NOTE: A schema change requires a reinstall of Solr and a reload of the data. Configuration-only changes (`solrconfig.xml`) can be applied with the `upgrade` command and keep the existing indexes. See [Back up, upgrade and restore](docs/running-the-tools.md#back-up-upgrade-and-restore).
