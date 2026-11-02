@@ -1,8 +1,20 @@
 # Changelog
 
-## [release/5.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/5.3.0) (2026-10-14)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-02)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.2.0...release/5.3.0)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.3.0...«unknown»)
+
+**Requirements:**
+
+- As a node operator, I want to upgrade and restore the Legacy Solr Registry without reloading all data [\#296](https://github.com/NASA-PDS/registry-legacy-solr/issues/296)
+
+**Defects:**
+
+- Keyword search handler does not search the text field, giving different results than archive-filter [\#293](https://github.com/NASA-PDS/registry-legacy-solr/issues/293) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
+
+## [v5.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.3.0) (2026-10-15)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.2.0...v5.3.0)
 
 **Requirements:**
 
