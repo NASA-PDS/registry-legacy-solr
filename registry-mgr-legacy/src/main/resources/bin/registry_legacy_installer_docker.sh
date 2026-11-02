@@ -95,7 +95,9 @@ else
 fi
 
 print_status() {
-  if [ $1 -eq 0 ]; then
+  local exit_code=$1
+
+  if [[ $exit_code -eq 0 ]]; then
     echo "SUCCESS"
   else
     echo "FAILED"
@@ -126,11 +128,9 @@ set_solr_ownership() {
     if command -v chown > /dev/null 2>&1; then
         # Detect if we're in CI and sudo is available
         CHOWN_CMD="chown"
-        if [ -n "$CI" ] || [ -n "$GITHUB_ACTIONS" ]; then
-            if command -v sudo > /dev/null 2>&1; then
-                CHOWN_CMD="sudo chown"
-                echo "  Detected CI environment, using sudo for ownership change" | tee -a $LOG
-            fi
+        if [[ -n "$CI" || -n "$GITHUB_ACTIONS" ]] && command -v sudo > /dev/null 2>&1; then
+            CHOWN_CMD="sudo chown"
+            echo "  Detected CI environment, using sudo for ownership change" | tee -a $LOG
         fi
 
         # Attempt to change ownership to Solr user (8983)
@@ -252,11 +252,11 @@ remove_docker_volumes() {
 ensure_registry_running() {
     local running
     running=$(docker inspect -f '{{.State.Running}}' ${DOCKER_IMAGE} 2>/dev/null)
-    if [ -z "$running" ]; then
-        echo "ERROR: Docker container '${DOCKER_IMAGE}' does not exist. Use 'install' or 'restore'."
+    if [[ -z "$running" ]]; then
+        echo "ERROR: Docker container '${DOCKER_IMAGE}' does not exist. Use 'install' or 'restore'." >&2
         exit 1
     fi
-    if [ "$running" != "true" ]; then
+    if [[ "$running" != "true" ]]; then
         echo "Starting existing container '${DOCKER_IMAGE}'" | tee -a $LOG
         docker start ${DOCKER_IMAGE} >>$LOG 2>&1
         print_status $?
@@ -266,9 +266,9 @@ ensure_registry_running() {
 
 check_backup_mount() {
     if ! docker exec --user=solr ${DOCKER_IMAGE} test -w ${SOLR_BACKUP_MOUNT} >>$LOG 2>&1; then
-        echo "ERROR: ${SOLR_BACKUP_MOUNT} is not writable by Solr in container '${DOCKER_IMAGE}'."
-        echo "       The container was created without the backup mount, or $BACKUP_HOME has the wrong ownership."
-        echo "       Take a cold copy of $DATA_HOME/$DOCKER_VOLUME and run '-s upgrade' to continue without a backup."
+        echo "ERROR: ${SOLR_BACKUP_MOUNT} is not writable by Solr in container '${DOCKER_IMAGE}'." >&2
+        echo "       The container was created without the backup mount, or $BACKUP_HOME has the wrong ownership." >&2
+        echo "       Take a cold copy of $DATA_HOME/$DOCKER_VOLUME and run '-s upgrade' to continue without a backup." >&2
         exit 1
     fi
 }
@@ -280,8 +280,8 @@ wait_for_collections() {
 
         echo "Waiting for collection (${collection}) to become available." | tee -a $LOG
         until curl --output /dev/null --max-time 10 --silent --fail "${SOLR_URL}/${collection}/select?q=*:*&rows=0"; do
-            if [ ${attempt_counter} -eq ${max_attempts} ]; then
-                echo "Collection (${collection}) did not become available."
+            if [[ ${attempt_counter} -eq ${max_attempts} ]]; then
+                echo "Collection (${collection}) did not become available." >&2
                 exit 1
             fi
             attempt_counter=$(($attempt_counter+1))
@@ -292,18 +292,18 @@ wait_for_collections() {
 
 # Wait for an async Collections API request (BACKUP, RESTORE) to finish.
 wait_for_async() {
-    local requestId=$1
+    local request_id=$1
     local attempt_counter=0
     local max_attempts=1440
     local response state
 
-    while [ ${attempt_counter} -lt ${max_attempts} ]; do
-        response=$(curl --silent --max-time 30 "${SOLR_URL}/admin/collections?action=REQUESTSTATUS&requestid=${requestId}&wt=json" | tr -d ' \n')
+    while [[ ${attempt_counter} -lt ${max_attempts} ]]; do
+        response=$(curl --silent --max-time 30 "${SOLR_URL}/admin/collections?action=REQUESTSTATUS&requestid=${request_id}&wt=json" | tr -d ' \n')
         state=$(echo "$response" | sed -n 's/.*"state":"\([a-z]*\)".*/\1/p')
-        if [ "$state" == "completed" ]; then
-            curl --silent --max-time 30 "${SOLR_URL}/admin/collections?action=DELETESTATUS&requestid=${requestId}" >>$LOG 2>&1
+        if [[ "$state" == "completed" ]]; then
+            curl --silent --max-time 30 "${SOLR_URL}/admin/collections?action=DELETESTATUS&requestid=${request_id}" >>$LOG 2>&1
             return 0
-        elif [ "$state" == "failed" ]; then
+        elif [[ "$state" == "failed" ]]; then
             echo "$response" >>$LOG
             return 1
         fi
@@ -365,8 +365,8 @@ check_backup_exists() {
     local label=$1
 
     for collection in ${COLLECTIONS}; do
-        if [ ! -d "${BACKUP_HOME}/${collection}-${label}" ]; then
-            echo "ERROR: Backup ${BACKUP_HOME}/${collection}-${label} not found."
+        if [[ ! -d "${BACKUP_HOME}/${collection}-${label}" ]]; then
+            echo "ERROR: Backup ${BACKUP_HOME}/${collection}-${label} not found." >&2
             exit 1
         fi
     done
@@ -378,17 +378,19 @@ ensure_collections_absent() {
 
     for collection in ${COLLECTIONS}; do
         if [[ "$existing" == *"\"${collection}\""* ]]; then
-            echo "ERROR: Collection (${collection}) already exists. Run 'uninstall' to remove the current indexes before restoring."
+            echo "ERROR: Collection (${collection}) already exists. Run 'uninstall' to remove the current indexes before restoring." >&2
             exit 1
         fi
     done
 }
 
 confirm_restore() {
-    if [ "$PROMPT" = true ]; then
+    local label=$1
+
+    if [[ "$PROMPT" == true ]]; then
         while true; do
             echo ""
-            read -p "Restore backup '$1' into a new Registry container, replacing any existing one? (y/n) " yn
+            read -p "Restore backup '$label' into a new Registry container, replacing any existing one? (y/n) " yn
             case $yn in
                 [Yy]* ) break;;
                 [Nn]* ) exit 0;;
@@ -431,7 +433,7 @@ elif [[ $COMMAND == "upgrade" ]]; then
   BACKUP_LABEL=${BACKUP_LABEL:-$(date '+%Y%m%d_%H%M%S')}
   echo "Upgrading..."
   ensure_registry_running
-  if [ "$SKIP_BACKUP" = false ]; then
+  if [[ "$SKIP_BACKUP" == false ]]; then
     check_backup_mount
     backup_solr_collections $BACKUP_LABEL
   fi
@@ -448,8 +450,8 @@ elif [[ $COMMAND == "upgrade" ]]; then
 
 elif [[ $COMMAND == "restore" ]]; then
   BACKUP_LABEL=${BACKUP_LABEL:-$(latest_backup_label)}
-  if [ -z "$BACKUP_LABEL" ]; then
-    echo "ERROR: No backups found in $BACKUP_HOME"
+  if [[ -z "$BACKUP_LABEL" ]]; then
+    echo "ERROR: No backups found in $BACKUP_HOME" >&2
     exit 1
   fi
   check_backup_exists $BACKUP_LABEL
