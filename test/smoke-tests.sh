@@ -593,7 +593,7 @@ for handler in keyword archive-filter; do
     query_solr_handler "$handler" "OLDNAME" 0 "Older Version Hidden ($handler)"
     check_status $? "$handler returned a superseded product version"
 
-    query_solr_handler "$handler" "Current" 1 "Latest Version Found ($handler)"
+    query_solr_handler "$handler" "CURRENTNAME" 1 "Latest Version Found ($handler)"
     check_status $? "$handler did not return the latest product version"
 done
 
@@ -610,10 +610,10 @@ query_solr_handler "all" "$VERSIONS_LID" 3 "Newer Version Kept In Index"
 check_status $? "All three product versions should be in the index"
 
 for handler in keyword archive-filter; do
-    query_solr_handler "$handler" "Current" 0 "Previous Latest Hidden ($handler)"
+    query_solr_handler "$handler" "CURRENTNAME" 0 "Previous Latest Hidden ($handler)"
     check_status $? "$handler returned a version that a newer version supersedes"
 
-    query_solr_handler "$handler" "Newest" 1 "Newest Version Found ($handler)"
+    query_solr_handler "$handler" "NEWESTNAME" 1 "Newest Version Found ($handler)"
     check_status $? "$handler did not return the newest product version"
 done
 
@@ -628,7 +628,7 @@ for handler in keyword archive-filter; do
     query_solr_handler "$handler" "OLDNAME" 0 "Oldest Version Hidden After Reload ($handler)"
     check_status $? "$handler returned a superseded product version after a reload"
 
-    query_solr_handler "$handler" "Newest" 1 "Newest Version Found After Reload ($handler)"
+    query_solr_handler "$handler" "NEWESTNAME" 1 "Newest Version Found After Reload ($handler)"
     check_status $? "$handler did not return the newest product version after a reload"
 done
 
@@ -638,7 +638,7 @@ curl -s -X POST -H 'Content-Type: application/json' \
     --data-binary '{"delete":{"query":"lid:\"urn:nasa:pds:context:instrument:test.versions\" AND version_id:1.2"}}' \
     "http://localhost:8983/solr/data/update?commit=true" > /dev/null
 
-query_solr_handler "keyword" "Current" 0 "Older Versions Stay Hidden After Removing The Newest"
+query_solr_handler "keyword" "CURRENTNAME" 0 "Older Versions Stay Hidden After Removing The Newest"
 check_status $? "Older versions should stay hidden until they are loaded again"
 
 "$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$VERSIONS_TEST_DATA"
@@ -646,7 +646,7 @@ check_status $? "Failed to load the older product versions into Solr"
 
 sleep 2
 
-query_solr_handler "keyword" "Current" 1 "Older Version Current Again After Reload"
+query_solr_handler "keyword" "CURRENTNAME" 1 "Older Version Current Again After Reload"
 check_status $? "Loading the older versions again should make the latest of them current"
 
 # ============================================================================

@@ -6,6 +6,6 @@
 <field name="package_id">version-test-newer</field>
 <field name="objectType">Product_Context</field>
 <field name="product_class">Product_Context</field>
-<field name="title">Test Versions Instrument Newest Name</field>
+<field name="title">Test Versions Instrument NEWESTNAME</field>
 </doc>
 </add>
