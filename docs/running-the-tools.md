@@ -211,6 +211,38 @@ Removing the newest version of a product leaves its older versions flagged, so t
 
 The `superseded` field is part of the `data` schema. A registry installed before it existed gets it from `upgrade`; until then the step prints a warning and older versions stay visible. Any other failure while marking makes `registry-mgr-solr` exit with a non-zero status, so a scheduled load reports it.
 
+## Reload everything
+
+`bin/reload_all.sh` in the Harvest distribution regenerates and reloads all PDS4 and PDS3 documents.
+
+```bash
+"$HARVEST_SOLR_HOME/bin/reload_all.sh" staging
+```
+
+| Argument | Description |
+|---|---|
+| `staging` | Run `harvest-solr` and `catalog-solr`, then load the historical PDS3 documents, the PDS4 documents and the PDS3 documents into the Solr registry on this machine |
+| `prod` | Load the documents that were generated on staging; nothing is harvested |
+
+The script reads its settings from environment variables:
+
+| Variable | Needed for | Description |
+|---|---|---|
+| `REGISTRY_MGR_SOLR_HOME` | both | Registry Manager installation directory |
+| `PDS4_SOLR_DOC_HOME` | both | Existing directory for the PDS4 documents; the reload lock file lives here |
+| `PDS3_SOLR_DOC_HOME` | both | Existing directory for the PDS3 documents (`solr-docs` is created inside) |
+| `PDS3_HISTORY` | both | Directory with the historical PDS3 documents |
+| `HARVEST_SOLR_HOME`, `HARVEST_SOLR_CONF_HOME` | staging | Harvest installation and the directory with `harvest-policy-reload-all.xml` |
+| `CATALOG_SOLR_HOME`, `PDS3_DATA_PATH` | staging | Catalog installation and the PDS3 data directory |
+| `REGISTRY_LOG_DIR` | optional | Parent of `harvest-logs` and `catalog-logs` (default `$HOME/registry-logs`) |
+| `SOLR_HOST`, `SOLR_PORT` | optional | Solr registry to load (default `localhost` and `8983`) |
+
+The script stops at the first step that fails and exits non-zero, so a failed harvest never leads to loading old or partial documents. New PDS3 documents are generated in `solr-docs_new` and replace `solr-docs` only when `catalog-solr` succeeds; the previous ones are kept as `solr-docs_pre<timestamp>` and can be deleted when no longer needed. Only one reload can run at a time (lock directory `reload_all.lock` in `$PDS4_SOLR_DOC_HOME`; remove it if a run was killed).
+
+Between the delete of the legacy context products and the end of the PDS4 load, the PDS4 context products are missing from search results. Run a reload when that is acceptable, or reload on a Solr that is not serving traffic.
+
+The script is tested with stubbed tools by `test/reload-all-tests.sh`.
+
 ## Check what is in Solr
 
 ```bash
