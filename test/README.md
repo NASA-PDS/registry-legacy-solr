@@ -89,6 +89,12 @@ This script automatically finds the unpacked distribution directories and sets a
 3. Loads the older versions again and checks that they are hidden again (loading drops the `superseded` flag, and `registry-mgr-solr` sets it after every load)
 4. Removes the newest version and checks that the older ones stay hidden until they are loaded again
 
+### Test 4: Context Product Names, Types And Aliases
+The PDS4 harvest in Test 1 runs with a small context products file (`src/test/resources/data/context/context_products_test.json`), so no network access is needed.
+1. Checks that an alias that exists only in that file finds every product that references the context product, through `/keyword` and `/archive-filter`
+2. Checks that a bundle carries the context product's name, its other name and its types instead of the label's values
+3. Checks that the target facets are still built, from the canonical name when it is in the hierarchy and from an alternate name when it is not
+
 ## Scale Test for Superseded Versions
 
 `versions-scale-test.sh` times `registry-mgr-solr -mark-superseded` on 180000 synthetic documents (60000 products with 3 versions each). It is a manual tool and is not part of the smoke tests or CI, because it takes a few minutes and its timings depend on the machine.

@@ -13,6 +13,8 @@ import org.apache.commons.io.FileUtils;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import gov.nasa.pds.harvest.search.constants.Constants;
+import gov.nasa.pds.harvest.search.context.ContextEnricher;
+import gov.nasa.pds.harvest.search.context.ContextProducts;
 import gov.nasa.pds.harvest.search.oodt.metadata.Metadata;
 import gov.nasa.pds.harvest.search.stats.HarvestSolrStats;
 import gov.nasa.pds.harvest.search.util.DocWriter;
@@ -106,6 +108,12 @@ public class SearchDocGenerator {
 			ExtendedExtrinsicObject extendedExtrinsic = new ExtendedExtrinsicObject(extrinsic);
 			Map<String, List<String>> fieldMap = new HashMap<String, List<String>>();
 			fieldMap.putAll(setFieldValues(extendedExtrinsic, config, metadata));
+
+				// Use the names and types of the registered context products, and record their aliases
+				ContextProducts contextProducts = ContextProducts.getInstance();
+				if (contextProducts != null) {
+					ContextEnricher.apply(contextProducts, fieldMap, typeMap);
+				}
 			
 			// Add package ID
 			HarvestSolrStats.packageId = TransactionManager.getInstance().getTransactionId();

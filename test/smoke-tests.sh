@@ -227,6 +227,40 @@ query_solr_handler() {
     return 0
 }
 
+# Print the number of documents a handler returns for a query and an optional filter query
+solr_count() {
+    local handler=$1
+    local query=$2
+    local filter=${3:-}
+
+    local args=(--data-urlencode "q=${query}" --data-urlencode "wt=json")
+    if [ -n "$filter" ]; then
+        args+=(--data-urlencode "fq=${filter}")
+    fi
+
+    curl -s -G "http://localhost:8983/solr/data/${handler}" "${args[@]}" \
+        | grep -o '"numFound":[0-9]*' | head -1 | cut -d':' -f2
+}
+
+# Succeed if the count is a positive number (and, when given, equal to the expected count)
+check_count() {
+    local test_name=$1
+    local actual=$2
+    local expected=${3:-}
+
+    if [ -z "$actual" ] || [ "$actual" -eq 0 ]; then
+        log_error "$test_name: Expected at least one document, found '${actual}'"
+        return 1
+    fi
+    if [ -n "$expected" ] && [ "$actual" -ne "$expected" ]; then
+        log_error "$test_name: Expected $expected documents, found $actual"
+        return 1
+    fi
+
+    log_success "$test_name: Found $actual documents"
+    return 0
+}
+
 # Find generated Solr doc files (handles variable filenames)
 find_solr_doc() {
     local output_dir=$1
@@ -463,6 +497,7 @@ log_info "Running PDS4 harvest..."
     -C "$LEGACY_HARVEST_HOME/conf/search/defaults" \
     -o "$PDS4_OUTDIR" \
     --verbose 0 \
+    --context-products "$PARENTDIR/src/test/resources/data/context/context_products_test.json" \
     --target "$PDS4_TEST_DATA"
 
 check_status $? "PDS4 harvest failed"
@@ -650,6 +685,57 @@ query_solr_handler "keyword" "CURRENTNAME" 1 "Older Version Current Again After 
 check_status $? "Loading the older versions again should make the latest of them current"
 
 # ============================================================================
+# TEST 4: Context Product Names, Types And Aliases
+# ============================================================================
+
+log_info "==============================================="
+log_info "TEST 4: Context Product Names, Types And Aliases"
+log_info "==============================================="
+
+# The PDS4 harvest in TEST 1 ran with a small context products file
+# (src/test/resources/data/context). Search must find a product by an alias of the context
+# product it references, names and types must be the context product's, and the facets must
+# still be built from the names.
+MOON_REF='target_ref:"urn:nasa:pds:context:target:satellite.earth.moon"'
+DUST_REF='target_ref:"urn:nasa:pds:context:target:dust.dust"'
+
+# An alias that exists only in the context products file finds every product that references the
+# target, and the target's own context product document, which carries its aliases too
+MOON_LID='lid:"urn:nasa:pds:context:target:satellite.earth.moon"'
+moon_refs=$(solr_count keyword "$MOON_REF OR $MOON_LID")
+moon_aliases=$(solr_count keyword "SMOKEMOONALIAS")
+check_count "Alias Finds Referencing Products (keyword)" "$moon_aliases" "$moon_refs"
+check_status $? "keyword did not find every product that references the Moon target by its alias"
+
+check_count "Alias Finds Referencing Products (archive-filter)" "$(solr_count archive-filter SMOKEMOONALIAS)"
+check_status $? "archive-filter did not find products by a context product alias"
+
+for alias in SMOKEDUSTALIAS SMOKEMISSIONALIAS SMOKEINSTRUMENTALIAS SMOKEHOSTALIAS; do
+    check_count "Alias $alias (keyword)" "$(solr_count keyword "$alias")"
+    check_status $? "keyword did not find products by the alias $alias"
+done
+
+# Names and types are the context product's; the label spelling is kept as an alternate name
+bundle=$(curl -s -G "http://localhost:8983/solr/data/all" --data-urlencode 'q=lid:"urn:nasa:pds:ch1_m3"' \
+    --data-urlencode "fl=investigation_name,investigation_name_alternate,instrument_type,instrument_host_type" \
+    --data-urlencode "wt=json")
+for expected in "Chandrayaan-1 Lunar Orbiter Mission" "CHANDRAYAAN-1" "Spectrometer" "Spacecraft"; do
+    if ! echo "$bundle" | grep -q "$expected"; then
+        log_error "Context Product Values: '$expected' is missing from the ch1_m3 bundle: $bundle"
+        cleanup_and_exit 1
+    fi
+done
+log_success "Context Product Values: ch1_m3 has the context product name, alternate name and types"
+
+# Facets are still built: from the canonical name when it is in the hierarchy, and from an alternate
+# name when it is not
+check_count "Moon Target Facet" "$(solr_count all "$MOON_REF" 'facet_target:"1,satellite"')" "$(solr_count all "$MOON_REF")"
+check_status $? "Products that reference the Moon target lost their facet_target value"
+
+check_count "Dust Target Facet Through An Alternate Name" "$(solr_count all "$DUST_REF" 'facet_target:"1,other"')" "$(solr_count all "$DUST_REF")"
+check_status $? "Products that reference the Dust target lost their facet_target value"
+
+# ============================================================================
 # Final Summary
 # ============================================================================
 
@@ -663,5 +749,6 @@ log_success "✓ PDS3 catalog processing and document generation"
 log_success "✓ PDS3 document validation"
 log_success "✓ PDS3 Solr loading and verification"
 log_success "✓ Superseded product versions hidden from search"
+log_success "✓ Context product names, types and aliases"
 
 cleanup_and_exit 0
