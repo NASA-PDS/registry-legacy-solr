@@ -622,7 +622,9 @@ public class HarvestSearchLauncher {
 			
 			// Init resources
 			SolrManager.init(searchUrl);
-			initContextProducts();
+			if (!isPDS3Directory) {
+				initContextProducts();
+			}
 			
 			Policy policy = PolicyReader.unmarshall(this.policy);
 			Policy globalPolicy = PolicyReader.unmarshall(this.globalPolicy);
