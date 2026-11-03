@@ -216,8 +216,10 @@ public class HarvestSearchLauncher {
 				setTargets((List<String>) o.getValuesList());
 				} else if (o.getOpt().equals(Flag.CONTEXT_PRODUCTS.getShortName())) {
 					contextProductsFile = new File(o.getValue());
-					if (!contextProductsFile.isFile()) {
-						throw new InvalidOptionException("Context products file does not exist: " + contextProductsFile);
+if (!contextProductsFile.isFile()) {
+					failed = true;
+					throw new InvalidOptionException("Context products file does not exist: " + contextProductsFile);
+				}
 					}
 				} else if (o.getOpt().equals(Flag.NO_CONTEXT_PRODUCTS.getShortName())) {
 					useContextProducts = false;
@@ -622,9 +624,12 @@ public class HarvestSearchLauncher {
 			
 			// Init resources
 			SolrManager.init(searchUrl);
-			if (!isPDS3Directory) {
-				initContextProducts();
-			}
+			if (!isPDS3Directory) {
+
+				initContextProducts();
+
+			}
+
 			
 			Policy policy = PolicyReader.unmarshall(this.policy);
 			Policy globalPolicy = PolicyReader.unmarshall(this.globalPolicy);
