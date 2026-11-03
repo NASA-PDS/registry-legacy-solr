@@ -13,6 +13,10 @@
 - Keyword search handler does not search the text field, giving different results than archive-filter [\#293](https://github.com/NASA-PDS/registry-legacy-solr/issues/293) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 - archive-filter collapse returns older version when text query only matches older version of same LID [\#261](https://github.com/NASA-PDS/registry-legacy-solr/issues/261) [[s.medium](https://github.com/NASA-PDS/registry-legacy-solr/labels/s.medium)]
 
+**Other closed issues:**
+
+- reload\_all.sh does not stop when a step fails and hardcodes site paths [\#303](https://github.com/NASA-PDS/registry-legacy-solr/issues/303)
+
 ## [v5.3.0](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.3.0) (2026-10-15)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.2.0...v5.3.0)
