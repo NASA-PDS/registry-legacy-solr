@@ -30,6 +30,13 @@
    <!-- 1 when a newer version of the same lid exists. A docValues-only field so it can be updated in place; a
         missing value means the latest version. Maintained by registry-mgr-solr -mark-superseded. -->
    <field name="superseded" type="pint" indexed="false" stored="false" multiValued="false" docValues="true" />
+   <!-- Other names of the context products a document references: the spelling in the label, the name
+        of the context product and all of its aliases. Set by harvest; searched and boosted like the
+        *_name fields. -->
+   <field name="target_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <field name="investigation_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <field name="instrument_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <field name="instrument_host_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="abstract_text" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="agency_name" type="lowercase" indexed="true" stored="true" multiValued="true" />
    <field name="agency_ref" type="string" indexed="true" stored="true" multiValued="true" />
@@ -37,7 +44,8 @@
    <field name="airborne_name" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_type" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_description" type="text_general" indexed="true" stored="true" multiValued="true" />
-   <field name="alternate_title" type="text_general" indexed="false" stored="true" multiValued="true" />
+   <field name="alternate_id" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <field name="alternate_title" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="archive_status" type="lowercase" indexed="true" stored="true" multiValued="true" />
 
    <!-- Product_Attribute_Definition fields -->
@@ -314,6 +322,10 @@
   <copyField source="target_name" dest="text" />
   <copyField source="telescope_description" dest="text" />
   <copyField source="title" dest="text" />
+  <copyField source="target_name_alternate" dest="text" />
+  <copyField source="investigation_name_alternate" dest="text" />
+  <copyField source="instrument_name_alternate" dest="text" />
+  <copyField source="instrument_host_name_alternate" dest="text" />
   
   <!-- Now a few indexed aliases to support PDS Search Protocol -->
   <!-- Agency -->

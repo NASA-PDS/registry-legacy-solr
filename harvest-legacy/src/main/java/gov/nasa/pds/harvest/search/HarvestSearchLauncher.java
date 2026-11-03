@@ -27,6 +27,9 @@ import org.apache.commons.io.FileUtils;
 import gov.nasa.pds.harvest.search.commandline.options.Flag;
 import gov.nasa.pds.harvest.search.commandline.options.InvalidOptionException;
 import gov.nasa.pds.harvest.search.constants.Constants;
+import gov.nasa.pds.harvest.search.context.ContextProducts;
+import gov.nasa.pds.harvest.search.context.ContextProductsException;
+import gov.nasa.pds.harvest.search.context.RegistryApiClient;
 import gov.nasa.pds.harvest.search.logging.formatter.HarvestFormatter;
 import gov.nasa.pds.harvest.search.logging.handler.HarvestFileHandler;
 import gov.nasa.pds.harvest.search.logging.handler.HarvestStreamHandler;
@@ -107,6 +110,15 @@ public class HarvestSearchLauncher {
 	private File targetDir;
 	private File registeredResources;
 	private String searchUrl;
+
+	/** A context products file to use instead of fetching the list from the PDS Registry API. */
+	private File contextProductsFile;
+
+	/** Whether names and types are taken from the registered context products. */
+	private boolean useContextProducts = true;
+
+	/** Set when the run failed in a way that has to be reported through the exit status. */
+	private boolean failed;
 
 	/**
 	 * Default constructor.
@@ -202,7 +214,21 @@ public class HarvestSearchLauncher {
 				outputDir = new File(o.getValue(), Constants.SOLR_DOC_DIR);
 			} else if (o.getOpt().equals(Flag.TARGET.getShortName())) {
 				setTargets((List<String>) o.getValuesList());
+				} else if (o.getOpt().equals(Flag.CONTEXT_PRODUCTS.getShortName())) {
+					contextProductsFile = new File(o.getValue());
+if (!contextProductsFile.isFile()) {
+					failed = true;
+					throw new InvalidOptionException("Context products file does not exist: " + contextProductsFile);
+				}
+					}
+				} else if (o.getOpt().equals(Flag.NO_CONTEXT_PRODUCTS.getShortName())) {
+					useContextProducts = false;
 			}
+		}
+
+		if (!useContextProducts && contextProductsFile != null) {
+			throw new Exception("Cannot use both '--" + Flag.CONTEXT_PRODUCTS.getLongName() + "' and '--"
+					+ Flag.NO_CONTEXT_PRODUCTS.getLongName() + "'.");
 		}
 
 		if (policy == null) {
@@ -548,6 +574,32 @@ public class HarvestSearchLauncher {
 	}
 
 	/**
+	 * Loads the registered context products that names and types are taken from. The list is cached
+	 * next to the Solr documents so that the previous run's copy can be used if the PDS Registry API
+	 * cannot be reached.
+	 *
+	 * @throws ContextProductsException If the context products cannot be loaded.
+	 */
+	private void initContextProducts() throws ContextProductsException {
+		if (!useContextProducts) {
+			log.log(new gov.nasa.pds.harvest.search.logging.ToolsLogRecord(Level.INFO,
+					"Context product lookup is off. Names and types are taken from the labels."));
+			return;
+		}
+		File cacheFile = new File(outputDir.getAbsoluteFile().getParentFile(), ContextProducts.CACHE_FILE_NAME);
+		String apiUrl = System.getProperty("pds.registry.api", RegistryApiClient.DEFAULT_API_URL);
+		ContextProducts.init(contextProductsFile, cacheFile, apiUrl);
+	}
+
+	/** Logs how many context product references were and were not found. */
+	private void logContextProductsSummary() {
+		ContextProducts contextProducts = ContextProducts.getInstance();
+		if (contextProducts != null) {
+			log.log(new gov.nasa.pds.harvest.search.logging.ToolsLogRecord(Level.INFO, contextProducts.summary()));
+		}
+	}
+
+	/**
 	 * Process main.
 	 *
 	 * @param args Command-line arguments.
@@ -572,6 +624,12 @@ public class HarvestSearchLauncher {
 			
 			// Init resources
 			SolrManager.init(searchUrl);
+			if (!isPDS3Directory) {
+
+				initContextProducts();
+
+			}
+
 			
 			Policy policy = PolicyReader.unmarshall(this.policy);
 			Policy globalPolicy = PolicyReader.unmarshall(this.globalPolicy);
@@ -582,8 +640,14 @@ public class HarvestSearchLauncher {
 			setupExtractor(policy.getCandidates().getNamespace());
 			backupOutputDirectory(outputDir);
 			doHarvesting(policy);
+			logContextProductsSummary();
 		} 
-		catch (JAXBException je) 
+		catch (ContextProductsException cpe)
+		{
+			System.err.println("ERROR: " + cpe.getMessage());
+			failed = true;
+		}
+		catch (JAXBException je)
 		{
 			// Don't do anything
 		} 
@@ -610,6 +674,11 @@ public class HarvestSearchLauncher {
 	 * @param args The command-line arguments.
 	 */
 	public static void main(final String[] args) {
-		new HarvestSearchLauncher().processMain(args);
+		HarvestSearchLauncher launcher = new HarvestSearchLauncher();
+		launcher.processMain(args);
+		if (launcher.failed) {
+			// A non-zero status tells harvest-solr not to treat the run as a success
+			System.exit(1);
+		}
 	}
 }

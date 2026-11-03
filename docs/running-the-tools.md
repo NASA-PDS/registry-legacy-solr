@@ -61,6 +61,7 @@ REGISTRY_MGR_SOLR_HOME="$HOME/tools/registry-mgr-legacy"
 | `HARVEST_SOLR_MARKER_FILE` | `harvest-solr` | If set, this file is created after a successful harvest so a scheduler can tell new documents are ready |
 | `LEGACY_REGISTRY_EMAIL_RECIPIENTS` | `harvest-solr` | If set (and `mail` is installed), a success or failure email with a log summary is sent when harvest ends |
 | `HOSTNAME_LABEL` | `harvest-solr` | Name used in the email subject instead of the hostname |
+| `PDS_REGISTRY_API` | `harvest-solr` | PDS Registry API base URL used to fetch the registered context products. Default: `https://pds.mcp.nasa.gov/api` |
 | `JAVA_HOME` | all | Java installation to use |
 
 ## Install Solr
@@ -123,6 +124,8 @@ The Solr documents are written to `$PDS4_SOLR_DOC_HOME/solr-docs`.
 | `-v`, `--verbose` | Log level: 0=Debug, 1=Info, 2=Warning, 3=Error (default 1) |
 | `-h`, `--help` | Show usage |
 | `-V`, `--version` | Show the version |
+| `-cp`, `--context-products` | Use this context products file instead of fetching the list from the PDS Registry API |
+| `-ncp`, `--no-context-products` | Do not look up registered context products; names and types come from the labels |
 
 Things to know:
 
@@ -138,6 +141,22 @@ Things to know:
 
 - The Solr URL the script uses for lookups is set at the top of `bin/harvest-solr` (`SOLR_URL`, default `http://localhost:8983/solr`).
 - Policy files for specific missions are in `conf/harvest`.
+
+### Names, types and aliases from context products
+
+At the start of each run, Harvest fetches the registered context products (targets, investigations, instruments and instrument hosts) from the PDS Registry API and saves them as `context_products.json` in the output directory, next to `solr-docs`. A product that references a context product gets:
+
+- `target_name`, `investigation_name`, `instrument_name` and `instrument_host_name` set to the context product's title, instead of the spelling in the label.
+- `target_type`, `investigation_type`, `instrument_type` and `instrument_host_type` set to the context product's type. (An instrument's type is its `Type_List` type, or its legacy type when it has none.)
+- `target_name_alternate`, `investigation_name_alternate`, `instrument_name_alternate` and `instrument_host_name_alternate` listing every other name it is known by: the context product's name, all of its `alternate_title` and `alternate_id` values, and the label's spelling when it differs. Keyword search matches and boosts these like the names.
+
+Keyword search (`/keyword`) also matches the four type fields, at half the weight of a name, so a search for `spectrometer` or `asteroid` finds products by the type of what they reference. These are changes to `solrconfig.xml` only, so `upgrade` applies them without a reload.
+
+A reference that is not registered, and every PDS3 product, keeps the values from the label. When a product has registered and unregistered references of one kind, the label names that no registered product accounts for (and the label's types) stay in the name and type fields next to the registered ones, because a label does not say which name belongs to which reference. The run ends by logging how many references were and were not found.
+
+The host that runs Harvest needs outbound HTTPS to the API (set `PDS_REGISTRY_API` to use another URL). If the API cannot be reached, Harvest uses `context_products.json` from the previous run and logs a warning with its age. With no earlier copy it stops with exit status 1; run it again when the API is reachable, pass `--context-products FILE` (for example a copy taken from another machine), or pass `--no-context-products`.
+
+Documents harvested before this feature gain the new fields only when they are harvested and loaded again. The registry needs the `upgrade` first so that its schema has the new fields.
 
 ## Generate PDS3 documents with Catalog
 

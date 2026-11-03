@@ -131,6 +131,28 @@
     </xsl:call-template>
   </xsl:template>
 
+  <!-- The canonical name of a context product may not be a key in the hierarchy files, but a name the
+       label or an alias uses may be, so look up the alternate names too. -->
+  <xsl:template match="field[@name = 'target_name_alternate']">
+    <field name="target_name_alternate"><xsl:value-of select="pds:clean(.)" /></field>
+
+    <xsl:call-template name="show-hierarchy">
+      <xsl:with-param name="typeName" select="'facet_target'" />
+      <xsl:with-param name="hierarchy" select="$target_types" />
+      <xsl:with-param name="key" select="." />
+    </xsl:call-template>
+  </xsl:template>
+
+  <xsl:template match="field[@name = 'instrument_name_alternate']">
+    <field name="instrument_name_alternate"><xsl:value-of select="pds:clean(.)" /></field>
+
+    <xsl:call-template name="show-hierarchy">
+      <xsl:with-param name="typeName" select="'facet_instrument'" />
+      <xsl:with-param name="hierarchy" select="$instrument_types" />
+      <xsl:with-param name="key" select="." />
+    </xsl:call-template>
+  </xsl:template>
+
   <xsl:template name="show-hierarchy">
     <xsl:param name="typeName" />
     <xsl:param name="hierarchy" />

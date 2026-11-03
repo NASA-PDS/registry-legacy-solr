@@ -1,0 +1,44 @@
+{
+  "Product_Context": [
+    {
+      "lid": "urn:nasa:pds:context:target:satellite.earth.moon",
+      "lidvid": "urn:nasa:pds:context:target:satellite.earth.moon::1.2",
+      "title": "Moon",
+      "name": ["Moon"],
+      "type": ["Satellite"],
+      "alias": ["Earth I (Moon)", "NAIF ID 301", "SMOKEMOONALIAS"]
+    },
+    {
+      "lid": "urn:nasa:pds:context:target:dust.dust",
+      "lidvid": "urn:nasa:pds:context:target:dust.dust::1.0",
+      "title": "Interplanetary Dust Test Title",
+      "name": ["Dust"],
+      "type": ["Dust"],
+      "alias": ["SMOKEDUSTALIAS"]
+    },
+    {
+      "lid": "urn:nasa:pds:context:investigation:mission.chandrayaan-1",
+      "lidvid": "urn:nasa:pds:context:investigation:mission.chandrayaan-1::1.1",
+      "title": "Chandrayaan-1 Lunar Orbiter Mission",
+      "name": ["CHANDRAYAAN-1"],
+      "type": ["Mission"],
+      "alias": ["SMOKEMISSIONALIAS"]
+    },
+    {
+      "lid": "urn:nasa:pds:context:instrument:m3.ch1-orb",
+      "lidvid": "urn:nasa:pds:context:instrument:m3.ch1-orb::1.0",
+      "title": "Moon Mineralogy Mapper Test Title",
+      "name": ["MOON MINERALOGY MAPPER"],
+      "type": ["Spectrometer"],
+      "alias": ["SMOKEINSTRUMENTALIAS"]
+    },
+    {
+      "lid": "urn:nasa:pds:context:instrument_host:spacecraft.ch1-orb",
+      "lidvid": "urn:nasa:pds:context:instrument_host:spacecraft.ch1-orb::1.0",
+      "title": "Chandrayaan-1 Orbiter Test Title",
+      "name": ["CHANDRAYAAN-1 ORBITER"],
+      "type": ["Spacecraft"],
+      "alias": ["SMOKEHOSTALIAS"]
+    }
+  ]
+}

@@ -81,7 +81,16 @@ public enum Flag {
   VERBOSE("v", "verbose", "level", int.class, "Specify the severity level "
       + "and above to include in the log: "
       + "(0=Debug, 1=Info, 2=Warning, 3=Error). "
-      + "Default is Info and above (level 1).");
+      + "Default is Info and above (level 1)."),
+
+  /** Flag to use a context products file instead of fetching the list from the PDS Registry API. */
+  CONTEXT_PRODUCTS("cp", "context-products", "file", String.class, "Specify a context products "
+      + "JSON file to use instead of fetching the registered context products from the PDS "
+      + "Registry API."),
+
+  /** Flag to skip the context product lookup. */
+  NO_CONTEXT_PRODUCTS("ncp", "no-context-products", "Do not look up registered context "
+      + "products. Names and types are taken from the labels.");
 
   /** The short name of the flag. */
   private final String shortName;
@@ -223,6 +232,8 @@ public enum Flag {
     options.addOption(new ToolsOption(LOG));
     options.addOption(new ToolsOption(PORT));
     options.addOption(new ToolsOption(WAIT));
+    options.addOption(new ToolsOption(CONTEXT_PRODUCTS));
+    options.addOption(new ToolsOption(NO_CONTEXT_PRODUCTS));
   }
 
   /**
