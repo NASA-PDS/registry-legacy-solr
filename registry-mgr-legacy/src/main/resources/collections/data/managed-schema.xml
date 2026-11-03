@@ -44,7 +44,8 @@
    <field name="airborne_name" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_type" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_description" type="text_general" indexed="true" stored="true" multiValued="true" />
-   <field name="alternate_title" type="text_general" indexed="false" stored="true" multiValued="true" />
+   <field name="alternate_id" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <field name="alternate_title" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="archive_status" type="lowercase" indexed="true" stored="true" multiValued="true" />
 
    <!-- Product_Attribute_Definition fields -->

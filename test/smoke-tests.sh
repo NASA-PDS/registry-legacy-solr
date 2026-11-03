@@ -715,6 +715,12 @@ for alias in SMOKEDUSTALIAS SMOKEMISSIONALIAS SMOKEINSTRUMENTALIAS SMOKEHOSTALIA
     check_status $? "keyword did not find products by the alias $alias"
 done
 
+# The alternate_id and alternate_title values on the labels themselves are indexed fields
+for field in alternate_id alternate_title; do
+    check_count "Field $field Is Searchable" "$(solr_count all "${field}:ROSETTA")"
+    check_status $? "The field $field cannot be searched"
+done
+
 # Names and types are the context product's; the label spelling is kept as an alternate name
 bundle=$(curl -s -G "http://localhost:8983/solr/data/all" --data-urlencode 'q=lid:"urn:nasa:pds:ch1_m3"' \
     --data-urlencode "fl=investigation_name,investigation_name_alternate,instrument_type,instrument_host_type" \
