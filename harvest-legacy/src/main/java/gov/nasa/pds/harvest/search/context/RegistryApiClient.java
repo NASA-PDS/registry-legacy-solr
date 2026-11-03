@@ -136,7 +136,7 @@ public class RegistryApiClient {
         if (response.statusCode() < 500) {
           throw failure;
         }
-      } catch (IOException | JsonParseException | IllegalStateException e) {
+      } catch (IOException | JsonParseException | IllegalStateException | IllegalArgumentException e) {
         failure = new ContextProductsException("Could not get a response from the PDS Registry API at "
             + baseUrl + ": " + e.getClass().getSimpleName()
             + (e.getMessage() == null ? "" : " " + e.getMessage()), e);
