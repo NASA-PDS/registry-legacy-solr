@@ -131,12 +131,26 @@ class ContextEnricherTest {
   void keepsTheLabelNameOfAnUnregisteredTargetNextToARegisteredOne() {
     fields.put("target_ref", list(MOON, UNKNOWN));
     fields.put("target_name", list("Moon", "Mystery Object"));
+    fields.put("target_type", list("Natural Satellite", "Asteroid"));
 
     ContextEnricher.apply(lookup, fields, types);
 
-    assertEquals(list("Moon"), fields.get("target_name"));
-    assertEquals(list("Earth I (Moon)", "NAIF ID 301", "Mystery Object"),
-        fields.get("target_name_alternate"));
+    // The name no registered product accounts for stays a name, as do the label's types
+    assertEquals(list("Moon", "Mystery Object"), fields.get("target_name"));
+    assertEquals(list("Satellite", "Natural Satellite", "Asteroid"), fields.get("target_type"));
+    assertEquals(list("Earth I (Moon)", "NAIF ID 301"), fields.get("target_name_alternate"));
+  }
+
+  @Test
+  void replacesTheLabelNamesOfRegisteredProductsEvenWhenAnotherReferenceIsUnregistered() {
+    fields.put("target_ref", list(MOON, UNKNOWN));
+    fields.put("target_name", list("EARTH I (MOON)", "Mystery Object"));
+
+    ContextEnricher.apply(lookup, fields, types);
+
+    // The label's spelling of the Moon is an alias, so only the unaccounted name is kept
+    assertEquals(list("Moon", "Mystery Object"), fields.get("target_name"));
+    assertEquals(list("Earth I (Moon)", "NAIF ID 301"), fields.get("target_name_alternate"));
   }
 
   @Test

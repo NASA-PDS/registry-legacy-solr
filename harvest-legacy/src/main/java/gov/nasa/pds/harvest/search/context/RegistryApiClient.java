@@ -136,7 +136,10 @@ public class RegistryApiClient {
         if (response.statusCode() < 500) {
           throw failure;
         }
-      } catch (IOException | JsonParseException | IllegalStateException | IllegalArgumentException e) {
+      } catch (IllegalArgumentException e) {
+        // A URL that cannot be parsed will not work on a retry either
+        throw new ContextProductsException("The PDS Registry API URL is not valid: " + baseUrl, e);
+      } catch (IOException | JsonParseException | IllegalStateException e) {
         failure = new ContextProductsException("Could not get a response from the PDS Registry API at "
             + baseUrl + ": " + e.getClass().getSimpleName()
             + (e.getMessage() == null ? "" : " " + e.getMessage()), e);

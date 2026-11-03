@@ -2,6 +2,7 @@ package gov.nasa.pds.harvest.search.context;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -75,14 +76,18 @@ public final class ContextEnricher {
   private static void enrich(ContextProducts lookup, Kind kind, List<String> refs,
       Map<String, List<String>> fieldMap, Map<String, String> typeMap) {
     Map<String, ContextProduct> resolved = new LinkedHashMap<String, ContextProduct>();
+    boolean anyUnresolved = false;
     for (String ref : refs) {
       ContextProduct product = lookup.find(ref);
       if (product != null) {
         resolved.put(product.getLid(), product);
+      } else {
+        anyUnresolved = true;
       }
     }
 
     Map<String, String> titles = new LinkedHashMap<String, String>();
+    Set<String> known = new HashSet<String>();
     Set<String> types = new LinkedHashSet<String>();
     for (ContextProduct product : resolved.values()) {
       String canonical = !product.getTitle().isEmpty() ? product.getTitle()
@@ -90,10 +95,32 @@ public final class ContextEnricher {
       if (!canonical.isEmpty()) {
         titles.putIfAbsent(normalize(canonical), canonical);
       }
+      known.add(normalize(canonical));
+      for (String name : product.getNames()) {
+        known.add(normalize(name));
+      }
+      for (String alias : product.getAliases()) {
+        known.add(normalize(alias));
+      }
       types.addAll(product.getTypes());
     }
     if (titles.isEmpty()) {
       return;
+    }
+
+    // The label does not say which of its names belongs to which reference. When a reference is not
+    // registered, a label name that no registered product accounts for may belong to it, so it stays
+    // in the name field, together with the label's types.
+    Map<String, String> names = new LinkedHashMap<String, String>(titles);
+    List<String> labelNames = fieldMap.getOrDefault(kind.nameField, Collections.<String>emptyList());
+    if (anyUnresolved) {
+      for (String labelName : labelNames) {
+        String key = normalize(labelName);
+        if (!key.isEmpty() && !known.contains(key)) {
+          names.putIfAbsent(key, labelName.trim());
+        }
+      }
+      types.addAll(fieldMap.getOrDefault(kind.typeField, Collections.<String>emptyList()));
     }
 
     // Every other name the product is known by: the context product's name element and all of its
@@ -105,15 +132,15 @@ public final class ContextEnricher {
       candidates.addAll(product.getNames());
       candidates.addAll(product.getAliases());
     }
-    candidates.addAll(fieldMap.getOrDefault(kind.nameField, Collections.<String>emptyList()));
+    candidates.addAll(labelNames);
     for (String candidate : candidates) {
       String key = normalize(candidate);
-      if (!key.isEmpty() && !titles.containsKey(key)) {
+      if (!key.isEmpty() && !names.containsKey(key)) {
         alternates.putIfAbsent(key, candidate.trim());
       }
     }
 
-    set(fieldMap, typeMap, kind.nameField, new ArrayList<String>(titles.values()));
+    set(fieldMap, typeMap, kind.nameField, new ArrayList<String>(names.values()));
     if (!types.isEmpty()) {
       set(fieldMap, typeMap, kind.typeField, new ArrayList<String>(types));
     }

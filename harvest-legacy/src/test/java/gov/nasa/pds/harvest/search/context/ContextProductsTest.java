@@ -196,6 +196,26 @@ class ContextProductsTest {
   }
 
   @Test
+  void aMalformedApiUrlIsReportedAsAContextProductsFailure() {
+    RegistryApiClient malformed = new RegistryApiClient("http://not a valid host/api", 2, 1);
+
+    ContextProductsException failure = assertThrows(ContextProductsException.class,
+        malformed::fetchAll);
+
+    assertTrue(failure.getMessage().contains("not valid"));
+  }
+
+  @Test
+  void aMalformedApiUrlFallsBackToTheCache() throws ContextProductsException {
+    ContextProducts.init(null, cacheFile(), client());
+    ContextProducts.reset();
+
+    ContextProducts.init(null, cacheFile(), new RegistryApiClient("http://not a valid host/api", 2, 1));
+
+    assertEquals(4, ContextProducts.getInstance().size());
+  }
+
+  @Test
   void comparesVersionsNumerically() {
     ContextProduct v2 = new ContextProduct("urn:x:y::1.2", "", null, null, null);
     ContextProduct v10 = new ContextProduct("urn:x:y::1.10", "", null, null, null);
