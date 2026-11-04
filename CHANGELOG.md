@@ -1,11 +1,13 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-03)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-04)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.3.0...«unknown»)
 
 **Requirements:**
 
+- As a user, I want keyword search to match and boost context-product aliases [\#300](https://github.com/NASA-PDS/registry-legacy-solr/issues/300)
+- As a user, I want harvest to take names, types and aliases from registered context products, so that keyword search finds products by any known name [\#299](https://github.com/NASA-PDS/registry-legacy-solr/issues/299)
 - As a node operator, I want to upgrade and restore the Legacy Solr Registry without reloading all data [\#296](https://github.com/NASA-PDS/registry-legacy-solr/issues/296)
 
 **Defects:**
