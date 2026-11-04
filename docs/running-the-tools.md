@@ -262,6 +262,10 @@ Between the delete of the legacy context products and the end of the PDS4 load, 
 
 The script is tested with stubbed tools by `test/reload-all-tests.sh`.
 
+### Ranking of PDS4 and PDS3 results
+
+Keyword search (`/keyword`), `/search` and `/archive-filter` multiply the score of every PDS4 product by 1.5, so a PDS4 product ranks above a PDS3 product of similar relevance, while a much better PDS3 match still ranks first. The factor is the `boost` parameter in `solrconfig.xml` (`if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)`); change `1.5` to make the preference weaker or stronger. A change to `solrconfig.xml` is applied with `upgrade`, without loading documents again.
+
 ## Check what is in Solr
 
 ```bash

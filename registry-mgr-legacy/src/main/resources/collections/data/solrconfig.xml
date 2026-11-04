@@ -816,7 +816,8 @@
       
       <!-- Boosts: match against the general text field, weighted below the specific metadata fields -->
       <str name="qf">text target_name^2 investigation_name^2 instrument_host_name^2 instrument_name^2 title^6 alternate_id^2 alternate_title^2 citation_keyword^2 target_name_alternate^2 investigation_name_alternate^2 instrument_host_name_alternate^2 instrument_name_alternate^2 target_type^1 investigation_type^1 instrument_host_type^1 instrument_type^1</str>
-      <str name="bq">pds_model_version:PDS4^1</str>
+      <!-- PDS4 products rank above PDS3 products of similar relevance: their score is multiplied by 1.5 -->
+      <str name="boost">if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)</str>
       <str name="bq">product_class:Product_Context^0.3</str>
       <str name="bq">data_class:Investigation^0.1</str>
     </lst>
@@ -864,7 +865,8 @@
 
       <!-- Boosts -->
       <str name="qf">target_name^1 investigation_name^1 instrument_host_name^1 instrument_name^1 title^3 alternate_id^1 alternate_title^1 citation_keyword^1 target_name_alternate^1 investigation_name_alternate^1 instrument_host_name_alternate^1 instrument_name_alternate^1</str>
-      <str name="bq">pds_model_version:PDS4^1</str>
+      <!-- PDS4 products rank above PDS3 products of similar relevance: their score is multiplied by 1.5 -->
+      <str name="boost">if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)</str>
       <str name="bq">product_class:Product_Context^0.3</str>
       <str name="bq">data_class:Investigation^0.1</str>
     </lst>
@@ -922,6 +924,8 @@
     <!-- Ignore superseded data sets by appending a filter to the query -->
     <lst name="appends">
       <str name="tr">data-search.xsl</str>
+      <!-- PDS4 products rank above PDS3 products of similar relevance: their score is multiplied by 1.5 -->
+      <str name="boost">if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)</str>
       <!-- Update params to include filter query restricting to latest product versions -->
       <str name="fq">{!collapse field=lid max=version_id_normalized}</str>
       <!-- Hide older versions up front, so a query that only matches an older version cannot return it -->
