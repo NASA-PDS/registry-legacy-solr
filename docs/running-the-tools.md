@@ -148,7 +148,7 @@ At the start of each run, Harvest fetches the registered context products (targe
 
 - `target_name`, `investigation_name`, `instrument_name` and `instrument_host_name` set to the context product's title, instead of the spelling in the label.
 - `target_type`, `investigation_type`, `instrument_type` and `instrument_host_type` set to the context product's type. (An instrument's type is its `Type_List` type, or its legacy type when it has none.)
-- `target_name_alternate`, `investigation_name_alternate`, `instrument_name_alternate` and `instrument_host_name_alternate` listing every other name it is known by: the context product's name, all of its `alternate_title` and `alternate_id` values, and the label's spelling when it differs. Keyword search matches and boosts these like the names.
+- `target_name_alternate`, `investigation_name_alternate`, `instrument_name_alternate` and `instrument_host_name_alternate` listing every other name it is known by: the context product's name, all of its `alternate_title` and `alternate_id` values, and the label's spelling when it differs. Keyword search matches and boosts these like the names. Together with the label's own `alternate_id` and `alternate_title` values they are copied into one indexed `aliases` field, which is the field keyword search boosts for aliases.
 
 Keyword search (`/keyword`) also matches the four type fields, at half the weight of a name, so a search for `spectrometer` or `asteroid` finds products by the type of what they reference. These are changes to `solrconfig.xml` only, so `upgrade` applies them without a reload.
 
@@ -261,6 +261,10 @@ The script stops at the first step that fails and exits non-zero, so a failed ha
 Between the delete of the legacy context products and the end of the PDS4 load, the PDS4 context products are missing from search results. Run a reload when that is acceptable, or reload on a Solr that is not serving traffic.
 
 The script is tested with stubbed tools by `test/reload-all-tests.sh`.
+
+### Ranking of PDS4 and PDS3 results
+
+Keyword search (`/keyword`), `/search` and `/archive-filter` multiply the score of every PDS4 product by 1.5, so a PDS4 product ranks above a PDS3 product of similar relevance, while a much better PDS3 match still ranks first. The factor is the `boost` parameter in `solrconfig.xml` (`if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)`); change `1.5` to make the preference weaker or stronger. A change to `solrconfig.xml` is applied with `upgrade`, without loading documents again.
 
 ## Check what is in Solr
 

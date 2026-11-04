@@ -95,6 +95,10 @@ The PDS4 harvest in Test 1 runs with a small context products file (`src/test/re
 2. Checks that a bundle carries the context product's name, its other name and its types instead of the label's values
 3. Checks that the target facets are still built, from the canonical name when it is in the hierarchy and from an alternate name when it is not
 
+### Test 5: PDS4 Products Rank Above PDS3 Products
+1. Loads two documents with the same text, one PDS4 and one PDS3 (`src/test/resources/data/model-boost/`)
+2. Checks that on `/keyword`, `/search` and `/archive-filter` the PDS4 document scores at least 1.4 times the PDS3 one (the boost multiplies the PDS4 score by 1.5)
+
 ## Scale Test for Superseded Versions
 
 `versions-scale-test.sh` times `registry-mgr-solr -mark-superseded` on 180000 synthetic documents (60000 products with 3 versions each). It is a manual tool and is not part of the smoke tests or CI, because it takes a few minutes and its timings depend on the machine.

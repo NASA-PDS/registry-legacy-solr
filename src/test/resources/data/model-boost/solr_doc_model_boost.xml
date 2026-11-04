@@ -1,0 +1,22 @@
+<add>
+<!-- Two documents with the same text. They differ only in their model version, so any difference in their
+     scores comes from the PDS4 boost. No lidvid field: the generateLIDVID update chain builds it. -->
+<doc>
+<field name="lid">urn:nasa:pds:boost_test_pds4</field>
+<field name="version_id">1.0</field>
+<field name="package_id">model-boost-test</field>
+<field name="objectType">Product_Bundle</field>
+<field name="product_class">Product_Bundle</field>
+<field name="pds_model_version">pds4</field>
+<field name="title">Model boost test product BOOSTMODELTERM</field>
+</doc>
+<doc>
+<field name="lid">urn:nasa:pds:context_pds3:data_set:data_set.boost_test_pds3</field>
+<field name="version_id">1.0</field>
+<field name="package_id">model-boost-test</field>
+<field name="objectType">Product_Data_Set_PDS3</field>
+<field name="product_class">Product_Data_Set_PDS3</field>
+<field name="pds_model_version">pds3</field>
+<field name="title">Model boost test product BOOSTMODELTERM</field>
+</doc>
+</add>

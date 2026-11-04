@@ -242,6 +242,19 @@ solr_count() {
         | grep -o '"numFound":[0-9]*' | head -1 | cut -d':' -f2
 }
 
+# Print the score a handler gives to the document with the given lid for a query
+solr_score() {
+    local handler=$1
+    local query=$2
+    local lid=$3
+
+    curl -s -G "http://localhost:8983/solr/data/${handler}" \
+        --data-urlencode "q=${query}" --data-urlencode "fq=lid:\"${lid}\"" \
+        --data-urlencode "fl=score" --data-urlencode "rows=1" --data-urlencode "facet=false" \
+        --data-urlencode "wt=json" \
+        | grep -o '"score":[0-9.eE+-]*' | head -1 | cut -d':' -f2
+}
+
 # Succeed if the count is a positive number (and, when given, equal to the expected count)
 check_count() {
     local test_name=$1
@@ -716,10 +729,12 @@ for alias in SMOKEDUSTALIAS SMOKEMISSIONALIAS SMOKEINSTRUMENTALIAS SMOKEHOSTALIA
 done
 
 # The alternate_id and alternate_title values on the labels themselves are indexed fields
-for field in alternate_id alternate_title; do
-    check_count "Field $field Is Searchable" "$(solr_count all "${field}:ROSETTA")"
-    check_status $? "The field $field cannot be searched"
-done
+check_count "Field aliases Holds The Label's alternate_id And alternate_title" "$(solr_count all "aliases:ROSETTA")"
+check_status $? "The aliases field does not hold the alternate_id and alternate_title values of the labels"
+
+# It also holds the aliases that harvest adds from the context products
+check_count "Field aliases Holds The Context Product Aliases" "$(solr_count all "aliases:SMOKEMOONALIAS")" "$moon_refs"
+check_status $? "The aliases field does not hold the aliases of the context products"
 
 # Names and types are the context product's; the label spelling is kept as an alternate name
 bundle=$(curl -s -G "http://localhost:8983/solr/data/all" --data-urlencode 'q=lid:"urn:nasa:pds:ch1_m3"' \
@@ -742,6 +757,39 @@ check_count "Dust Target Facet Through An Alternate Name" "$(solr_count all "$DU
 check_status $? "Products that reference the Dust target lost their facet_target value"
 
 # ============================================================================
+# TEST 5: PDS4 Products Rank Above PDS3 Products
+# ============================================================================
+
+log_info "==============================================="
+log_info "TEST 5: PDS4 Products Rank Above PDS3 Products"
+log_info "==============================================="
+
+# Two documents with the same text, one PDS4 and one PDS3 (src/test/resources/data/model-boost).
+# Their scores differ only by the PDS4 boost, which multiplies the score of a PDS4 product by 1.5.
+"$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$PARENTDIR/src/test/resources/data/model-boost"
+check_status $? "Failed to load the model boost test documents into Solr"
+
+sleep 2
+
+BOOST_PDS4_LID="urn:nasa:pds:boost_test_pds4"
+BOOST_PDS3_LID="urn:nasa:pds:context_pds3:data_set:data_set.boost_test_pds3"
+
+for handler in keyword search archive-filter; do
+    pds4_score=$(solr_score "$handler" BOOSTMODELTERM "$BOOST_PDS4_LID")
+    pds3_score=$(solr_score "$handler" BOOSTMODELTERM "$BOOST_PDS3_LID")
+    if [ -z "$pds4_score" ] || [ -z "$pds3_score" ]; then
+        log_error "PDS4 Boost ($handler): Could not read both scores (PDS4 '$pds4_score', PDS3 '$pds3_score')"
+        cleanup_and_exit 1
+    fi
+    # The PDS4 score is 1.5 times the PDS3 score; 1.4 leaves room for rounding
+    if ! awk -v a="$pds4_score" -v b="$pds3_score" 'BEGIN { exit !(b > 0 && a / b >= 1.4) }'; then
+        log_error "PDS4 Boost ($handler): The PDS4 score $pds4_score is not at least 1.4 times the PDS3 score $pds3_score"
+        cleanup_and_exit 1
+    fi
+    log_success "PDS4 Boost ($handler): PDS4 score $pds4_score against PDS3 score $pds3_score"
+done
+
+# ============================================================================
 # Final Summary
 # ============================================================================
 
@@ -756,5 +804,6 @@ log_success "✓ PDS3 document validation"
 log_success "✓ PDS3 Solr loading and verification"
 log_success "✓ Superseded product versions hidden from search"
 log_success "✓ Context product names, types and aliases"
+log_success "✓ PDS4 products ranked above PDS3 products"
 
 cleanup_and_exit 0

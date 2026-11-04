@@ -37,6 +37,9 @@
    <field name="investigation_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="instrument_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="instrument_host_name_alternate" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <!-- Every alias a document carries, searched and boosted as one field: the alternate_id and alternate_title
+        values of the label and the four *_name_alternate fields above. Filled by copyField, so it is not stored. -->
+   <field name="aliases" type="text_general" indexed="true" stored="false" multiValued="true" />
    <field name="abstract_text" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="agency_name" type="lowercase" indexed="true" stored="true" multiValued="true" />
    <field name="agency_ref" type="string" indexed="true" stored="true" multiValued="true" />
@@ -44,8 +47,7 @@
    <field name="airborne_name" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_type" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="airborne_description" type="text_general" indexed="true" stored="true" multiValued="true" />
-   <field name="alternate_id" type="text_general" indexed="true" stored="true" multiValued="true" />
-   <field name="alternate_title" type="text_general" indexed="true" stored="true" multiValued="true" />
+   <field name="alternate_title" type="text_general" indexed="false" stored="true" multiValued="true" />
    <field name="archive_status" type="lowercase" indexed="true" stored="true" multiValued="true" />
 
    <!-- Product_Attribute_Definition fields -->
@@ -326,6 +328,12 @@
   <copyField source="investigation_name_alternate" dest="text" />
   <copyField source="instrument_name_alternate" dest="text" />
   <copyField source="instrument_host_name_alternate" dest="text" />
+  <copyField source="alternate_id" dest="aliases" />
+  <copyField source="alternate_title" dest="aliases" />
+  <copyField source="target_name_alternate" dest="aliases" />
+  <copyField source="investigation_name_alternate" dest="aliases" />
+  <copyField source="instrument_name_alternate" dest="aliases" />
+  <copyField source="instrument_host_name_alternate" dest="aliases" />
   
   <!-- Now a few indexed aliases to support PDS Search Protocol -->
   <!-- Agency -->
