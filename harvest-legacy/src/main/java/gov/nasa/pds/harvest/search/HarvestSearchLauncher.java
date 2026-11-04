@@ -214,15 +214,14 @@ public class HarvestSearchLauncher {
 				outputDir = new File(o.getValue(), Constants.SOLR_DOC_DIR);
 			} else if (o.getOpt().equals(Flag.TARGET.getShortName())) {
 				setTargets((List<String>) o.getValuesList());
-				} else if (o.getOpt().equals(Flag.CONTEXT_PRODUCTS.getShortName())) {
-					contextProductsFile = new File(o.getValue());
-if (!contextProductsFile.isFile()) {
-					failed = true;
-					throw new InvalidOptionException("Context products file does not exist: " + contextProductsFile);
-				}
-					}
-				} else if (o.getOpt().equals(Flag.NO_CONTEXT_PRODUCTS.getShortName())) {
-					useContextProducts = false;
+			} else if (o.getOpt().equals(Flag.CONTEXT_PRODUCTS.getShortName())) {
+				contextProductsFile = new File(o.getValue());
+				if (!contextProductsFile.isFile()) {
+					failed = true;
+					throw new InvalidOptionException("Context products file does not exist: " + contextProductsFile);
+				}
+			} else if (o.getOpt().equals(Flag.NO_CONTEXT_PRODUCTS.getShortName())) {
+				useContextProducts = false;
 			}
 		}
 
