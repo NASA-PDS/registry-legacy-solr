@@ -136,14 +136,6 @@
     </plugins>
   </build>
 
-  <repositories>
-    <repository>
-      <id>snapshots-repo</id>
-      <name>FuseSource 3rdP</name>
-      <url>https://repo.fusesource.com/nexus/content/repositories/releases-3rd-party/</url>
-    </repository>
-  </repositories>
-
   <dependencies>
     <dependency>
       <groupId>commons-cli</groupId>
