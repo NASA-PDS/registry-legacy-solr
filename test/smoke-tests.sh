@@ -729,10 +729,12 @@ for alias in SMOKEDUSTALIAS SMOKEMISSIONALIAS SMOKEINSTRUMENTALIAS SMOKEHOSTALIA
 done
 
 # The alternate_id and alternate_title values on the labels themselves are indexed fields
-for field in alternate_id alternate_title; do
-    check_count "Field $field Is Searchable" "$(solr_count all "${field}:ROSETTA")"
-    check_status $? "The field $field cannot be searched"
-done
+check_count "Field aliases Holds The Label's alternate_id And alternate_title" "$(solr_count all "aliases:ROSETTA")"
+check_status $? "The aliases field does not hold the alternate_id and alternate_title values of the labels"
+
+# It also holds the aliases that harvest adds from the context products
+check_count "Field aliases Holds The Context Product Aliases" "$(solr_count all "aliases:SMOKEMOONALIAS")" "$moon_refs"
+check_status $? "The aliases field does not hold the aliases of the context products"
 
 # Names and types are the context product's; the label spelling is kept as an alternate name
 bundle=$(curl -s -G "http://localhost:8983/solr/data/all" --data-urlencode 'q=lid:"urn:nasa:pds:ch1_m3"' \
