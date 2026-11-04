@@ -37,6 +37,17 @@ on:
             - 'release/*'
 
 
+# Concurrency
+# -----------
+#
+# Wait for any in-progress unstable run on ``main`` rather than racing it: the unstable assembly
+# deletes ``release/*`` tags. The group is shared with unstable-cicd.yaml.
+
+concurrency:
+    group: roundup
+    cancel-in-progress: false
+
+
 # What to Do
 # ----------
 #

@@ -34,7 +34,14 @@ on:
         branches:
              - main
     workflow_dispatch:
-concurrency: roundup
+
+# Stable and unstable runs share the ``roundup`` group so a release waits for an in-progress run
+# instead of racing it. Runs started by roundup's own commits (skipped by the ``if`` below) get a
+# group of their own so they cannot replace a stable run that is waiting.
+
+concurrency:
+    group: ${{ github.actor == 'pdsen-ci' && format('roundup-skipped-{0}', github.run_id) || 'roundup' }}
+    cancel-in-progress: false
 
 
 # What to Do
