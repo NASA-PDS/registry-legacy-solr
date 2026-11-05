@@ -102,8 +102,9 @@ The PDS4 harvest in Test 1 runs with a small context products file (`src/test/re
 ### Test 6: LID And LIDVID Queries
 On `/keyword`, `/search` and `/archive-filter`, using the `insight_documents` bundle from Test 1:
 1. Checks that a bundle LID, a LIDVID, a collection LID and an upper case LID each find only that product
-2. Checks that a product LID or a collection LID that is not in the index finds its parents (the collection and the bundle, or the bundle)
-3. Checks that `<LID>*` finds the bundle first, followed by the products below it
+2. Checks that a product LID or a collection LID that is not in the index finds its parents, nearest first (the collection, then the bundle, or the bundle)
+3. Loads a resource that `/keyword` and `/archive-filter` hide (`src/test/resources/data/lid-search/`) and checks that those handlers treat its LID as not indexed and find its collection and bundle, while `/search` finds the resource itself
+4. Checks that `<LID>*` finds the bundle first, then every product under the prefix that the handler returns, each once
 
 ## Scale Test for Superseded Versions
 

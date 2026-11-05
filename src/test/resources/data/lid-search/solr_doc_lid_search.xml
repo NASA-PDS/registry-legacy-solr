@@ -1,0 +1,15 @@
+<add>
+<!-- A resource that /keyword and /archive-filter leave out of their results, under a collection and a bundle that
+     TEST 1 loads. A LID query for it finds its collection and bundle on those handlers. No lidvid field: the
+     generateLIDVID update chain builds it, as it does for harvested documents. -->
+<doc>
+<field name="lid">urn:nasa:pds:insight_documents:document_rise:hidden_resource</field>
+<field name="version_id">1.0</field>
+<field name="package_id">lid-search-test</field>
+<field name="objectType">Product_Document</field>
+<field name="product_class">Product_Document</field>
+<field name="data_product_type">Resource</field>
+<field name="resource_type">Information.Science_Portal</field>
+<field name="title">Hidden resource for the LID search test</field>
+</doc>
+</add>

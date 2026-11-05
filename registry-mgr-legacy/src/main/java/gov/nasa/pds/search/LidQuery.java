@@ -2,6 +2,7 @@ package gov.nasa.pds.search;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 /**
@@ -44,7 +45,7 @@ public final class LidQuery {
 			return null;
 		}
 
-		String text = query.trim().toLowerCase();
+		String text = query.trim().toLowerCase(Locale.ROOT);
 		if (text.length() > MAX_LENGTH) {
 			return null;
 		}

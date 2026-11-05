@@ -266,7 +266,8 @@ solr_lids_ranked() {
         | grep -o '"lid":"[^"]*"' | cut -d'"' -f4
 }
 
-# Succeed if the lids a handler returns for a query are exactly the expected ones (a sorted, newline separated list)
+# Succeed if the lids a handler returns for a query are exactly the expected ones, in the expected rank
+# order and with no repeats (a newline separated list)
 check_lids() {
     local test_name=$1
     local handler=$2
@@ -274,7 +275,7 @@ check_lids() {
     local expected=$4
 
     local actual
-    actual=$(solr_lids_ranked "$handler" "$query" | sort -u)
+    actual=$(solr_lids_ranked "$handler" "$query")
     if [ "$actual" != "$expected" ]; then
         log_error "$test_name ($handler): Expected '$expected' for the query '$query', found '$actual'"
         return 1
@@ -831,6 +832,16 @@ log_info "==============================================="
 LID_BUNDLE="urn:nasa:pds:insight_documents"
 LID_COLLECTION="urn:nasa:pds:insight_documents:document_rise"
 LID_NO_PRODUCT="urn:nasa:pds:insight_documents:document_rise:no_such_product"
+LID_HIDDEN="urn:nasa:pds:insight_documents:document_rise:hidden_resource"
+
+# A resource that /keyword and /archive-filter leave out of their results
+"$LEGACY_REGISTRY_HOME/bin/registry-mgr-solr" "$PARENTDIR/src/test/resources/data/lid-search"
+check_status $? "Failed to load the LID search test document into Solr"
+
+sleep 2
+
+# Every product under the bundle, as the handler that hides nothing sees them
+ALL_UNDER_BUNDLE=$(solr_lids_ranked all "lid:urn\\:nasa\\:pds\\:insight_documents*" | sort -u)
 
 for handler in keyword search archive-filter; do
     check_lids "Bundle LID" "$handler" "$LID_BUNDLE" "$LID_BUNDLE"
@@ -846,21 +857,40 @@ for handler in keyword search archive-filter; do
     check_status $? "A LID in upper case should find the product"
 
     # A product that is not in the index finds its collection and its bundle
-    check_lids "Product LID Fallback" "$handler" "$LID_NO_PRODUCT" "$(printf '%s\n%s' "$LID_BUNDLE" "$LID_COLLECTION" | sort -u)"
-    check_status $? "A product LID that is not indexed should find its collection and its bundle"
+    check_lids "Product LID Fallback" "$handler" "$LID_NO_PRODUCT" "$(printf '%s\n%s' "$LID_COLLECTION" "$LID_BUNDLE")"
+    check_status $? "A product LID that is not indexed should find its collection, then its bundle"
+
+    # A product the handler leaves out counts as not indexed for that handler
+    if [ "$handler" = "search" ]; then
+        check_lids "Hidden Resource LID" "$handler" "$LID_HIDDEN" "$LID_HIDDEN"
+    else
+        check_lids "Hidden Resource LID Fallback" "$handler" "$LID_HIDDEN" "$(printf '%s\n%s' "$LID_COLLECTION" "$LID_BUNDLE")"
+    fi
+    check_status $? "A product that the handler hides should fall back to its collection and its bundle"
 
     # A collection that is not in the index finds its bundle
     check_lids "Collection LID Fallback" "$handler" "${LID_BUNDLE}:no_such_collection" "$LID_BUNDLE"
     check_status $? "A collection LID that is not indexed should find its bundle"
 
-    # A trailing * asks for the product and everything below it, the product first
-    first_lid=$(solr_lids_ranked "$handler" "${LID_BUNDLE}*" | head -1)
-    child_count=$(solr_lids_ranked "$handler" "${LID_BUNDLE}*" | grep -c "^${LID_BUNDLE}:")
-    if [ "$first_lid" != "$LID_BUNDLE" ] || [ "$child_count" -lt 1 ]; then
-        log_error "LID Prefix ($handler): Expected the bundle first, then its products; found '$first_lid' first and $child_count product(s) below it"
+    # A trailing * asks for the product and everything below it, the product first, each product once,
+    # and every product the handler would return
+    prefix_lids=$(solr_lids_ranked "$handler" "${LID_BUNDLE}*")
+    expected_lids=$ALL_UNDER_BUNDLE
+    if [ "$handler" != "search" ]; then
+        expected_lids=$(echo "$ALL_UNDER_BUNDLE" | grep -vx "$LID_HIDDEN")
+    fi
+    if [ "$(echo "$prefix_lids" | head -1)" != "$LID_BUNDLE" ]; then
+        log_error "LID Prefix ($handler): Expected the bundle first, found '$(echo "$prefix_lids" | head -1)'"
         cleanup_and_exit 1
     fi
-    log_success "LID Prefix ($handler): the bundle comes first, followed by $child_count product(s) below it"
+    if [ "$(echo "$prefix_lids" | sort)" != "$expected_lids" ]; then
+        log_error "LID Prefix ($handler): Expected exactly the products below the bundle, once each. Expected:
+$expected_lids
+Found:
+$(echo "$prefix_lids" | sort)"
+        cleanup_and_exit 1
+    fi
+    log_success "LID Prefix ($handler): the bundle comes first and the $(echo "$expected_lids" | wc -l | tr -d ' ') products under the bundle prefix are each found once"
 done
 
 # ============================================================================

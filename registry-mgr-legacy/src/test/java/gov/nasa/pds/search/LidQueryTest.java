@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Locale;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,6 +49,19 @@ class LidQueryTest {
 		assertFalse(query.isPrefix());
 		assertEquals(BUNDLE, LidQuery.parse(BUNDLE + "**").getLid());
 		assertEquals(BUNDLE, LidQuery.parse(BUNDLE + "::1.0*").getLid());
+	}
+
+	@Test
+	void caseDoesNotDependOnTheDefaultLocale() {
+		Locale original = Locale.getDefault();
+		try {
+			// In Turkish, "I".toLowerCase() is a dotless i that is not a LID character
+			Locale.setDefault(Locale.forLanguageTag("tr-TR"));
+			assertEquals("ı", "I".toLowerCase(), "the Turkish locale should be in effect");
+			assertEquals("urn:nasa:pds:insight_documents", LidQuery.parse("URN:NASA:PDS:INSIGHT_DOCUMENTS").getLid());
+		} finally {
+			Locale.setDefault(original);
+		}
 	}
 
 	@Test
