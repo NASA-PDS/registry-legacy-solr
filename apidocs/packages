@@ -55,5 +55,5 @@ gov.nasa.pds.citool.registry.client
 gov.nasa.pds.citool.diff
 gov.nasa.pds.citool.validate
 gov.nasa.pds.citool.search
-gov.nasa.pds.search.util
 gov.nasa.pds.search
+gov.nasa.pds.search.util

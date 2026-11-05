@@ -4,7 +4,7 @@
 'UTF-8'
 -protected
 -sourcepath
-'/github/workspace/harvest-legacy/src/test/java:/github/workspace/harvest-legacy/target/generated-test-sources/test-annotations'
+'/github/workspace/harvest-legacy/src/test/java:/github/workspace/harvest-legacy/target/generated-test-sources/test-annotations:/github/workspace/registry-mgr-legacy/src/test/java:/github/workspace/registry-mgr-legacy/target/generated-test-sources/test-annotations'
 -author
 -bottom
 'Copyright &#169; 2026 Jet Propulsion Laboratory, California Institute of Technology. All rights reserved.'
@@ -15,10 +15,10 @@
 -docencoding
 'UTF-8'
 -doctitle
-'Legacy Registry 5.4.1 Test API'
+'Legacy Registry 5.5.5 Test API'
 -link
 '../apidocs'
 -use
 -version
 -windowtitle
-'Legacy Registry 5.4.1 Test API'
+'Legacy Registry 5.5.5 Test API'
