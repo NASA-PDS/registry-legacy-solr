@@ -255,6 +255,35 @@ solr_score() {
         | grep -o '"score":[0-9.eE+-]*' | head -1 | cut -d':' -f2
 }
 
+# Print the lid of every document a handler returns for a query, one per line, in rank order
+solr_lids_ranked() {
+    local handler=$1
+    local query=$2
+
+    curl -s -G "http://localhost:8983/solr/data/${handler}" \
+        --data-urlencode "q=${query}" --data-urlencode "fl=lid" --data-urlencode "rows=50" \
+        --data-urlencode "facet=false" --data-urlencode "wt=json" \
+        | grep -o '"lid":"[^"]*"' | cut -d'"' -f4
+}
+
+# Succeed if the lids a handler returns for a query are exactly the expected ones (a sorted, newline separated list)
+check_lids() {
+    local test_name=$1
+    local handler=$2
+    local query=$3
+    local expected=$4
+
+    local actual
+    actual=$(solr_lids_ranked "$handler" "$query" | sort -u)
+    if [ "$actual" != "$expected" ]; then
+        log_error "$test_name ($handler): Expected '$expected' for the query '$query', found '$actual'"
+        return 1
+    fi
+
+    log_success "$test_name ($handler): '$query' found exactly $(echo "$expected" | wc -l | tr -d ' ') product(s)"
+    return 0
+}
+
 # Succeed if the count is a positive number (and, when given, equal to the expected count)
 check_count() {
     local test_name=$1
@@ -790,6 +819,51 @@ for handler in keyword search archive-filter; do
 done
 
 # ============================================================================
+# TEST 6: LID And LIDVID Queries
+# ============================================================================
+
+log_info "==============================================="
+log_info "TEST 6: LID And LIDVID Queries"
+log_info "==============================================="
+
+# A query that is a LID or a LIDVID finds that product, whatever the version and the case. The
+# insight_documents test bundle has the collection document_rise.
+LID_BUNDLE="urn:nasa:pds:insight_documents"
+LID_COLLECTION="urn:nasa:pds:insight_documents:document_rise"
+LID_NO_PRODUCT="urn:nasa:pds:insight_documents:document_rise:no_such_product"
+
+for handler in keyword search archive-filter; do
+    check_lids "Bundle LID" "$handler" "$LID_BUNDLE" "$LID_BUNDLE"
+    check_status $? "A bundle LID should find only the bundle"
+
+    check_lids "Bundle LIDVID" "$handler" "${LID_BUNDLE}::1.0" "$LID_BUNDLE"
+    check_status $? "A LIDVID should find the product, whatever its version"
+
+    check_lids "Collection LID" "$handler" "$LID_COLLECTION" "$LID_COLLECTION"
+    check_status $? "A collection LID should find only the collection"
+
+    check_lids "Upper Case LID" "$handler" "URN:NASA:PDS:INSIGHT_DOCUMENTS" "$LID_BUNDLE"
+    check_status $? "A LID in upper case should find the product"
+
+    # A product that is not in the index finds its collection and its bundle
+    check_lids "Product LID Fallback" "$handler" "$LID_NO_PRODUCT" "$(printf '%s\n%s' "$LID_BUNDLE" "$LID_COLLECTION" | sort -u)"
+    check_status $? "A product LID that is not indexed should find its collection and its bundle"
+
+    # A collection that is not in the index finds its bundle
+    check_lids "Collection LID Fallback" "$handler" "${LID_BUNDLE}:no_such_collection" "$LID_BUNDLE"
+    check_status $? "A collection LID that is not indexed should find its bundle"
+
+    # A trailing * asks for the product and everything below it, the product first
+    first_lid=$(solr_lids_ranked "$handler" "${LID_BUNDLE}*" | head -1)
+    child_count=$(solr_lids_ranked "$handler" "${LID_BUNDLE}*" | grep -c "^${LID_BUNDLE}:")
+    if [ "$first_lid" != "$LID_BUNDLE" ] || [ "$child_count" -lt 1 ]; then
+        log_error "LID Prefix ($handler): Expected the bundle first, then its products; found '$first_lid' first and $child_count product(s) below it"
+        cleanup_and_exit 1
+    fi
+    log_success "LID Prefix ($handler): the bundle comes first, followed by $child_count product(s) below it"
+done
+
+# ============================================================================
 # Final Summary
 # ============================================================================
 
@@ -805,5 +879,6 @@ log_success "✓ PDS3 Solr loading and verification"
 log_success "✓ Superseded product versions hidden from search"
 log_success "✓ Context product names, types and aliases"
 log_success "✓ PDS4 products ranked above PDS3 products"
+log_success "✓ LID and LIDVID queries"
 
 cleanup_and_exit 0

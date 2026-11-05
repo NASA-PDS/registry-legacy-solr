@@ -776,7 +776,7 @@
 
   </requestHandler>
   
-  <requestHandler name="/keyword" class="solr.SearchHandler">
+  <requestHandler name="/keyword" class="gov.nasa.pds.search.LidAwareSearchHandler">
 
     <lst name="defaults">
        <str name="df">text</str> 

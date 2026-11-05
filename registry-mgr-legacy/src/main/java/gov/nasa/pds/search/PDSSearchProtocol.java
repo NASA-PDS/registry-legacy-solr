@@ -3,7 +3,6 @@ package gov.nasa.pds.search;
 import java.util.logging.Logger;
 
 import org.apache.solr.common.params.ModifiableSolrParams;
-import org.apache.solr.handler.component.SearchHandler;
 import org.apache.solr.request.SolrQueryRequest;
 import org.apache.solr.response.SolrQueryResponse;
 
@@ -14,7 +13,7 @@ import gov.nasa.pds.search.util.XssUtils;
  * @author jpadams
  * 
  */
-public class PDSSearchProtocol extends SearchHandler {
+public class PDSSearchProtocol extends LidAwareSearchHandler {
 	private Logger LOG = Logger.getLogger(this.getClass().getName());
 
 	public final static String[] MULTI_PARAMS = { "identifier", "instrument", "instrument-host", "instrument-host-type",
