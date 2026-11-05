@@ -1,8 +1,8 @@
 # Changelog
 
-## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-05)
+## [release/5.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/5.5.5) (2026-11-05)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.4.1...«unknown»)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.4.1...release/5.5.5)
 
 **Requirements:**
 
