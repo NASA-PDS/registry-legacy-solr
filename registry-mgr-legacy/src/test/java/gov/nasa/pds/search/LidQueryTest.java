@@ -71,6 +71,17 @@ class LidQueryTest {
 		assertNull(LidQuery.parse(BUNDLE + "::"));
 		assertNull(LidQuery.parse(BUNDLE + "::latest"));
 		assertNull(LidQuery.parse(BUNDLE + "::1.0::2.0"));
+		assertNull(LidQuery.parse(BUNDLE + "::1."));
+		assertNull(LidQuery.parse(BUNDLE + "::.1"));
+		assertNull(LidQuery.parse(BUNDLE + "::1..0"));
+		assertNull(LidQuery.parse(BUNDLE + "::1.a"));
+	}
+
+	@Test
+	void veryLongTextIsNeverALidQuery() {
+		String longLid = BUNDLE + ":x".repeat(2000);
+		assertNull(LidQuery.parse(longLid));
+		assertNull(LidQuery.parse("a".repeat(100000)));
 	}
 
 	@Test

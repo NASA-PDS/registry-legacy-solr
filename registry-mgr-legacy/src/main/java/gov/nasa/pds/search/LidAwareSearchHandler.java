@@ -2,6 +2,7 @@ package gov.nasa.pds.search;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.apache.lucene.index.Term;
@@ -45,7 +46,8 @@ public class LidAwareSearchHandler extends SearchHandler {
 		LidQuery lidQuery = LidQuery.parse(request.getParams().get(CommonParams.Q));
 		if (lidQuery != null) {
 			String query = buildQuery(request, lidQuery);
-			LOG.info("LID query " + lidQuery.getLid() + (lidQuery.isPrefix() ? "*" : "") + " searched as: " + query);
+			LOG.log(Level.INFO, "LID query {0}{1} searched as: {2}",
+					new Object[] { lidQuery.getLid(), lidQuery.isPrefix() ? "*" : "", query });
 
 			ModifiableSolrParams params = new ModifiableSolrParams(request.getParams());
 			params.set(CommonParams.Q, query);

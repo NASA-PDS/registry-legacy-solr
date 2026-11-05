@@ -16,14 +16,14 @@ import java.util.regex.Pattern;
  */
 public final class LidQuery {
 
-	/** The identifier: urn and at least three more parts. */
-	private static final Pattern LID = Pattern.compile("urn(:[a-z0-9._-]+){3,}");
+	/** One part of an identifier: the characters PDS4 allows in a LID. */
+	private static final Pattern PART = Pattern.compile("[a-z0-9._-]+");
 
-	/** The version_id of a LIDVID. */
-	private static final Pattern VERSION = Pattern.compile("[0-9]+(\\.[0-9]+)*");
-
-	/** The number of parts of a bundle LID, which has no parent. */
+	/** The number of parts of a bundle LID (urn, agency, archive and bundle), which has no parent. */
 	private static final int BUNDLE_PARTS = 4;
+
+	/** No LID comes near this length; longer text is never a LID query. */
+	private static final int MAX_LENGTH = 1024;
 
 	private final String lid;
 	private final boolean prefix;
@@ -45,6 +45,9 @@ public final class LidQuery {
 		}
 
 		String text = query.trim().toLowerCase();
+		if (text.length() > MAX_LENGTH) {
+			return null;
+		}
 		boolean prefix = text.endsWith("*");
 		while (text.endsWith("*")) {
 			text = text.substring(0, text.length() - 1);
@@ -52,16 +55,46 @@ public final class LidQuery {
 
 		int versionStart = text.indexOf("::");
 		if (versionStart >= 0) {
-			if (!VERSION.matcher(text.substring(versionStart + 2)).matches()) {
+			if (!isVersion(text.substring(versionStart + 2))) {
 				return null;
 			}
 			text = text.substring(0, versionStart);
 		}
 
-		if (!LID.matcher(text).matches()) {
+		if (!isLid(text)) {
 			return null;
 		}
 		return new LidQuery(text, prefix);
+	}
+
+	/** Whether the text is urn followed by at least three more parts of the allowed characters. */
+	private static boolean isLid(String text) {
+		String[] parts = text.split(":", -1);
+		if (parts.length < BUNDLE_PARTS || !"urn".equals(parts[0])) {
+			return false;
+		}
+		for (int i = 1; i < parts.length; i++) {
+			if (!PART.matcher(parts[i]).matches()) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	/** Whether the text is a version_id: numbers separated by single dots, such as 1.0 or 12.3.1. */
+	private static boolean isVersion(String text) {
+		boolean digitSeen = false;
+		for (int i = 0; i < text.length(); i++) {
+			char c = text.charAt(i);
+			if (c >= '0' && c <= '9') {
+				digitSeen = true;
+			} else if (c == '.' && digitSeen) {
+				digitSeen = false;
+			} else {
+				return false;
+			}
+		}
+		return digitSeen;
 	}
 
 	/** The LID, without a version, in lowercase. */
