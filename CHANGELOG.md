@@ -1,5 +1,13 @@
 # Changelog
 
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-05)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.4.1...«unknown»)
+
+**Requirements:**
+
+- As a user, I want keyword search to recognize LIDs and LIDVIDs, so that I can find a bundle, collection or document from its identifier [\#307](https://github.com/NASA-PDS/registry-legacy-solr/issues/307)
+
 ## [v5.4.1](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.4.1) (2026-11-04)
 
 [Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.3.0...v5.4.1)
