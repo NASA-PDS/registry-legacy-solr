@@ -99,6 +99,13 @@ The PDS4 harvest in Test 1 runs with a small context products file (`src/test/re
 1. Loads two documents with the same text, one PDS4 and one PDS3 (`src/test/resources/data/model-boost/`)
 2. Checks that on `/keyword`, `/search` and `/archive-filter` the PDS4 document scores at least 1.4 times the PDS3 one (the boost multiplies the PDS4 score by 1.5)
 
+### Test 6: LID And LIDVID Queries
+On `/keyword`, `/search` and `/archive-filter`, using the `insight_documents` bundle from Test 1:
+1. Checks that a bundle LID, a LIDVID, a collection LID and an upper case LID each find only that product
+2. Checks that a product LID or a collection LID that is not in the index finds its parents, nearest first (the collection, then the bundle, or the bundle)
+3. Loads a resource that `/keyword` and `/archive-filter` hide (`src/test/resources/data/lid-search/`) and checks that those handlers treat its LID as not indexed and find its collection and bundle, while `/search` finds the resource itself
+4. Checks that `<LID>*` finds the bundle first, then every product under the prefix that the handler returns, each once
+
 ## Scale Test for Superseded Versions
 
 `versions-scale-test.sh` times `registry-mgr-solr -mark-superseded` on 180000 synthetic documents (60000 products with 3 versions each). It is a manual tool and is not part of the smoke tests or CI, because it takes a few minutes and its timings depend on the machine.

@@ -266,6 +266,19 @@ The script is tested with stubbed tools by `test/reload-all-tests.sh`.
 
 Keyword search (`/keyword`), `/search` and `/archive-filter` multiply the score of every PDS4 product by 1.5, so a PDS4 product ranks above a PDS3 product of similar relevance, while a much better PDS3 match still ranks first. The factor is the `boost` parameter in `solrconfig.xml` (`if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)`); change `1.5` to make the preference weaker or stronger. A change to `solrconfig.xml` is applied with `upgrade`, without loading documents again.
 
+### Searching by identifier
+
+Keyword search (`/keyword`), `/search` and `/archive-filter` recognize a query that is a PDS4 logical identifier and search the `lid` field for it. The whole query has to be one identifier: `urn:` followed by at least three more colon separated parts (lowercase letters, digits, `-`, `.` and `_`), so a bundle LID (`urn:nasa:pds:bopps2014`), a collection LID (`urn:nasa:pds:bopps2014:biassub`) or a product LID (`urn:nasa:pds:bopps2014:biassub:<product>`). A query with other words, or with fewer parts, is an ordinary keyword search.
+
+| Query | Result |
+|---|---|
+| `<LID>` | The product with that LID (the latest version) |
+| `<LID>::<version_id>` | The same: the version is dropped, because only the latest version is searched |
+| `<LID>*` | The product and every product whose LID starts with it, the product first |
+| A LID that is not in the index | Its parents, nearest first: a product LID finds its collection and its bundle (products themselves are not searched), and a collection LID finds its bundle |
+
+Case does not matter. The older versions and the product types a handler leaves out are hidden as in any other search.
+
 ## Check what is in Solr
 
 ```bash
