@@ -34,9 +34,9 @@ If the release notes do not say, ask the maintainers before you reload: a reload
 
 ```bash
 export VERSION="latest"
-export INSTALL_DIR="<your-install-directory>"
-export DATA_HOME="<your-solr-data-directory>"
-export BACKUP_HOME="<your-backup-directory>"
+
+# Check these are already set in your environment, if not set them
+echo $INSTALL_DIR $DATA_HOME $BACKUP_HOME
 ```
 
 | Variable | Description |
@@ -49,9 +49,8 @@ export BACKUP_HOME="<your-backup-directory>"
 A reload (step 7) needs more variables. Set them when the release needs one:
 
 ```bash
-export PDS4_SOLR_DOC_HOME="<your-pds4-solr-docs-directory>"
-export PDS3_SOLR_DOC_HOME="<your-pds3-solr-docs-directory>"
-export PDS3_HISTORY="<your-historical-pds3-solr-docs-directory>"
+# Check these are already set in your environment, if not set them
+echo $PDS4_SOLR_DOC_HOME $PDS3_SOLR_DOC_HOME $PDS3_HISTORY
 ```
 
 | Variable | Needed for | Description |
