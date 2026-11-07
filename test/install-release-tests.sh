@@ -50,6 +50,11 @@ make_release() {
   for module in catalog-legacy harvest-legacy registry-mgr-legacy; do
     mkdir -p "$WORK/build/${module}-${version}/bin"
     echo "$module $version" > "$WORK/build/${module}-${version}/bin/tool"
+    if [[ "$module" == "harvest-legacy" ]]; then
+      printf '#!/bin/sh\necho "reload $* manager=$REGISTRY_MGR_SOLR_HOME" >> "%s"\nexit ${STUB_RELOAD_EXIT:-0}\n' "$LOG" \
+        > "$WORK/build/${module}-${version}/bin/reload_all.sh"
+      chmod +x "$WORK/build/${module}-${version}/bin/reload_all.sh"
+    fi
     tar --create --gzip --file "$WORK/release/v${version}/${module}-${version}-bin.tar.gz" \
         --directory "$WORK/build" "${module}-${version}"
   done
@@ -68,7 +73,9 @@ exit 0
 EOF
 chmod +x "$WORK/stubs/docker"
 
-echo '{"response":{"numFound":42}}' > "$WORK/solr/data/select"
+for handler in select all keyword search archive-filter; do
+  echo '{"response":{"numFound":42}}' > "$WORK/solr/data/$handler"
+done
 echo '{}' > "$WORK/solr/admin/info/system"
 PORT=$(python3 -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')
 python3 -m http.server "$PORT" --bind 127.0.0.1 --directory "$WORK/solr" > /dev/null 2>&1 &
@@ -142,8 +149,11 @@ run_install UPGRADE_REGISTRY=yes "$SCRIPT" 9.9.9
 expect_rc 1 "the registry stage without DATA_HOME is refused"
 expect_out "DATA_HOME must be set" "the missing DATA_HOME is explained"
 [[ ! -e "$INSTALL" ]] && pass "nothing was created" || fail "INSTALL_DIR was created by a refused run"
-run_install UPGRADE_REGISTRY=no LOAD_DOCS=yes "$SCRIPT" 9.9.9
-expect_rc 1 "LOAD_DOCS without the registry stage is refused"
+run_install UPGRADE_REGISTRY=no RELOAD_ALL=prod "$SCRIPT" 9.9.9
+expect_rc 1 "RELOAD_ALL without the registry stage is refused"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=yes "$SCRIPT" 9.9.9
+expect_rc 1 "a RELOAD_ALL that is not prod or staging is refused"
+expect_out "RELOAD_ALL must be no, prod or staging" "the allowed values are named"
 
 echo "TEST: a release that was not published"
 run_install UPGRADE_REGISTRY=no "$SCRIPT" 8.8.8
@@ -213,7 +223,30 @@ expect_log "installer upgrade" "the installer runs the upgrade"
 expect_no_log "installer -s" "the backup is not skipped by default"
 expect_out "Solr answers with 42 documents" "the document count is checked afterwards"
 expect_no_out "is not tagged" "the container image matches the release"
-expect_out "Load the Solr documents again" "the next step is printed"
+expect_out "Reload the registry so that new schema fields are filled" "the next step is printed"
+expect_out "Smoke query ok: /keyword q=*:* -> 42 documents" "the keyword handler is queried after the upgrade"
+for handler in select all search archive-filter; do
+  expect_out "Smoke query ok: /${handler} q=*:*" "the $handler handler is queried after the upgrade"
+done
+
+echo "TEST: a smoke query that fails fails the run"
+mv "$WORK/solr/data/keyword" "$WORK/solr/data/keyword.off"
+run_install DATA_HOME="$WORK/data" "$SCRIPT" 9.9.9
+expect_rc 1 "a handler that does not answer fails the run"
+expect_out "Smoke query FAILED: /keyword" "the failing handler is named"
+expect_out "Some smoke queries failed" "the failure is summarized"
+expect_out "Installed" "the summary is still printed"
+echo '{"response":{"numFound":0}}' > "$WORK/solr/data/keyword"
+run_install DATA_HOME="$WORK/data" "$SCRIPT" 9.9.9
+expect_rc 1 "a handler that finds nothing in a registry that held documents fails the run"
+expect_out "found no documents" "the empty answer is explained"
+rm "$WORK/solr/data/keyword"
+mv "$WORK/solr/data/keyword.off" "$WORK/solr/data/keyword"
+
+echo "TEST: the smoke queries can be skipped"
+run_install DATA_HOME="$WORK/data" SMOKE_QUERIES=no "$SCRIPT" 9.9.9
+expect_rc 0 "the run succeeds"
+expect_no_out "Smoke query" "no query is run"
 
 echo "TEST: the backup can be skipped, and a missing container means an install"
 : > "$LOG"
@@ -234,20 +267,37 @@ run_install DATA_HOME="$WORK/data" STUB_INSTALLER_EXIT=1 "$SCRIPT" 9.9.9
 expect_rc 1 "the failure is passed on"
 expect_out "upgrade failed" "the failure is named"
 
-echo "TEST: documents are loaded when asked to"
-mkdir -p "$WORK/pds4/solr-docs" "$WORK/pds3/solr-docs" "$WORK/history"
-for dir in "$WORK/pds4/solr-docs" "$WORK/pds3/solr-docs" "$WORK/history"; do echo "<add/>" > "$dir/doc.xml"; done
+echo "TEST: the registry is reloaded with reload_all.sh when asked to"
 : > "$LOG"
-run_install DATA_HOME="$WORK/data" LOAD_DOCS=yes PDS4_SOLR_DOC_HOME="$WORK/pds4" \
+run_install DATA_HOME="$WORK/data" "$SCRIPT" 9.9.9
+expect_no_log "reload" "nothing is reloaded by default"
+expect_out "reload_all.sh prod" "the reload commands are printed as the next step"
+expect_out "removes the legacy context products" "the order of the reload is explained"
+: > "$LOG"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod PDS4_SOLR_DOC_HOME="$WORK/pds4" \
   PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" "$SCRIPT" 9.9.9
-expect_rc 0 "the load succeeds"
-expect_log "load $WORK/pds4/solr-docs" "the PDS4 documents are loaded"
-expect_log "load $WORK/pds3/solr-docs" "the PDS3 documents are loaded"
-expect_log "load $WORK/history" "the historical documents are loaded"
-rm "$WORK/pds4/solr-docs/doc.xml"
-run_install DATA_HOME="$WORK/data" LOAD_DOCS=yes PDS4_SOLR_DOC_HOME="$WORK/pds4" PDS3_SOLR_DOC_HOME="$WORK/pds3" "$SCRIPT" 9.9.9
-expect_rc 1 "an empty document directory is refused"
-expect_out "no Solr documents to load" "the empty directory is named"
+expect_rc 0 "the reload succeeds"
+expect_log "reload prod manager=$INSTALL/registry-manager-legacy" "reload_all.sh prod runs with the new registry manager"
+expect_no_log "^load " "the documents are not loaded one directory at a time"
+expect_no_out "reload_all.sh prod      #" "no next step is printed after a reload"
+: > "$LOG"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=staging PDS4_SOLR_DOC_HOME="$WORK/pds4" \
+  PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" HARVEST_SOLR_CONF_HOME="$WORK/conf" \
+  PDS3_DATA_PATH="$WORK/pds3data" "$SCRIPT" 9.9.9
+expect_rc 0 "the staging reload succeeds"
+expect_log "reload staging" "reload_all.sh staging runs"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=staging PDS4_SOLR_DOC_HOME="$WORK/pds4" \
+  PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" "$SCRIPT" 9.9.9
+expect_rc 1 "a staging reload without the harvest settings is refused"
+expect_out "needs HARVEST_SOLR_CONF_HOME" "the missing setting is named"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod PDS4_SOLR_DOC_HOME="$WORK/pds4" PDS3_SOLR_DOC_HOME="$WORK/pds3" "$SCRIPT" 9.9.9
+expect_rc 1 "a reload without PDS3_HISTORY is refused"
+expect_out "needs PDS3_HISTORY" "the missing setting is named"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod STUB_RELOAD_EXIT=1 PDS4_SOLR_DOC_HOME="$WORK/pds4" \
+  PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" "$SCRIPT" 9.9.9
+expect_rc 1 "a failed reload fails the run"
+expect_out "reload_all.sh prod failed" "the failure is named"
+expect_no_out "Smoke query" "no smoke query runs after a failed reload"
 
 echo "TEST: environment variables are added to the profile once"
 rm -f "$WORK/home/profile"

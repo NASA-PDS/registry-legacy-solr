@@ -10,7 +10,9 @@
 #
 #   1. downloads the catalog-legacy, harvest-legacy and registry-mgr-legacy tarballs of the GitHub release,
 #      unpacks them into INSTALL_DIR and repoints the symlinks there (the previous versions stay on disk), then
-#   2. upgrades the registry with the new registry manager (or installs it when no registry container exists).
+#   2. upgrades the registry with the new registry manager (or installs it when no registry container exists), then
+#   3. runs a few smoke queries against the Solr handlers (select, all, keyword, search, archive-filter) to check
+#      that they answer; when a registry that held documents answers none, the script exits with an error.
 #
 # It checks its inputs before it changes anything, and refuses to touch Solr while a harvest, a catalog run
 # or a document load is running (a Solr restart in the middle of a harvest makes the harvest skip products).
@@ -23,8 +25,12 @@
 #   BACKUP_HOME              Directory for the backup an upgrade takes (default: $DATA_HOME/solr-backups)
 #   UPGRADE_REGISTRY         yes (default) to install or upgrade the registry; no to only install the tools
 #   SKIP_BACKUP              yes to upgrade without taking a backup first (default: no)
-#   LOAD_DOCS                yes to load the Solr documents in PDS4_SOLR_DOC_HOME, PDS3_SOLR_DOC_HOME and
-#                            PDS3_HISTORY after the upgrade (default: no)
+#   RELOAD_ALL               prod or staging to run reload_all.sh of the new harvest after the upgrade, which
+#                            reloads the registry in the right order (historical PDS3 documents, PDS4 documents,
+#                            PDS3 documents); staging also harvests and catalogs first. no to skip it (default: no).
+#                            Needs PDS4_SOLR_DOC_HOME, PDS3_SOLR_DOC_HOME and PDS3_HISTORY, and for staging also
+#                            HARVEST_SOLR_CONF_HOME and PDS3_DATA_PATH
+#   SMOKE_QUERIES            no to skip the smoke queries after an install or upgrade (default: yes)
 #   PERSIST_ENV              yes to add missing exports for the tools and for the variables set here to
 #                            PROFILE_FILE (default: no; existing exports are never changed)
 #   PROFILE_FILE             Shell profile that PERSIST_ENV appends to (default: $HOME/.bash_profile)
@@ -55,7 +61,8 @@ HARVEST_LINK=${HARVEST_LINK:-harvest-legacy}
 REGISTRY_MGR_LINK=${REGISTRY_MGR_LINK:-registry-manager-legacy}
 UPGRADE_REGISTRY=${UPGRADE_REGISTRY:-yes}
 SKIP_BACKUP=${SKIP_BACKUP:-no}
-LOAD_DOCS=${LOAD_DOCS:-no}
+RELOAD_ALL=${RELOAD_ALL:-no}
+SMOKE_QUERIES=${SMOKE_QUERIES:-yes}
 PERSIST_ENV=${PERSIST_ENV:-no}
 PROFILE_FILE=${PROFILE_FILE:-$HOME/.bash_profile}
 DRY_RUN=${DRY_RUN:-no}
@@ -68,6 +75,9 @@ VERSION=${VERSION#v}
 
 # Commands that undo the symlink changes, filled in as the links are switched
 ROLLBACK=()
+
+# Set to 1 when a smoke query fails
+SMOKE_FAILED=0
 
 log() {
   echo "[INFO] $*"
@@ -138,12 +148,20 @@ preflight() {
   if is_yes "$UPGRADE_REGISTRY"; then
     command -v docker > /dev/null 2>&1 || die "docker is required to install or upgrade the registry (or set UPGRADE_REGISTRY=no)"
     [[ -n "${DATA_HOME:-}" ]] || die "DATA_HOME must be set to install or upgrade the registry (or set UPGRADE_REGISTRY=no)"
-    if is_yes "$LOAD_DOCS"; then
-      [[ -n "${PDS4_SOLR_DOC_HOME:-}" && -n "${PDS3_SOLR_DOC_HOME:-}" ]] \
-        || die "LOAD_DOCS=yes needs PDS4_SOLR_DOC_HOME and PDS3_SOLR_DOC_HOME (and PDS3_HISTORY when there is one)"
-    fi
-  elif is_yes "$LOAD_DOCS"; then
-    die "LOAD_DOCS=yes needs UPGRADE_REGISTRY=yes"
+  fi
+
+  case "$RELOAD_ALL" in
+    no | prod | staging) ;;
+    *) die "RELOAD_ALL must be no, prod or staging (found '$RELOAD_ALL')" ;;
+  esac
+  if [[ "$RELOAD_ALL" != "no" ]]; then
+    local name
+    local needed="PDS4_SOLR_DOC_HOME PDS3_SOLR_DOC_HOME PDS3_HISTORY"
+    is_yes "$UPGRADE_REGISTRY" || die "RELOAD_ALL=${RELOAD_ALL} needs UPGRADE_REGISTRY=yes"
+    [[ "$RELOAD_ALL" == "staging" ]] && needed+=" HARVEST_SOLR_CONF_HOME PDS3_DATA_PATH"
+    for name in $needed; do
+      [[ -n "${!name:-}" ]] || die "RELOAD_ALL=${RELOAD_ALL} needs ${name}"
+    done
   fi
 
   # Last, so that a refused run leaves nothing behind
@@ -261,16 +279,59 @@ wait_for_solr() {
   return 1
 }
 
-# Loads the Solr documents of one directory, when it holds any
-load_docs() {
-  local label=$1
-  local dir=$2
+# Runs a query against a handler of the data collection and prints the number of matches; fails when Solr
+# does not answer or the answer has no result count
+query_count() {
+  local handler=$1
+  local query=$2
+  local count
 
-  if [[ ! -d "$dir" ]] || [[ -z "$(find "$dir" -type f -name '*.xml' 2> /dev/null | head -n 1)" ]]; then
-    die "There are no Solr documents to load for the ${label} in ${dir}"
-  fi
-  log "Loading the ${label}"
-  run "${INSTALL_DIR}/${REGISTRY_MGR_LINK}/bin/registry-mgr-solr" "$dir" || die "Loading the ${label} failed"
+  count=$(curl --silent --fail --max-time 60 -G "${SOLR_URL}/data/${handler}" \
+    --data-urlencode "q=${query}" --data-urlencode "rows=1" --data-urlencode "facet=false" --data-urlencode "wt=json" 2> /dev/null \
+    | grep -o '"numFound":[0-9]*' | head -1 | cut -d':' -f2)
+  [[ -n "$count" ]] || return 1
+  echo "$count"
+}
+
+# Runs a few queries against the handlers that the keyword search and the tools use. Each must answer; the
+# match-all queries must find documents when the registry held some before the upgrade.
+smoke_queries() {
+  local before=$1
+  local expect_docs=no
+  local handler
+  local query
+  local count
+  local pair
+
+  [[ "${before:-0}" -gt 0 ]] && expect_docs=yes
+
+  log "Running smoke queries against ${SOLR_URL}/data"
+  for pair in 'select|*:*' 'all|*:*' 'keyword|*:*' 'keyword|mars' 'search|*:*' 'archive-filter|*:*'; do
+    handler=${pair%%|*}
+    query=${pair#*|}
+    if ! count=$(query_count "$handler" "$query"); then
+      warn "Smoke query FAILED: /${handler} q=${query} did not answer"
+      SMOKE_FAILED=1
+    elif [[ "$query" == '*:*' && "$expect_docs" == yes && "$count" -eq 0 ]]; then
+      warn "Smoke query FAILED: /${handler} q=${query} found no documents, but the registry held ${before} before"
+      SMOKE_FAILED=1
+    else
+      log "Smoke query ok: /${handler} q=${query} -> ${count} documents"
+    fi
+  done
+}
+
+# Reloads the registry with reload_all.sh of the new harvest, which loads the historical PDS3 documents, removes
+# the legacy context products, then loads the PDS4 and PDS3 documents. It stops at the first step that fails.
+reload_registry() {
+  local venue=$1
+
+  log "Reloading the registry: reload_all.sh ${venue}"
+  run env REGISTRY_MGR_SOLR_HOME="${INSTALL_DIR}/${REGISTRY_MGR_LINK}" \
+      HARVEST_SOLR_HOME="${INSTALL_DIR}/${HARVEST_LINK}" \
+      CATALOG_SOLR_HOME="${INSTALL_DIR}/${CATALOG_LINK}" \
+      "${INSTALL_DIR}/${HARVEST_LINK}/bin/reload_all.sh" "$venue" \
+    || die "reload_all.sh ${venue} failed (see the messages above)"
 }
 
 # Installs or upgrades the registry with the registry manager that was just linked
@@ -315,12 +376,12 @@ registry_stage() {
   log "Registry container image: ${image:-unknown}"
   [[ "$image" == *":${VERSION}" ]] || warn "The container image '${image}' is not tagged ${VERSION}"
 
-  if is_yes "$LOAD_DOCS"; then
-    load_docs "PDS4 documents" "${PDS4_SOLR_DOC_HOME}/solr-docs"
-    load_docs "PDS3 documents" "${PDS3_SOLR_DOC_HOME}/solr-docs"
-    if [[ -n "${PDS3_HISTORY:-}" ]]; then
-      load_docs "historical PDS3 documents" "$PDS3_HISTORY"
-    fi
+  if [[ "$RELOAD_ALL" != "no" ]]; then
+    reload_registry "$RELOAD_ALL"
+  fi
+
+  if is_yes "$SMOKE_QUERIES"; then
+    smoke_queries "$before"
   fi
 }
 
@@ -338,13 +399,18 @@ print_summary() {
     printf '%s\n' "${ROLLBACK[@]}"
     echo
   fi
-  if is_yes "$UPGRADE_REGISTRY" && ! is_yes "$LOAD_DOCS"; then
+  if is_yes "$UPGRADE_REGISTRY" && [[ "$RELOAD_ALL" == "no" ]]; then
     echo "---- Next ---"
-    echo "Load the Solr documents again so that new schema fields are filled:"
-    echo "  \$REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr \$PDS4_SOLR_DOC_HOME/solr-docs"
-    echo "  \$REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr \$PDS3_SOLR_DOC_HOME/solr-docs"
-    echo "  \$REGISTRY_MGR_SOLR_HOME/bin/registry-mgr-solr \$PDS3_HISTORY"
+    echo "Reload the registry so that new schema fields are filled. reload_all.sh loads the historical PDS3"
+    echo "documents, removes the legacy context products, then loads the PDS4 and PDS3 documents, in that order."
+    echo "It needs REGISTRY_MGR_SOLR_HOME, PDS4_SOLR_DOC_HOME, PDS3_SOLR_DOC_HOME and PDS3_HISTORY to be set:"
+    echo "  ${INSTALL_DIR}/${HARVEST_LINK}/bin/reload_all.sh prod      # load the documents generated on staging"
+    echo "  ${INSTALL_DIR}/${HARVEST_LINK}/bin/reload_all.sh staging   # harvest and catalog first, then load"
     echo
+  fi
+  if [[ $SMOKE_FAILED -ne 0 ]]; then
+    warn "Some smoke queries failed (see above). Check the registry before you use it."
+    return 1
   fi
   log "Done."
 }
@@ -380,4 +446,4 @@ else
   log "UPGRADE_REGISTRY=no: the registry is not installed or upgraded"
 fi
 
-print_summary
+print_summary || exit 1
