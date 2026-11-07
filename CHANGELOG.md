@@ -1,8 +1,16 @@
 # Changelog
 
-## [release/5.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/5.5.5) (2026-11-05)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-07)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.4.1...release/5.5.5)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.5.5...«unknown»)
+
+**Defects:**
+
+- Registry installer in the release tarballs fails every backup because the build rewrites the script [\#313](https://github.com/NASA-PDS/registry-legacy-solr/issues/313)
+
+## [v5.5.5](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.5.5) (2026-11-05)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.4.1...v5.5.5)
 
 **Requirements:**
 
