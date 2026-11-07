@@ -59,8 +59,10 @@ chmod +x install-release.sh
 
 export INSTALL_DIR="$HOME/applications"
 export DATA_HOME="$HOME/registry-data"
-./install-release.sh 5.5.0
+./install-release.sh latest
 ```
+
+Give a release number such as `5.5.5` instead of `latest` to install a specific release. The releases are listed on the [releases page](https://github.com/NASA-PDS/registry-legacy-solr/releases); the tarballs are named `<tool>-<version>-bin.tar.gz` under `releases/download/v<version>/`.
 
 The script:
 
@@ -71,7 +73,7 @@ The script:
 
 | Variable | Description |
 |---|---|
-| `REGISTRY_LEGACY_VERSION` | The release, such as `5.5.0` (or give it as the first argument) |
+| `REGISTRY_LEGACY_VERSION` | The release, such as `5.5.5`, or `latest` for the newest one (or give it as the first argument) |
 | `INSTALL_DIR` | Directory for the unpacked releases and the symlinks (default: the current directory) |
 | `DATA_HOME` | The Solr volume, as for the installer (required unless `UPGRADE_REGISTRY=no`) |
 | `BACKUP_HOME` | Where the upgrade's backup goes (default `$DATA_HOME/solr-backups`) |

@@ -5,7 +5,8 @@
 #
 # Usage: install-release.sh [VERSION]
 #
-# The release can also be given in REGISTRY_LEGACY_VERSION (for example 5.5.0). The script
+# VERSION is a release number such as 5.5.5, or latest for the newest published release. It can also be
+# given in REGISTRY_LEGACY_VERSION. The script
 #
 #   1. downloads the catalog-legacy, harvest-legacy and registry-mgr-legacy tarballs of the GitHub release,
 #      unpacks them into INSTALL_DIR and repoints the symlinks there (the previous versions stay on disk), then
@@ -15,7 +16,8 @@
 # or a document load is running (a Solr restart in the middle of a harvest makes the harvest skip products).
 #
 # Environment (all optional unless marked):
-#   REGISTRY_LEGACY_VERSION  Release to install, without the leading v (required unless given as an argument)
+#   REGISTRY_LEGACY_VERSION  Release to install, without the leading v, or latest (required unless given as
+#                            an argument)
 #   INSTALL_DIR              Directory holding the unpacked releases and the symlinks (default: current directory)
 #   DATA_HOME                Directory with the Solr volume (required when the registry is installed or upgraded)
 #   BACKUP_HOME              Directory for the backup an upgrade takes (default: $DATA_HOME/solr-backups)
@@ -34,10 +36,11 @@
 #                            Symlink names in INSTALL_DIR (default: catalog-legacy, harvest-legacy,
 #                            registry-manager-legacy)
 #   RELEASE_URL_BASE         Where the releases are downloaded from
+#   RELEASES_LATEST_URL      The page that redirects to the newest release (used for latest)
 #
 # Example:
 #   export INSTALL_DIR="$HOME/applications" DATA_HOME="$HOME/registry-data"
-#   ./install-release.sh 5.5.0
+#   ./install-release.sh latest
 #
 # To fetch the script on a host that has no checkout of this repository:
 #   curl -fLO https://raw.githubusercontent.com/NASA-PDS/registry-legacy-solr/main/scripts/install-release.sh
@@ -45,6 +48,7 @@
 set -u -o pipefail
 
 RELEASE_URL_BASE=${RELEASE_URL_BASE:-https://github.com/NASA-PDS/registry-legacy-solr/releases/download}
+RELEASES_LATEST_URL=${RELEASES_LATEST_URL:-https://github.com/NASA-PDS/registry-legacy-solr/releases/latest}
 INSTALL_DIR=${INSTALL_DIR:-$PWD}
 CATALOG_LINK=${CATALOG_LINK:-catalog-legacy}
 HARVEST_LINK=${HARVEST_LINK:-harvest-legacy}
@@ -110,10 +114,21 @@ fetch() {
   mv "${dest}.part" "$dest"
 }
 
+# Finds the number of the newest published release by following the redirect of the latest release page
+resolve_latest() {
+  local final
+  command -v curl > /dev/null 2>&1 || die "curl is required to find the latest release; give a release number instead"
+  final=$(curl --silent --show-error --location --head --output /dev/null --write-out '%{url_effective}' "$RELEASES_LATEST_URL") \
+    || die "Could not look up the latest release at $RELEASES_LATEST_URL"
+  final=${final##*/}
+  [[ "$final" =~ ^v[0-9]+\.[0-9]+\.[0-9]+ ]] || die "Could not read a release number from the latest release page (found '$final')"
+  echo "${final#v}"
+}
+
 # Checks everything the script needs, before anything is downloaded or changed
 preflight() {
-  [[ -n "$VERSION" ]] || die "Give the release as an argument or in REGISTRY_LEGACY_VERSION, for example 5.5.0"
-  [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-SNAPSHOT)?$ ]] || die "'$VERSION' is not a release number such as 5.5.0"
+  [[ -n "$VERSION" ]] || die "Give the release as an argument or in REGISTRY_LEGACY_VERSION, for example 5.5.5 or latest"
+  [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-SNAPSHOT)?$ ]] || die "'$VERSION' is not a release number such as 5.5.5 (or latest)"
 
   command -v tar > /dev/null 2>&1 || die "tar is required"
   command -v curl > /dev/null 2>&1 || command -v wget > /dev/null 2>&1 || die "curl or wget is required"
@@ -163,7 +178,7 @@ unpack_module() {
   if [[ ! -f "$tarball" ]]; then
     log "Downloading ${name}-bin.tar.gz"
     run fetch "${RELEASE_URL_BASE}/v${VERSION}/${name}-bin.tar.gz" "$tarball" \
-      || die "Could not download ${RELEASE_URL_BASE}/v${VERSION}/${name}-bin.tar.gz (has release v${VERSION} been published?)"
+      || die "Could not download ${RELEASE_URL_BASE}/v${VERSION}/${name}-bin.tar.gz (has release v${VERSION} been published? See https://github.com/NASA-PDS/registry-legacy-solr/releases)"
   fi
 
   log "Unpacking ${name}-bin.tar.gz"
@@ -333,6 +348,11 @@ print_summary() {
   fi
   log "Done."
 }
+
+if [[ "$VERSION" == "latest" ]]; then
+  VERSION=$(resolve_latest) || exit 1
+  log "The latest release is ${VERSION}"
+fi
 
 preflight
 

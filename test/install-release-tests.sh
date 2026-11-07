@@ -18,10 +18,12 @@ TEST_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 SCRIPT="$TEST_DIR/../scripts/install-release.sh"
 WORK=$(mktemp -d)
 SERVER_PID=""
+REDIRECT_PID=""
 SLEEPER_PID=""
 
 cleanup() {
   [[ -n "$SERVER_PID" ]] && kill "$SERVER_PID" 2> /dev/null
+  [[ -n "$REDIRECT_PID" ]] && kill "$REDIRECT_PID" 2> /dev/null
   [[ -n "$SLEEPER_PID" ]] && kill "$SLEEPER_PID" 2> /dev/null
   rm -rf "$WORK"
 }
@@ -73,6 +75,36 @@ python3 -m http.server "$PORT" --bind 127.0.0.1 --directory "$WORK/solr" > /dev/
 SERVER_PID=$!
 sleep 1
 
+# A stand-in for the latest release page of GitHub: it redirects to the page of release 9.9.10
+cat > "$WORK/redirect.py" <<'EOF'
+import http.server
+import sys
+
+port = int(sys.argv[1])
+
+
+class Handler(http.server.BaseHTTPRequestHandler):
+    def do_HEAD(self):
+        if self.path.endswith("/latest"):
+            self.send_response(302)
+            self.send_header("Location", "http://127.0.0.1:%d/releases/tag/v9.9.10" % port)
+        else:
+            self.send_response(200)
+        self.end_headers()
+
+    do_GET = do_HEAD
+
+    def log_message(self, *args):
+        pass
+
+
+http.server.HTTPServer(("127.0.0.1", port), Handler).serve_forever()
+EOF
+REDIRECT_PORT=$(python3 -c 'import socket; s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1])')
+python3 "$WORK/redirect.py" "$REDIRECT_PORT" > /dev/null 2>&1 &
+REDIRECT_PID=$!
+sleep 1
+
 LOG="$WORK/stub.log"
 INSTALL="$WORK/install"
 
@@ -104,7 +136,7 @@ echo "TEST: bad input stops before anything changes"
 run_install "$SCRIPT"
 expect_rc 1 "no version is refused"
 expect_out "Give the release" "the missing version is explained"
-run_install "$SCRIPT" latest
+run_install "$SCRIPT" stable
 expect_rc 1 "a name that is not a release number is refused"
 run_install UPGRADE_REGISTRY=yes "$SCRIPT" 9.9.9
 expect_rc 1 "the registry stage without DATA_HOME is refused"
@@ -118,6 +150,18 @@ run_install UPGRADE_REGISTRY=no "$SCRIPT" 8.8.8
 expect_rc 1 "a missing release fails"
 expect_out "has release v8.8.8 been published" "the failure names the release"
 [[ -z "$(find "$INSTALL" -name '*.part' 2> /dev/null)" ]] && pass "no partial download is left" || fail "a .part file is left"
+
+echo "TEST: latest finds the newest release"
+run_install UPGRADE_REGISTRY=no RELEASES_LATEST_URL="http://127.0.0.1:$REDIRECT_PORT/releases/latest" "$SCRIPT" latest
+expect_rc 0 "latest installs"
+expect_out "The latest release is 9.9.10" "the release it found is named"
+expect_link "$INSTALL/harvest-legacy" "harvest-legacy-9.9.10" "the links point at the latest release"
+rm -rf "$INSTALL"
+run_install UPGRADE_REGISTRY=no RELEASES_LATEST_URL="http://127.0.0.1:1/releases/latest" "$SCRIPT" latest
+expect_rc 1 "latest fails when the release page cannot be read"
+expect_out "latest release" "the failure is explained"
+[[ ! -e "$INSTALL" ]] && pass "nothing was created" || fail "INSTALL_DIR was created by a failed lookup"
+rm -rf "$INSTALL"
 
 echo "TEST: first install of the tools"
 run_install UPGRADE_REGISTRY=no "$SCRIPT" 9.9.9
