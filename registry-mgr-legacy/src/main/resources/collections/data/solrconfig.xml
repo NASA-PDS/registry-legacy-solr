@@ -815,7 +815,8 @@
       <str name="fq">-objectType:Product_Mission_PDS3 AND -objectType:Product_Instrument_PDS3 AND -objectType:Product_Target_PDS3 AND -objectType:Product_Instrument_Host_PDS3</str>
       
       <!-- Boosts: match against the general text field, weighted below the specific metadata fields -->
-      <str name="qf">text target_name^2 investigation_name^2 instrument_host_name^2 instrument_name^2 title^6 aliases^2 citation_keyword^2 target_type^1 investigation_type^1 instrument_host_type^1 instrument_type^1</str>
+      <!-- science_facets holds the Primary_Result_Summary Science_Facets values: above the name fields, below the title -->
+      <str name="qf">text target_name^2 investigation_name^2 instrument_host_name^2 instrument_name^2 title^6 aliases^2 citation_keyword^2 science_facets^3 target_type^1 investigation_type^1 instrument_host_type^1 instrument_type^1</str>
       <!-- PDS4 products rank above PDS3 products of similar relevance: their score is multiplied by 1.5 -->
       <str name="boost">if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)</str>
       <str name="bq">product_class:Product_Context^0.3</str>
@@ -864,7 +865,7 @@
       <str name="fq">{!collapse field=lid max=version_id_normalized}</str>
 
       <!-- Boosts -->
-      <str name="qf">target_name^1 investigation_name^1 instrument_host_name^1 instrument_name^1 title^3 aliases^1 citation_keyword^1</str>
+      <str name="qf">target_name^1 investigation_name^1 instrument_host_name^1 instrument_name^1 title^3 aliases^1 citation_keyword^1 science_facets^1.5</str>
       <!-- PDS4 products rank above PDS3 products of similar relevance: their score is multiplied by 1.5 -->
       <str name="boost">if(query({!lucene v='pds_model_version:pds4'},0),1.5,1)</str>
       <str name="bq">product_class:Product_Context^0.3</str>

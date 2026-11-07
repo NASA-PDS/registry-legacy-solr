@@ -27,3 +27,69 @@ Television, Televisions, TV, TVs
 # Synonym mappings can be used for spelling correction too
 pixima => pixma
 
+
+# ---------------------------------------------------------------------
+# PDS Science_Facets vocabulary (science_facets field)
+#
+# Applied to queries only. Rules are split on whitespace, so write hyphenated
+# terms as separate words ("x ray", not "x-ray"): the tokenizer splits them
+# the same way. Where a term is ambiguous the rule is one-way (=>), so
+# searching the specific term finds the facet but not the other way around.
+# ---------------------------------------------------------------------
+
+# discipline_name
+imaging, image, images, image data, imagery
+spectroscopy, spectrometry, spectra, spectrum
+atmosphere, atmospheres, atmospheric
+particles, particle
+geosciences, geoscience, geology, geologic, geological
+radio science, radioscience
+small bodies, small body
+asteroid, asteroids, comet, comets, minor planet, minor planets => asteroid, asteroids, comet, comets, minor planet, minor planets, small bodies
+rings, ring system, ring systems, planetary rings
+
+# domain
+ionosphere, ionospheric
+magnetosphere, magnetospheric
+heliosphere, heliospheric
+
+# wavelength_range
+ultraviolet, uv
+euv, extreme ultraviolet => euv, extreme ultraviolet, ultraviolet
+infrared, ir
+near infrared, nir
+mid infrared => mid infrared, infrared
+thermal infrared => thermal infrared, infrared
+x ray, x rays, xray, xrays
+gamma ray, gamma rays
+submillimeter, submillimetre, submm
+millimeter, millimetre
+microwave, microwaves
+optical => optical, visible
+
+# facet1 and facet2
+lightcurve, lightcurves, light curve, light curves
+shape model, shape models
+spectral cube, spectral cubes, hyperspectral, image cube
+grayscale, greyscale, gray scale, grey scale
+color, colour
+movie, movies, video, videos, animation
+2d, two dimensional
+meteoritics, meteorite, meteorites
+meteorology, weather
+polarimetry, polarimetric, polarization, polarisation
+photometry, photometric
+astrometry, astrometric
+production rate, production rates
+taxonomy, taxonomic
+dynamical properties, dynamical, dynamics, orbital elements, orbital properties
+physical properties, physical property
+dust study, dust studies
+gas study, gas studies
+magnetic, magnetic field, magnetic fields
+electric, electric field, electric fields
+electrons, electron
+ions, ion
+neutrals, neutral
+cosmic ray, cosmic rays
+occultation, occultations

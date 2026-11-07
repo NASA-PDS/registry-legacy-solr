@@ -190,6 +190,18 @@
     <field name="primary_result_discipline_name" type="string">
       <registryPath>primary_result_discipline_name</registryPath>
     </field>
+    <field name="primary_result_facet1" type="string">
+      <registryPath>primary_result_facet1</registryPath>
+    </field>
+    <field name="primary_result_subfacet1" type="string">
+      <registryPath>primary_result_subfacet1</registryPath>
+    </field>
+    <field name="primary_result_facet2" type="string">
+      <registryPath>primary_result_facet2</registryPath>
+    </field>
+    <field name="primary_result_subfacet2" type="string">
+      <registryPath>primary_result_subfacet2</registryPath>
+    </field>
     <!-- Investigation -->
     <field name="investigation_name" type="string">
       <registryPath>investigation_name</registryPath>
