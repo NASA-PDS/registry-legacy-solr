@@ -86,7 +86,7 @@ The script:
 | `PERSIST_ENV` | `yes` to add `HARVEST_SOLR_HOME`, `CATALOG_SOLR_HOME`, `REGISTRY_MGR_SOLR_HOME` and the other variables that are set to `PROFILE_FILE` (default `$HOME/.bash_profile`) when it has no export for them yet |
 | `DRY_RUN` | `yes` to print what would be done and change nothing |
 
-Run it with `DRY_RUN=yes` first to see the steps.
+Run it with `DRY_RUN=yes` first to see the steps. [Upgrading the Registry to a New Release](upgrading-a-release.md) is the step-by-step runbook, including when a reload is needed and how to roll back.
 
 ## Environment variables
 

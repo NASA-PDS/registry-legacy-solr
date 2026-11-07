@@ -223,7 +223,7 @@ expect_log "installer upgrade" "the installer runs the upgrade"
 expect_no_log "installer -s" "the backup is not skipped by default"
 expect_out "Solr answers with 42 documents" "the document count is checked afterwards"
 expect_no_out "is not tagged" "the container image matches the release"
-expect_out "Reload the registry so that new schema fields are filled" "the next step is printed"
+expect_out "Reload the registry only if this release adds schema fields" "the reload is described as optional"
 expect_out "Smoke query ok: /keyword q=*:* -> 42 documents" "the keyword handler is queried after the upgrade"
 for handler in select all search archive-filter; do
   expect_out "Smoke query ok: /${handler} q=*:*" "the $handler handler is queried after the upgrade"

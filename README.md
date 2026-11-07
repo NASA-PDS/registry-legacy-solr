@@ -20,7 +20,7 @@ The Registry Manager is responsible for managing and interacting with the PDS So
 Similar to the Harvest Tool, it leverages the [pds3-product-tools library](https://github.com/NASA-PDS/pds3-product-tools) to read PDS3 catalog objects, and create Solr Documents to write to Solr.
 
 # Documentation
-[Running the tools](docs/running-the-tools.md) explains how to install Solr, generate Solr documents with Harvest and Catalog, load them with Registry Manager, and back up, upgrade and restore the registry.
+[Running the tools](docs/running-the-tools.md) explains how to install Solr, generate Solr documents with Harvest and Catalog, load them with Registry Manager, and back up, upgrade and restore the registry. [Upgrading the Registry to a New Release](docs/upgrading-a-release.md) is the runbook for installing a release with `scripts/install-release.sh`.
 
 The documentation for the latest release, including release notes, installation and operation of the software are online at https://nasa-pds-incubator.github.io/registry-legacy-solr/.
 

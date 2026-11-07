@@ -401,9 +401,11 @@ print_summary() {
   fi
   if is_yes "$UPGRADE_REGISTRY" && [[ "$RELOAD_ALL" == "no" ]]; then
     echo "---- Next ---"
-    echo "Reload the registry so that new schema fields are filled. reload_all.sh loads the historical PDS3"
-    echo "documents, removes the legacy context products, then loads the PDS4 and PDS3 documents, in that order."
-    echo "It needs REGISTRY_MGR_SOLR_HOME, PDS4_SOLR_DOC_HOME, PDS3_SOLR_DOC_HOME and PDS3_HISTORY to be set:"
+    echo "Reload the registry only if this release adds schema fields or changes the harvest or search"
+    echo "configuration, so that the documents already loaded gain the new values (see the release notes)."
+    echo "reload_all.sh loads the historical PDS3 documents, removes the legacy context products, then loads the"
+    echo "PDS4 and PDS3 documents, in that order. It needs REGISTRY_MGR_SOLR_HOME, PDS4_SOLR_DOC_HOME,"
+    echo "PDS3_SOLR_DOC_HOME and PDS3_HISTORY to be set:"
     echo "  ${INSTALL_DIR}/${HARVEST_LINK}/bin/reload_all.sh prod      # load the documents generated on staging"
     echo "  ${INSTALL_DIR}/${HARVEST_LINK}/bin/reload_all.sh staging   # harvest and catalog first, then load"
     echo
