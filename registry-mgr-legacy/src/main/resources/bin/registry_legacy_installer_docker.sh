@@ -85,8 +85,8 @@ BACKUP_HOME=${BACKUP_HOME:-${DATA_HOME}/solr-backups}
 # Version
 if [ -f "$VERSION_FILE" ]; then
   VERSION=$(head -n 1 "$VERSION_FILE")
-  # An unfiltered build leaves the Maven placeholder in VERSION.txt
-  if [[ "$VERSION" == '${project.version}' ]]; then
+  # A release number starts with a digit; a build that did not fill in the version leaves a placeholder
+  if [[ ! "$VERSION" =~ ^[0-9] ]]; then
     echo "WARNING: No version set in $VERSION_FILE. Will use default version 'latest'"
     VERSION="latest"
   fi
@@ -315,26 +315,26 @@ wait_for_async() {
 
 backup_solr_collections() {
     local label=$1
-    local name
+    local backup_name
 
     for collection in ${COLLECTIONS}; do
-        name=${collection}-${label}
-        echo -ne "Backing up collection (${collection}) to ${BACKUP_HOME}/${name}   " | tee -a $LOG
-        curl --silent --fail --max-time 60 "${SOLR_URL}/admin/collections?action=BACKUP&name=${name}&collection=${collection}&location=${SOLR_BACKUP_MOUNT}&async=backup-${name}" >>$LOG 2>&1 \
-          && wait_for_async backup-${name}
+        backup_name=${collection}-${label}
+        echo -ne "Backing up collection (${collection}) to ${BACKUP_HOME}/${backup_name}   " | tee -a $LOG
+        curl --silent --fail --max-time 60 "${SOLR_URL}/admin/collections?action=BACKUP&name=${backup_name}&collection=${collection}&location=${SOLR_BACKUP_MOUNT}&async=backup-${backup_name}" >>$LOG 2>&1 \
+          && wait_for_async backup-${backup_name}
         print_status $?
     done
 }
 
 restore_solr_collections() {
     local label=$1
-    local name
+    local backup_name
 
     for collection in ${COLLECTIONS}; do
-        name=${collection}-${label}
-        echo -ne "Restoring collection (${collection}) from ${BACKUP_HOME}/${name}   " | tee -a $LOG
-        curl --silent --fail --max-time 60 "${SOLR_URL}/admin/collections?action=RESTORE&name=${name}&collection=${collection}&collection.configName=${collection}&location=${SOLR_BACKUP_MOUNT}&async=restore-${name}" >>$LOG 2>&1 \
-          && wait_for_async restore-${name}
+        backup_name=${collection}-${label}
+        echo -ne "Restoring collection (${collection}) from ${BACKUP_HOME}/${backup_name}   " | tee -a $LOG
+        curl --silent --fail --max-time 60 "${SOLR_URL}/admin/collections?action=RESTORE&name=${backup_name}&collection=${collection}&collection.configName=${collection}&location=${SOLR_BACKUP_MOUNT}&async=restore-${backup_name}" >>$LOG 2>&1 \
+          && wait_for_async restore-${backup_name}
         print_status $?
     done
 }
