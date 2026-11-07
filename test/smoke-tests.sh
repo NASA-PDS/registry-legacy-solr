@@ -894,6 +894,38 @@ $(echo "$prefix_lids" | sort)"
 done
 
 # ============================================================================
+# TEST 7: Installer Script And Backup
+# ============================================================================
+
+log_info "==============================================="
+log_info "TEST 7: Installer Script And Backup"
+log_info "==============================================="
+
+INSTALLER="$LEGACY_REGISTRY_HOME/bin/registry_legacy_installer_docker.sh"
+
+# The build must leave the installer as it is in the source. Maven replaces ${name} and ${project.version}
+# with project properties wherever it filters a file, which turned the name of a backup into the name of
+# the project and made every backup of a release fail.
+if grep -q "Legacy Registry Manager Solr" "$INSTALLER" || ! grep -q 'backup_name=${collection}-${label}' "$INSTALLER"; then
+    log_error "Installer: The build changed the installer script in the distribution: $INSTALLER"
+    cleanup_and_exit 1
+fi
+log_success "Installer: the distribution has the installer script as it is in the source"
+
+# A backup takes both collections to the backup directory under the given label
+BACKUP_DIR=${BACKUP_HOME:-$DATA_HOME/solr-backups}
+"$INSTALLER" backup smoke
+check_status $? "The installer failed to back up the registry"
+
+for collection in registry data; do
+    if [ ! -d "$BACKUP_DIR/${collection}-smoke" ]; then
+        log_error "Backup: The backup of the collection $collection is missing: $BACKUP_DIR/${collection}-smoke"
+        cleanup_and_exit 1
+    fi
+    log_success "Backup: $BACKUP_DIR/${collection}-smoke exists"
+done
+
+# ============================================================================
 # Final Summary
 # ============================================================================
 
@@ -910,5 +942,6 @@ log_success "✓ Superseded product versions hidden from search"
 log_success "✓ Context product names, types and aliases"
 log_success "✓ PDS4 products ranked above PDS3 products"
 log_success "✓ LID and LIDVID queries"
+log_success "✓ Installer script and registry backup"
 
 cleanup_and_exit 0

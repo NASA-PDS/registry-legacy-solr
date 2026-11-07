@@ -50,7 +50,8 @@
       </includes>
       <fileMode>775</fileMode>
       <lineEnding>unix</lineEnding>
-      <filtered>true</filtered>
+      <!-- Not filtered: Maven would replace shell variables of the scripts, such as the name of a backup, with project properties -->
+      <filtered>false</filtered>
     </fileSet>
     <fileSet>
       <directory>target/site</directory>
