@@ -49,6 +49,42 @@ CATALOG_SOLR_HOME="$HOME/tools/catalog-legacy"
 REGISTRY_MGR_SOLR_HOME="$HOME/tools/registry-mgr-legacy"
 ```
 
+### Installing a release with the install script
+
+`scripts/install-release.sh` downloads the three tarballs of a GitHub release, unpacks them, repoints the symlinks, and installs or upgrades the registry. It is driven by environment variables:
+
+```bash
+curl -fLO https://raw.githubusercontent.com/NASA-PDS/registry-legacy-solr/main/scripts/install-release.sh
+chmod +x install-release.sh
+
+export INSTALL_DIR="$HOME/applications"
+export DATA_HOME="$HOME/registry-data"
+./install-release.sh latest
+```
+
+Give a release number such as `5.5.5` instead of `latest` to install a specific release. The releases are listed on the [releases page](https://github.com/NASA-PDS/registry-legacy-solr/releases); the tarballs are named `<tool>-<version>-bin.tar.gz` under `releases/download/v<version>/`.
+
+The script:
+
+1. Checks its inputs before it changes anything: the release number, `DATA_HOME`, and the tools it needs.
+2. Refuses to go on while a harvest, a catalog run or a document load is running, because a Solr restart in the middle of a crawl makes the harvest skip products (`FORCE=yes` overrides).
+3. Downloads `catalog-legacy`, `harvest-legacy` and `registry-mgr-legacy` for the release into `INSTALL_DIR`, unpacks them, and points the symlinks `catalog-legacy`, `harvest-legacy` and `registry-manager-legacy` at them. The previous versions stay on disk, and the commands that go back to them are printed.
+4. Upgrades the registry with the new registry manager (`upgrade`, which takes a backup first), or installs it when there is no registry container. It then checks that Solr answers and how many documents it holds.
+
+| Variable | Description |
+|---|---|
+| `REGISTRY_LEGACY_VERSION` | The release, such as `5.5.5`, or `latest` for the newest one (or give it as the first argument) |
+| `INSTALL_DIR` | Directory for the unpacked releases and the symlinks (default: the current directory) |
+| `DATA_HOME` | The Solr volume, as for the installer (required unless `UPGRADE_REGISTRY=no`) |
+| `BACKUP_HOME` | Where the upgrade's backup goes (default `$DATA_HOME/solr-backups`) |
+| `UPGRADE_REGISTRY` | `no` to install only the tools (default `yes`) |
+| `SKIP_BACKUP` | `yes` to upgrade without the backup (default `no`) |
+| `LOAD_DOCS` | `yes` to load the documents in `PDS4_SOLR_DOC_HOME`, `PDS3_SOLR_DOC_HOME` and `PDS3_HISTORY` after the upgrade, so new schema fields are filled (default `no`) |
+| `PERSIST_ENV` | `yes` to add `HARVEST_SOLR_HOME`, `CATALOG_SOLR_HOME`, `REGISTRY_MGR_SOLR_HOME` and the other variables that are set to `PROFILE_FILE` (default `$HOME/.bash_profile`) when it has no export for them yet |
+| `DRY_RUN` | `yes` to print what would be done and change nothing |
+
+Run it with `DRY_RUN=yes` first to see the steps.
+
 ## Environment variables
 
 | Variable | Used by | Description |
