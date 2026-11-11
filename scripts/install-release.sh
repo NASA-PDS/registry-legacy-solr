@@ -17,7 +17,7 @@
 # It checks its inputs before it changes anything, and refuses to touch Solr while a harvest, a catalog run
 # or a document load is running (a Solr restart in the middle of a harvest makes the harvest skip products).
 #
-# Environment (all optional unless marked):
+# Environment (all optional unless marked). The yes/no variables accept only yes or no; any other value is refused.
 #   REGISTRY_LEGACY_VERSION  Release to install, without the leading v, or latest (required unless given as
 #                            an argument)
 #   INSTALL_DIR              Directory holding the unpacked releases and the symlinks (default: current directory)
@@ -36,8 +36,7 @@
 #   PROFILE_FILE             Shell profile that PERSIST_ENV appends to (default: $HOME/.bash_profile)
 #   DRY_RUN                  yes to print what would be done and change nothing (default: no)
 #   FORCE                    yes to run although a harvest, catalog run or load is running (default: no)
-#   DOCKER_CONTAINER         Name of the registry container (default: registry-legacy)
-#   SOLR_URL                 Solr base URL for the checks (default: http://localhost:8983/solr)
+#   SOLR_URL                Solr base URL for the checks (default: http://localhost:8983/solr)
 #   CATALOG_LINK, HARVEST_LINK, REGISTRY_MGR_LINK
 #                            Symlink names in INSTALL_DIR (default: catalog-legacy, harvest-legacy,
 #                            registry-manager-legacy)
@@ -67,7 +66,8 @@ PERSIST_ENV=${PERSIST_ENV:-no}
 PROFILE_FILE=${PROFILE_FILE:-$HOME/.bash_profile}
 DRY_RUN=${DRY_RUN:-no}
 FORCE=${FORCE:-no}
-DOCKER_CONTAINER=${DOCKER_CONTAINER:-registry-legacy}
+# The name that registry_legacy_installer_docker.sh gives its container
+DOCKER_CONTAINER=registry-legacy
 SOLR_URL=${SOLR_URL:-http://localhost:8983/solr}
 
 VERSION=${1:-${REGISTRY_LEGACY_VERSION:-}}
@@ -135,18 +135,32 @@ resolve_latest() {
   echo "${final#v}"
 }
 
+# Refuses a yes/no variable that holds anything but yes or no, so that a typo such as DRY_RUN=ye cannot turn
+# into a real run
+validate_switches() {
+  local name
+  for name in UPGRADE_REGISTRY SKIP_BACKUP SMOKE_QUERIES PERSIST_ENV DRY_RUN FORCE; do
+    case "${!name}" in
+      yes | no) ;;
+      *) die "${name} must be yes or no (found '${!name}')" ;;
+    esac
+  done
+}
+
 # Checks everything the script needs, before anything is downloaded or changed
 preflight() {
   [[ -n "$VERSION" ]] || die "Give the release as an argument or in REGISTRY_LEGACY_VERSION, for example 5.5.5 or latest"
   [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-SNAPSHOT)?$ ]] || die "'$VERSION' is not a release number such as 5.5.5 (or latest)"
 
   command -v tar > /dev/null 2>&1 || die "tar is required"
+  command -v pgrep > /dev/null 2>&1 || die "pgrep is required to check that no harvest, catalog run or load is running"
   command -v curl > /dev/null 2>&1 || command -v wget > /dev/null 2>&1 || die "curl or wget is required"
   command -v java > /dev/null 2>&1 || [[ -x "${JAVA_HOME:-/nonexistent}/bin/java" ]] \
     || warn "Java 17 or higher was not found (JAVA_HOME or PATH); the tools need it"
 
   if is_yes "$UPGRADE_REGISTRY"; then
     command -v docker > /dev/null 2>&1 || die "docker is required to install or upgrade the registry (or set UPGRADE_REGISTRY=no)"
+    command -v curl > /dev/null 2>&1 || die "curl is required to install or upgrade the registry (or set UPGRADE_REGISTRY=no)"
     [[ -n "${DATA_HOME:-}" ]] || die "DATA_HOME must be set to install or upgrade the registry (or set UPGRADE_REGISTRY=no)"
   fi
 
@@ -162,7 +176,30 @@ preflight() {
     for name in $needed; do
       [[ -n "${!name:-}" ]] || die "RELOAD_ALL=${RELOAD_ALL} needs ${name}"
     done
+
+    # reload_all.sh runs after the registry has been upgraded, so refuse inputs it would reject
+    [[ -d "$PDS4_SOLR_DOC_HOME" ]] || die "PDS4_SOLR_DOC_HOME is not a directory: $PDS4_SOLR_DOC_HOME"
+    [[ -d "$PDS3_SOLR_DOC_HOME" ]] || die "PDS3_SOLR_DOC_HOME is not a directory: $PDS3_SOLR_DOC_HOME"
+    has_docs "$PDS3_HISTORY" || die "There are no Solr documents (*.xml) in PDS3_HISTORY: $PDS3_HISTORY"
+    if [[ "$RELOAD_ALL" == "prod" ]]; then
+      has_docs "$PDS4_SOLR_DOC_HOME/solr-docs" || die "RELOAD_ALL=prod loads the documents generated on staging, but there are none in $PDS4_SOLR_DOC_HOME/solr-docs"
+      has_docs "$PDS3_SOLR_DOC_HOME/solr-docs" || die "RELOAD_ALL=prod loads the documents generated on staging, but there are none in $PDS3_SOLR_DOC_HOME/solr-docs"
+    else
+      [[ -d "$HARVEST_SOLR_CONF_HOME" ]] || die "HARVEST_SOLR_CONF_HOME is not a directory: $HARVEST_SOLR_CONF_HOME"
+      [[ -d "$PDS3_DATA_PATH" ]] || die "PDS3_DATA_PATH is not a directory: $PDS3_DATA_PATH"
+    fi
   fi
+
+  if is_yes "$PERSIST_ENV"; then
+    if [[ -e "$PROFILE_FILE" ]]; then
+      [[ -f "$PROFILE_FILE" && -w "$PROFILE_FILE" ]] || die "PROFILE_FILE is not a writable file: $PROFILE_FILE"
+    else
+      [[ -d "$(dirname "$PROFILE_FILE")" && -w "$(dirname "$PROFILE_FILE")" ]] || die "PROFILE_FILE cannot be created: $PROFILE_FILE"
+    fi
+  fi
+
+  # Before anything is created, so that a refused run leaves nothing behind
+  check_nothing_running
 
   # Last, so that a refused run leaves nothing behind
   if ! is_yes "$DRY_RUN"; then
@@ -171,10 +208,21 @@ preflight() {
   fi
 }
 
-# Refuses to go on while something that talks to Solr is running
+# Succeeds if the directory holds at least one Solr document file (the check reload_all.sh makes)
+has_docs() {
+  local dir=$1
+  [[ -d "$dir" ]] && [[ -n "$(find "$dir" -type f -name '*.xml' 2> /dev/null | head -n 1)" ]]
+}
+
+# Refuses to go on while something that talks to Solr is running. It is checked at the start and again right
+# before the registry is restarted, because the downloads in between can take a while.
 check_nothing_running() {
   local running
-  running=$(pgrep -fl "harvest-solr|HarvestSearchLauncher|catalog-solr|registry-mgr-solr|reload_all" || true)
+  local rc
+  running=$(pgrep -fl "harvest-solr|HarvestSearchLauncher|catalog-solr|registry-mgr-solr|reload_all")
+  rc=$?
+  # pgrep exits with 1 when nothing matches; anything above 1 means it could not look
+  [[ $rc -le 1 ]] || die "pgrep failed (exit status ${rc}), so the script cannot tell whether a harvest or load is running"
   if [[ -n "$running" ]]; then
     echo "$running" >&2
     is_yes "$FORCE" || die "The processes above are running. Wait for them, or set FORCE=yes."
@@ -189,6 +237,8 @@ unpack_module() {
   local tarball="${INSTALL_DIR}/${name}-bin.tar.gz"
 
   if [[ -d "${INSTALL_DIR}/${name}" ]]; then
+    [[ -d "${INSTALL_DIR}/${name}/bin" ]] \
+      || die "${INSTALL_DIR}/${name} exists but has no bin directory, so an earlier unpack may have been interrupted. Remove it and run the script again."
     log "${name} is already unpacked"
     return 0
   fi
@@ -228,7 +278,7 @@ switch_link() {
   fi
 
   # -n keeps ln from creating the new link inside the directory the old one points to
-  run ln -sfn "$target" "$path"
+  run ln -sfn "$target" "$path" || die "Could not point ${path} at ${target}"
   log "${link} -> ${target} (was: ${previous:-nothing})"
   if [[ -n "$previous" ]]; then
     ROLLBACK+=("ln -sfn '${previous}' '${path}'")
@@ -244,7 +294,15 @@ persist_var() {
     log "${name} is already exported in ${PROFILE_FILE}"
     return 0
   fi
-  run bash -c 'echo "export $1=\"$2\"" >> "$3"' _ "$name" "$value" "$PROFILE_FILE"
+
+  # %q quotes the value so that the profile keeps it as text when it is sourced
+  local line
+  printf -v line 'export %s=%q' "$name" "$value"
+  if is_yes "$DRY_RUN"; then
+    echo "[DRY RUN] echo '${line}' >> ${PROFILE_FILE}"
+    return 0
+  fi
+  echo "$line" >> "$PROFILE_FILE" || die "Could not add ${name} to ${PROFILE_FILE}"
   log "Added ${name} to ${PROFILE_FILE}"
 }
 
@@ -345,6 +403,9 @@ registry_stage() {
     [[ -f "$installer" ]] || die "The installer is missing: $installer"
   fi
 
+  # Something may have started while the release was downloaded; the upgrade restarts Solr
+  check_nothing_running
+
   if docker inspect "$DOCKER_CONTAINER" > /dev/null 2>&1; then
     action="upgrade"
     before=$(solr_count)
@@ -417,18 +478,18 @@ print_summary() {
   log "Done."
 }
 
+validate_switches
+
 if [[ "$VERSION" == "latest" ]]; then
   VERSION=$(resolve_latest) || exit 1
   log "The latest release is ${VERSION}"
 fi
 
+# Also checks that nothing is running, because a harvest that runs from the old tools is worth a pause too
 preflight
 
 is_yes "$DRY_RUN" && log "Dry run: nothing is downloaded, unpacked, linked or restarted"
 log "Installing registry-legacy v${VERSION} into ${INSTALL_DIR}"
-
-# Solr is only restarted by the registry stage, but a harvest that runs from the old tools is also worth a pause
-check_nothing_running
 
 unpack_module catalog-legacy
 unpack_module harvest-legacy

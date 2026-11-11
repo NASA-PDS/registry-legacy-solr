@@ -115,6 +115,26 @@ sleep 1
 LOG="$WORK/stub.log"
 INSTALL="$WORK/install"
 
+# Stubs that break one command, to be put first on the PATH of a single run
+mkdir -p "$WORK/pgrep-broken" "$WORK/pgrep-late" "$WORK/ln-broken"
+printf '#!/bin/sh\nexit 2\n' > "$WORK/pgrep-broken/pgrep"
+# Reports a harvest from its second call on, as if one started while the release was downloaded
+cat > "$WORK/pgrep-late/pgrep" <<'EOF'
+#!/bin/sh
+n=$(cat "$STUB_COUNT" 2> /dev/null || echo 0)
+echo $((n + 1)) > "$STUB_COUNT"
+[ "$n" -ge 1 ] || exit 1
+echo "4242 harvest-solr"
+EOF
+printf '#!/bin/sh\nexit 1\n' > "$WORK/ln-broken/ln"
+chmod +x "$WORK/pgrep-broken/pgrep" "$WORK/pgrep-late/pgrep" "$WORK/ln-broken/ln"
+
+# The documents and directories that RELOAD_ALL needs
+mkdir -p "$WORK/pds4/solr-docs" "$WORK/pds3/solr-docs" "$WORK/history" "$WORK/conf" "$WORK/pds3data"
+for dir in "$WORK/pds4/solr-docs" "$WORK/pds3/solr-docs" "$WORK/history"; do
+  echo '<add/>' > "$dir/doc.xml"
+done
+
 # Makes the registry manager of a fake release record its calls
 stub_registry_manager() {
   local version=$1
@@ -154,6 +174,45 @@ expect_rc 1 "RELOAD_ALL without the registry stage is refused"
 run_install DATA_HOME="$WORK/data" RELOAD_ALL=yes "$SCRIPT" 9.9.9
 expect_rc 1 "a RELOAD_ALL that is not prod or staging is refused"
 expect_out "RELOAD_ALL must be no, prod or staging" "the allowed values are named"
+run_install UPGRADE_REGISTRY=no DRY_RUN=ye "$SCRIPT" 9.9.9
+expect_rc 1 "a DRY_RUN that is not yes or no is refused"
+expect_out "DRY_RUN must be yes or no (found 'ye')" "the bad value is named"
+run_install UPGRADE_REGISTRY=maybe "$SCRIPT" 9.9.9
+expect_rc 1 "an UPGRADE_REGISTRY that is not yes or no is refused"
+for name in SKIP_BACKUP SMOKE_QUERIES PERSIST_ENV FORCE; do
+  run_install UPGRADE_REGISTRY=no "$name=Yes" "$SCRIPT" 9.9.9
+  expect_rc 1 "a $name that is not yes or no is refused"
+done
+run_install PATH="$WORK/pgrep-broken:$PATH" UPGRADE_REGISTRY=no "$SCRIPT" 9.9.9
+expect_rc 1 "a pgrep that cannot look is refused"
+expect_out "pgrep failed" "the failing guard is explained"
+[[ ! -e "$INSTALL" ]] && pass "nothing was created" || fail "INSTALL_DIR was created by a refused run"
+run_install UPGRADE_REGISTRY=no PERSIST_ENV=yes PROFILE_FILE="$WORK/home" "$SCRIPT" 9.9.9
+expect_rc 1 "a profile that is a directory is refused"
+expect_out "PROFILE_FILE is not a writable file" "the profile is named"
+[[ ! -e "$INSTALL" ]] && pass "nothing was created" || fail "INSTALL_DIR was created by a refused run"
+
+echo "TEST: the documents of a reload are checked before the registry is touched"
+: > "$LOG"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod PDS4_SOLR_DOC_HOME="$WORK/nowhere" \
+  PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" "$SCRIPT" 9.9.9
+expect_rc 1 "a missing PDS4_SOLR_DOC_HOME is refused"
+expect_out "PDS4_SOLR_DOC_HOME is not a directory" "the directory is named"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod PDS4_SOLR_DOC_HOME="$WORK/pds4" \
+  PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/conf" "$SCRIPT" 9.9.9
+expect_rc 1 "a PDS3_HISTORY without documents is refused"
+expect_out "no Solr documents (*.xml) in PDS3_HISTORY" "the empty directory is named"
+mkdir -p "$WORK/empty-docs"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod PDS4_SOLR_DOC_HOME="$WORK/empty-docs" \
+  PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" "$SCRIPT" 9.9.9
+expect_rc 1 "a prod reload without generated documents is refused"
+expect_out "there are none in $WORK/empty-docs/solr-docs" "the missing documents are named"
+run_install DATA_HOME="$WORK/data" RELOAD_ALL=staging PDS4_SOLR_DOC_HOME="$WORK/pds4" PDS3_SOLR_DOC_HOME="$WORK/pds3" \
+  PDS3_HISTORY="$WORK/history" HARVEST_SOLR_CONF_HOME="$WORK/conf" PDS3_DATA_PATH="$WORK/nowhere" "$SCRIPT" 9.9.9
+expect_rc 1 "a staging reload without the PDS3 data is refused"
+expect_out "PDS3_DATA_PATH is not a directory" "the directory is named"
+expect_no_log "installer" "the registry was not touched by any refused run"
+[[ ! -e "$INSTALL" ]] && pass "nothing was created" || fail "INSTALL_DIR was created by a refused run"
 
 echo "TEST: a release that was not published"
 run_install UPGRADE_REGISTRY=no "$SCRIPT" 8.8.8
@@ -197,6 +256,20 @@ expect_link "$INSTALL/harvest-legacy" "harvest-legacy-9.9.10" "the link moved to
 expect_out "ln -sfn 'harvest-legacy-9.9.9'" "the rollback command is printed"
 (cd "$INSTALL" && ln -sfn harvest-legacy-9.9.9 harvest-legacy)
 expect_link "$INSTALL/harvest-legacy" "harvest-legacy-9.9.9" "the printed rollback works"
+
+echo "TEST: an unpacked release without a bin directory is not reused"
+mv "$INSTALL/harvest-legacy-9.9.10/bin" "$INSTALL/harvest-legacy-9.9.10/bin.off"
+run_install UPGRADE_REGISTRY=no "$SCRIPT" 9.9.10
+expect_rc 1 "the run is refused"
+expect_out "has no bin directory" "the incomplete release is named"
+expect_link "$INSTALL/harvest-legacy" "harvest-legacy-9.9.9" "the links were not moved"
+mv "$INSTALL/harvest-legacy-9.9.10/bin.off" "$INSTALL/harvest-legacy-9.9.10/bin"
+
+echo "TEST: a link that cannot be switched fails the run"
+run_install PATH="$WORK/ln-broken:$PATH" UPGRADE_REGISTRY=no "$SCRIPT" 9.9.10
+expect_rc 1 "the failure is passed on"
+expect_out "Could not point" "the link is named"
+expect_no_out "Done." "no success is reported"
 
 echo "TEST: a real directory in place of a link is never replaced"
 mv "$INSTALL/catalog-legacy" "$INSTALL/catalog-legacy.link"
@@ -277,6 +350,7 @@ expect_out "removes the legacy context products" "the order of the reload is exp
 run_install DATA_HOME="$WORK/data" RELOAD_ALL=prod PDS4_SOLR_DOC_HOME="$WORK/pds4" \
   PDS3_SOLR_DOC_HOME="$WORK/pds3" PDS3_HISTORY="$WORK/history" "$SCRIPT" 9.9.9
 expect_rc 0 "the reload succeeds"
+expect_log "installer upgrade" "the registry is upgraded before the reload"
 expect_log "reload prod manager=$INSTALL/registry-manager-legacy" "reload_all.sh prod runs with the new registry manager"
 expect_no_log "^load " "the documents are not loaded one directory at a time"
 expect_no_out "reload_all.sh prod      #" "no next step is printed after a reload"
@@ -303,25 +377,44 @@ echo "TEST: environment variables are added to the profile once"
 rm -f "$WORK/home/profile"
 run_install UPGRADE_REGISTRY=no PERSIST_ENV=yes DATA_HOME="$WORK/data" "$SCRIPT" 9.9.9
 expect_rc 0 "the install succeeds"
-grep -q "^export HARVEST_SOLR_HOME=\"$INSTALL/harvest-legacy\"" "$WORK/home/profile" && pass "HARVEST_SOLR_HOME is exported" || fail "HARVEST_SOLR_HOME is missing"
-grep -q "^export CATALOG_SOLR_HOME=\"$INSTALL/catalog-legacy\"" "$WORK/home/profile" && pass "CATALOG_SOLR_HOME is its own directory" || fail "CATALOG_SOLR_HOME is wrong"
-grep -q "^export REGISTRY_MGR_SOLR_HOME=\"$INSTALL/registry-manager-legacy\"" "$WORK/home/profile" && pass "REGISTRY_MGR_SOLR_HOME is exported" || fail "REGISTRY_MGR_SOLR_HOME is missing"
-grep -q "^export DATA_HOME=" "$WORK/home/profile" && pass "variables set for the run are exported" || fail "DATA_HOME is missing"
+# Sourcing the profile in a clean shell shows the values that a login would get
+profile_value() { env -i bash -c 'source "$1" && printf %s "${!2}"' _ "$WORK/home/profile" "$1"; }
+[[ "$(profile_value HARVEST_SOLR_HOME)" == "$INSTALL/harvest-legacy" ]] && pass "HARVEST_SOLR_HOME is exported" || fail "HARVEST_SOLR_HOME is missing"
+[[ "$(profile_value CATALOG_SOLR_HOME)" == "$INSTALL/catalog-legacy" ]] && pass "CATALOG_SOLR_HOME is its own directory" || fail "CATALOG_SOLR_HOME is wrong"
+[[ "$(profile_value REGISTRY_MGR_SOLR_HOME)" == "$INSTALL/registry-manager-legacy" ]] && pass "REGISTRY_MGR_SOLR_HOME is exported" || fail "REGISTRY_MGR_SOLR_HOME is missing"
+[[ "$(profile_value DATA_HOME)" == "$WORK/data" ]] && pass "variables set for the run are exported" || fail "DATA_HOME is missing"
 run_install UPGRADE_REGISTRY=no PERSIST_ENV=yes DATA_HOME="$WORK/data" "$SCRIPT" 9.9.9
 [[ "$(grep -c '^export HARVEST_SOLR_HOME=' "$WORK/home/profile")" -eq 1 ]] && pass "a second run adds nothing" || fail "the export was repeated"
+
+echo "TEST: values in the profile are text, never commands"
+rm -f "$WORK/home/profile" "$WORK/injected"
+run_install UPGRADE_REGISTRY=no PERSIST_ENV=yes DATA_HOME="\$(touch $WORK/injected) with space" "$SCRIPT" 9.9.9
+expect_rc 0 "the install succeeds"
+[[ "$(profile_value DATA_HOME)" == "\$(touch $WORK/injected) with space" ]] && pass "the value is kept as it was given" || fail "the value was changed"
+[[ ! -e "$WORK/injected" ]] && pass "sourcing the profile runs nothing" || fail "sourcing the profile ran the value"
 
 echo "TEST: it will not touch Solr while a harvest runs"
 # Two commands, so that bash stays alive and its arguments name a harvest
 bash -c 'sleep 60; echo harvest-solr' &
 SLEEPER_PID=$!
 sleep 1
+rm -rf "$INSTALL"
 run_install UPGRADE_REGISTRY=no "$SCRIPT" 9.9.9
 expect_rc 1 "the run is refused"
 expect_out "are running" "the running process is named"
+[[ ! -e "$INSTALL" ]] && pass "the refused run created nothing" || fail "INSTALL_DIR was created by a refused run"
 run_install UPGRADE_REGISTRY=no FORCE=yes "$SCRIPT" 9.9.9
 expect_rc 0 "FORCE=yes goes on"
 kill "$SLEEPER_PID" 2> /dev/null
 SLEEPER_PID=""
+
+echo "TEST: a harvest that starts during the download stops the upgrade"
+rm -rf "$INSTALL" "$WORK/pgrep.count"
+: > "$LOG"
+run_install PATH="$WORK/pgrep-late:$PATH" STUB_COUNT="$WORK/pgrep.count" DATA_HOME="$WORK/data" "$SCRIPT" 9.9.9
+expect_rc 1 "the run is refused before the registry is restarted"
+expect_out "are running" "the running process is named"
+expect_no_log "installer" "the registry installer did not run"
 
 echo
 echo "Passed: $PASSED  Failed: $FAILED"

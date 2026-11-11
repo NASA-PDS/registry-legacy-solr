@@ -66,8 +66,8 @@ Give a release number such as `5.5.5` instead of `latest` to install a specific 
 
 The script:
 
-1. Checks its inputs before it changes anything: the release number, `DATA_HOME`, and the tools it needs.
-2. Refuses to go on while a harvest, a catalog run or a document load is running, because a Solr restart in the middle of a crawl makes the harvest skip products (`FORCE=yes` overrides).
+1. Checks its inputs before it changes anything: the release number, `DATA_HOME`, the tools it needs (including `pgrep`, and `curl` and `docker` when it installs or upgrades the registry), the yes/no variables (they accept only `yes` or `no`), and, for `RELOAD_ALL`, that the document directories exist and hold documents.
+2. Refuses to go on while a harvest, a catalog run or a document load is running, because a Solr restart in the middle of a crawl makes the harvest skip products (`FORCE=yes` overrides). It checks at the start, before it creates anything, and again right before it restarts Solr.
 3. Downloads `catalog-legacy`, `harvest-legacy` and `registry-mgr-legacy` for the release into `INSTALL_DIR`, unpacks them, and points the symlinks `catalog-legacy`, `harvest-legacy` and `registry-manager-legacy` at them. The previous versions stay on disk, and the commands that go back to them are printed.
 4. Upgrades the registry with the new registry manager (`upgrade`, which takes a backup first), or installs it when there is no registry container. It then checks that Solr answers and how many documents it holds.
 5. Reloads the registry with `reload_all.sh` of the new Harvest when `RELOAD_ALL` is `prod` or `staging`, which loads the historical PDS3 documents, removes the legacy context products, then loads the PDS4 and PDS3 documents, in that order. Without `RELOAD_ALL` the script prints the `reload_all.sh` commands to run next, because documents loaded before the upgrade do not have the values of new schema fields.
