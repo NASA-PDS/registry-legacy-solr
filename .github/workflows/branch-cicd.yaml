@@ -85,6 +85,10 @@ jobs:
                 name: 🩺 Run Reload Script Tests
                 run: test/reload-all-tests.sh
 
+            -
+                name: 🩺 Run Install Script Tests
+                run: test/install-release-tests.sh
+
 ...
 
 # -*- mode: yaml; indent: 4; fill-column: 120; coding: utf-8 -*-
