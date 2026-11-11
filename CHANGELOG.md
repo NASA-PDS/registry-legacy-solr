@@ -8,6 +8,7 @@
 
 - As a data user, I want keyword search to understand synonyms for science facets so that I can find products with my own wording [\#318](https://github.com/NASA-PDS/registry-legacy-solr/issues/318)
 - As a data user, I want to search by Science\_Facets values so that I can find products by what the data is about [\#317](https://github.com/NASA-PDS/registry-legacy-solr/issues/317)
+- As a registry operator, I want to install a release and upgrade the registry with one script [\#315](https://github.com/NASA-PDS/registry-legacy-solr/issues/315)
 
 ## [v5.5.6](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.5.6) (2026-11-07)
 
