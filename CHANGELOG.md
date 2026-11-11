@@ -1,8 +1,17 @@
 # Changelog
 
-## [release/5.5.6](https://github.com/NASA-PDS/registry-legacy-solr/tree/release/5.5.6) (2026-11-07)
+## [«unknown»](https://github.com/NASA-PDS/registry-legacy-solr/tree/«unknown») (2026-11-11)
 
-[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.5.5...release/5.5.6)
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.5.6...«unknown»)
+
+**Requirements:**
+
+- As a data user, I want keyword search to understand synonyms for science facets so that I can find products with my own wording [\#318](https://github.com/NASA-PDS/registry-legacy-solr/issues/318)
+- As a data user, I want to search by Science\_Facets values so that I can find products by what the data is about [\#317](https://github.com/NASA-PDS/registry-legacy-solr/issues/317)
+
+## [v5.5.6](https://github.com/NASA-PDS/registry-legacy-solr/tree/v5.5.6) (2026-11-07)
+
+[Full Changelog](https://github.com/NASA-PDS/registry-legacy-solr/compare/v5.5.5...v5.5.6)
 
 **Defects:**
 
