@@ -5383,6 +5383,7 @@ TGM      Transition to global mapping
 <field name="observation_start_date_time">1978-12-09T00:00:00.000Z</field>
 <field name="target_name">Venus</field>
 <field name="page_type">Data</field>
+<field name="primary_result_facet1">Structure</field>
 <field name="description">
                 This bundle contains data on relative crustal and atmospheric velocity
                 components from the Pioneer Venus Multiprobe Differential Long Base Line
@@ -33704,7 +33705,10 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="instrument_name">Helium Vector Magnetometer (HVM)</field>
 <field name="instrument_name">Quadraspherical Plasma Analyzer (PA)</field>
 <field name="instrument_name">Cosmic Ray Telescope (CRT)</field>
-<field name="citation_description">This collection contains Pioneer 10 Helium 
+<field name="primary_result_facet2">Background</field>
+<field name="primary_result_facet2">Plasma</field>
+<field name="primary_result_facet2">Cosmic Ray</field>
+<field name="citation_description">This collection contains Pioneer 10 Helium
         Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
         and Cosmic Ray (CRT) merged 1 hour averaged data</field>
 <field name="source_product_curating_facility">PDS Planetary Plasma Interactions Node</field>
@@ -33714,7 +33718,10 @@ The plate scale is 17 arcsec/mm.</field>
 <field name="source_product_doi">10.17189/1519771</field>
 <field name="page_type">Data</field>
 <field name="collection_member_count">24</field>
-<field name="description">This collection contains Pioneer 10 Helium 
+<field name="primary_result_facet1">Magnetic</field>
+<field name="primary_result_facet1">Ions</field>
+<field name="primary_result_facet1">Ions</field>
+<field name="description">This collection contains Pioneer 10 Helium
         Vector Magnetometer (HVM), Quadraspherical Plasma Analyzer (PA) 
         and Cosmic Ray (CRT) merged 1 hour averaged data</field>
 <field name="description">This collection contains Pioneer 10 Helium 

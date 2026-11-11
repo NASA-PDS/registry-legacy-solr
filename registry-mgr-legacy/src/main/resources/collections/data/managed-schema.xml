@@ -193,6 +193,14 @@
    <field name="primary_result_wavelength_range" type="text_general" indexed="true" stored="true" multiValued="true" />
    <field name="primary_result_domain" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
    <field name="primary_result_discipline_name" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
+   <!-- The facet and subfacet levels are only stored: search matches them through science_facets, below -->
+   <field name="primary_result_facet1" type="string" indexed="false" stored="true" multiValued="true" />
+   <field name="primary_result_subfacet1" type="string" indexed="false" stored="true" multiValued="true" />
+   <field name="primary_result_facet2" type="string" indexed="false" stored="true" multiValued="true" />
+   <field name="primary_result_subfacet2" type="string" indexed="false" stored="true" multiValued="true" />
+   <!-- Every Science_Facets value of a product (discipline, domain, wavelength range, facet1/2 and their subfacets)
+        searched and boosted as one field. Filled by copyField, so it is not stored. -->
+   <field name="science_facets" type="text_general" indexed="true" stored="false" multiValued="true" />
    <field name="primary_body_name" type="text_en_splitting" indexed="true" stored="true" multiValued="true" />
    <field name="product_class" type="string" indexed="true" stored="true" multiValued="true" />
    <field name="publisher" type="text_general" indexed="true" stored="true" multiValued="true" />
@@ -328,6 +336,13 @@
   <copyField source="investigation_name_alternate" dest="text" />
   <copyField source="instrument_name_alternate" dest="text" />
   <copyField source="instrument_host_name_alternate" dest="text" />
+  <copyField source="primary_result_discipline_name" dest="science_facets" />
+  <copyField source="primary_result_domain" dest="science_facets" />
+  <copyField source="primary_result_wavelength_range" dest="science_facets" />
+  <copyField source="primary_result_facet1" dest="science_facets" />
+  <copyField source="primary_result_subfacet1" dest="science_facets" />
+  <copyField source="primary_result_facet2" dest="science_facets" />
+  <copyField source="primary_result_subfacet2" dest="science_facets" />
   <copyField source="alternate_id" dest="aliases" />
   <copyField source="alternate_title" dest="aliases" />
   <copyField source="target_name_alternate" dest="aliases" />
